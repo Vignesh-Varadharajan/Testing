@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADSCountryList>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:1" COUNTRY_CODE="4" CO="Afghanistan" C="AF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:2" COUNTRY_CODE="248" CO="&#197;land Islands" C="AX"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:3" COUNTRY_CODE="8" CO="Albania" C="AL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:4" COUNTRY_CODE="12" CO="Algeria" C="DZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:5" COUNTRY_CODE="16" CO="American Samoa" C="AS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:6" COUNTRY_CODE="20" CO="Andorra" C="AD"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:7" COUNTRY_CODE="24" CO="Angola" C="AO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:8" COUNTRY_CODE="660" CO="Anguilla" C="AI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:9" COUNTRY_CODE="10" CO="Antarctica" C="AQ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:10" COUNTRY_CODE="28" CO="Antigua and Barbuda" C="AG"/>
+        
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:11" COUNTRY_CODE="32" CO="Argentina" C="AR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:12" COUNTRY_CODE="51" CO="Armenia" C="AM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:13" COUNTRY_CODE="533" CO="Aruba" C="AW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:14" COUNTRY_CODE="36" CO="Australia" C="AU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:15" COUNTRY_CODE="40" CO="Austria" C="AT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:16" COUNTRY_CODE="31" CO="Azerbaijan" C="AZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:17" COUNTRY_CODE="44" CO="Bahamas" C="BS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:18" COUNTRY_CODE="48" CO="Bahrain" C="BH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:19" COUNTRY_CODE="581" CO="Baker Island" C="XX"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:20" COUNTRY_CODE="50" CO="Bangladesh" C="BD"/>
+        
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:21" COUNTRY_CODE="52" CO="Barbados" C="BB"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:22" COUNTRY_CODE="112" CO="Belarus" C="BY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:23" COUNTRY_CODE="56" CO="Belgium" C="BE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:24" COUNTRY_CODE="84" CO="Belize" C="BZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:25" COUNTRY_CODE="204" CO="Benin" C="BJ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:26" COUNTRY_CODE="60" CO="Bermuda" C="BM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:27" COUNTRY_CODE="64" CO="Bhutan" C="BT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:28" COUNTRY_CODE="68" CO="Bolivia" C="BO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:29" COUNTRY_CODE="70" CO="Bosnia and Herzegowina" C="BA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:30" COUNTRY_CODE="72" CO="Botswana" C="BW"/>
+        
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:31" COUNTRY_CODE="74" CO="Bouvet Island" C="BV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:32" COUNTRY_CODE="76" CO="Brazil" C="BR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:33" COUNTRY_CODE="86" CO="British Indian Ocean Territory" C="IO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:34" COUNTRY_CODE="96" CO="Brunei Darussalam" C="BN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:35" COUNTRY_CODE="100" CO="Bulgaria" C="BG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:36" COUNTRY_CODE="854" CO="Burkina Faso" C="BF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:37" COUNTRY_CODE="108" CO="Burundi" C="BI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:38" COUNTRY_CODE="116" CO="Cambodia" C="KH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:39" COUNTRY_CODE="120" CO="Cameroon" C="CM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:40" COUNTRY_CODE="124" CO="Canada" C="CA"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:41" COUNTRY_CODE="132" CO="Cape Verde" C="CV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:42" COUNTRY_CODE="136" CO="Cayman Islands" C="KY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:43" COUNTRY_CODE="140" CO="Central African Republic" C="CF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:44" COUNTRY_CODE="148" CO="Chad" C="TD"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:45" COUNTRY_CODE="152" CO="Chile" C="CL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:46" COUNTRY_CODE="156" CO="China" C="CN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:47" COUNTRY_CODE="162" CO="Christmas Island" C="CX"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:48" COUNTRY_CODE="166" CO="Cocos (Keeling) Islands" C="CC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:49" COUNTRY_CODE="170" CO="Colombia" C="CO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:50" COUNTRY_CODE="174" CO="Comoros" C="KM"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:51" COUNTRY_CODE="178" CO="Congo" C="CG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:52" COUNTRY_CODE="180" CO="Congo (DRC)" C="CD"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:53" COUNTRY_CODE="184" CO="Cook Islands" C="CK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:54" COUNTRY_CODE="188" CO="Costa Rica" C="CR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:55" COUNTRY_CODE="384" CO="Cote D' Ivoire" C="CI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:56" COUNTRY_CODE="191" CO="Croatia (local name: Hrvatska)" C="HR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:57" COUNTRY_CODE="192" CO="Cuba" C="CU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:58" COUNTRY_CODE="196" CO="Cyprus" C="CY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:59" COUNTRY_CODE="203" CO="Czech Republic" C="CZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:60" COUNTRY_CODE="208" CO="Denmark" C="DK"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:61" COUNTRY_CODE="262" CO="Djibouti" C="DJ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:62" COUNTRY_CODE="212" CO="Dominica" C="DM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:63" COUNTRY_CODE="214" CO="Dominican Republic" C="DO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:64" COUNTRY_CODE="218" CO="Ecuador" C="EC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:65" COUNTRY_CODE="818" CO="Egypt" C="EG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:66" COUNTRY_CODE="222" CO="El Salvador" C="SV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:67" COUNTRY_CODE="226" CO="Equatorial Guinea" C="GQ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:68" COUNTRY_CODE="232" CO="Eritrea" C="ER"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:69" COUNTRY_CODE="233" CO="Estonia" C="EE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:70" COUNTRY_CODE="231" CO="Ethiopia" C="ET"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:71" COUNTRY_CODE="238" CO="Falkland Islands (Malvinas)" C="FK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:72" COUNTRY_CODE="234" CO="Faroe Islands" C="FO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:73" COUNTRY_CODE="242" CO="Fiji" C="FJ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:74" COUNTRY_CODE="246" CO="Finland" C="FI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:75" COUNTRY_CODE="250" CO="France" C="FR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:76" COUNTRY_CODE="254" CO="French Guiana" C="GF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:77" COUNTRY_CODE="258" CO="French Polynesia" C="PF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:78" COUNTRY_CODE="260" CO="French Southern Territories" C="TF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:79" COUNTRY_CODE="266" CO="Gabon" C="GA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:80" COUNTRY_CODE="270" CO="Gambia" C="GM"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:81" COUNTRY_CODE="268" CO="Georgia" C="GE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:82" COUNTRY_CODE="276" CO="Germany" C="DE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:83" COUNTRY_CODE="288" CO="Ghana" C="GH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:84" COUNTRY_CODE="292" CO="Gibraltar" C="GI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:85" COUNTRY_CODE="300" CO="Greece" C="GR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:86" COUNTRY_CODE="304" CO="Greenland" C="GL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:87" COUNTRY_CODE="308" CO="Grenada" C="GD"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:88" COUNTRY_CODE="312" CO="Guadeloupe" C="GP"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:89" COUNTRY_CODE="316" CO="Guam" C="GU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:90" COUNTRY_CODE="320" CO="Guatemala" C="GT"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:91" COUNTRY_CODE="831" CO="Guernsey" C="GG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:92" COUNTRY_CODE="324" CO="Guinea" C="GN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:93" COUNTRY_CODE="624" CO="Guinea-Bissau" C="GW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:94" COUNTRY_CODE="328" CO="Guyana" C="GY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:95" COUNTRY_CODE="332" CO="Haiti" C="HT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:96" COUNTRY_CODE="334" CO="Heard and Mc Donald Islands" C="HM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:97" COUNTRY_CODE="340" CO="Honduras" C="HN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:98" COUNTRY_CODE="344" CO="Hong Kong" C="HK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:99" COUNTRY_CODE="581" CO="Howland Island" C="XX" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:100" COUNTRY_CODE="348" CO="Hungary" C="HU"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:101" COUNTRY_CODE="352" CO="Iceland" C="IS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:102" COUNTRY_CODE="356" CO="India" C="IN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:103" COUNTRY_CODE="360" CO="Indonesia" C="ID"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:104" COUNTRY_CODE="364" CO="Iran (Islamic Republic of)" C="IR" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:105" COUNTRY_CODE="368" CO="Iraq" C="IQ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:106" COUNTRY_CODE="372" CO="Ireland" C="IE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:107" COUNTRY_CODE="833" CO="Isle of Man" C="IM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:108" COUNTRY_CODE="376" CO="Israel" C="IL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:109" COUNTRY_CODE="380" CO="Italy" C="IT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:110" COUNTRY_CODE="388" CO="Jamaica" C="JM"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:111" COUNTRY_CODE="392" CO="Japan" C="JP"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:112" COUNTRY_CODE="581" CO="Jarvis Island" C="XX" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:113" COUNTRY_CODE="832" CO="Jersey" C="JE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:114" COUNTRY_CODE="581" CO="Johnston Atoll" C="XX" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:115" COUNTRY_CODE="400" CO="Jordan" C="JO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:116" COUNTRY_CODE="398"  CO="Kazakhstan" C="KZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:117" COUNTRY_CODE="404" CO="Kenya"	C="KE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:118" COUNTRY_CODE="581" CO="King Man Reef" C="XX" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:119" COUNTRY_CODE="296" CO="Kiribati" C="KI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:120" COUNTRY_CODE="408" CO="Korea, DEMOCRATIC PEOPLE'S REPUBLIC OF" C="KP" IS_USAGE_LOCATION="false" />
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:121" COUNTRY_CODE="410" CO="Korea, Republic of" C="KR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:122" COUNTRY_CODE="414" CO="Kuwait" C="KW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:123" COUNTRY_CODE="417" CO="Kyrgyzstan" C="KG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:124" COUNTRY_CODE="418" CO="Lao Peoples Democratic Republic" C="LA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:125" COUNTRY_CODE="428" CO="Latvia" C="LV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:126" COUNTRY_CODE="422" CO="Lebanon" C="LB"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:127" COUNTRY_CODE="426" CO="Lesotho" C="LS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:128" COUNTRY_CODE="430" CO="Liberia" C="LR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:129" COUNTRY_CODE="434" CO="Libyan Arab Jamahiriya" C="LY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:130" COUNTRY_CODE="438" CO="Liechtenstein" C="LI"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:131" COUNTRY_CODE="440" CO="Lithuania" C="LT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:132" COUNTRY_CODE="442" CO="Luxembourg" C="LU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:133" COUNTRY_CODE="446" CO="Macau" C="MO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:134" COUNTRY_CODE="807" CO="Macedonia" C="MK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:135" COUNTRY_CODE="450" CO="Madagascar" C="MG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:136" COUNTRY_CODE="454" CO="Malawi" C="MW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:137" COUNTRY_CODE="458" CO="Malaysia" C="MY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:138" COUNTRY_CODE="462" CO="Maldives" C="MV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:139" COUNTRY_CODE="466" CO="Mali" C="ML"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:140" COUNTRY_CODE="470" CO="Malta" C="MT"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:141" COUNTRY_CODE="584" CO="Marshall Islands" C="MH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:142" COUNTRY_CODE="474" CO="Martinique" C="MQ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:143" COUNTRY_CODE="478" CO="Mauritania" C="MR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:144" COUNTRY_CODE="480" CO="Mauritius" C="MU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:145" COUNTRY_CODE="175" CO="Mayotte" C="YT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:146" COUNTRY_CODE="484" CO="Mexico" C="MX"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:147" COUNTRY_CODE="583" CO="Micronesia, Federated States of" C="FM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:148" COUNTRY_CODE="498" CO="Moldova, Republic of" C="MD"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:149" COUNTRY_CODE="492" CO="Monaco" C="MC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:150" COUNTRY_CODE="496" CO="Mongolia" C="MN"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:151" COUNTRY_CODE="500" CO="Montserrat" C="MS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:152" COUNTRY_CODE="504" CO="Morocco" C="MA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:153" COUNTRY_CODE="508" CO="Mozambique" C="MZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:154" COUNTRY_CODE="104" CO="Myanmar" C="MM" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:155" COUNTRY_CODE="516" CO="Namibia" C="NA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:156" COUNTRY_CODE="520" CO="Nauru" C="NR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:157" COUNTRY_CODE="524" CO="Nepal" C="NP"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:158" COUNTRY_CODE="528" CO="Netherlands" C="NL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:159" COUNTRY_CODE="530" CO="Netherlands Antilles" C="AN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:160" COUNTRY_CODE="540" CO="New Caledonia" C="NC"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:161" COUNTRY_CODE="554" CO="New Zealand" C="NZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:162" COUNTRY_CODE="558" CO="Nicaragua" C="NI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:163" COUNTRY_CODE="562" CO="Niger" C="NE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:164" COUNTRY_CODE="566" CO="Nigeria" C="NG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:165" COUNTRY_CODE="570" CO="Niue" C="NU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:166" COUNTRY_CODE="574" CO="Norfolk Island" C="NF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:167" COUNTRY_CODE="580" CO="Northern Mariana Islands" C="MP"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:168" COUNTRY_CODE="578" CO="Norway" C="NO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:169" COUNTRY_CODE="512" CO="Oman" C="OM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:170" COUNTRY_CODE="586" CO="Pakistan" C="PK"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:171" COUNTRY_CODE="585" CO="Palau" C="PW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:172" COUNTRY_CODE="275" CO="Palestinian Authority" C="PS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:173" COUNTRY_CODE="591" CO="Panama" C="PA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:174" COUNTRY_CODE="598" CO="Papua New Guinea" C="PG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:175" COUNTRY_CODE="600" CO="Paraguay" C="PY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:176" COUNTRY_CODE="604" CO="Peru" C="PE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:177" COUNTRY_CODE="608" CO="Philippines" C="PH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:178" COUNTRY_CODE="612" CO="Pitcairn" C="PN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:179" COUNTRY_CODE="616" CO="Poland" C="PL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:180" COUNTRY_CODE="620" CO="Portugal" C="PT"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:181" COUNTRY_CODE="630" CO="Puerto Rico" C="PR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:182" COUNTRY_CODE="634" CO="Qatar" C="QA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:183" COUNTRY_CODE="638" CO="Reunion" C="RE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:184" COUNTRY_CODE="642" CO="Romania" C="RO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:185" COUNTRY_CODE="643" CO="Russian Federation" C="RU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:186" COUNTRY_CODE="646" CO="Rwanda" C="RW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:187" COUNTRY_CODE="654" CO="Saint Helena" C="SH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:188" COUNTRY_CODE="659" CO="Saint Kitts and Nevis" C="KN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:189" COUNTRY_CODE="662" CO="Saint Lucia" C="LC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:190" COUNTRY_CODE="666" CO="SAINT Pierre and Miquelon" C="PM"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:191" COUNTRY_CODE="670" CO="Saint Vincent and the Grenadines" C="VC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:192" COUNTRY_CODE="882" CO="Samoa" C="WS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:193" COUNTRY_CODE="674" CO="San Marino" C="SM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:194" COUNTRY_CODE="678" CO="Sao Tome and Principe" C="ST"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:195" COUNTRY_CODE="682" CO="Saudi Arabia" C="SA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:196" COUNTRY_CODE="686" CO="Senegal" C="SN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:197" COUNTRY_CODE="891" CO="Serbia and Montenegro" C="CS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:198" COUNTRY_CODE="690" CO="Seychelles" C="SC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:199" COUNTRY_CODE="694" CO="Sierra Leone" C="SL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:200" COUNTRY_CODE="702" CO="Singapore" C="SG"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:201" COUNTRY_CODE="703" CO="Slovakia" C="SK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:202" COUNTRY_CODE="705" CO="Slovenia" C="SI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:203" COUNTRY_CODE="90" CO="Solomon Islands" C="SB"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:204" COUNTRY_CODE="706" CO="Somalia" C="SO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:205" COUNTRY_CODE="710" CO="South Africa" C="ZA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:206" COUNTRY_CODE="239" CO="South Georgia /S. Sandwich Islands" C="GS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:207" COUNTRY_CODE="724" CO="Spain" C="ES"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:208" COUNTRY_CODE="144" CO="Sri Lanka" C="LK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:209" COUNTRY_CODE="736" CO="Sudan" C="SD" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:210" COUNTRY_CODE="740" CO="Suriname" C="SR"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:211" COUNTRY_CODE="744" CO="Svalbard and Jan Mayen	Islands" C="SJ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:212" COUNTRY_CODE="748" CO="Swaziland" C="SZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:213" COUNTRY_CODE="752" CO="Sweden" C="SE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:214" COUNTRY_CODE="756" CO="Switzerland" C="CH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:215" COUNTRY_CODE="760" CO="Syrian Arab Republic" C="SY" />	
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:216" COUNTRY_CODE="158" CO="Taiwan" C="TW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:217" COUNTRY_CODE="762" CO="Tajikistan" C="TJ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:218" COUNTRY_CODE="834" CO="Tanzania, United Republic of" C="TZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:219" COUNTRY_CODE="764" CO="Thailand" C="TH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:220" COUNTRY_CODE="626" CO="Timor-Leste" C="TL"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:221" COUNTRY_CODE="768" CO="Togo" C="TG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:222" COUNTRY_CODE="772" CO="Tokelau" C="TK"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:223" COUNTRY_CODE="776" CO="Tonga" C="TO"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:224" COUNTRY_CODE="780" CO="Trinidad and Tobago" C="TT"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:225" COUNTRY_CODE="788" CO="Tunisia" C="TN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:226" COUNTRY_CODE="792" CO="Turkey" C="TR"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:227" COUNTRY_CODE="795" CO="Turkmenistan" C="TM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:228" COUNTRY_CODE="796" CO="Turks and Caicos Islands" C="TC"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:229" COUNTRY_CODE="798" CO="Tuvalu" C="TV"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:230" COUNTRY_CODE="800" CO="Uganda" C="UG"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:231" COUNTRY_CODE="804" CO="Ukraine" C="UA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:232" COUNTRY_CODE="784" CO="United Arab Emirates" C="AE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:233" COUNTRY_CODE="826" CO="United Kingdom" C="GB"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:234" COUNTRY_CODE="840" CO="United States" C="US"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:235" COUNTRY_CODE="581" CO="United States Minor Outlying Islands" C="UM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:236" COUNTRY_CODE="858" CO="Uruguay" C="UY"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:237" COUNTRY_CODE="860" CO="Uzbekistan" C="UZ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:238" COUNTRY_CODE="548" CO="Vanuatu" C="VU"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:239" COUNTRY_CODE="336" CO="Vatican City State (Holy See)" C="VA"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:240" COUNTRY_CODE="862" CO="Venezuela" C="VE"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:241" COUNTRY_CODE="704" CO="Viet Nam" C="VN"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:242" COUNTRY_CODE="92" CO="Virgin Islands (British)" C="VG"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:243" COUNTRY_CODE="850" CO="Virgin Islands (U.S.)" C="VI"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:244" COUNTRY_CODE="581" CO="Wake Island" C="XX" IS_USAGE_LOCATION="false" />
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:245" COUNTRY_CODE="876" CO="Wallisw and Futuna Islands" C="WF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:246" COUNTRY_CODE="732" CO="Western Sahara" C="EH"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:247" COUNTRY_CODE="887" CO="Yeman" C="YE"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:248" COUNTRY_CODE="894" CO="Zambia" C="ZM"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:249" COUNTRY_CODE="716" CO="Zimbabwe" C="ZW"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:250" COUNTRY_CODE="499" CO="Montenegro" C="ME"/>
+
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:251" COUNTRY_CODE="663" CO="Saint Martin (French part)" C="MF"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:252" COUNTRY_CODE="688" CO="Serbia" C="RS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:253" COUNTRY_CODE="534" CO="Sint Maarten (Dutch part)" C="SX"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:254" COUNTRY_CODE="728" CO="South Sudan" C="SS"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:255" COUNTRY_CODE="535" CO="Bonaire, Saint Eustatius and Saba" C="BQ"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:256" COUNTRY_CODE="652" CO="Saint Barth&#233;lemy" C="BL"/>
+	<ADSCountries COUNTRY_ID="ADSCountries:COUNTRY_ID:257" COUNTRY_CODE="531" CO="Cura&#231;ao" C="CW"/>
+
+
+
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:1" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Alabama" STATE_CODE="US-AL"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:2" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Alaska" STATE_CODE="US-AK"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:3" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Arizona" STATE_CODE="US-AZ"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:4" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Arkansas" STATE_CODE="US-AR"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:5" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="California" STATE_CODE="US-CA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:6" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Colorado" STATE_CODE="US-CO"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:7" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Connecticut" STATE_CODE="US-CT"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:8" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Delaware" STATE_CODE="US-DE"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:9" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Florida" STATE_CODE="US-FL"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:10" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Georgia" STATE_CODE="US-GA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:11" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Hawaii" STATE_CODE="US-HI"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:12" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Idaho" STATE_CODE="US-ID"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:13" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Illinois" STATE_CODE="US-IL"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:14" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Indiana" STATE_CODE="US-IN"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:15" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Iowa" STATE_CODE="US-IA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:16" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Kansas" STATE_CODE="US-KS"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:17" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Kentucky" STATE_CODE="US-KY"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:18" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Louisiana" STATE_CODE="US-LA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:19" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Maine" STATE_CODE="US-ME"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:20" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Maryland" STATE_CODE="US-MD"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:21 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Massachusetts" STATE_CODE="US-MA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:22 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Michigan" STATE_CODE="US-MI"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:23 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Minnesota" STATE_CODE="US-MN"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:24 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Mississippi" STATE_CODE="US-MS"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:25 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Missouri" STATE_CODE="US-MO"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:26 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Montana" STATE_CODE="US-MT"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:27 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Nebraska" STATE_CODE="US-NE"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:28 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Nevada" STATE_CODE="US-NV"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:29 " COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="New Hampshire" STATE_CODE="US-NH"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:30" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="New Jersey" STATE_CODE="US-NJ"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:31" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="New Mexico" STATE_CODE="US-NM"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:32" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="New York" STATE_CODE="US-NY"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:33" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="North Carolina" STATE_CODE="US-ANC"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:34" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="North Dakota" STATE_CODE="US-ND"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:35" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Ohio" STATE_CODE="US-OH"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:36" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Oklahoma" STATE_CODE="US-OK"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:37" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Oregon" STATE_CODE="US-OR"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:38" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Pennsylvania" STATE_CODE="US-PA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:39" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Rhode Island" STATE_CODE="US-RI"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:40" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="South Carolina" STATE_CODE="US-SC"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:41" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="South Dakota" STATE_CODE="US-SD"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:42" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Tennessee" STATE_CODE="US-TN"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:43" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Texas" STATE_CODE="US-TX"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:44" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Utah" STATE_CODE="US-UT"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:45" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Vermont" STATE_CODE="US-VT"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:46" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Virginia" STATE_CODE="US-VA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:47" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Washington" STATE_CODE="US-WA"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:48" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="West Virginia" STATE_CODE="US-WV"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:49" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Wisconsin" STATE_CODE="US-WI"/>
+	<ADSCountryStates STATE_ID="ADSCountryStates:STATE_ID:50" COUNTRY_ID="ADSCountries:COUNTRY_ID:234" STATE_NAME="Wyoming" STATE_CODE="US-WY"/>
+</ADSCountryList>
+<!--$Id$-->	

@@ -1,0 +1,20 @@
+<!--$Id$-->
+<LayoutContainers>
+
+    <!--ADSSP Containers-->
+    <ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:1" CONTAINER_NAME="admp.home.layout.container_name.user_reports" WIDTH="50" HEIGHT="275"/>
+    <ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:2" CONTAINER_NAME="admp.home.layout.container_name.system_reports" WIDTH="50" HEIGHT="275"/>
+    <ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:3" CONTAINER_NAME="admp.home.layout.container_name.other_reports" WIDTH="100" HEIGHT="175"/>
+
+    <!--Quicklinks-->
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:4" CONTAINER_NAME="admp.home.feature.heading.activedirectory_management"/>
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:5" CONTAINER_NAME="admp.home.feature.heading.activedirectory_reports"/>
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:6" CONTAINER_NAME="admp.home.feature.heading.help_desk_delegation"/>
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:7" CONTAINER_NAME="admp.home.feature.heading.workflow"/>
+
+	<!--ADAP RHS/Quicklinks-->
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:2" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:101" CONTAINER_NAME="admp.auditing.quicklink.header.ad_obj_auditing"/>
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:2" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:102" CONTAINER_NAME="admp.auditing.quicklink.header.file_server_auditing"/>
+	<ADSLayoutContainers LAYOUT_ID="ADSLayout:LAYOUT_ID:2" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:103" CONTAINER_NAME="admp.auditing.quicklink.header.server_auditing"/>
+
+</LayoutContainers>

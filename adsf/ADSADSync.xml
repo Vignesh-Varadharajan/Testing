@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADSyncSettings>
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" OBJECT_TYPE="user" SEARCH_STRING="(&amp;(objectClass=user)(!(objectClass=computer))(!(sAMAccountType=805306370)))" IS_ENABLED="true" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="1" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" OBJECT_TYPE="group" SEARCH_STRING="(objectClass=group)" IS_ENABLED="true" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="2" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" OBJECT_TYPE="computer" SEARCH_STRING="(objectClass=computer)" IS_ENABLED="true" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="3" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" OBJECT_TYPE="organizationalUnit" SEARCH_STRING="(|(objectClass=organizationalUnit)(objectClass=container)(objectClass=builtinDomain))" IS_ENABLED="true" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="4" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" OBJECT_TYPE="contact" SEARCH_STRING="(objectClass=contact)" IS_ENABLED="true" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="5" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" OBJECT_TYPE="groupMember" SEARCH_STRING="(objectClass=group)" IS_ENABLED="false" IS_FULL_REFRESEH_ENABLED="true" IS_FUNCTIONAL_LEVEL_BASED="true" PRIORITY_ID="6" SEARCH_PREFERENCE="2147483648"/>
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:7" OBJECT_TYPE="primaryGroup" SEARCH_STRING="(|(objectClass=user)(objectClass=computer))" IS_ENABLED="false" IS_FULL_REFRESEH_ENABLED="true" IS_FUNCTIONAL_LEVEL_BASED="true" PRIORITY_ID="7" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" OBJECT_TYPE="userReport" SEARCH_STRING="(&amp;(objectClass=user)(!(objectClass=computer))(!(sAMAccountType=805306370)))" IS_ENABLED="false" PRIORITY_ID="8" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" OBJECT_TYPE="groupReport" SEARCH_STRING="(objectClass=group)" IS_ENABLED="false" PRIORITY_ID="9" />
+	<ADSADSyncObjects OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" OBJECT_TYPE="groupPolicyContainer" SEARCH_STRING="(objectClass=groupPolicyContainer)" IS_ENABLED="false" IS_FULL_REFRESEH_ENABLED="true" PRIORITY_ID="10" />
+	
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="displayName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="sAMAccountName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="primaryGroupID" />
+    <ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="mail" />
+    <ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="mobile" />
+    <ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="manager" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:1" ATTRIB_LDAP_NAME="manager_dn" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="sAMAccountName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="groupType" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="managedBy" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:2" ATTRIB_LDAP_NAME="managedBy_dn" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="dNSHostName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="sAMAccountName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="primaryGroupID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="managedBy" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="managedBy_dn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:3" ATTRIB_LDAP_NAME="operatingSystem" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:4" ATTRIB_LDAP_NAME="isDeleted" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="displayName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="managedBy" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:5" ATTRIB_LDAP_NAME="manager_dn" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" ATTRIB_LDAP_NAME="member" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:6" ATTRIB_LDAP_NAME="isDeleted" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:7" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:7" ATTRIB_LDAP_NAME="primaryGroupID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:7" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:7" ATTRIB_LDAP_NAME="whenChanged" />
+	
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="sAMAccountName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="company" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="accountExpires" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="description" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="employeeID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="employeeNumber" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="userPrincipalName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="userAccountControl" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="l" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="co" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="department" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="displayName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="facsimilePhoneNumber" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="givenName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="sn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="mobile" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="physicalDeliveryOfficeName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="postalCode" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="st" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="streetAddress" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="title" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="telephoneNumber" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="manager" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:8" ATTRIB_LDAP_NAME="manager_dn" />
+
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="cn" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="name" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="sAMAccountName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="objectClass" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="objectSID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="isDeleted" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="groupType" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="mail" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="manager" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:9" ATTRIB_LDAP_NAME="manager_dn" />
+	
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="distinguishedName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="displayName" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="whenCreated" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="whenChanged" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="flags" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="objectGUID" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="versionNumber" />
+	<ADSADSyncObjAttributes OBJECT_ID="ADSADSyncObjects:OBJECT_ID:10" ATTRIB_LDAP_NAME="isDeleted" />
+	<!--
+		UNIT of TIME should be in DAYS/HOURS/MINUTES/SECONDS
+	-->
+	<ADSADSyncSettings UNIQUE_ID="ADSADSyncSettings:UNIQUE_ID:1" FULL_REFRESH_INTERVAL="0" FULL_REFRESH_UNIT_OF_TIME="DAYS" OTHER_OBJ_REFRESH_INTERVAL="0" OTHER_OBJ_UNIT_OF_TIME="DAYS" LISTENER_IMPL_CLASS_NAME="com.adventnet.sym.adsm.common.server.adsync.ADSyncImpl" ENABLE_AUDIT="false" SYNC_RETRIEVAL_METHOD="BOTH" />
+
+</ADSyncSettings>
+<!--$Id$-->

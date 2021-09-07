@@ -1,0 +1,10 @@
+<!--$Id$-->
+<ADSPushNotificationSettings>
+	<ADSPNServiceProvider PN_SP_ID="ADSPNServiceProvider:PN_SP_ID:1" PN_SP_NAME="DefaultServiceProvider" PN_IMPL_CLASS="com.manageengine.ads.fw.mobile.pushnotification.serviceprovider.DefaultMessagingService" IS_ENABLED="true"/>
+	<ADSMPNSSettings UNIQUE_ID="ADSMPNSSettings:UNIQUE_ID:1" THREAD_POOL_SIZE="50" DEVICE_TOKEN_COUNT="500"/>
+	<ADSMPNSPlatformDetails MPNS_PLATFORM_ID="ADSMPNSPlatformDetails:MPNS_PLATFORM_ID:1" MPNS_PLATFORM="ANDROID" MPNS_IMPL_CLASS="com.manageengine.ads.fw.mobile.mpns.AndroidPushNotification"/>
+	<ADSMPNSPlatformDetails MPNS_PLATFORM_ID="ADSMPNSPlatformDetails:MPNS_PLATFORM_ID:2" MPNS_PLATFORM="IOS" MPNS_IMPL_CLASS="com.manageengine.ads.fw.mobile.mpns.IOSPushNotification"/>
+	<ADSMobileApplications MAPP_ID="ADSMobileApplications:MAPP_ID:1" MAPP_BUNDLE_ID="com.manageengine.admp" MAPP_NAME="ADMP_ANDROID" MAPP_SECURITY_KEY="AcmmHvqQA0L+dy0CPdazgvFsO8+u+I2xr2e6RTLJMrCNU4zgj4ywylw+mtM61Ip6DKJpAjSuu4Z3W4/KfGEWS+2Sclh7JSmRNfG41S61dPaQmcuBuSSBNQJObtfnq1R9H6zo1VXJlm4qtxKvJ5VX/3aAHrOoTTourO8diVGWR9sSVqTZ27Kxn1wQpkqR0WJerVZovZkGDI4spELMsIOq+w==" MAPP_CERTIFICATE_DIR="" MAPP_PLATFORM="ANDROID"/>
+	
+	<ADSMobileApplications MAPP_ID="ADSMobileApplications:MAPP_ID:2" MAPP_BUNDLE_ID="com.manageengine.admp" MAPP_NAME="ADMP_IOS" MAPP_SECURITY_KEY="973/6GKXIb2Ilc46GwNzBw==" MAPP_CERTIFICATE_DIR="conf\ios_push_cert.p12" MAPP_PLATFORM="IOS"/>
+</ADSPushNotificationSettings>

@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>
+		<![CDATA[A Short Note On ADS: AD360 is an support administrator tool which helps to manage Active Directory and Exhange by offering the administrators to centrally manage the Security, GPO's, Auditing, Exchange and other objects in the AD through an interactive web console. Other necessary details have been provided along with the tables itself.]]>
+	</description>
+	<!-- ADS PushNotification Tables starts -->
+	<table name="ADSMobileApplications">
+		<description>
+			<![CDATA[
+                 Push Notification App  Details	 contains key and bundle Id to send push notification
+			]]>
+		</description>
+		<columns>
+			<column name="MAPP_ID">
+				<description>Mobile Application Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSMobileApplications.MAPP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="MAPP_BUNDLE_ID">
+				<description>App Bundle id to distinugish each applicaton</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_PLATFORM">
+				<description>Mobile platform type [Android / Ios]</description>
+				<data-type>NCHAR</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_NAME">
+				<description>Application Name of the Product[SSP/ADAP]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_SECURITY_KEY">
+				<description>Key which is used as credential to send notification/read certificate</description>
+				<data-type>SCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_CERTIFICATE_DIR">
+				<description>IOS certificate directory</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSMobileApplications_PK">
+			<primary-key-column>MAPP_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSMobileRegistration">
+		<description>
+			<![CDATA[
+                 Push Notification App Registration contains details about each mobile app registered with product for push notification
+			]]>
+		</description>
+		<columns>
+			<column name="LOGIN_ID">
+				<description>Logined User Identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_INSTALLATION_ID">
+				<description>Mobile Unique Identification [UUID of the mobile]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_MODEL">
+				<description>Mobile Device Model [Model of mobile 5S,5,sony z3,]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_OS_VERSION">
+				<description>Mobile Device OS Version [ios5,ios6,ios8]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_TOKEN">
+				<description>Push Configured Application Token [token which is given by google/apple server for push notification]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>			
+			<column name="MREG_TIME">
+				<description>Mobile Push enabled time [push notification configured time]</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_STATUS">
+				<description>Mobile App is active or inactive [app can be inactive mode in case of app uninstallation]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MAPP_ID">
+				<description>Application Identity identity</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSMobileRegistration_PK">
+			<primary-key-column>MAPP_TOKEN</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="AaaLogin" name="ADSPNMobileAppRegistration_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>LOGIN_ID</fk-local-column>
+						<fk-reference-column>LOGIN_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSMobileApplications" name="ADSMobileRegistration_FK2">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>MAPP_ID</fk-local-column>
+						<fk-reference-column>MAPP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPNServiceProvider">
+		<description>
+			<![CDATA[
+                 Push Notification Service provider Interface Details holds which service provider going to be used either MPNS / Default Messaging
+			]]>
+		</description>
+		<columns>
+			<column name="PN_SP_ID">
+				<description>Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSPNServiceProvider.PN_SP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="PN_IMPL_CLASS">
+				<description>Push Service provider  Class Name[Implementation of service provider communcation ]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PN_SP_NAME">
+				<description>Push Service Provider Name [MPNS Server / Default Messaging service(directly using google and apple server)]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_ENABLED">
+				<description>enabled status of Push Service provider(which service provider used for push notification)</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPNServiceProvider_PK">
+			<primary-key-column>PN_SP_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSMPNSSettings">
+		<description>
+			<![CDATA[
+                 MPNSSettings contains Authorization module,registration module reference, also defines thread pools size 
+			]]>
+		</description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSMPNSSettings.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="THREAD_POOL_SIZE">
+				<description>Notification Thread pool size</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_TOKEN_COUNT">
+				<description>Notification Device Tokens Limit</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSMPNSSettings_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSMPNSPlatformDetails">
+		<description>
+			<![CDATA[
+                 Push Notification Platform Details	 
+			]]>
+		</description>
+		<columns>
+			<column name="MPNS_PLATFORM_ID">
+				<description>Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSMPNSPlatformDetails.MPNS_PLATFORM_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="MPNS_PLATFORM">
+				<description>Mobile app platform [ios/androd]</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MPNS_IMPL_CLASS">
+				<description>Notification Class Name based on platform</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSMPNSPlatformDetails_PK">
+			<primary-key-column>MPNS_PLATFORM_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<!-- push notification ends_-->
+	<!-- MPM table starts -->
+	<table name="ADSMPMProperties">
+	    <description><![CDATA[Stores the UniqueID for each installation. This unique Id is used to encrypt the user's csr certificate for MPM]]></description>
+	    <columns>
+		    <column name="UNIQUE_ID">
+			    <description>The uniqueID used to encrypt the csr</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>36</max-size>
+		    </column>
+		    <column name="CSR_UNIQUE_ID">
+			    <description>The uniqueID used to encrypt the csr</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>36</max-size>
+		    </column>
+		    <column name="PORT">
+			    <description>Port number in which the product is running</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>36</max-size>
+		    </column>
+		    <column name="DNS_NAME">
+			    <description>DNS Name of the machine in which the product is running</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>36</max-size>
+		    </column>
+		    <column name="STEP">
+			    <description>Current step upto which the user has proceeded in configuring MPM</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>36</max-size>
+		    </column>			
+    		<column name="TO_MAIL">
+			    <description>Mail address to which CSR should be sent</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>	
+			<column name="MANAGED_APP_CONFIG">
+				<description>Managed App Configuration let to install app with server settings</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+			</column>
+			<column name="ORGANIZATION_TOKEN">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="ADMIN_NAME">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+			<column name="MAIL_DOMAIN">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+			<column name="CONFIGURATION_TYPE">
+				<description></description>
+				<data-type>NCHAR</data-type>
+			</column>
+			<column name="PROFILES_INSTALLED">
+				<description>No. of profiles installed so far.</description>
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+			</column>
+			<column name="MAX_PROFILE_COUNT">
+				<description>Max no.of profiles allowed for the trial MDM.</description>
+				<data-type>BIGINT</data-type>
+				<default-value>10</default-value>
+			</column>
+			<column name="PROTOCOL">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>5</max-size>
+			</column>
+	    </columns>
+	    <primary-key name="ADSMPMProperties_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+	    </primary-key> 
+    </table>
+
+	<table name="ADSMPMTaskAuditing">
+	    <description><![CDATA[Contains the MPM task audit details.]]></description>
+	    <columns>
+		    <column name="AUDIT_ID">
+				<description>Unique Identifier of the audit</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSMPMTaskAuditing.AUDIT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+		    <column name="USER_NAME">
+			    <description>User name</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>
+		    <column name="DEVICE_NAME">
+			    <description>Device name</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>
+		    <column name="DOMAIN_NAME">
+			    <description>Domain Name</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>
+		    <column name="PLATFORM">
+			    <description>Platform of the Device. iOS/Android</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>
+		    <column name="TASK">
+			    <description>Type of Task - Install / Device Info / SYNC</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>
+		    <column name="STATUS_MESSAGE">
+			    <description>Status message of the task</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>256</max-size>
+		    </column>			
+	    </columns>
+	    <primary-key name="ADSMPMTaskAuditing_PK">
+		    <primary-key-column>AUDIT_ID</primary-key-column>
+	    </primary-key> 
+    </table>
+
+	<table name="ADSMPMApplications">
+		<description><![CDATA[Maintaining the APP details]]></description>
+		<columns>
+			<column name="APP_ID">
+				<description>Unique Identifier of the app</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSMPMApplications.APP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="APP_NAME">
+				<description>APP name according to iTunes</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="TYPE">
+				<description>Internal or Public app</description>
+				<data-type>NCHAR</data-type>
+				<max-size>15</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PLATFORM">
+				<description>iOS/Android</description>
+				<data-type>NCHAR</data-type>
+				<max-size>15</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="BUNDLE_ID">
+				<description>unique bundle id of the app</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="APP_STORE_ID">
+				<description>Unique ID of the App according to iTunes</description>
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+			</column>
+			<column name="APP_ICON_URL">
+				<description>Link to App icon</description>
+				<data-type>NCHAR</data-type>
+				<max-size>300</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="VERSION">
+				<description>Version number of the App</description>
+				<data-type>NCHAR</data-type>
+				<max-size>20</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="CATEGORY">
+				<description>Type of App - Business / Education / Entertainment</description>
+				<data-type>NCHAR</data-type>
+				<max-size>150</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+
+		<primary-key name="ADSMPMApplications_PK">
+			<primary-key-column>APP_ID</primary-key-column>
+		</primary-key>
+	</table>    
+	<table name="ADSMPMEnrolledDevices">
+		<description><![CDATA[Maintaining the device details of Enrolled devices]]></description>
+		<columns>
+			<column name="DEVICE_ID">
+				<description>Unique Identifier enrolled devices</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSMPMEnrolledDevices.DEVICE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="USER_ID">
+				<description>Maps the userID of the device</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_NAME">
+				<description>DeviceName of the iOS Device</description>
+				<data-type>NCHAR</data-type>
+				<max-size>128</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PUSH_MAGIC">
+				<description>Unique token to push apps to the device</description>
+				<data-type>NCHAR</data-type>
+				<max-size>36</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_TOKEN">
+				<description>Device token to contact the device</description>
+				<data-type>NCHAR</data-type>
+				<max-size>44</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="INSTALLATION_ID">
+				<description>Unique id generated for each device in the Product</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="ENROLLED_TIME">
+				<description></description>
+				<data-type>BIGINT</data-type>
+			</column>
+		</columns>
+		<primary-key name="ADSMPMEnrolledDevices_PK">
+			<primary-key-column>DEVICE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSMPMEnrolledDevices_FK" reference-table-name="AaaLogin">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>LOGIN_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSMPMDeviceVsApp">
+		<description><![CDATA[To link app and device]]></description>
+		<columns>
+			<column name="APP_ID">
+				<description>Unique Identifier of the app</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEVICE_ID">
+				<description>Unique id of the Device</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="STATUS">
+				<description>Status of the App in the particular device</description>
+				<data-type>NCHAR</data-type>
+				<max-size>150</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="LAST_SYNCED_TIME">
+				<description>Time when the device was last synced</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="LAST_MODIFIED_TIME">
+				<description>Time when the app was last installed on the device</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+
+		<primary-key name="ADSMPMDeviceVsApp_PK">
+			<primary-key-column>APP_ID</primary-key-column>
+			<primary-key-column>DEVICE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSMPMDeviceVsApp_FK" reference-table-name="ADSMPMApplications">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSMPMDeviceVsApp_FK1" reference-table-name="ADSMPMEnrolledDevices">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DEVICE_ID</fk-local-column>
+						<fk-reference-column>DEVICE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSMPMAPNsDetails">
+		<description><![CDATA[Contains details about the .pem file uploaded by admin]]></description>
+		<columns>
+			<column name="COMMON_NAME">
+				<description>The Common Name (CN) shown for the certificate in Apple Push Certificate Portal</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="CERTIFICATE_UID">
+				<description>The Certificate User ID(UID) shown for the certificate in Apple Push Certificate Portal</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="CREATION_DATE">
+				<description>The Creation Date of the certificate</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>			
+			<column name="EXPIRY_DATE">
+				<description>The Expiry Date of the certificate</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="APPLE_EMAIL">
+				<description>The Apple ID used to get the certificate. Can be useful for renewal when admin forgets which Apple ID was used to get the certificate.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+			<column name="IS_RENEWAL">
+				<description></description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSMPMAPNsDetails_PK">
+			<primary-key-column>CERTIFICATE_UID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<table name="ADSMPMPendingTasks">
+		<description><![CDATA[To maintain pending tasks to be pushed to Devices]]></description>
+		<columns>
+			<column name="DEVICE_ID">
+				<description>ID of the device for which the task is pending</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="APP_ID">
+				<description>APP_ID to be pushed to the device</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TASK">
+				<description>Type of Task - Install / Sync / Uninstall</description>
+				<data-type>NCHAR</data-type>
+				<max-size>30</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="BUNDLE_ID">
+				<description>Bundle id of the app</description>
+				<data-type>NCHAR</data-type>
+				<max-size>128</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+
+		<primary-key name="ADSMPMPendingTasks_PK">
+			<primary-key-column>APP_ID</primary-key-column>
+			<primary-key-column>DEVICE_ID</primary-key-column>
+			<primary-key-column>TASK</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+
+			<foreign-key name="ADSMPMPendingTasks_FK" reference-table-name="ADSMPMApplications">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-RESTRICT</fk-constraints>
+			</foreign-key>
+
+			<foreign-key name="ADSMPMPendingTasks_FK1" reference-table-name="ADSMPMEnrolledDevices">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DEVICE_ID</fk-local-column>
+						<fk-reference-column>DEVICE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSMPMNotifiedUsers">
+		<description><![CDATA[Details about notified users]]></description>
+		<columns>
+			<column name="USER_NAME">
+				<description>Sam account name of the user.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>128</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DOMAIN_NAME">
+				<description>Domain to which the user belongs</description>
+				<data-type>NCHAR</data-type>
+				<max-size>128</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_GUID">
+				<description>Object GUID of the user</description>
+				<data-type>NCHAR</data-type>
+				<max-size>128</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="NOTIFIED_TIME">
+				<description>Notified date and time</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="EXTERNAL_USER_TOKEN">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+			</column>
+			<column name="STATUS_MESSAGE">
+				<description></description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+			</column>			
+		</columns>
+
+		<primary-key name="ADSMPMNotifiedUsers_PK">
+			<primary-key-column>USER_NAME</primary-key-column>
+			<primary-key-column>DOMAIN_NAME</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSMPMRestrictedDevices">
+		<description><![CDATA[Table for storing the Restricted users' device installationIDs to disenroll them at the MDM Server]]></description>
+		<columns>
+			<column name="INSTALLATION_ID">
+				<description>Unique id generated for each device in the Product</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSMPMRestrictedDevices_PK">
+			<primary-key-column>INSTALLATION_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<!-- MPM table ends -->
+</data-dictionary>
+	<!--$Id$ -->

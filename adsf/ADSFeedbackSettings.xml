@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<data>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:1" PARAM_NAME="POPUP_STATE" PARAM_VALUE="0"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:2" PARAM_NAME="REMINDER_DAYS" PARAM_VALUE="5"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:3" PARAM_NAME="SUPPORT_FORM_URL" PARAM_VALUE="https://www.manageengine.com/cgi-bin/mail?ad-manager"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:4" PARAM_NAME="RATING_INTERVAL" PARAM_VALUE="10"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:5" PARAM_NAME="PHASE_COUNT" PARAM_VALUE="3"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:6" PARAM_NAME="PHASE1_ALERTS" PARAM_VALUE="DEMO_ALERT"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:7" PARAM_NAME="PHASE2_ALERTS" PARAM_VALUE="QUOTE_ALERT"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:8" PARAM_NAME="PHASE3_ALERTS" PARAM_VALUE="EXTEND_TRIAL_ALERT"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:9" PARAM_NAME="PHASE1_EVAL_DAYS" PARAM_VALUE="30"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:10" PARAM_NAME="PHASE2_EVAL_DAYS_START" PARAM_VALUE="29"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:11" PARAM_NAME="PHASE2_EVAL_DAYS_END" PARAM_VALUE="15"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:12" PARAM_NAME="PHASE3_EVAL_DAYS" PARAM_VALUE="-14"/>
+	<ADSFeedbackParams UNIQUE_ID="ADSFeedbackParams:UNIQUE_ID:13" PARAM_NAME="EVALUATION_PERIOD" PARAM_VALUE="60"/>
+	
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:1" FORM_NAME="FEEDBACK_FORM" SUCCESS_STATUS="ads.feedback.form.success.send_feedback" MAIL_SUBJECT="ads.feedback.feedback.mail_subject" DEMO_MAIL_SUBJECT="ads.feedback.feedback.demo_mail_subject"/>
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:2" FORM_NAME="DEMO_FORM" SUCCESS_STATUS="ads.feedback.form.success.personalize_demo" MAIL_SUBJECT="ads.feedback.personalized_demo.mail_subject" DEMO_MAIL_SUBJECT="ads.feedback.personalized_demo.demo_mail_subject"/>
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:3" FORM_NAME="QUOTE_FORM" FORM_ORDER="QUOTE_FORM" SUCCESS_STATUS="ads.feedback.form.success.get_quote" MAIL_SUBJECT="ads.feedback.get_quote.mail_subject" DEMO_MAIL_SUBJECT="ads.feedback.get_quote.demo_mail_subject"/>
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:4" FORM_NAME="HELP_FORM" SUCCESS_STATUS="ads.feedback.form.success.implementation_help" MAIL_SUBJECT="ads.feedback.implementation_help.mail_subject" DEMO_MAIL_SUBJECT="ads.feedback.implementation_help.demo_mail_subject"/>
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:5" FORM_NAME="EXTEND_TRIAL_FORM" FORM_ORDER="EXTEND_TRIAL_FORM" SUCCESS_STATUS="ads.feedback.form.success.extend_trial" MAIL_SUBJECT="ads.feedback.extend_trial.mail_subject" DEMO_MAIL_SUBJECT="ads.feedback.extend_trial.demo_mail_subject"/>
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:6" FORM_NAME="COMPONENTS_QUOTE_LIST_FORM" />
+	<ADSFeedbackForms FORM_ID="ADSFeedbackForms:FORM_ID:7" FORM_NAME="COMPONENTS_LIC_COUNT_FORM"/>
+	
+	
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:1"  FIELD_NAME="EMAIL_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:2"  FIELD_NAME="SUBJECT_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:3" FIELD_NAME="COMMENTS_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:4"  FIELD_NAME="NAME_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:5"  FIELD_NAME="PHONE_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:6"  FIELD_NAME="DATE_FIELD" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:7"  FIELD_NAME="SELECT_COUNTRY" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:8"  FIELD_NAME="SELECT_LICENSE_COUNT" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:9"  FIELD_NAME="SELECT_PURCHASE_TIME" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:10"  FIELD_NAME="SELECT_EDITION" />
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:11"  FIELD_NAME="BUILD_NUMBER" FIELD_TYPE="hidden" IS_CUSTOM_FIELD="true"/>
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:12"  FIELD_NAME="BUILD_TYPE" FIELD_TYPE="hidden" IS_CUSTOM_FIELD="true"/>
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:13"  FIELD_NAME="CUSTOMER_ID" FIELD_TYPE="hidden" IS_CUSTOM_FIELD="true"/>
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:14"  FIELD_NAME="ADMP_QUOTE_DOMAINS" FIELD_TYPE="text" FIELD_PLACEHOLDER="Number of Domains" IS_CUSTOM_FIELD="true"/>
+	<ADSFeedbackFields FIELD_ID="ADSFeedbackFields:FIELD_ID:15"  FIELD_NAME="ADMP_QUOTE_TECHNICIANS" FIELD_TYPE="text" FIELD_PLACEHOLDER="Number of Technicians" IS_CUSTOM_FIELD="true"/>
+
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:1" FORM_ID="ADSFeedbackForms:FORM_ID:1" FIELD_ID="ADSFeedbackFields:FIELD_ID:1" PRIORITY="1" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:2" FORM_ID="ADSFeedbackForms:FORM_ID:1" FIELD_ID="ADSFeedbackFields:FIELD_ID:2" PRIORITY="2"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:3" FORM_ID="ADSFeedbackForms:FORM_ID:1" FIELD_ID="ADSFeedbackFields:FIELD_ID:3" PRIORITY="3" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:4" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:4" PRIORITY="1"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:5" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:1" PRIORITY="2" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:6" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:5" PRIORITY="3" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:7" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:6" PRIORITY="4" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:8" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:7" PRIORITY="5" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:9" FORM_ID="ADSFeedbackForms:FORM_ID:2" FIELD_ID="ADSFeedbackFields:FIELD_ID:3" PRIORITY="6"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:10" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:4" PRIORITY="1"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:11" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:1" PRIORITY="2" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:12" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:5" PRIORITY="3" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:13" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:7" PRIORITY="4" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:14" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:9" PRIORITY="5"/>
+    <ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:15" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:10" PRIORITY="8"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:16" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:3" PRIORITY="9"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:17" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:4" PRIORITY="1"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:18" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:1" PRIORITY="2" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:19" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:5" PRIORITY="3" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:20" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:6" PRIORITY="4" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:21" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:7" PRIORITY="5" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:22" FORM_ID="ADSFeedbackForms:FORM_ID:4" FIELD_ID="ADSFeedbackFields:FIELD_ID:3" PRIORITY="6"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:23" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:4" PRIORITY="1"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:24" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:1" PRIORITY="2" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:25" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:5" PRIORITY="3" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:26" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:7" PRIORITY="4" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:27" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:10" PRIORITY="7"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:28" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:3" PRIORITY="8"/>
+	
+    <ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:29" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:14" PRIORITY="6" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:30" FORM_ID="ADSFeedbackForms:FORM_ID:3" FIELD_ID="ADSFeedbackFields:FIELD_ID:15" PRIORITY="7" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:31" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:14" PRIORITY="5" IS_MANDATORY="true"/>
+	<ADSFeedbackFormsvsFields UNIQUE_ID="ADSFeedbackFormsvsFields:UNIQUE_ID:32" FORM_ID="ADSFeedbackForms:FORM_ID:5" FIELD_ID="ADSFeedbackFields:FIELD_ID:15" PRIORITY="6" IS_MANDATORY="true"/>
+
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:1" ALERT_NAME="DEMO_ALERT" STATUS="1" POPUP_STATE="0" IS_TRIAL_ALERT="true" SHOW_DD="true"/>
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:2" ALERT_NAME="QUOTE_ALERT" STATUS="1" POPUP_STATE="0" IS_TRIAL_ALERT="true" SHOW_DD="true"/>
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:3" ALERT_NAME="EXTEND_TRIAL_ALERT" STATUS="1" POPUP_STATE="0" IS_TRIAL_ALERT="true" SHOW_DD="true"/>
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:4" ALERT_NAME="HELP_ALERT" STATUS="1" POPUP_STATE="0" DURATION="15" IS_TRIAL_ALERT="false" SHOW_DD="true"/>
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:5" ALERT_NAME="RATEUS_ALERT" STATUS="1" POPUP_STATE="0" IS_TRIAL_ALERT="false" SHOW_DD="false"/>
+	<ADSFeedbackAlerts ALERT_ID="ADSFeedbackAlerts:ALERT_ID:6" ALERT_NAME="PROMOTION_ALERT" STATUS="1" POPUP_STATE="2" IS_TRIAL_ALERT="false" SHOW_DD="false"/>
+	
+</data>

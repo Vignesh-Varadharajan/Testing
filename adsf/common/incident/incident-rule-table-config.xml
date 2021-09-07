@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<IncidentRule_ADSUITableConfig>
+
+    <ADSUITableDetails TABLEID="ADSUITableDetails:TABLEID:INCIDENT_RULE_PAGE" NAME="Incident_Rule_Page" DESCRIPTION="Incident Rule page" DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.incident.table.IncidentRuleTableModel">
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_ID" COLUMNNAME="INCIDENT_RULE_ID" COLUMN_TABLENAME="ADSIncidentRules" DISPLAY_KEY="" COLUMN_DISPLAY_TYPE="FIXED" CLASS="hidden" CUSTOMEXPRESSION="{}" INDEX="-1" WEIGHT="0"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_NAME" COLUMNNAME="INCIDENT_RULE_NAME" COLUMN_TABLENAME="ADSIncidentRules" DISPLAY_KEY="ads.incident.name" COLUMN_DISPLAY_TYPE="FIXED" CLASS="" CUSTOMEXPRESSION='{"COMPONENT":{"NAME":"ads-table-inner-link","PARAMS":{"linkAction": "viewIncidentRule","isCompareNeeded": false,"isLoaderNeeded": false,"compareColumn": "ADSIncidentRules_INCIDENT_RULE_NAME","plainTextDisplay": true,"isRowValueDisplay": true,"displayRowValue": true,"tooltipTruncate": true,"tooltipTruncateClass": "fw-mxw-170","defaultValueLinkAction":"viewIncidentRule","isDefaultValueLink":true,"linkClass":"text-black"}}}' ISHTML="3" INDEX="0" WEIGHT="0"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_IS_ENABLED" COLUMNNAME="IS_ENABLED" COLUMN_TABLENAME="ADSIncidentRules" DISPLAY_KEY="ads.incident.rule.is_enabled" COLUMN_DISPLAY_TYPE="FIXED" CLASS="hidden" CUSTOMEXPRESSION='{}' ISHTML="0" INDEX="1" WEIGHT="0" ISSORTABLE="0" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_DESCRIPTION" COLUMNNAME="INCIDENT_RULE_DESCRIPTION" COLUMN_TABLENAME="ADSIncidentRules" DISPLAY_KEY="ads.incident.description" COLUMN_DISPLAY_TYPE="FIXED" CLASS="" CUSTOMEXPRESSION='{"TOOLTIP_TRUNCATE":"30"}' INDEX="3" WEIGHT="0" ISSORTABLE="0" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_ASSIGNED_TO" COLUMNNAME="USER_NAME" COLUMN_TABLENAME="ADSIncidentRuleVsUser" DISPLAY_KEY="ads.incident.incident_assign_to" COLUMN_DISPLAY_TYPE="FIXED" CLASS="" CUSTOMEXPRESSION='{"TOOLTIP_TRUNCATE":"25"}' INDEX="4" WEIGHT="0" ISSORTABLE="0" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_SEVERITY" COLUMNNAME="SEVERITY" COLUMN_TABLENAME="ADSIncidentSeverity" DISPLAY_KEY="ads.incident.incident_severity" COLUMN_DISPLAY_TYPE="FIXED" CLASS="" CUSTOMEXPRESSION="{}" INDEX="5" WEIGHT="0" ISSORTABLE="0" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_SEVERITY_ID" COLUMNNAME="SEVERITY_ID" COLUMN_TABLENAME="ADSIncidentSeverity" DISPLAY_KEY="" COLUMN_DISPLAY_TYPE="FIXED" CLASS="hidden" CUSTOMEXPRESSION="{}" INDEX="6" WEIGHT="0" ISSORTABLE="0" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:INCIDENT_RULE_CUSTOMIZATION" COLUMNNAME="IS_CUSTOMIZED" COLUMN_TABLENAME="ADSIncidentSeverity" DISPLAY_KEY="ads.incident.incident_severity" COLUMN_DISPLAY_TYPE="VISIBLE" CLASS="hidden" CUSTOMEXPRESSION="{}" INDEX="7" WEIGHT="0" ISSORTABLE="0" />
+    </ADSUITableDetails>
+
+
+</IncidentRule_ADSUITableConfig>

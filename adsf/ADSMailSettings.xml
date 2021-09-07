@@ -1,0 +1,10 @@
+<MailSettings>
+
+	<ADSConnectionSecurity CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:0" NAME="NONE" DESCRIPTION="None"/>
+	<ADSConnectionSecurity CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:1" NAME="SSL" DESCRIPTION="Secure Socket Layers"/>
+	<ADSConnectionSecurity CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:2" NAME="TLS" DESCRIPTION="Transport Layer Security"/>
+	<!-- <ADSLicenseExpiration UNIQUE_ID="1" DAYS="10" SUBJECT="admp.admin.gen_settgs.server.input.subject" CONTENT="admp.admin.gen_settgs.server.input.content" SUBJECT_AMS="admp.admin.gen_settgs.server.input.ams_subject" CONTENT_AMS="admp.admin.gen_settgs.server.input.ams_content" />
+	<ADSLicenseExpiration UNIQUE_ID="2" DAYS="15" SUBJECT="admp.admin.gen_settgs.server.input.subject" CONTENT="admp.admin.gen_settgs.server.input.content" SUBJECT_AMS="admp.admin.gen_settgs.server.input.ams_subject" CONTENT_AMS="admp.admin.gen_settgs.server.input.ams_content" />
+	<ADSLicenseExpiration UNIQUE_ID="3" DAYS="30" SUBJECT="admp.admin.gen_settgs.server.input.subject" CONTENT="admp.admin.gen_settgs.server.input.content" SUBJECT_AMS="admp.admin.gen_settgs.server.input.ams_subject" CONTENT_AMS="admp.admin.gen_settgs.server.input.ams_content" /> -->
+</MailSettings>
+<!--$Id$-->

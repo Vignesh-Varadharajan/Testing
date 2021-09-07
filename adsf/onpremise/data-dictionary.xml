@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[ <b>A Short Note On Flow:</b></br> MEONE onpremise tables ]]>
+    </description>
+
+    <table name="ADSPUMServerDetails">
+        <description>
+            <![CDATA[Contains the Product Settings Details]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>Unique value</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SERVER_URL">
+                <description>Creator URL for view and download patch</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PATCH_AVAILABLE">
+                <description>Patch Availability</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_CONNECTION_FAILED">
+                <description>Connection Failure</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="UPDATE_URL">
+                <description>Creator URL for update count</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSPUMServerDetails_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSPUMServerDetails_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSPUMPatchDetails">
+        <description>
+            <![CDATA[Contains the Product Settings Details]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>Unique value</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="BUILD_NO">
+                <description>Product Build No</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PATCH_NO">
+                <description>Patch No for patch identification</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="FIXES">
+                <description>Fixes for Display purpose</description>
+                <data-type>NCHAR</data-type>
+            </column>
+            <column name="PATCH_FILE">
+                <description>Patch File Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS_FLAG">
+                <description>Status Flag</description>
+                <data-type>BIGINT</data-type>
+                <default-value>0</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSPUMPatchDetails_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+            <primary-key-column>BUILD_NO</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSPUMPatchDetails_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSPUMAudit">
+        <description>
+            <![CDATA[Contains the Update History]]>
+        </description>
+        <columns>
+            <column name="AUDIT_ID">
+                <description>Unique value</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSPUMAudit.AUDIT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PRODUCT_ID">
+                <description>Product ID</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="BUILD_NO">
+                <description>Product Build No</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="PATCH_NO">
+                <description>Patch Version</description>
+                <data-type>BIGINT</data-type>
+                <max-size>10</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIXES">
+                <description>Status Message</description>
+                <data-type>NCHAR</data-type>
+            </column>
+            <column name="UPDATED_TIME">
+                <description>Updated date and time</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS">
+                <description>Status</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>1</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSPUMAudit_PK">
+            <primary-key-column>AUDIT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSPUMAudit_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSDownTimeSettings">
+        <description>
+            <![CDATA[Mainting the Down Time Settings details]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>A unique id for each product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="SUBJECT">
+                <description>Contains the key for the subject</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="CONTENT">
+                <description>Cotains the key for body</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Down time notifications mail should be sent to customer will be decided based on this column</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSDownTimeSettings_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSDownTimeSettings_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSServerUpTimeAlarmSettings">
+        <description>
+            <![CDATA[Mainting the Server Up Time Settings details]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>A unique id for each product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SUBJECT">
+                <description>Contains the key for the subject</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="CONTENT">
+                <description>Cotains the key for body</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Server UP notification mail should be sent to customer will be decided based on this column</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSServerUpTimeAlarmSettings_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSServerUpTimeAlarmSettings_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+	<!-- Integrated Product API Authoriztion Table -->
+	<table name="ADSRoleVsAPIs">
+		<description><![CDATA[Contains the ADS Product API and Roles mapping details for authorization]]></description>
+		<columns>
+			<column name="API_ID">
+				<description>Unique API ID</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ROLE_ID">
+				<description>Role ID to be authorized</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSRoleVsAPIs_PK">
+			<primary-key-column>API_ID</primary-key-column>
+			<primary-key-column>ROLE_ID</primary-key-column>
+		</primary-key>
+
+		<foreign-keys>
+			<foreign-key name="ADSRoleVsAPIs_FK_1" reference-table-name="ADSProductAPIs" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>API_ID</fk-local-column>
+						<fk-reference-column>API_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSRoleVsAPIs_FK_2" reference-table-name="AaaRole" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ROLE_ID</fk-local-column>
+						<fk-reference-column>ROLE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+    <table name="ADSProductAccessURL">
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>A unique id for each product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PROTOCOL">
+                <description>Access protocol of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+            <column name="SERVER_NAME">
+                <description>Access host/ip of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="PORT">
+                <description>Access port</description>
+                <data-type>INTEGER</data-type>
+            </column>
+            <column name="CONTEXT">
+                <description>Product context</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSProductAccessURL_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSProductAccessURL_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>

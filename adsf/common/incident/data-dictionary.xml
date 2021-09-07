@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>
+		<![CDATA[Incident Management Related tables]]>
+	</description>
+	<!--Incident management related tables starts-->
+	<table name="ADSIncidentManagementCenter">
+		<columns>
+			<column name="TOOL_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIncidentManagementCenter.TOOL_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TOOL_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="TOOL_DISPLAY_KEY">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="IMPL_CLASS">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="IS_ONDEMAND">
+				<data-type>BOOLEAN</data-type>
+				<default-value>TRUE</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIncidentManagementCenter_PK">
+			<primary-key-column>TOOL_ID</primary-key-column>
+		</primary-key>
+	</table>
+	
+	<table name="ADSIncidentToolConfiguration">
+        <columns>
+            <column name="CONFIG_ID">
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+					<generator-name>ADSIncidentToolConfiguration.CONFIG_ID</generator-name>
+				</uniquevalue-generation>
+            </column>
+            <column name="SERVER_NAME">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PORT">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+			<column name="PROTOCOL">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="USERNAME">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="PASSWORD">
+                <data-type>SCHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="AUTHENTICATION">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="AUTH_TOKENS">
+                <data-type>CHAR</data-type>
+				<max-size>1500</max-size>
+				<nullable>true</nullable>
+            </column>
+			<column name="CONTENT_TYPE">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="API_URL">
+                <data-type>CHAR</data-type>
+				<max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+			<column name="BODY_FIELDS">
+                <data-type>CHAR</data-type>
+				<max-size>1500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="CONNECTION_STATUS">
+                <data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+				<nullable>false</nullable>
+            </column>
+			<column name="CUSTOM_CLASS_NAME">
+                <data-type>CHAR</data-type>
+				<default-value>NONE</default-value>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentToolConfiguration_PK">
+            <primary-key-column>CONFIG_ID</primary-key-column>
+        </primary-key>
+    </table>
+	
+	<table name="ADSIncidentToolVsConfig">
+		<columns>
+			<column name="TOOL_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="CONFIG_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIncidentToolVsConfig_PK">
+			<primary-key-column>TOOL_ID</primary-key-column>
+			<primary-key-column>CONFIG_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIncidentToolVsConfig_FK1" reference-table-name="ADSIncidentManagementCenter">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TOOL_ID</fk-local-column>
+                        <fk-reference-column>TOOL_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentToolVsConfig_FK2" reference-table-name="ADSIncidentToolConfiguration">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONFIG_ID</fk-local-column>
+                        <fk-reference-column>CONFIG_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+	</table>
+
+	<table name="ADSIncidentToolConfigurationHeaders">
+		<columns>
+			<column name="HEADER_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIncidentToolConfigurationHeaders.HEADER_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TOOL_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="HEADER_KEY">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="HEADER_VALUE">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIncidentToolConfigurationHeaders_PK">
+			<primary-key-column>HEADER_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIncidentToolConfigurationHeaders_FK1" reference-table-name="ADSIncidentManagementCenter">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TOOL_ID</fk-local-column>
+						<fk-reference-column>TOOL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<!--Incident management related tables ends-->
+
+</data-dictionary>
+
+<!--$Id$ -->

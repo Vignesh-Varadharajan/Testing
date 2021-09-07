@@ -1,0 +1,17 @@
+<!--$Id$-->
+<ContainerOptions>
+
+    <!--User Reports - Graph Type-->
+ 
+    <ADSContainerVsType CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:1" TYPE="Bar" ICON_STYLE="adsbarChart" TOOL_TIP_TEXT="admp.home.layout.container.type_change_to_bar" ONCLICK_FUNC="LayoutUtil.triggerFunction('ComponentTypeChange', this)" PRIORITY_ID="1"/>
+
+    <!--Enrollment Reports - Graph Type-->
+   
+    <ADSContainerVsType CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:2" TYPE="Bar" ICON_STYLE="adsbarChart" TOOL_TIP_TEXT="admp.home.layout.container.type_change_to_bar" ONCLICK_FUNC="LayoutUtil.triggerFunction('ComponentTypeChange', this)" PRIORITY_ID="1"/>
+
+    <!--Audit Reports - Graph Type-->
+    
+    <ADSContainerVsType CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:3" TYPE="Bar" ICON_STYLE="adsbarChart" TOOL_TIP_TEXT="admp.home.layout.container.type_change_to_bar" ONCLICK_FUNC="LayoutUtil.triggerFunction('ComponentTypeChange', this)" PRIORITY_ID="1"/>
+
+</ContainerOptions>
+

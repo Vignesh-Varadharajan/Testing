@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+
+	<description>
+		<![CDATA[Tables related to the technicians,roles and actions]]>
+	</description>
+	<table name="ADSActionTypes">
+		<description>
+			<![CDATA[
+			Contains the Action Type
+			]]>
+		</description>
+		<columns>
+			<column name="TYPE_ID">
+				<description>A unique id for each action type</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSActionTypes.TYPE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TYPE_NAME">
+				<description>Name of the action type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActionTypes_PK">
+			<primary-key-column>TYPE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSActions">
+		<description>
+			<![CDATA[
+			Contains the Details of Actions
+			]]>
+		</description>
+		<columns>
+			<column name="ACTION_ID">
+				<description>A unique id for each Action</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSActions.ACTION_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ACTION_NAME">
+				<description>Name of the action</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Display Name for the action</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PARENT_ACTION_ID">
+				<description>Action's parent action_id if any</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="ACTION_URL">
+				<description>Url for the action</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="PRIORITY">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ACTION_TYPE_ID">
+				<description>Action's type id</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>to Specify whether the action is mandatory if the parent is selected</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActions_PK">
+			<primary-key-column>ACTION_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSActions_FK" reference-table-name="ADSActionTypes">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_TYPE_ID</fk-local-column>
+						<fk-reference-column>TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSRoles">
+		<description>
+			<![CDATA[
+			Contains the Details of Roles
+			]]>
+		</description>
+		<columns>
+			<column name="ROLE_ID">
+				<description>A unique id for each Role</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSRoles.ROLE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ROLE_NAME">
+				<description>Name of the role</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="ROLE_DESCRIPTION">
+				<description>Description of the role</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="CREATION_TIME">
+				<description>Role creation time</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="MODIFIED_TIME">
+				<description>Role modified time</description>
+				<data-type>BIGINT</data-type>
+			</column>
+		</columns>
+		<primary-key name="ADSRoles_PK">
+			<primary-key-column>ROLE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSRoleVsActions">
+		<description>
+			<![CDATA[
+			Conatins details of Mapping b/w Roles and Actions
+			]]>
+		</description>
+		<columns>
+			<column name="ROLE_ID">
+				<description>Unique id for each role</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ACTION_ID">
+				<description>Unique id for each action</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_READ_ONLY">
+				<description>Whether the action is read only for the role</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSRoleVsActions_PK">
+			<primary-key-column>ROLE_ID</primary-key-column>
+			<primary-key-column>ACTION_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSRoleVsActions_FK" reference-table-name="ADSRoles">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ROLE_ID</fk-local-column>
+						<fk-reference-column>ROLE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSRoleVsActions_FK1" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSTechnicianDelegatedRoles">
+		<description>
+			<![CDATA[
+			Contains details of Technician delegated roles
+			]]>
+		</description>
+		<columns>
+			<column name="DELEGATED_ROLE_ID">
+				<description>A unique id for each technician delegated role</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSTechnicianDelegatedRoles.DELEGATED_ROLE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="USER_ID">
+				<description>Login Id of the technician</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ROLE_ID">
+				<description>Role Id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DOMAIN_NAME">
+				<description>Domain name to which the technician delegated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianDelegatedRoles_PK">
+			<primary-key-column>DELEGATED_ROLE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSTechnicianDelegatedRoles_FK" reference-table-name="AaaUser">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSTechnicianDelegatedRoles_FK1" reference-table-name="ADSRoles">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ROLE_ID</fk-local-column>
+						<fk-reference-column>ROLE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSTechnicianDelegatedObjects">
+		<description>
+			<![CDATA[
+			Contains details of Technician delegated objects
+			]]>
+		</description>
+		<columns>
+			<column name="DELEGATED_OBJECT_ID">
+				<description>A unique id for each technician delegated object</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSTechnicianDelegatedObjects.DELEGATED_OBJECT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="USER_ID">
+				<description>User Id of the technician</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Specify which object like User Object,Computer Object,etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		    <column name="OBJECT_VALUE">
+				  <description>GUID of the object</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+			</column>
+			<column name="DOMAIN_NAME">
+				<description>Domain name to which the technician delegated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianDelegatedObjects_PK">
+			<primary-key-column>DELEGATED_OBJECT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSTechnicianDelegatedObjects_FK" reference-table-name="AaaUser">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSTechnicianSettings">
+		<description>
+			<![CDATA[
+			Contains details of default impl class names
+			]]>
+		</description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSADTechnicianSettings.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TECHNICIAN_IMPL_CLASS_NAME">
+				<description>Default impl class name for technician</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="ROLE_IMPL_CLASS_NAME">
+				<description>Default impl class name for role</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="IS_AUDIT_NEEDED">
+				<description>Whether audit is needed or not</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianSettings_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSTechnicianCredentials">
+		<description><![CDATA[Contains the technician credential details]]></description>
+		<columns>
+			<column name="USER_ID">
+				<description>Unique id for each tab</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="PASSWORD">
+				<description>user password</description>
+				<data-type>SCHAR</data-type>
+				<max-size>256</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="IMPERSONATE_ADMIN">
+				<description>IMPERSONATE AS ADMIN</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianCredentials_PK">
+			<primary-key-column>USER_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSTechnicianCredentials_FK" reference-table-name="AaaUser" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSHDDAuditActions">
+		<description>
+			<![CDATA[
+			Contains details of action done by technician
+			]]>
+		</description>
+		<columns>
+			<column name="AUDIT_ACTION_ID">
+				<description>action id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="AUDIT_ACTION_NAME">
+				<description>display name of action done by technician.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSHDDAuditActions_PK">
+			<primary-key-column>AUDIT_ACTION_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSHDDCategory">
+		<description>
+			<![CDATA[
+			Contains details of category of actions
+			]]>
+		</description>
+		<columns>
+			<column name="CATEGORY_ID">
+				<description>category id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="CATEGORY_NAME">
+				<description>display name of category of actions</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSHDDCategory_PK">
+			<primary-key-column>CATEGORY_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSHDDAuditDetails">
+		<description>
+			<![CDATA[
+			Contains details of held desk delegation audit.
+			]]>
+		</description>
+		<columns>
+			<column name="AUDIT_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSHDDAuditDetails.AUDIT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="AUDIT_TIME">
+				<description>audit time</description>
+				<data-type>DATETIME</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TECHNICIAN_NAME">
+				<description>Actor</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="AUDIT_ACTION_ID">
+				<description>action performed</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="MANAGED_ON">
+				<description>action performed on user/role</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="CATEGORY_ID">
+				<description>user/role/group</description>
+				<data-type>BIGINT</data-type>
+			</column>
+		</columns>
+		<primary-key name="ADSHDDAuditDetails_PK">
+			<primary-key-column>AUDIT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSHDDAuditActions_FK" reference-table-name="ADSHDDAuditActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>AUDIT_ACTION_ID</fk-local-column>
+						<fk-reference-column>AUDIT_ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSHDDAuditActions_FK1" reference-table-name="ADSHDDCategory">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>CATEGORY_ID</fk-local-column>
+						<fk-reference-column>CATEGORY_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	
+	<table name="ADSHDDSubCategory">
+		<description>
+			<![CDATA[
+			Contains details of held desk delegation audit.
+			]]>
+		</description>
+		<columns>
+			<column name="SUB_CATEGORY_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSHDDSubCategory.SUB_CATEGORY_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>display name of sub categories.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSHDDSubCategory_PK">
+			<primary-key-column>SUB_CATEGORY_ID</primary-key-column>
+		</primary-key>
+	</table>
+	
+	<table name="ADSHDDAuditParameters">
+		<description>
+			<![CDATA[
+			Contains details of held desk delegation audit.
+			]]>
+		</description>
+		<columns>
+			<column name="PARAM_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSHDDParameters.PARAM_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="AUDIT_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="SUB_CATEGORY_ID">
+				<description>Unique id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="PARAMETER_NAME">
+				<description>Actor</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="PARAMETER_VALUE">
+				<description>Actor</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSHDDAuditParameters_PK">
+			<primary-key-column>PARAM_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSHDDAuditParameters_FK" reference-table-name="ADSHDDAuditDetails">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>AUDIT_ID</fk-local-column>
+						<fk-reference-column>AUDIT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSHDDAuditParameters_FK2" reference-table-name="ADSHDDSubCategory">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>SUB_CATEGORY_ID</fk-local-column>
+						<fk-reference-column>SUB_CATEGORY_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSTechnicianDelegatedTemplates">
+		<description><![CDATA[Default template for a template type for a user is defined.]]></description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique id of each Tray Component</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSTechnicianDelegatedTemplates.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="USER_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TEMPLATE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DOMAIN_NAME">
+				<description>Domain name to which the technician delegated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>255</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianDelegatedTemplates_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="AaaUser" name="ADSTechnicianDelegatedTemplates_FK1">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSUITemplates" name="ADSTechnicianDelegatedTemplates_FK2" >
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	
+	<table name="ADSActionVsAPI">
+		<description>
+			<![CDATA[Contains mapping between ADSActions and ADSProductAPIs]]>
+		</description>
+		<columns>
+			<column name="ACTION_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="API_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActionVsAPI_PK">
+			<primary-key-column>ACTION_ID</primary-key-column>
+			<primary-key-column>API_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSActionVsAPI_FK0" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+			<foreign-key name="ADSActionVsAPI_FK1" reference-table-name="ADSProductAPIs">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>API_ID</fk-local-column>
+						<fk-reference-column>API_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+
+		</foreign-keys>
+	</table>
+
+	<table name="ADSEmberResource">
+		<description><![CDATA[Contains ember resources]]></description>
+		<columns>
+			<column name="RESOURCE_ID">
+				<description>Unique id of each ember resource</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSEmberResource.RESOURCE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="RESOURCE_NAME">
+				<description>Name(Value) of ember resource</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSEmberResource_PK">
+			<primary-key-column>RESOURCE_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<table name="ADSActionVsEmberResource">
+		<columns>
+			<column name="ACTION_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="RESOURCE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActionVsEmberResource_PK">
+			<primary-key-column>ACTION_ID</primary-key-column>
+			<primary-key-column>RESOURCE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSActionVsEmberResource_FK0" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+			<foreign-key name="ADSActionVsEmberResource_FK1" reference-table-name="ADSEmberResource">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>RESOURCE_ID</fk-local-column>
+						<fk-reference-column>RESOURCE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSUserRoleVsNotification">
+		<description>
+			<![CDATA[Contains Role Based Notifictaion Mapping]]>
+		</description>
+		<columns>
+			<column name="NOTIFICATION_ID">
+				<description>Identifier of Notification to which the login is mapped</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ROLE_ID">
+				<description>Identifier of Role which is mapped to account</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_ENABLED">
+				<description>This flag specifies whether the notification module is enabled</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>TRUE</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSUserRoleVsNotification_PK">
+			<primary-key-column>NOTIFICATION_ID</primary-key-column>
+			<primary-key-column>ROLE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSUserRoleVsNotification_FK" reference-table-name="ADSNotificationCenter" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>NOTIFICATION_ID</fk-local-column>
+						<fk-reference-column>NOTIFICATION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSUserRoleVsNotification_FK1" reference-table-name="ADSRoles" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ROLE_ID</fk-local-column>
+						<fk-reference-column>ROLE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSActionVsNotification">
+		<description>
+			<![CDATA[Contains Role Based Notifictaion Mapping]]>
+		</description>
+		<columns>
+			<column name="NOTIFICATION_ID">
+				<description>Identifier of Notification to which the login is mapped</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ACTION_ID">
+				<description>Identifier of Action which is mapped to role of account</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_ENABLED">
+				<description>This flag specifies whether the notification module is enabled</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>TRUE</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActionVsNotification_PK">
+			<primary-key-column>NOTIFICATION_ID</primary-key-column>
+			<primary-key-column>ACTION_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSActionVsNotification_FK" reference-table-name="ADSNotificationCenter" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>NOTIFICATION_ID</fk-local-column>
+						<fk-reference-column>NOTIFICATION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSActionVsNotification_FK1" reference-table-name="ADSActions" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSImpliedAction">
+		<columns>
+			<column name="ACTION_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IMPLIED_ACTION_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSImpliedAction_PK">
+			<primary-key-column>ACTION_ID</primary-key-column>
+			<primary-key-column>IMPLIED_ACTION_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSImpliedAction_FK0" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+			<foreign-key name="ADSImpliedAction_FK1" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>IMPLIED_ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSActionVsUITable">
+		<columns>
+			<column name="ACTION_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TABLEID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSActionVsUITable_PK">
+			<primary-key-column>ACTION_ID</primary-key-column>
+			<primary-key-column>TABLEID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSActionVsUITable_FK0" reference-table-name="ADSActions">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ACTION_ID</fk-local-column>
+						<fk-reference-column>ACTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+			<foreign-key name="ADSActionVsUITable_FK1" reference-table-name="ADSUITableDetails">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TABLEID</fk-local-column>
+						<fk-reference-column>TABLEID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+</data-dictionary>
+<!--$Id$ -->

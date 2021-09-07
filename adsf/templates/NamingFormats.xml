@@ -1,0 +1,79 @@
+<NamingFormats>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:1" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.first_last" FORMAT_VALUE="%FirstName%%LastName%"/>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:2" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.last_first" FORMAT_VALUE="%LastName%%FirstName%"/>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:3" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.first_dot_last" FORMAT_VALUE="%FirstName%.%LastName%"/>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:4" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.last_dot_first" FORMAT_VALUE="%LastName%.%FirstName%"/>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:5" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.first_under_score_last" FORMAT_VALUE="%FirstName%_%LastName%"/>
+    <ADSTemplateNamingFormats FORMAT_ID="ADSTemplateNamingFormats:FORMAT_ID:6" FORMAT_DISPLAY_NAME="o365.naming_formats.diplay_name.last_under_score__first" FORMAT_VALUE="%LastName%_%FirstName%"/>
+
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:1" UMLAUT="\u00E1" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:2" UMLAUT="\u00E0" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:3" UMLAUT="\u00E4" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:4" UMLAUT="\u00E2" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:5" UMLAUT="\u00E5" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:6" UMLAUT="\u00E3" REPLACE_CHAR="a" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:7" UMLAUT="\u00E6" REPLACE_CHAR="ae" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:8" UMLAUT="\u00E9" REPLACE_CHAR="e" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:9" UMLAUT="\u00E8" REPLACE_CHAR="e" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:10" UMLAUT="\u00EB" REPLACE_CHAR="e" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:11" UMLAUT="\u00EA" REPLACE_CHAR="e" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:12" UMLAUT="\u00ED" REPLACE_CHAR="i" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:13" UMLAUT="\u00EC" REPLACE_CHAR="i" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:14" UMLAUT="\u00EF" REPLACE_CHAR="i" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:15" UMLAUT="\u00EE" REPLACE_CHAR="i" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:16" UMLAUT="\u00F3" REPLACE_CHAR="o" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:17" UMLAUT="\u00F2" REPLACE_CHAR="o" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:18" UMLAUT="\u00F6" REPLACE_CHAR="oe" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:19" UMLAUT="\u00F4" REPLACE_CHAR="o" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:20" UMLAUT="\u00F8" REPLACE_CHAR="o" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:21" UMLAUT="\u00F5" REPLACE_CHAR="o" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:22" UMLAUT="\u00FA" REPLACE_CHAR="u" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:23" UMLAUT="\u00F9" REPLACE_CHAR="u" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:24" UMLAUT="\u00FC" REPLACE_CHAR="ue" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:25" UMLAUT="\u00FB" REPLACE_CHAR="u" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:26" UMLAUT="\u00C1" REPLACE_CHAR="A" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:27" UMLAUT="\u00C0" REPLACE_CHAR="A" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:28" UMLAUT="\u00C4" REPLACE_CHAR="AE" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:29" UMLAUT="\u00C2" REPLACE_CHAR="A" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:30" UMLAUT="\u00C5" REPLACE_CHAR="A" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:31" UMLAUT="\u00C3" REPLACE_CHAR="A" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:32" UMLAUT="\u00C6" REPLACE_CHAR="AE" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:33" UMLAUT="\u00C9" REPLACE_CHAR="E" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:34" UMLAUT="\u00C8" REPLACE_CHAR="E" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:35" UMLAUT="\u00CB" REPLACE_CHAR="E" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:36" UMLAUT="\u00CA" REPLACE_CHAR="E" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:37" UMLAUT="\u00CD" REPLACE_CHAR="I" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:38" UMLAUT="\u00CC" REPLACE_CHAR="I" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:39" UMLAUT="\u00CF" REPLACE_CHAR="I" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:40" UMLAUT="\u00CE" REPLACE_CHAR="I" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:41" UMLAUT="\u00D3" REPLACE_CHAR="O" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:42" UMLAUT="\u00D2" REPLACE_CHAR="O" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:43" UMLAUT="\u00D6" REPLACE_CHAR="OE" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:44" UMLAUT="\u00D4" REPLACE_CHAR="O" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:45" UMLAUT="\u00D8" REPLACE_CHAR="O" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:46" UMLAUT="\u00D8" REPLACE_CHAR="O" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:47" UMLAUT="\u00DA" REPLACE_CHAR="U" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:48" UMLAUT="\u00D9" REPLACE_CHAR="U" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:49" UMLAUT="\u00DC" REPLACE_CHAR="UE" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:50" UMLAUT="\u00DB" REPLACE_CHAR="U" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:51" UMLAUT="\u00FD" REPLACE_CHAR="y" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:52" UMLAUT="\u00FF" REPLACE_CHAR="y" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:53" UMLAUT="\u00DD" REPLACE_CHAR="Y" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:54" UMLAUT="\u00F0" REPLACE_CHAR="d" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:55" UMLAUT="\u00D0" REPLACE_CHAR="D" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:56" UMLAUT="\u00FE" REPLACE_CHAR="th" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:57" UMLAUT="\u00DE" REPLACE_CHAR="TH" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:58" UMLAUT="\u00E7" REPLACE_CHAR="c" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:59" UMLAUT="\u00C7" REPLACE_CHAR="C" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:60" UMLAUT="\u00DF" REPLACE_CHAR="ss" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:61" UMLAUT="\u00F1" REPLACE_CHAR="n" />
+    <ADSUmlautConfigurations UMLAUT_ID="ADSUmlautConfigurations:UMLAUT_ID:62" UMLAUT="\u00D1" REPLACE_CHAR="N" />
+
+    <ADSTemplatePasswordPolicy POLICY_ID="ADSTemplatePasswordPolicy:POLICY_ID:1" POLICY_NAME="DEFAULT_POLICY" MINIMUM_PASSWORD_LENGTH="8" MAXIMUM_PASSWORD_LENGTH="12" NO_OF_SPECIAL_CHARACTERS="2" NO_OF_NUMERALS="2" START_WITH_ALPHABET="true"  EXCLUDE_TEXT="iloO10LI" />
+
+    <ADSTemplateOrgAttributes ATTRIBUTE_ID="ADSTemplateOrgAttributes:ATTRIBUTE_ID:Office" ATTRIBUTE_NAME="Office" />
+    <ADSTemplateOrgAttributes ATTRIBUTE_ID="ADSTemplateOrgAttributes:ATTRIBUTE_ID:Department" ATTRIBUTE_NAME="Department" />
+    <ADSTemplateOrgAttributes ATTRIBUTE_ID="ADSTemplateOrgAttributes:ATTRIBUTE_ID:Title" ATTRIBUTE_NAME="Title" />
+
+
+</NamingFormats>

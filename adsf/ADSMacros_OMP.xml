@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MacroDetails>
+    <ADSMacros MACRO_ID="ADSMacros:MACRO_ID:1" MACRO_VALUE="%Admin%" MACRO_DISPLAY_VALUE="%Admin%"/>
+    <ADSMacros MACRO_ID="ADSMacros:MACRO_ID:2" MACRO_VALUE="%Technician%" MACRO_DISPLAY_VALUE="%Technician%"/>
+</MacroDetails>

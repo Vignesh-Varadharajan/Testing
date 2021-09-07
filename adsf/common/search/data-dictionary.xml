@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<!--$Id$ -->
+<data-dictionary name="adsf">
+    <table name="ADSTagDetails">
+        <description>Contains list of tags and associated criteria.</description>
+        <columns>
+            <column name="TAGID">
+                <data-type>BIGINT</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSTagDetails.TAGID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAG_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="TAG_CRITERIA">
+                <data-type>CHAR</data-type>
+                <max-size>5000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTagDetails_Pk">
+            <primary-key-column>TAGID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSTagDetails_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+        </foreign-keys>
+    </table>
+    <table name="ADSTagNote">
+        <columns>
+            <column name="NOTE_ID">
+                <data-type>BIGINT</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSTagNote.NOTE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAG_NOTE">
+                <data-type>CHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+            <column name="ADDED_BY">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="ADDED_ON">
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TAGID">
+                <data-type>BIGINT</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTagNote_Pk">
+            <primary-key-column>NOTE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSTagNote_Fk1" reference-table-name="ADSTagDetails" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAGID</fk-local-column>
+                        <fk-reference-column>TAGID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSTagNote_Fk2" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSSavedSearches">
+        <columns>
+            <column name="SAVEDSEARCH_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSSavedSearches.SAVEDSEARCH_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="SEARCH_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+            <column name="CRITERIA_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>10</max-size>
+            </column>
+            <column name="CRITERIA">
+                <data-type>CHAR</data-type>
+                <max-size>6000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSSavedSearches_PK">
+            <primary-key-column>SAVEDSEARCH_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSSavedSearches_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+        </foreign-keys>
+    </table>
+    <table name="ADSSavedSearchLogTypesVsFields">
+        <description>This table contains relationship between Fields and saved searches</description>
+        <columns>
+            <column name="SS_VS_FIELDS_ID">
+                <description>saved search vs fields Map Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSSavedSearchLogTypesVsFields.SS_VS_FIELDS_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="SAVEDSEARCH_ID">
+                <description>saved search Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="MAP_ID">
+                <description>Log type vs fields map id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="PRIORITY">
+                <description>order to show</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSSavedSearchLogTypesVsFields_PK">
+            <primary-key-column>SS_VS_FIELDS_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSSavedSearchLogTypesVsFields_FK1" reference-table-name="ADSSavedSearches" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SAVEDSEARCH_ID</fk-local-column>
+                        <fk-reference-column>SAVEDSEARCH_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSSavedSearchLogTypesVsFields_FK2" reference-table-name="ADSLogTypeVsFields" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MAP_ID</fk-local-column>
+                        <fk-reference-column>MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSSavedSearchLogTypes">
+        <columns>
+            <column name="SS_VS_LOGTYPE_ID">
+                <description>saved search vs Logtype Map Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSSavedSearchLogTypes.SS_VS_LOGTYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="SAVEDSEARCH_ID">
+                <description>saved search Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="LOGTYPE_ID">
+                <description>Logtype Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSSavedSearchLogTypes_PK">
+            <primary-key-column>SS_VS_LOGTYPE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSSavedSearchLogTypes_FK1" reference-table-name="ADSSavedSearches" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SAVEDSEARCH_ID</fk-local-column>
+                        <fk-reference-column>SAVEDSEARCH_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="AADSSavedSearchLogTypes_FK2" reference-table-name="ADSLogTypes" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LOGTYPE_ID</fk-local-column>
+                        <fk-reference-column>LOGTYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+</data-dictionary>

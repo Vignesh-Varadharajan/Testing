@@ -1,0 +1,93 @@
+<!-- $Id$ -->
+<data>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" NAME="Promotion_Mailer" DESCRIPTION="Template for License Promotion Mailer" PATH="webapps/adsm/html/template/license/PromotionMail.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" NAME="License_Expired" DESCRIPTION="Template for license Expired Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" NAME="License_AboutTo_Expire" DESCRIPTION="Template for License About To Expire Mailer" PATH="webapps/adsm/html/template/license/AboutToExpire.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" NAME="License_Expires_Today" DESCRIPTION="Template for License Expires Today Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" NAME="License_Expires_Tomorrow" DESCRIPTION="Template for License Expires Tomorrow Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/><ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" NAME="AMS_License_Expired" DESCRIPTION="Template for AMS license Expired Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" NAME="AMS_License_AboutTo_Expire" DESCRIPTION="Template for AMS License About To Expire Mailer" PATH="webapps/adsm/html/template/license/AboutToExpire.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" NAME="AMS_License_Expires_Today" DESCRIPTION="Template for AMS License Expires Today Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/>
+	<ADSHtmlTemplates TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" NAME="AMS_License_Expires_Tomorrow" DESCRIPTION="Template for AMS License Expires Tomorrow Mailer" PATH="webapps/adsm/html/template/license/Expired.html"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:1" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:2" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='1' KEY_NAME="ads.mail.banner.license_promotion.thank_you"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:3" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='2' KEY_NAME="ads.mail.license_promotion.content" PARAM_NAME="LICENSE_TO"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:4" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='3' PARAM_NAME="PRODUCT_LIST"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:5" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='4' PARAM_NAME="PARENT_DETAIL"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:6" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:7" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='6' KEY_NAME="ads.mail.license_promotion.conditions"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:8" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:1" INDEX='7' KEY_NAME="ads.mail.license.salutation_name"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:9" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:10" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='1' KEY_NAME="ads.mail.banner.license.expired"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:11" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='2' KEY_NAME="ads.mail.license.expired" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:12" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='3' KEY_NAME="ads.mail.license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:13" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='4' KEY_NAME="ads.mail.license_expiry.instructions"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:14" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:15" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:16" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:2" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:17" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:18" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='1' KEY_NAME="ads.mail.banner.license.yet_to_expire" PARAM_NAME="DAYS"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:19" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='2' KEY_NAME="ads.mail.license.yet_to_expire" PARAM_NAME="PRODUCT,DAYS"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:20" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='3' KEY_NAME="ads.mail.license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:21" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='4' KEY_NAME="ads.mail.license_expiry.instructions"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:22" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:23" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:24" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:3" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:25" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:26" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='1' KEY_NAME="ads.mail.banner.license.expires_today"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:27" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='2' KEY_NAME="ads.mail.license.expires_today" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:28" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='3' KEY_NAME="ads.mail.license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:29" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='4' KEY_NAME="ads.mail.license_expiry.instructions"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:30" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:31" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:32" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:4" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:33" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:34" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='1' KEY_NAME="ads.mail.banner.license.expires_tomorrow"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:35" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='2' KEY_NAME="ads.mail.license.expires_tomorrow" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:36" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='3' KEY_NAME="ads.mail.license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:37" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='4' KEY_NAME="ads.mail.license_expiry.filler"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:38" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:39" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:40" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:5" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:41" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:42" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='1' KEY_NAME="ads.mail.banner.ams_license.expired"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:43" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='2' KEY_NAME="ads.mail.ams_license.expired" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:44" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='3' KEY_NAME="ads.mail.ams_license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:45" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='4' KEY_NAME="ads.mail.license_expiry.filler"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:46" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:47" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:48" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:6" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:49" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:50" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='1' KEY_NAME="ads.mail.banner.ams_license.yet_to_expire" PARAM_NAME="DAYS"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:51" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='2' KEY_NAME="ads.mail.ams_license.yet_to_expire" PARAM_NAME="PRODUCT,DAYS"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:52" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='3' KEY_NAME="ads.mail.ams_license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:53" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='4' KEY_NAME="ads.mail.license_expiry.filler"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:54" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:55" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:56" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:7" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:57" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:58" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='1' KEY_NAME="ads.mail.banner.ams_license.expires_today"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:59" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='2' KEY_NAME="ads.mail.ams_license.expires_today" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:60" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='3' KEY_NAME="ads.mail.ams_license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:61" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='4' KEY_NAME="ads.mail.license_expiry.filler"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:62" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:63" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:64" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:8" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:65" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='0' PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:66" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='1' KEY_NAME="ads.mail.banner.ams_license.expires_tomorrow"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:67" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='2' KEY_NAME="ads.mail.ams_license.expires_tomorrow" PARAM_NAME="PRODUCT"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:68" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='3' KEY_NAME="ads.mail.ams_license_usage.upgrade_license"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:69" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='4' KEY_NAME="ads.mail.license_expiry.filler"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:70" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='5' KEY_NAME="ads.mail.salutation.license_mailer"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:71" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='6' KEY_NAME="ads.mail.license.salutation_name"/>
+	<ADSHtmlTemplateConfig UNIQUE_ID="ADSHtmlTemplateConfig:UNIQUE_ID:72" TEMPLATE_ID="ADSHtmlTemplates:TEMPLATE_ID:9" INDEX='7' KEY_NAME="ads.mail.license_expiry_contact"/>
+	
+</data>

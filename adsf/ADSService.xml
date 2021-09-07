@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Services>
+
+<!--  ADS Framework related Service Configuration  --> 
+ <Service service_id="Service:service_id:ADSFService" service_name="ADSFService" module_id="adsf" classname="com.manageengine.ads.fw.service.ADSFService"/>
+</Services>
+<!--$Id$-->

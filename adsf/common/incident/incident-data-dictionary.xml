@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<!-- $Id$ -->
+
+<data-dictionary name="adsf">
+
+
+    <table name="ADSIncidentSeverity">
+        <columns>
+            <column name="SEVERITY_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentSeverity.SEVERITY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="SEVERITY_COLOUR">
+                <description>Colour of the severity to be displayed</description>
+                <data-type>CHAR</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="SEVERITY">
+                <description>I18N display key</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_CUSTOMIZED">
+                <description>To check if the value is user created</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <description>User who created the severity</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentSeverity_PK0">
+            <primary-key-column>SEVERITY_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSIncidentStatus">
+        <columns>
+            <column name="STATUS_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentStatus.STATUS_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="STATUS_COLOUR">
+                <description>Colour of the status label to be displayed</description>
+                <data-type>CHAR</data-type>
+                <max-size>20</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS">
+                <description>I18N display key</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS_UPDATE_ACTION">
+                <description>Action to perform. For ex, like updating close time when updating incident status to closed.</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_CUSTOMIZED">
+                <description>To check if the value is user created</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_DEFAULT">
+                <description>To check if the value should be assigned as default</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <description>User who created the severity</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentStatus_PK0">
+            <primary-key-column>STATUS_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSIncidents">
+        <description>This table contains data of incidents created.</description>
+        <columns>
+            <column name="INCIDENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidents.INCIDENT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INCIDENT_NAME">
+                <description>Name of the incident. Will have timestamp appended if created from rule</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="INCIDENT_DESCRIPTION">
+                <description>Description of the incident.</description>
+                <data-type>CHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY_USER_ID">
+                <description>Id of operator who created the incident</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <description>Name of operator who created the incident</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="CREATED_TIME">
+                <description>Time at which the incident is created. Stored as current time in millis</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CLOSED_TIME">
+                <description>Time at which the incident is closed. Stored as current time in millis when incident status is changed to closed</description>
+                <data-type>BIGINT</data-type>
+                <default-value>-1</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="DUE_DATE">
+                <description>Due date for the created incident.</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="SEVERITY_ID">
+                <description>Severity of the incident</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="STATUS_ID">
+                <description>Status of the incident</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_NOTES_AVAILABLE">
+                <description>Column to identify if notes are available in storage for that incident</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidents_PK0">
+            <primary-key-column>INCIDENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidents_FK0" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREATED_BY_USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-SET-NULL</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidents_FK1" reference-table-name="ADSIncidentSeverity">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SEVERITY_ID</fk-local-column>
+                        <fk-reference-column>SEVERITY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-SET-NULL</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidents_FK2" reference-table-name="ADSIncidentStatus">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>STATUS_ID</fk-local-column>
+                        <fk-reference-column>STATUS_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-SET-NULL</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    
+    <table name="ADSIncidentVsUser">
+        <description>Assign to details for the incident</description>
+        <columns>
+            <column name="INCIDENT_VS_USER_MAPPING_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentVsUser.INCIDENT_VS_USER_MAPPING_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INCIDENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ASSIGN_TO">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentVsUser_PK0">
+            <primary-key-column>INCIDENT_VS_USER_MAPPING_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentVsUser_FK0" reference-table-name="ADSIncidents">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>INCIDENT_ID</fk-local-column>
+                        <fk-reference-column>INCIDENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentVsUser_FK1" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ASSIGN_TO</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    
+    <table name="ADSIncidentUITabDetails">
+        <columns>
+            <column name="TAB_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentUITabDetails.TAB_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAB_NAME">
+                <description>To have internal reference (identifier) against tab details like ui component, handler class.</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>I18N key</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="UI_COMPONENT_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="TAB_DATA_HANDLER_CLASS">
+                <description>Class which implements IncidentTabDataAdapter</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <description>Order of the tab. 1 indicates the first and default tab</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentUITabDetails_PK0">
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+
+    <table name="ADSIncidentParticipantsDataHandler">
+        <description>Participants data shown in RHS. Actors, OS etc</description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentParticipantsDataHandler.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAB_ID">
+                <description>Participant data should be fetched for tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARTICIPANT_DISPLAY_NAME">
+                <description>Header name</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DATA_FORMATTER_CLASS">
+                <description>Actor specific handling can be done here to format the data. Class need to implement IncidentParticipantAdapter</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentParticipantsDataHandler_PK0">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentParticipantsDataHandler_FK0" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentParticipantsDataHandler_FK1" reference-table-name="ADSIncidentUITabDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSIncidentActivityDetails">
+        <columns>
+            <column name="ACTIVITY_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentActivityDetails.ACTIVITY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="ACTIVITY_NAME">
+                <description>Activity name like create_from_search, update_notes or delete_evidence</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="MESSAGE_KEY">
+                <description>I18N key for activity message</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="HEADER_KEY">
+                <description>I18N key for activity header message</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentActivityDetails_PK0">
+            <primary-key-column>ACTIVITY_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    
+</data-dictionary>

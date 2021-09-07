@@ -1,0 +1,1179 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+ <!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+
+	<description>Tables related to cloud and onpremise application providers </description>
+
+	
+<!-- Password Sync Starts -->
+<table name="ADSIAMCategory">
+		<description>
+			<![CDATA[
+			To specify the other parameters needed to store the provider informations like port number etc.
+			]]>
+		</description>
+		<columns>
+			<column name="CATEGORY_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMCategory.CATEGORY_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="CATEGORY_NAME">
+				<description>Name of the category.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<unique>true</unique>
+			</column>
+			<column name="PRIORITY">
+				<description>priority of the category.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMCategory_PK">
+			<primary-key-column>CATEGORY_ID</primary-key-column>
+		</primary-key>
+</table>
+
+<table name="ADSIAMApplications">
+		<description>
+			<![CDATA[
+			To specify the Other Accounts Password to be synced with the AD user Accounts
+			]]>
+		</description>
+		<columns>
+			<column name="APP_ID">
+				<description>Unique ID</description>	 
+                <data-type>BIGINT</data-type>	 
+				<uniquevalue-generation>
+					<generator-name>ADSIAMApplications.APP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="CATEGORY_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="APP_NAME">
+				<description>SYNCAccountName.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<unique>true</unique>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Display name of the provider.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="ICON_STYLE">
+				<description>Name of the image icon for the provider.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="PRIORITY">
+				<description>To differenciate colud and host providers</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="SP_BIG_ICON">
+				<description>Name of the image icon for the provider.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="SP_SMALL_ICON">
+				<description>Name of the image icon for the provider.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMApplications_PK">
+			<primary-key-column>APP_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMCategory" name="ADSIAMApplications_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>CATEGORY_ID</fk-local-column>
+						<fk-reference-column>CATEGORY_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+
+<table name="ADSIAMAppConfig">
+		<description>
+			<![CDATA[
+			To specify the Other Accounts Password to be synced with the AD user Accounts
+			]]>
+		</description>
+		<columns>
+			<column name="APP_CONFIG_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMAppConfig.APP_CONFIG_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="APP_ID">
+				<description>Provider ID.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="HOST_NAME">
+				<description>Name/IP of the server.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="HOST_DISPLAY_NAME">
+				<description>Display name of the provider</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>			
+			<column name="CONFIG_IDENTIFIER">
+				<description>Config identigier distinugish the SAML Request to corresponding app configuration if an app having multiple configuration</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="DESCRIPTION">
+				<description>Description about the server.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="AUTH_TOKEN">
+				<description>Authentication Token</description>
+				<data-type>SCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="USER_NAME">
+				<description>Admin user name.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PASSWORD">
+				<description>Admin user password.</description>
+				<data-type>SCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="IS_ENABLED">
+				<description>To denote the system status enabled/disabled.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_DEFAULT_APP">
+				<description>To identify the default settings for each provider</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMAppConfig_PK">
+			<primary-key-column>APP_CONFIG_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMApplications" name="ADSIAMAppConfig_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSIAMAppConfigParams">
+		<description>
+			<![CDATA[
+			To specify the other parameters needed to store the provider informations like port number etc.
+			]]>
+		</description>
+		<columns>
+			<column name="APP_CONFIG_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_NAME">
+				<description>Name of the parameter.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_VALUE">
+				<description>Value of the parameter.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMAppConfigParams_PK">
+			<primary-key-column>APP_CONFIG_ID</primary-key-column>
+			<primary-key-column>PARAM_NAME</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMAppConfig" name="ADSIAMAppConfigParams_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_CONFIG_ID</fk-local-column>
+						<fk-reference-column>APP_CONFIG_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+
+
+<table name="ADSIAMAppAPIs">
+		<description>
+			<![CDATA[
+			To specify the other parameters needed to store the provider informations like port number etc.
+			]]>
+		</description>
+		<columns>
+             <column name="APP_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column> 
+			<column name="API_ID">
+				<description>Api ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMAppAPIs.API_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="API_NAME">
+				<description>Name of the api.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="API_CLASS_NAME">
+				<description>Class name of the api.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="API_URL">
+				<description>URL of the api.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMAppAPIs_PK">
+			<primary-key-column>API_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMApplications" name="ADSIAMAppAPIs_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+</table>
+<table name="ADSIAMAppAPIParams">
+		<description>
+			<![CDATA[
+			To specify the other parameters needed to store the provider informations like port number etc.
+			]]>
+		</description>
+		<columns>
+			<column name="API_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_NAME">
+				<description>Name of the parameter.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_VALUE">
+				<description>Value of the parameter.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMAppAPIParams_PK">
+			<primary-key-column>API_ID</primary-key-column>
+			<primary-key-column>PARAM_NAME</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMAppAPIs" name="ADSIAMAppAPIParams_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>API_ID</fk-local-column>
+						<fk-reference-column>API_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSIAMProductAttributes">
+		<description>
+			<![CDATA[
+				Holds product attributes which is common to all IAMProviders (like AD,O365,google,etc)
+			]]>
+		</description>
+		<columns>
+			<column name="ATTRIB_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMProductAttributes.ATTRIB_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ATTRIB_NAME">
+				<description>Name of the attribute.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Attribute Display name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Specify which object like User Object,Computer Object,etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DATA_TYPE">
+				<description>Attribute Data type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>Specifies mandatory attributes for all IAMApps</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMProductAttributes_PK">
+			<primary-key-column>ATTRIB_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSIAMADAttributes">
+		<description>
+			<![CDATA[
+				Holds AD attributes which is to support IAMApp Features
+			]]>
+		</description>
+		<columns>
+			<column name="ATTRIB_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMADAttributes.ATTRIB_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ATTRIB_NAME">
+				<description>Name of the attribute.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Attribute Display name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Specify which object like User Object,Computer Object,etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DATA_TYPE">
+				<description>Attribute Data type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_CUSTOM">
+				<description>Specifies whether custom attributes or AD-Defined attributes</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>Specifies mandatory attributes for all IAMApps</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+			<column name="DATA_HANDLER_TYPE">
+				<description>This type is used while updating the Attributes.</description>
+				<data-type>BIGINT</data-type>
+				<default-value>1</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_MULTI_VALUED"> 
+  	            <description>Weather attribute is multivalued.</description>
+ 	            <data-type>BOOLEAN</data-type>
+  	            <default-value>false</default-value>
+  	            <nullable>false</nullable> 
+  	       </column>
+  	       <column name="IS_RANGED"> 
+  	              <description>Weather attribute is Ranged.</description>
+ 	              <data-type>BOOLEAN</data-type>
+  	              <default-value>false</default-value>
+  	              <nullable>false</nullable> 
+  	       </column>
+  	       <column name="IS_FORWARD_LINKED"> 
+  	              <description>Weather attribute has frontlink.</description>
+ 	              <data-type>BOOLEAN</data-type>
+  	              <default-value>false</default-value>
+  	              <nullable>false</nullable> 
+  	       </column>
+  	       <column name="IS_BACK_LINKED"> 
+  	              <description>Weather attribute has backlink.</description>
+ 	              <data-type>BOOLEAN</data-type>
+  	              <default-value>false</default-value>
+  	              <nullable>false</nullable> 
+  	       </column>
+		</columns>
+		<primary-key name="ADSIAMADAttributes_PK">
+			<primary-key-column>ATTRIB_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSIAMGoogleAttributes">
+		<description>
+			<![CDATA[
+				Holds Google attributes which is to support IAMApp Features
+			]]>
+		</description>
+		<columns>
+			<column name="ATTRIB_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMGoogleAttributes.ATTRIB_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ATTRIB_NAME">
+				<description>Name of the attribute.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Attribute Display name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Specify which object like User Object,Computer Object,etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DATA_TYPE">
+				<description>Attribute Data type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_CUSTOM">
+				<description>Specifies whether custom attributes or Google-Defined attributes</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>Specifies mandatory attributes for all IAMApps</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMGoogleAttributes_PK">
+			<primary-key-column>ATTRIB_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSIAMO365Attributes">
+		<description>
+			<![CDATA[
+				Holds AD attributes which is to support IAMApp Features
+			]]>
+		</description>
+		<columns>
+			<column name="ATTRIB_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMO365Attributes.ATTRIB_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ATTRIB_NAME">
+				<description>Name of the attribute.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Attribute Display name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Specify which object like User Object,Computer Object,etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DATA_TYPE">
+				<description>Attribute Data type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_CUSTOM">
+				<description>Specifies whether custom attributes or O365-Defined attributes</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>Specifies mandatory attributes for all IAMApps</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMO365Attributes_PK">
+			<primary-key-column>ATTRIB_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSIAMAttributeMapping">
+		<description>
+			<![CDATA[
+				Holds AD attributes which is to support IAMApp Features
+			]]>
+		</description>
+		<columns>
+			<column name="ATTR_MAPPING_ID">
+				<description>Unique ID.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIAMAttributeMapping.ATTR_MAPPING_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="PRODUCT_ATTRIB_ID">
+				<description>Product attributes of IAMApp attributes</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="APP_ID">
+				<description>IAMApp ID to which attribute gets mapping</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="APP_ATTRIB_ID">
+				<description>IAMApp attribute Id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMAttributeMapping_PK">
+			<primary-key-column>ATTR_MAPPING_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMApplications" name="ADSIAMAttributeMapping1_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSIAMProductAttributes" name="ADSIAMAttributeMapping2_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>PRODUCT_ATTRIB_ID</fk-local-column>
+						<fk-reference-column>ATTRIB_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<!-- Tables related to IAM Account Mapping -->
+	<table name="ADSIAMAccMapping">	 
+         <description>	 
+         <![CDATA[	 
+         Contains the details about the account mapping for providers
+                 ]]>	 
+		</description>	 
+		<columns>	  
+			<column name="APP_CONFIG_ID">	 
+			     <description>provider id</description>	 
+			     <data-type>BIGINT</data-type>	 
+			     <nullable>false</nullable>	 
+			</column>	
+			<column name="ATTRIB_ID">	 
+			     <description>AD attribute id or special characters</description>	 
+			     <data-type>BIGINT</data-type>
+			     <nullable>false</nullable>	 
+			</column> 
+			<column name="PRIORITY">	 
+			    <description>attribute priority</description>	 
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>	 
+		</columns>	 
+        <primary-key name="ADSIAMAccMapping_PK">
+			<primary-key-column>APP_CONFIG_ID</primary-key-column>
+			<primary-key-column>PRIORITY</primary-key-column>
+		</primary-key>	
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMAppConfig" name="ADSIAMAccMapping_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_CONFIG_ID</fk-local-column>
+						<fk-reference-column>APP_CONFIG_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSIAMADAttributes" name="ADSIAMAccMapping_FK2">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ATTRIB_ID</fk-local-column>
+						<fk-reference-column>ATTRIB_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<!-- Tables related to IAM Application properties -->
+	<table name="ADSIAMApplicationsProps">
+	<description>
+			<![CDATA[
+				Holds Miscelleneous details of IAMApp Application
+			]]>
+		</description>
+		<columns>
+			<column name="APP_ID">
+				<description>Applicaiton Id which mapped to its properties</description>			
+				<data-type>BIGINT</data-type>
+			     <nullable>false</nullable>	 				
+			</column>
+			<column name="SUPPORTED_OPERATIONS_BIT">
+				<description>flag determines an application able to perform saml sso (1) ,password sync (2) operations</description>
+			     <data-type>BIGINT</data-type>	 
+			     <nullable>false</nullable>
+			</column>		
+			<column name="CONFIG_BIT">
+				<description>flag determines an application configuration required to saml url needed(1) ,domain or subdomain needed(2) or ACS URL needed or Entity ID required for configuration</description>
+			     <data-type>BIGINT</data-type>	 
+			     <nullable>true</nullable>
+			</column>		
+			<column name="APP_TITLE">
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<default-value>App title</default-value>
+				<nullable>true</nullable>
+			</column>						
+			<column name="DOMAIN_LABEL">
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="DEFAULT_SAML_URL">
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>	
+			<column name="APP_WARNING_MSG">
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>			
+			<column name="ATTRIB_REQ_SAML_RESPONSE">
+				<description>List of attrbutes have to be placed in saml response</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="EXCLUDE_HOSTNAME">
+				<description>Specifies hostname to be appended or not as login name for an iam app</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>	
+			<column name="DEFAULT_ACS_URL">
+				<description>Specifies DEFAULT_ACS_URL</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>	
+			<column name="DEFAULT_ENTITY_ID">
+				<description>Specifies DEFAULT_ENTITY_ID</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="SHA_METHOD">
+				<data-type>NCHAR</data-type>
+				<max-size>50</max-size>
+				<default-value>SHA1</default-value>
+				<nullable>true</nullable>
+			</column>			
+			<column name="SIGNED_SAML_RESPONSE">
+				<description>Indicates whether SAML Response has to be signed or not</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="CATEGORY_ID">
+				<data-type>BIGINT</data-type>
+			    <nullable>true</nullable>	
+			</column>	
+			<column name="ACC_MAPPING_ATTRIBUTE">
+				<description>Specifies ACC_MAPPING_ATTRIBUTE</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_IDP_INITIATED_FLOW">
+				<description>Specifies IS_IDP_INITIATED_FLOW or not</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_CUSTOM_SAML_APP">
+				<description>Specifies IS_CUSTOM_SAML_APP or not</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="TARGET_ATTRIBUTES">
+				<description>List of attrbutes supported for Password Sync</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+        <primary-key name="ADSIAMApplicationsProps_PK">
+			<primary-key-column>APP_ID</primary-key-column>
+		</primary-key>			
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMApplications" name="ADSIAMApplicationsPropsMapping_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_ID</fk-local-column>
+						<fk-reference-column>APP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>			
+	</table>
+	
+	
+	<table name="ADSIAMApplicationsCategory">
+	<description>
+			<![CDATA[
+				Holds Miscelleneous details of IAMApp Application
+			]]>
+		</description>
+		<columns>
+			<column name="CATEGORY_ID">
+				<description>Applicaiton Category Id which mapped to its properties</description>			
+				<data-type>BIGINT</data-type>
+			    <nullable>false</nullable>	 				
+			</column>
+			<column name="CATEGORY_NAME">
+				<description>Category Name for Applications</description>
+			    <data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>	
+			<column name="DISPLAY_NAME">
+				<description>Display Name for Applications</description>
+			    <data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>	
+		</columns>
+			 <primary-key name="ADSIAMApplicationsCategory_PK">
+				<primary-key-column>CATEGORY_ID</primary-key-column>
+			</primary-key>	
+	</table>
+		 <table name="ADSIAMIDPAuthType">
+			<description>Hold supported IDP Authentication type ( like SAML, OAuth )</description>
+			<columns>
+				<column name="AUTH_TYPE_ID">
+					<description>Unique distinguisher of IDP Authentication type</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+					<uniquevalue-generation><generator-name>ADSIAMIDPAuthType.AUTH_TYPE_ID</generator-name></uniquevalue-generation>
+				</column>
+				<column name="AUTH_TYPE">
+					<description>Defines type of authentication like SAML - for SAML login, OAuth - for Oauth login</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_LOGIN_URL">
+					<description>Login URL which is invoked by Identity provider(like Okta) pattern</description>
+					<data-type>NCHAR</data-type>
+					<max-size>500</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_LOGOUT_URL">
+					<description>Logout URL which is invoked by Identity provider(like Okta) pattern</description>
+					<data-type>NCHAR</data-type>
+					<max-size>500</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_ERROR_URL">
+					<description>Error URL which is invoked when saml flow</description>
+					<data-type>NCHAR</data-type>
+					<max-size>500</max-size>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_CLASS_NAME">
+					<description>Authenticator class would do the authentication</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<default-value>-</default-value>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_RULE">
+					<description>PAM authentication which has to be used to perform product login.</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<default-value>-</default-value>
+					<nullable>false</nullable>
+				</column>
+			</columns>
+			<primary-key name="ADSIAMIDPAuthType_PK">
+				<primary-key-column>AUTH_TYPE_ID</primary-key-column>
+			</primary-key>
+		 </table>
+		 <table name="ADSIAMIDPAuthenticators">
+			<description></description>
+			<columns>
+				<column name="IDP_AUTHENTICATOR_ID">
+					<description>Unique id of each authenticators(okta,onelogin and others)</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+					<uniquevalue-generation><generator-name>ADSIAMIDPAuthenticators.IDP_AUTHENTICATOR_ID</generator-name></uniquevalue-generation>
+				</column>
+				<column name="IDP_AUTHENTICATOR">
+					<description>Supported Identity provider name</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<default-value>-</default-value>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_TYPE_ID">
+					<description>ID of auth type denotes authentication is SAML or OAuth</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+				</column>
+				<column name="ICON_STYLE">
+					<description>Name of the image icon for the provider.</description>
+					<data-type>NCHAR</data-type>
+					<max-size>250</max-size>
+					<unique>false</unique>
+				</column>
+			</columns>
+			<primary-key name="ADSIAMIDPAuthenticators_PK">
+				<primary-key-column>IDP_AUTHENTICATOR_ID</primary-key-column>
+			</primary-key>
+			<foreign-keys>
+				<foreign-key reference-table-name="ADSIAMIDPAuthType" name="ADSIAMIDPAuthenticatorsMapping_FK">
+					<fk-columns>
+						<fk-column>
+							<fk-local-column>AUTH_TYPE_ID</fk-local-column>
+							<fk-reference-column>AUTH_TYPE_ID</fk-reference-column>
+						</fk-column>
+					</fk-columns>
+					<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+				</foreign-key>
+			</foreign-keys>		
+		 </table>
+	<table name="ADSIAMIDPMappingAttributes">
+		<description></description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique id of the Mapping attribute</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation><generator-name>ADSIAMIDPMappingAttributes.UNIQUE_ID</generator-name></uniquevalue-generation>
+			</column>
+			<column name="MAPPING_ATTRIBUTE_NAME">
+				<description>Name of the Mapping Attribute for SAML</description>
+				<data-type>NCHAR</data-type>
+				<max-size>255</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMIDPMappingAttributes_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+	</table>
+		 <table name="ADSIAMIDPAuthConfig">
+			<description>Holds all configuration details of each other IDP login</description>
+			<columns>
+				<column name="AUTH_CONFIG_ID">
+					<description>Unique id of other identity providers login configurations.</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+					<uniquevalue-generation><generator-name>ADSIAMIDPAuthConfig.AUTH_CONFIG_ID</generator-name></uniquevalue-generation>
+				</column>
+				<column name="URL_CONFIG_ID">
+					<description>Unique config id will be appended in Login/Logout URL</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<default-value>-</default-value>
+					<nullable>false</nullable>
+				</column>
+				<column name="IDP_AUTHENTICATOR_ID">
+					<description>ID of auth type denotes authentication is SAML or OAuth</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+				</column>
+				<column name="AUTH_MODE_BIT">
+					<description>Maintain which authentication mode bit value has configured (Login/MFA?TFA)</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+				</column>
+				<column name="IS_ENABLED">
+					<description>To check the status of the configuration</description>
+					<data-type>BOOLEAN</data-type>
+					<default-value>false</default-value>
+					<nullable>false</nullable>
+				</column>
+			</columns>
+			<primary-key name="ADSIAMIDPAuthConfig_PK">
+				<primary-key-column>AUTH_CONFIG_ID</primary-key-column>
+			</primary-key>
+			<foreign-keys>
+				<foreign-key reference-table-name="ADSIAMIDPAuthenticators" name="ADSIAMIDPAuthConfigMapping_FK">
+					<fk-columns>
+						<fk-column>
+							<fk-local-column>IDP_AUTHENTICATOR_ID</fk-local-column>
+							<fk-reference-column>IDP_AUTHENTICATOR_ID</fk-reference-column>
+						</fk-column>
+					</fk-columns>
+					<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+				</foreign-key>
+			</foreign-keys>				
+		 </table>
+		 <table name="ADSIAMIDPAuthConfigParams">
+			<description>Hold extra parameters for each IDP authenticator configuration.</description>
+			<columns>
+				<column name="AUTH_CONFIG_ID">
+					<description>Unique id of other identity providers login configurations.</description>
+					<data-type>BIGINT</data-type>
+					<nullable>false</nullable>
+					<uniquevalue-generation><generator-name>ADSIAMIDPAuthConfigParams.AUTH_CONFIG_ID</generator-name></uniquevalue-generation>
+				</column>
+				<column name="PARAM_NAME">
+					<description>Name of the parameter for Config.</description>
+					<data-type>NCHAR</data-type>
+					<max-size>255</max-size>
+					<default-value>-</default-value>
+					<nullable>false</nullable>
+				</column>
+				<column name="PARAM_VALUE">
+					<description>Value of the parameter for Config.</description>
+					<data-type>NCHAR</data-type>
+					<max-size>5000</max-size>
+					<nullable>false</nullable>
+				</column>
+			</columns>
+			<primary-key name="ADSIAMIDPAuthConfigParams_PK">
+				<primary-key-column>AUTH_CONFIG_ID</primary-key-column>
+				<primary-key-column>PARAM_NAME</primary-key-column>
+			</primary-key>
+			<foreign-keys>
+				<foreign-key reference-table-name="ADSIAMIDPAuthConfig" name="ADSIAMIDPAuthConfigParams_FK">
+					<fk-columns>
+						<fk-column>
+							<fk-local-column>AUTH_CONFIG_ID</fk-local-column>
+							<fk-reference-column>AUTH_CONFIG_ID</fk-reference-column>
+						</fk-column>
+					</fk-columns>
+					<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+				</foreign-key>
+			</foreign-keys>
+		 </table>
+		 <table name="ADSIAMIDPSAMLReqEntries">
+		<description>
+			<![CDATA[
+			To specify the other parameters needed to store the provider informations like port number etc.
+			]]>
+		</description>
+		<columns>
+			<column name="REQUEST_ID">
+				<description>Unique REQUEST_ID for each SAML Request generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="LOGIN_ID">
+				<description>Unique identifier for each login id instance in AAALogin</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="OPERATION">
+				<description>Operation Type for each SAML Request generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="PARAMS">
+				<description>Params added for other login session/bean details</description>
+				<data-type>SCHAR</data-type>
+				<max-size>5000</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="EXPIRY_TIME">
+				<description>Session expiry time</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMIDPSAMLReqEntries_PK">
+			<primary-key-column>REQUEST_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="AaaLogin" name="ADSIAMIDPSAMLReqEntries_FK1">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>LOGIN_ID</fk-local-column>
+						<fk-reference-column>LOGIN_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSIAMIDPSAMLLogoutReqEntries">
+		<description>
+			<![CDATA[To add saml logout request id for auto-sign out handling. For each SAML Logout Request generated request ID is being recorded for loading the buffer for force logout from the product]]>
+		</description>
+		<columns>
+			<column name="REQUEST_ID">
+				<description>Unique REQUEST_ID for each SAML Logout Request generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="IDP_AUTHENTICATOR">
+				<description>IDP Authenticator for whom SAML Logout Request generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIAMIDPSAMLogoutReqEntries_PK">
+			<primary-key-column>REQUEST_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<!-- Tables related to IAM Account Mapping -->
+	<table name="ADSIAMAppAttribMapping">	 
+         <description>	 
+         <![CDATA[	 
+         Contains the details about the account mapping for providers
+                 ]]>	 
+		</description>	 
+		<columns>	  
+			<column name="APP_CONFIG_ID">	 
+			     <description>provider id</description>	 
+			     <data-type>BIGINT</data-type>	 
+			     <nullable>false</nullable>	 
+			</column>	
+			<column name="APP_ATTRIBUTE_ID">	 
+			     <description>Applications attribute id or special characters</description>	 
+			     <data-type>BIGINT</data-type>
+			     <nullable>false</nullable>	 
+			</column> 
+			<column name="PRIORITY">	 
+			    <description>attribute priority</description>	 
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>	
+		</columns>	 
+        <primary-key name="ADSIAMAppAttribMapping_PK">
+			<primary-key-column>APP_CONFIG_ID</primary-key-column>
+			<primary-key-column>PRIORITY</primary-key-column>
+		</primary-key>	
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSIAMAppConfig" name="ADSIAMAppAttribMapping_FK">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>APP_CONFIG_ID</fk-local-column>
+						<fk-reference-column>APP_CONFIG_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+</data-dictionary>
+
+<!--$Id$ -->

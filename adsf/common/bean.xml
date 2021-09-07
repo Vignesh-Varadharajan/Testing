@@ -1,0 +1,5 @@
+<beans>
+
+  <Bean bean_id="Bean:bean_id:ADSRelationalAPI" bean_name="ADSRelationalAPI" module_id="adsf" classname="com.manageengine.ads.fw.common.db.ADSRelationalAPIImpl"></Bean>
+
+</beans>

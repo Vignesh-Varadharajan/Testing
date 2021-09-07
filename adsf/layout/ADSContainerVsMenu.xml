@@ -1,0 +1,9 @@
+<!--$Id$-->
+<ContainerVsMenu>
+
+    <!--ADMP Containers-->
+    <ADSContainerVsMenu CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:1" MENU_ID="ADSMenu:MENU_ID:1" PRIORITY_ID="1"/>
+    <ADSContainerVsMenu CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:2" MENU_ID="ADSMenu:MENU_ID:1" PRIORITY_ID="1"/>
+    <ADSContainerVsMenu CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:3" MENU_ID="ADSMenu:MENU_ID:1" PRIORITY_ID="1"/>
+    
+</ContainerVsMenu>

@@ -1,0 +1,30 @@
+<!--$Id$-->
+<TableConfigurations>
+    <ADSUITableDetails TABLEID="ADSUITableDetails:TABLEID:USER_ROLES_TABLE_MODEL" NAME="USER_ROLES_TABLE_MODEL" DESCRIPTION="User Roles"
+                       DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.delegation.role.UserRolesTableModel">
+
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:USER_ROLES_TABLE_MODEL_ROLE_ID"
+                                   COLUMNNAME="ROLE_ID" DISPLAY_KEY="ads.user_roles_table_model.role_id" ISSORTABLE="0" COLUMN_TABLENAME="ADSRoles" CLASS="hidden"
+                                   COLUMN_DISPLAY_TYPE="FIXED" CUSTOMEXPRESSION="{}" Index="-1"/>
+
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:USER_ROLES_TABLE_MODEL_ACTIONS"
+                                   COLUMNNAME="ACTIONS" DISPLAY_KEY="ads.user_roles_table_model.role_actions" COLUMN_TABLENAME="ADSRoles"
+                                   COLUMN_DISPLAY_TYPE="FIXED" CUSTOMEXPRESSION='{"COMPONENT":{"NAME":"delegation/user-roles/role-table-action"}}'
+                                   INDEX="0" IS_PSEUDO="TRUE" ISHTML="3" ISSORTABLE="0"/>
+
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:USER_ROLES_TABLE_MODEL_NAME"
+                                   COLUMNNAME="ROLE_NAME" DISPLAY_KEY="ads.user_roles_table_model.role_name" COLUMN_TABLENAME="ADSRoles" COLUMN_DISPLAY_TYPE="FIXED" CUSTOMEXPRESSION='{"TOOLTIP_TRUNCATE":"30"}'
+                                   INDEX="1" ISSORTABLE="1"/>
+
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:USER_ROLES_TABLE_MODEL_DESCRIPTION"
+                                   COLUMNNAME="ROLE_DESCRIPTION" DISPLAY_KEY="ads.user_roles_table_model.role_description" COLUMN_TABLENAME="ADSRoles"
+                                   COLUMN_DISPLAY_TYPE="FIXED" CUSTOMEXPRESSION='{"TOOLTIP_TRUNCATE":"100"}'
+                                   INDEX="2" ISSORTABLE="0" CLASS="fw-text-ellipsis"/>
+
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:USER_ROLES_TABLE_MODEL_ASSD_TECHNICIANS"
+                                   COLUMNNAME="ASSOCIATED_TECHNICIANS" DISPLAY_KEY="ads.user_roles_table_model.associated_technicians" COLUMN_TABLENAME="ADSRoles"
+                                   COLUMN_DISPLAY_TYPE="FIXED" CUSTOMEXPRESSION='{"ColumnAction":"showAssociatedUsers"}'
+                                   INDEX="3" IS_PSEUDO="TRUE" CLASS="static-link" ISSORTABLE="0"/>
+
+    </ADSUITableDetails>
+</TableConfigurations>

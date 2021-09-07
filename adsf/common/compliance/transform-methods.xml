@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!-- $Id $ -->
+<PredefinedTransformMethodMapping>
+
+    <!-- table table conversion mapping Starts-->
+
+    <!-- ComplianceTableNameConstants related transforms -->
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1000" CLASS="com.manageengine.ads.fw.common.compliance.table.transformer.CommonConfigTransformer" METHOD="getCompliancePolicyAction" DEFAULT_ARGS="CompliancePolicy.LAYOUT_ID" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1001" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findLocaleString" DEFAULT_ARGS="ADSLayout.LAYOUT_NAME" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1002" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findLocaleString" DEFAULT_ARGS="CompliancePolicy.DESCRIPTION" />
+
+    <!-- Schedule related transforms -->
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:2000" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findExportFrequency" DEFAULT_ARGS="ExportScheduleConfigurations.EXPORT_FREQUENCY" />
+
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:2001" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="convertScheduleTimeFormat" DEFAULT_ARGS="Task_Input.SCHEDULE_TIME" />
+
+    <!-- Time conversion for schedule-->
+
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:3001" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="convertTimeFormat" DEFAULT_ARGS="ExportScheduleHistory.EXPORT_START_TIME"/>
+
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:3002" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="convertTimeFormat" DEFAULT_ARGS="ExportScheduleHistory.EXPORT_END_TIME"/>
+
+    <!-- table table conversion mapping Ends-->
+
+</PredefinedTransformMethodMapping>

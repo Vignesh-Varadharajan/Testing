@@ -1,0 +1,966 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[compliance Related tables]]>
+    </description>
+
+    <!-- ComplianceTableNameConstants related table starts -->
+
+    <table name="CompliancePolicy">
+        <description>
+            <![CDATA[Compliance Policies]]>
+        </description>
+        <columns>
+            <column name="POLICY_ID">
+                <description>A unique id for each compliance</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>CompliancePolicy.POLICY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="LAYOUT_ID">
+                <description>A unique id for each compliance in ADSLayout</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="DESCRIPTION">
+                <description>Description of the compliance</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="IS_PREDEFINED">
+                <description>0- Custom 1- Predefined</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+
+            <column name="IS_ENABLED">
+                <description>0- Disabled 1- Enabled</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+
+        </columns>
+        <primary-key name="CompliancePolicy_PK">
+            <primary-key-column>POLICY_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="CompliancePolicy_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="CompliancePolicyAct">
+        <description>
+            <![CDATA[Compliance Act]]>
+        </description>
+        <columns>
+            <column name="ACT_ID">
+                <description>A unique id for each compliance act</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>CompliancePolicyAct.ACT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="POLICY_ID">
+                <description>A unique id for each compliance</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="ACT_NAME">
+                <description>Name of the compliance act</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="DESCRIPTION">
+                <description>Description of the compliance act</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="CompliancePolicyAct_PK">
+            <primary-key-column>ACT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="CompliancePolicyAct_FK1" reference-table-name="CompliancePolicy">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>POLICY_ID</fk-local-column>
+                        <fk-reference-column>POLICY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints> <!-- Need to check if this has to be given -->
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceTabs">
+        <description>
+            <![CDATA[Compliance Tabs used in manage compliance]]>
+        </description>
+        <columns>
+            <column name="TAB_ID">
+                <description>A unique id for each compliance tab</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ComplianceTabs.TAB_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="TAB_NAME">
+                <description>Name to identify the tab</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+
+            <column name="ORDER">
+                <description>Order for the tab. It is used while displaying in Manage compliance</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="SOURCE_SELECTION">
+                <description>Source Selector for each tab. Eg. domainList / dropdownList / deviceList</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="SELECTOR_DISPLAY_NAME">
+                <description>Text to be displayed for selecting criteria. Eg. Select Devices</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+        </columns>
+        <primary-key name="ComplianceTabs_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ComplianceReportGroup">
+        <description>
+            <![CDATA[Compliance Report groups]]>
+        </description>
+        <columns>
+            <column name="COMPONENT_ID">
+                <description>A Group id for each report group mapped from ADSLayoutContainers</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="PRODUCT_ID">
+                <description>Product from which the report is to be fetched</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="SUB_HEAD_NAME">
+                <description>Sub head name for manage compliance</description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="CRITERIA_NAME">
+                <description>Incase of multiple criterias from a product. Sent along with criteria request. For ex, Active Directory tab get domain list from ADAP and workgroup tab gets workgroup list from ADAP</description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="IS_ENABLED">
+                <description>To show only enabled report groups in compliance. For example, Juniper reports will be shown only when juniper device is added in ELA</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="GRAPH_TYPE">
+                <description>Product from which the report is to be fetched</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+                <default-value>BAR</default-value>
+                <nullable>false</nullable>
+                <allowed-values>
+                    <value>BAR</value>
+                    <value>PIE</value>
+                    <value>COLUMN</value>
+                    <value>LINE</value>
+                    <value>MULTI_BAR</value>
+                    <value>MULTI_COLUMN</value>
+                </allowed-values>
+            </column>
+
+            <column name="SCHEDULED_EXPORT_CRITERIA_TYPE">
+                <description>Separate request needs to be sent during export in case of scheduled export, for multiple domains. Single request in case of ELA, for all devices.</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <default-value>MULTIPLE_REQUEST</default-value>
+                <nullable>false</nullable>
+                <allowed-values>
+                    <value>SINGLE_REQUEST</value>
+                    <value>MULTIPLE_REQUEST</value>
+                </allowed-values>
+            </column>
+
+            <column name="DESCRIPTION">
+                <description>Group description of the compliance report</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportGroup_PK">
+            <primary-key-column>COMPONENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportGroup_FK1" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints> <!-- Need to check if this has to be given -->
+            </foreign-key>
+            <foreign-key name="ComplianceReportGroup_FK2" reference-table-name="ADSModuleVsComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportDetails">
+        <description>
+            <![CDATA[Compliance report details]]>
+        </description>
+        <columns>
+            <column name="REPORT_ID">
+                <description>A unique id for each compliance report</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ComplianceReportDetails.REPORT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="COMPONENT_ID">
+                <description>A Group id for each report group mapped from ADSLayoutContainers</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="REPORT_NAME">
+                <description>Report name in log360</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="PRODUCT_REPORT_NAME">
+                <description>Report name in product</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+        </columns>
+        <primary-key name="ComplianceReportDetails_PK">
+            <primary-key-column>REPORT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportDetails_FK1" reference-table-name="ComplianceReportGroup">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportVsFields">
+        <description>
+            <![CDATA[Compliance report field details]]>
+        </description>
+        <columns>
+            <column name="MAP_ID">
+                <description>A unique id for each compliance report field</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ComplianceReportVsFields.MAP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="REPORT_ID">
+                <description>A unique id for each compliance report</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="ADSFIELD_ID">
+                <description>A unique id for each Field</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+			<column name="DISPLAY_NAME">
+				<description>Field display name from properties</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+
+
+            <column name="IS_VIEW_FIELD">
+                <description>0- deselected 1- selected</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+
+            <column name="ORDER">
+                <data-type>INTEGER</data-type>
+                <default-value>10</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportVsFields_PK">
+            <primary-key-column>MAP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportVsFields_FK1" reference-table-name="ComplianceReportDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportVsFields_FK2" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ADSFIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportGraphDetails">
+        <description>
+            <![CDATA[Compliance report graph details]]>
+        </description>
+        <columns>
+            <column name="REPORT_ID">
+                <description>A unique id for each compliance report</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="REPORT_GRAPH_TYPE">
+                <description>Product from which the report is to be fetched</description>
+                <data-type>CHAR</data-type>
+                <max-size>20</max-size>
+                <default-value>BAR</default-value>
+                <nullable>false</nullable>
+                <allowed-values>
+                    <value>BAR</value>
+                    <value>PIE</value>
+                    <value>COLUMN</value>
+                </allowed-values>
+            </column>
+
+            <column name="X_COLUMN">
+                <description>x column name in graph</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+
+            <column name="Y_COLUMN">
+                <description>y column name in graph</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+
+            <column name="GRAPH_COLOUR">
+                <description>Report graph colour of the compliance report</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+                <default-value>#2d7093</default-value>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="IS_REPORT_GRAPH_AVAILABLE">
+                <description>Graph is not present for some reports. For ex reports from o365. 0- false 1- true</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportGraphDetails_PK">
+            <primary-key-column>REPORT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportGraphDetails_FK1" reference-table-name="ComplianceReportDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportGroupVsTab">
+        <description>
+            <![CDATA[Compliance report group which should be present under a particular tab is mapped]]>
+        </description>
+        <columns>
+            <column name="COMPONENT_ID">
+                <description>A unique id for each compliance act</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="TAB_ID">
+                <description>A unique id for each compliance act</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportGroupVsTab_PK">
+            <primary-key-column>COMPONENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportGroupVsTab_FK1" reference-table-name="ComplianceReportGroup">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportGroupVsTab_FK2" reference-table-name="ComplianceTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="CompliancePolicyActToGroup">
+        <description>
+            <![CDATA[Compliance act to group mapping]]>
+        </description>
+        <columns>
+            <column name="ACT_ID">
+                <description>A unique id for each compliance act</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="COMPONENT_ID">
+                <description>A unique id for group</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="CompliancePolicyActToGroup_PK">
+            <primary-key-column>ACT_ID</primary-key-column>
+            <primary-key-column>COMPONENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="CompliancePolicyActToGroup_FK1" reference-table-name="CompliancePolicyAct">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ACT_ID</fk-local-column>
+                        <fk-reference-column>ACT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="CompliancePolicyActToGroup_FK2" reference-table-name="ADSModuleVsComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportGroupCriteria">
+        <description>
+            <![CDATA[Compliance Criteria for report group]]>
+        </description>
+        <columns>
+            <column name="COMPONENT_ID">
+                <description>Report group id from ADSModuleVsComponent</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="LAYOUT_ID">
+                <description>Report id from ComplianceReportDetails</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="REPORT_CRITERIA">
+                <description>Report criteria</description>
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportGroupCriteria_PK">
+            <primary-key-column>COMPONENT_ID</primary-key-column>
+            <primary-key-column>LAYOUT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportGroupCriteria_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportGroupCriteria_FK1" reference-table-name="ADSModuleVsComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceCategoryCriteria">
+        <description>
+            <![CDATA[Compliance Criteria for tab]]>
+        </description>
+        <columns>
+            <column name="TAB_ID">
+                <description>Report id from ComplianceReportDetails</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="LAYOUT_ID">
+                <description>Report id from ComplianceReportDetails</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="REPORT_CRITERIA">
+                <description>Report criteria</description>
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceCategoryCriteria_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+            <primary-key-column>LAYOUT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceCategoryCriteria_FK1" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceCategoryCriteria_FK2" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceAdditionalCriteriaComponent">
+        <description>
+            <![CDATA[Compliance Report Group additional criteria component like users and OUs in table view]]>
+        </description>
+        <columns>
+            <column name="CRITERIA_COMPONENT_ID">
+                <description>A unique id for each compliance additional criteria component</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ComplianceAdditionalCriteriaComponent.CRITERIA_COMPONENT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="CRITERIA_UI_COMPONENT_TYPE">
+                <description>A type of component to be displayed in UI</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+                <allowed-values>
+                    <value>TABLE</value>
+                    <value>DROPDOWN</value>
+                    <value>TEXT_BOX</value>
+                    <value>MULTI_SELECT</value>
+                    <value>LIST_OR_TREE</value>
+                </allowed-values>
+            </column>
+
+            <column name="ADDITIONAL_REQUEST_PARAMETERS">
+                <description>Additional arguments that needs to be used while fetching criteria data from request</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="REQUIRED_DATA">
+                <description>Additional arguments that needs to be used while fetching criteria data</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="CRITERIA_DATA_SOURCE">
+                <description>Component display name from properties</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+                <allowed-values>
+                    <value>USER_INPUT</value><!-- Values will be fed from user in case of text box type which will be from user-->
+                    <value>DATABASE</value><!-- Values will be fetched from ComplianceAdditionalCriteriaFields-->
+                    <value>TABLE_MODEL</value><!-- Values will be fetched from GetTableData servlet-->
+                    <value>PRODUCT_REQUEST</value><!-- Values will be fetched from ComplianceCriteriaHandler-->
+                </allowed-values>
+            </column>
+
+            <column name="PRODUCT_ID">
+                <description>Product from which the component is to be fetched</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="CRITERIA_COMPONENT_NAME">
+                <description>Component display name from properties</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceAdditionalCriteriaComponent_PK">
+            <primary-key-column>CRITERIA_COMPONENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceAdditionalCriteriaComponent_FK1" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Report group Vs criteria componentId -->
+    <table name="ComplianceReportGroupVsCriteriaComponent">
+        <description><![CDATA[Report group to criteria component mapping]]></description>
+        <columns>
+            <column name="COMPONENT_ID">
+                <description>Report group Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="CRITERIA_COMPONENT_ID">
+                <description>Criteria Component Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="ORDER">
+                <description>Display order of the component</description>
+                <data-type>BIGINT</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="CRITERIA_MULTI_GROUP_NAME">
+                <description>Component group if needed</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="PARENT_COMPONENT_NAME">
+                <description>Parent Component name to select additional criteria</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportGroupVsCriteriaComponent_PK">
+            <primary-key-column>COMPONENT_ID</primary-key-column>
+            <primary-key-column>CRITERIA_COMPONENT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportGroupVsCriteriaComponent_FK" reference-table-name="ComplianceReportGroup">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportGroupVsCriteriaComponent_FK1" reference-table-name="ComplianceAdditionalCriteriaComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CRITERIA_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>CRITERIA_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceAdditionalCriteriaFields">
+        <description>
+            <![CDATA[Compliance Report Group additional criteria like users and OUs in table view]]>
+        </description>
+        <columns>
+            <column name="CRITERIA_FIELD_ID">
+                <description>A unique id for each compliance additional criteria field</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ComplianceAdditionalCriteriaFields.CRITERIA_FIELD_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+
+            <column name="CRITERIA_COMPONENT_ID">
+                <description>A unique id for each compliance additional criteria field</description>
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="FIELD_NAME">
+                <description>Field name</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="DISPLAY_NAME">
+                <description>Field display name from properties</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="ID_COLUMN">
+                <description>Id columns are not displayed in UI. But used to specify values in DB</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>FALSE</default-value>
+            </column>
+
+            <column name="IS_SEARCHABLE">
+                <description>Fields for searching values.</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>FALSE</default-value>
+            </column>
+
+            <column name="ORDER">
+                <data-type>INTEGER</data-type>
+                <default-value>10</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceAdditionalCriteriaFields_PK">
+            <primary-key-column>CRITERIA_FIELD_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceAdditionalCriteriaFields_FK1" reference-table-name="ComplianceAdditionalCriteriaComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CRITERIA_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>CRITERIA_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ComplianceReportUserSelectedFields">
+        <columns>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ORDER">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceReportUserSelectedFields_PK">
+            <primary-key-column>FIELD_ID</primary-key-column>
+            <primary-key-column>USER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ComplianceReportUserSelectedFields_FK" reference-table-name="ComplianceReportDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportUserSelectedFields_FK1" reference-table-name="ComplianceReportVsFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ComplianceReportUserSelectedFields_FK2" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSComplianceExportModes">
+        <description>Storing compliance export modes</description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSComplainceExportModes.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>Display Name for Export</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="EXPORT_MODE">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSComplianceExportModes_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSComplianceVsCountry">
+        <description>Storing country based compliance details</description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSComplianceVsCountry.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="COUNTRY_ID">
+                <description>Identifier of the country</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="POLICY_ID">
+                <description>A unique id for each compliance</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_CHECKED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSComplianceVsCountry_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSComplianceVsCountry_FK1" reference-table-name="ADSCountries" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COUNTRY_ID</fk-local-column>
+                        <fk-reference-column>COUNTRY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+            </foreign-key>
+            <foreign-key name="ADSComplianceVsCountry_FK2" reference-table-name="CompliancePolicy" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>POLICY_ID</fk-local-column>
+                        <fk-reference-column>POLICY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+</data-dictionary>
+
+        <!--$Id$ -->

@@ -1,0 +1,7 @@
+<!--$Id$-->
+<LayoutTabs>
+    
+    <ADSLayoutTabs LAYOUT_ID="ADSLayout:LAYOUT_ID:1" TAB_ID="ADSLayoutTabs:TAB_ID:1" TAB_NAME="admp.home.layout.tab.admp"/>
+    <ADSLayoutTabs LAYOUT_ID="ADSLayout:LAYOUT_ID:2" TAB_ID="ADSLayoutTabs:TAB_ID:2" TAB_NAME="admp.home.layout.tab.auditing_ad_aduit"/>
+
+</LayoutTabs>

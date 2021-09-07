@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[ <b>A Short Note On Flow:</b></br> Flow will execute a series of tasks and conditions. ]]>
+    </description>
+
+    <table name="ADSFlowObjectTypes">
+        <columns>
+            <column name="FLOW_OBJECT_TYPE">
+                <description>Flow Object Type</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_OBJECT_CLASS">
+                <description>Flow Object Class</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_OBJECT_TYPE_NAME">
+                <description>Flow Object Type Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_OBJECT_COMPONENT">
+                <description>Flow Object Component</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="FLOW_OBJECT_STYLE_CLASS">
+                <description>Flow Object Style Class</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="SOURCE_NODES">
+                <description>Source Nodes</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TARGET_NODES">
+                <description>Target Nodes</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>Description</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowObjectTypes_PK">
+            <primary-key-column>FLOW_OBJECT_TYPE</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSFlowDetails">
+        <description>
+            <![CDATA[Flow Details]]>
+        </description>
+        <columns>
+            <column name="FLOW_ID">
+                <description>Flow Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFlowDetails.FLOW_TEMPLATE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FLOW_NAME">
+                <description>Flow Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>Description</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="FLOW_TYPE">
+                <description>Flow Type</description>
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ENABLED">
+                <description>Enabled</description>
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <description>Created By</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MODIFIED_BY">
+                <description>Modified By</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_ON">
+                <description>Created On</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MODIFIED_ON">
+                <description>Modified On</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="EXTENDED_PROPERTIES">
+                <description>Extended Properties</description>
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowDetails_PK">
+            <primary-key-column>FLOW_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSFlowObjects">
+        <description>
+            <![CDATA[Flow Details]]>
+        </description>
+        <columns>
+            <column name="UNIQUE_FLOW_OBJECT_ID">
+                <description>Unique Flow Object Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFlowObjects.UNIQUE_FLOW_OBJECT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FLOW_OBJECT_ID">
+                <description>Flow Object Id</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_ID">
+                <description>Flow Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_OBJECT_NAME">
+                <description>Flow Object Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_OBJECT_TYPE">
+                <description>Flow Object Type</description>
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>Description</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="FLOW_OBJECT_CUSTOM_CLASS">
+                <description>Flow Object Custom Class</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="POSITION_X">
+                <description>Position X</description>
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="POSITION_Y">
+                <description>Position Y</description>
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="EXTENDED_PROPERTIES">
+                <description>Extended Properties</description>
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowObjects_PK">
+            <primary-key-column>UNIQUE_FLOW_OBJECT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSFlowObjects_FK" reference-table-name="ADSFlowDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FLOW_ID</fk-local-column>
+                        <fk-reference-column>FLOW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSFlowObjects_FK1" reference-table-name="ADSFlowObjectTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FLOW_OBJECT_TYPE</fk-local-column>
+                        <fk-reference-column>FLOW_OBJECT_TYPE</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSFlowObjectData">
+        <columns>
+            <column name="UNIQUE_FLOW_OBJECT_ID">
+                <description>Unique Flow Object Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PROPERTY_NAME">
+                <description>Property Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>254</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PROPERTY_VALUE">
+                <description>Property Value</description>
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowObjectData_PK">
+            <primary-key-column>UNIQUE_FLOW_OBJECT_ID</primary-key-column>
+            <primary-key-column>PROPERTY_NAME</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSFlowObjectData_FK" reference-table-name="ADSFlowObjects">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>UNIQUE_FLOW_OBJECT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_FLOW_OBJECT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSFlowObjectConnections">
+        <columns>
+            <column name="UNIQUE_FLOW_CONNECTION_ID">
+                <description>Unique Flow Connection Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFlowObjectConnections.UNIQUE_FLOW_CONNECTION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FLOW_ID">
+                <description>Flow Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FLOW_CONNECTION_ID">
+                <description>Flow Connection Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SOURCE_UNIQUE_FLOW_OBJECT_ID">
+                <description>Source Unique Flow Object Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TARGET_UNIQUE_FLOW_OBJECT_ID">
+                <description>Target Unique Flow Object Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="SOURCE_NODE">
+                <description>Source Node</description>
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TARGET_NODE">
+                <description>Target Node</description>
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowObjectConnections_PK">
+            <primary-key-column>UNIQUE_FLOW_CONNECTION_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSFlowObjectConnections_FK" reference-table-name="ADSFlowDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FLOW_ID</fk-local-column>
+                        <fk-reference-column>FLOW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSFlowObjectConnections_FK1" reference-table-name="ADSFlowObjects">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SOURCE_UNIQUE_FLOW_OBJECT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_FLOW_OBJECT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSFlowObjectConnections_FK2" reference-table-name="ADSFlowObjects">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TARGET_UNIQUE_FLOW_OBJECT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_FLOW_OBJECT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSFlowExecutionDetails">
+        <columns>
+            <column name="FLOW_EXECUTION_ID">
+                <description>Flow Execution Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFlowExecutionDetails.FLOW_EXECUTION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FLOW_ID">
+                <description>Flow Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="START_TIME">
+                <description>Start Time</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="END_TIME">
+                <description>End Time</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="STATUS_CODE">
+                <description>Status code</description>
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="STATUS">
+                <description>Status</description>
+                <data-type>NCHAR</data-type>
+                <max-size>4000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="EXTENDED_PROPERTIES">
+                <description>Extended Properties</description>
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowExecutionDetails_PK">
+            <primary-key-column>FLOW_EXECUTION_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSFlowExecutionDetails_FK" reference-table-name="ADSFlowDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FLOW_ID</fk-local-column>
+                        <fk-reference-column>FLOW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSFlowTimers">
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFlowTimers.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FLOW_EXECUTION_ID">
+                <description>Flow Execution Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="UNIQUE_FLOW_OBJECT_ID">
+                <description>Unique Flow Object Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="TIMER_TYPE">
+                <description>Timer Type</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SCHEDULE_ID">
+                <description>Schedule Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="WAIT_TIME_MILLIS">
+                <description>Wait Time Millis</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSFlowTimers_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSFlowTimers_FK1" reference-table-name="ADSFlowObjects">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>UNIQUE_FLOW_OBJECT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_FLOW_OBJECT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSFlowTimers_FK2" reference-table-name="Schedule">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SCHEDULE_ID</fk-local-column>
+                        <fk-reference-column>SCHEDULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSFlowTimers_FK3" reference-table-name="ADSFlowExecutionDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FLOW_EXECUTION_ID</fk-local-column>
+                        <fk-reference-column>FLOW_EXECUTION_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>

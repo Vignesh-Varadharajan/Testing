@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADSNotificationTemplateModuleList>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:1" MODULE_NAME="REPORTS" MODULE_DISPLAY_NAME="o365.notification_template.module.reports" PRIORITY="1"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:2" MODULE_NAME="MANAGEMENT" MODULE_DISPLAY_NAME="o365.notification_template.module.management" PRIORITY="2"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:3" MODULE_NAME="AUDIT" MODULE_DISPLAY_NAME="o365.notification_template.module.audit" PRIORITY="3"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:4" MODULE_NAME="ALERT" MODULE_DISPLAY_NAME="o365.notification_template.module.alert" PRIORITY="4"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:5" MODULE_NAME="MONITORING" MODULE_DISPLAY_NAME="o365.notification_template.module.monitoring" PRIORITY="5"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:6" MODULE_NAME="SEARCH" MODULE_DISPLAY_NAME="o365.notification_template.module.search" PRIORITY="6"/>
+    <ADSNotificationTemplatesModules MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" MODULE_NAME="SCHEDULE" MODULE_DISPLAY_NAME="o365.notification_template.module.schedule" PRIORITY="7"/>
+
+    <ADSNotificationTemplatesConfig CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:1" CONFIG_NAME="HAS_ATTACHMENT_SETTINGS"/>
+    <ADSNotificationTemplatesConfig CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:2" CONFIG_NAME="COMPRESS_ATTACHMENTS"/>
+    <ADSNotificationTemplatesConfig CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:3" CONFIG_NAME="DONT_ATTACH_EMPTY_FILE"/>
+
+    <ADSNotificationTemplatesModuleVsConfig UNIQUE_ID="ADSNotificationTemplatesModuleVsConfig:UNIQUE_ID:1" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:1"/>
+    <ADSNotificationTemplatesModuleVsConfig UNIQUE_ID="ADSNotificationTemplatesModuleVsConfig:UNIQUE_ID:2" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:2"/>
+    <ADSNotificationTemplatesModuleVsConfig UNIQUE_ID="ADSNotificationTemplatesModuleVsConfig:UNIQUE_ID:3" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" CONFIG_ID="ADSNotificationTemplatesConfig:CONFIG_ID:3"/>
+
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:1" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:1" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:2" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:1" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:3" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:2" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:4" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:2" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:5" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:3" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:6" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:3" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:7" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:4" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:8" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:4" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:9" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:5" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:10" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:5" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:11" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:6" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:12" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:6" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:13" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" RCPT_MACRO_ID="ADSMacros:MACRO_ID:1"/>
+    <ADSNotificationTemplatesModulesVsRcptMacros UNIQUE_ID="ADSNotificationTemplatesModulesVsRcptMacros:UNIQUE_ID:14" MODULE_ID="ADSNotificationTemplatesModules:MODULE_ID:7" RCPT_MACRO_ID="ADSMacros:MACRO_ID:2"/>
+</ADSNotificationTemplateModuleList>

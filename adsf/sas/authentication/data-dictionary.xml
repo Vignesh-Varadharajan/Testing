@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<!-- This data-dictionary should be populated before the common module -->
+<data-dictionary name="adsf">
+
+    <table name="AaaUser">
+        <columns>
+            <column name="USER_ID">
+                <description>USER_ID</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>AaaUser.USER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="ZUID">
+                <description>ZUID</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="AaaUser_PK">
+            <primary-key-column>USER_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+</data-dictionary>

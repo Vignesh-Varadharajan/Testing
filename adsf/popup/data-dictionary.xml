@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>Popup Framework is used to display popups that could provide Tree view,Table view,List view of the AD details and user can select the required details and proceed</description>
+	<table name="ADSObjectType">
+		<description>
+			<![CDATA[Master table for various object type selection..Container,Mailbox,MemberOf,......(What to Show in popup)]]>
+		</description>
+		<columns>
+			<column name="OBJECT_TYPE_ID">
+				<description>A unique id for each ADSObjectType.</description>
+				<data-type>INTEGER</data-type>
+			</column>
+			<column name="OBJECT_TYPE_NAME">
+				<description>It will not be used..but for this object type name understanding purpose</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="CLASS_NAME">
+				<description>Listener for each object type selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSObjectType_PK">
+			<primary-key-column>OBJECT_TYPE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSObjectViewModel">
+		<description>
+			<![CDATA[Master table for How to show(TableModel,Tree Model,ADd/Remove..) Tile name only knows the how render the given data model.]]>
+		</description>
+		<columns>
+			<column name="VIEW_MODEL_ID">
+				<description>A unique id for each ADSObjectViewModel.</description>
+				<data-type>INTEGER</data-type>
+			</column>
+			<column name="VIEW_NAME">
+				<description>View name will be used for displaying List view/tree view..</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="CLASS_NAME">
+				<description>Listener for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="TILE_NAME">
+				<description>Tile name for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSObjectViewModel_PK">
+			<primary-key-column>VIEW_MODEL_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSPopupMenuItems">
+		<description>
+			<![CDATA[It contains searh,refresh,object type filter selection,domain selection]]>
+		</description>
+		<columns>
+			<column name="POPUP_MENU_ID">
+				<description>A unique id for each menu items like search, refresh,domain selection....</description>
+				<data-type>INTEGER</data-type>
+			</column>
+			<column name="MENU_NAME">
+				<description>View name will be used for displaying  Refresh, Search.....</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="DESCRIPTION">
+				<description>Listener for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupMenuItems_PK">
+			<primary-key-column>POPUP_MENU_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSPopupSelection">
+		<description>
+			<![CDATA[Master table for popup type id alone]]>
+		</description>
+		<columns>
+			<column name="POPUP_TYPE_ID">
+				<description>A unique id for popup selection...so that it can be reused when there is change in script config id</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="DESCRIPTION">
+				<description>Description</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+			</column>
+			<column name="BUTTON_NAME">
+				<description>Button name for the popup</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+			</column>
+			<column name="NEEDS_SUMMARY">
+				<description>Boolean value for the fixed length</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="NEEDS_DOMAIN_SEL">
+				<description>Boolean value for the Domain seletion</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupSelection_PK">
+			<primary-key-column>POPUP_TYPE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSObjectPopup">
+		<description>
+			<![CDATA[This is the master table for popup object selection.]]>
+		</description>
+		<columns>
+			<column name="POPUP_ID">
+				<description>Unique id for each popup object selection in admp.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="POPUP_TYPE_ID">
+				<description>A unique id for each  kinds of popup selection ...for 1 can be used for User Selection with diffrent script config id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="POPUP_SCRIPT_CONFIG_ID">
+				<description>A unique id for each  kinds of popup selection script config id related configuration</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSObjectPopup_PK">
+			<primary-key-column>POPUP_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSObjectPopup_FK1" reference-table-name="ADSPopupSelection">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_TYPE_ID</fk-local-column>
+						<fk-reference-column>POPUP_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupTabMappping">
+		<description>
+			<![CDATA[This contains what are all the advanced filters are available for popup]]>
+		</description>
+		<columns>
+			<column name="POPUP_TAB_ID">
+				<description>Unique id for each advanced filter under the popup.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSPopupTabMappping.POPUP_TAB_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="POPUP_TYPE_ID">
+				<description>A unique id for each  kinds of popup selection ...for 1 can be used for User Selection with diffrent script config id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE_ID">
+				<description>A unique id for each  kinds of popup selection script config id related configuration</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="POPUP_TAB_NAME">
+				<description>Tile name for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PRIORITY">
+				<description>pritority for display</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_DEFAULT_SELECTED">
+				<description>default selected</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="POPUP_TAB_DESC">
+				<description>desc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupTabMappping_PK">
+			<primary-key-column>POPUP_TAB_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupTabMappping_FK1" reference-table-name="ADSPopupSelection">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_TYPE_ID</fk-local-column>
+						<fk-reference-column>POPUP_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupTabMappping_FK2" reference-table-name="ADSObjectType">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>OBJECT_TYPE_ID</fk-local-column>
+						<fk-reference-column>OBJECT_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupAdvancedFilter">
+		<description>
+			<![CDATA[This contains what are all the advanced filters are available for popup]]>
+		</description>
+		<columns>
+			<column name="ADVANCED_FILTER_ID">
+				<description>Unique id for each advanced filter under the popup.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSPopupAdvancedFilter.ADVANCED_FILTER_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="POPUP_TAB_ID">
+				<description>A unique id for each  kinds of popup selection ...for 1 can be used for User Selection with diffrent script config id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="OBJECT_TYPE_ID">
+				<description>A unique id for each  kinds of popup selection script config id related configuration</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="ADVANCED_FILTER_NAME">
+				<description>Tile name for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PRIORITY">
+				<description>pritority for display</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_DEFAULT_SELECTED">
+				<description>default selected</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="ADVANCED_FILTER_DESC">
+				<description>desc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="FILTER_BUTTON_NAME">
+				<description>Button name for the popup</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupAdvancedFilter_PK">
+			<primary-key-column>ADVANCED_FILTER_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupAdvancedFilter_FK1" reference-table-name="ADSPopupTabMappping">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_TAB_ID</fk-local-column>
+						<fk-reference-column>POPUP_TAB_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupAdvancedFilter_FK2" reference-table-name="ADSObjectType">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>OBJECT_TYPE_ID</fk-local-column>
+						<fk-reference-column>OBJECT_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSFilterToViewModel">
+		<description>
+			<![CDATA[For each advanced filter we should have options for selecting the view..]]>
+		</description>
+		<columns>
+			<column name="POPUP_DATA_MODEL_ID">
+				<description>Unique id for each popup data model .</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSFilterToViewModel.POPUP_DATA_MODEL_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="ADVANCED_FILTER_ID">
+				<description>This denotes under which advanced filter it this optional view will come</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="VIEW_MODEL_ID">
+				<description>Reference for view model class</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="VIEW_MODEL_NAME">
+				<description>Tile name for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="VIEW_MODEL_IMAGE">
+				<description>Tile name for each object view selection</description>
+				<data-type>NCHAR</data-type>
+				<max-size>200</max-size>
+			</column>
+			<column name="PRIORITY">
+				<description>pritority for display</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_DEFAULT_SELECTED">
+				<description>default selected</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="IS_SINGLE_OR_MULTIPLE">
+				<description>radio or check box to select</description>
+				<data-type>INTEGER</data-type>
+				<default-value>2</default-value>
+				<allowed-values>
+					<value>1</value>
+					<!-- radio -->
+					<value>2</value>
+					<!-- check box -->
+				</allowed-values>
+			</column>
+			<column name="MODULE_NAME">
+				<description>This is for getting the view columns list and unique column and range list mapping</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSFilterToViewModel_PK">
+			<primary-key-column>POPUP_DATA_MODEL_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSFilterToViewModel_FK1" reference-table-name="ADSPopupAdvancedFilter">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>ADVANCED_FILTER_ID</fk-local-column>
+						<fk-reference-column>ADVANCED_FILTER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSFilterToViewModel_FK2" reference-table-name="ADSObjectViewModel">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>VIEW_MODEL_ID</fk-local-column>
+						<fk-reference-column>VIEW_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupMenuMapping">
+		<description>
+			<![CDATA[This contains menu id which is mapped to the particular view]]>
+		</description>
+		<columns>
+			<column name="POPUP_MENU_DATA_MODEL_ID">
+				<description>Unique id for each mapped menu item.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSPopupMenuMapping.POPUP_MENU_DATA_MODEL_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="POPUP_DATA_MODEL_ID">
+				<description>Unique id for each data model under the advanced filter.</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="POPUP_MENU_ID">
+				<description>A unique id for each menu items like search, refresh,domain selection....</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupMenuMapping_PK">
+			<primary-key-column>POPUP_MENU_DATA_MODEL_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupMenuMapping_FK1" reference-table-name="ADSFilterToViewModel">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_DATA_MODEL_ID</fk-local-column>
+						<fk-reference-column>POPUP_DATA_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupMenuMapping_FK2" reference-table-name="ADSPopupMenuItems">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_MENU_ID</fk-local-column>
+						<fk-reference-column>POPUP_MENU_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupMenuToDataModel">
+		<description>
+			<![CDATA[This contains menu id which is mapped to the particular view]]>
+		</description>
+		<columns>
+			<column name="POPUP_MENU_DATA_MODEL_ID">
+				<description>Unique id for each popup mapped menu item.</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="OBJECT_TYPE_ID">
+				<description>A unique id for each ADSObjectType.</description>
+				<data-type>INTEGER</data-type>
+			</column>
+			<column name="VIEW_MODEL_ID">
+				<description>Unique id for each view model class</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupMenuToDataModel_PK">
+			<primary-key-column>POPUP_MENU_DATA_MODEL_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupMenuToDataModel_FK1" reference-table-name="ADSPopupMenuMapping">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_MENU_DATA_MODEL_ID</fk-local-column>
+						<fk-reference-column>POPUP_MENU_DATA_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupMenuToDataModel_FK2" reference-table-name="ADSObjectType">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>OBJECT_TYPE_ID</fk-local-column>
+						<fk-reference-column>OBJECT_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupMenuToDataModel_FK3" reference-table-name="ADSObjectViewModel">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>VIEW_MODEL_ID</fk-local-column>
+						<fk-reference-column>VIEW_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupHeaderMenuMapping">
+		<description>
+			<![CDATA[This contains menu id which is mapped to the particular view]]>
+		</description>
+		<columns>
+			<column name="POPUP_MENU_DATA_MODEL_ID">
+				<description>Unique id for each header menu item.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSPopupHeaderMenuMapping.POPUP_MENU_DATA_MODEL_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="POPUP_TYPE_ID">
+				<description>A unique id for popup selection...so that it can be reused when there is change in script config id</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="POPUP_MENU_ID">
+				<description>A unique id for each menu items like search, refresh,domain selection....</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupHeaderMenuMapping_PK">
+			<primary-key-column>POPUP_MENU_DATA_MODEL_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupHeaderMenuMapping_FK1" reference-table-name="ADSPopupSelection">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_TYPE_ID</fk-local-column>
+						<fk-reference-column>POPUP_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupHeaderMenuMapping_FK2" reference-table-name="ADSPopupMenuItems">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_MENU_ID</fk-local-column>
+						<fk-reference-column>POPUP_MENU_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSPopupHeaderMenuToDataModel">
+		<description>
+			<![CDATA[This contains menu id which is mapped to the particular view]]>
+		</description>
+		<columns>
+			<column name="POPUP_MENU_DATA_MODEL_ID">
+				<description>Unique id for each popup header menu item.</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="OBJECT_TYPE_ID">
+				<description>A unique id for each ADSObjectType.</description>
+				<data-type>INTEGER</data-type>
+			</column>
+			<column name="VIEW_MODEL_ID">
+				<description>Unique id for each view model class</description>
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSPopupHeaderMenuToDataModel_PK">
+			<primary-key-column>POPUP_MENU_DATA_MODEL_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSPopupHeaderMenuToDataModel_FK1" reference-table-name="ADSPopupHeaderMenuMapping">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>POPUP_MENU_DATA_MODEL_ID</fk-local-column>
+						<fk-reference-column>POPUP_MENU_DATA_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupHeaderMenuToDataModel_FK2" reference-table-name="ADSObjectType">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>OBJECT_TYPE_ID</fk-local-column>
+						<fk-reference-column>OBJECT_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSPopupHeaderMenuToDataModel_FK3" reference-table-name="ADSObjectViewModel">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>VIEW_MODEL_ID</fk-local-column>
+						<fk-reference-column>VIEW_MODEL_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+</data-dictionary>
+	<!--$Id$ -->

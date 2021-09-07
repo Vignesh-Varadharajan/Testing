@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- $Id $ -->
+<NotificationTemplateTransformMethodList>
+
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4000" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findLocaleString" DEFAULT_ARGS="ADSNotificationTemplates.TEMPLATE_NAME" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4001" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findLocaleString" DEFAULT_ARGS="ADSNotificationTemplates.TEMPLATE_DESCRIPTION" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4002" CLASS="com.manageengine.ads.fw.common.table.transformer.CommonConfigTransformer" METHOD="findLocaleString" DEFAULT_ARGS="ADSNotificationTemplatesModules.MODULE_DISPLAY_NAME" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4003" CLASS="com.manageengine.ads.fw.common.notificationtemplates.NotificationTemplateTransformer" METHOD="getModeDisplayValue" DEFAULT_ARGS="ADSNotificationTemplates.NOTIFICATION_MODE" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4004" CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateTransformer" METHOD="convertTimeFormat" DEFAULT_ARGS="ADSNotificationTemplates.CREATION_TIME_IN_MILLIS" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4005" CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateTransformer" METHOD="convertTimeFormat" DEFAULT_ARGS="ADSNotificationTemplates.MODIFIED_TIME_IN_MILLIS" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4006" CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateTransformer" METHOD="getUserName" DEFAULT_ARGS="ADSNotificationTemplates.CREATED_BY_USER_ID" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4007" CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateTransformer" METHOD="getUserName" DEFAULT_ARGS="ADSNotificationTemplates.MODIFIED_BY_USER_ID" />
+    <ADSUIColumnTransformConfigurations TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:4008" CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateTransformer" METHOD="getConfiguredReports" DEFAULT_ARGS="ADSNotificationTemplates.NOTIFICATION_TEMPLATE_ID" />
+
+</NotificationTemplateTransformMethodList>

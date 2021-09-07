@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<!-- $Id$ -->
+
+<data-dictionary name="adsf">
+
+    <table name="FwReportsHandlers">
+        <columns>
+            <column name="HANDLER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsHandlers.HANDLER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="KEY">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="HANDLER_CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsHandlers_PK">
+            <primary-key-column>HANDLER_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="FwReportsModules">
+        <columns>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsModules.MODULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="IS_VISIBLE">
+                <description>Show/Hide from Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Enable/Disable done by Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsModules_PK">
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="FwReportsCategories">
+        <columns>
+            <column name="CATEGORY_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsCategories.CATEGORY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CATEGORY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="IS_VISIBLE">
+                <description>Show/Hide from Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="ICON">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="FwReportsCategories_PK">
+            <primary-key-column>CATEGORY_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsCategories_FK1" reference-table-name="FwReportsModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsGroups">
+        <columns>
+            <column name="GROUP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsGroups.GROUP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CATEGORY_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="GROUP_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="IS_VISIBLE">
+                <description>Show/Hide from Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="FwReportsGroups_PK">
+            <primary-key-column>GROUP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsGroups_FK1" reference-table-name="FwReportsCategories">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CATEGORY_ID</fk-local-column>
+                        <fk-reference-column>CATEGORY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="FwReportsGroups_UK">
+                <unique-key-column>CATEGORY_ID</unique-key-column>
+                <unique-key-column>GROUP_NAME</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="FwReportsTypes">
+        <columns>
+            <column name="REPORT_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsTypes.REPORT_TYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="REPORT_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="HAS_VIEWS">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="HANDLER_CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsTypes_PK">
+            <primary-key-column>REPORT_TYPE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="FwReports">
+        <columns>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReports.REPORT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="GROUP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPORT_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="REPORT_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="CRITERIA">
+                <data-type>CHAR</data-type>
+                <max-size>5000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_VISIBLE">
+                <description>Show/Hide from Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="SHARED_TO_ALL">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_REDIRECTION_ALLOWED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="FwReports_PK">
+            <primary-key-column>REPORT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReports_FK1" reference-table-name="FwReportsGroups">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>GROUP_ID</fk-local-column>
+                        <fk-reference-column>GROUP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReports_FK2" reference-table-name="FwReportsTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_TYPE_ID</fk-local-column>
+                        <fk-reference-column>REPORT_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="FwReports_UK">
+                <unique-key-column>GROUP_ID</unique-key-column>
+                <unique-key-column>REPORT_NAME</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="FwReportsVsADSFields">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsVsADSFields.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Enable/Disable done by Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_EXCLUDED_IN_EXPORT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_MANDATORY">
+                <description><![CDATA[Whether this column is a mandatory column which cannot be removed from the UI]]></description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_SEARCHABLE">
+                <description><![CDATA[Whether search operations can be applied on this column]]></description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_FILTERABLE">
+                <description><![CDATA[Whether filter operations can be applied on this column]]></description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="FwReportsVsADSFields_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsVsADSFields_FK1" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsVsADSFields_FK2" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsUserFields">
+      <description>
+        <![CDATA[
+            This table is used to support user based column enable/disable operation. This table is based on FwReportsVsADSFields
+            table.
+          ]]>
+      </description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description><![CDATA[PK column of the table>]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsUserFields.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MAPPING_ID">
+                <description><![CDATA[FK column mapped to FwReportsVsADSFields.UNIQUE_ID]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <description><![CDATA[Whether this column is enabled or disabled state]]></description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <description><![CDATA[Order in which these columns are displayed to the Cx]]></description>
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <description><![CDATA[ID of the user who has done the enable/disable operation]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsUserFields_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsUserFields_FK1" reference-table-name="FwReportsVsADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MAPPING_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsViewsTypes">
+        <columns>
+            <column name="VIEW_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsViewsTypes.VIEW_TYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="VIEW_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="HANDLER_CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsViewsTypes_PK">
+            <primary-key-column>VIEW_TYPE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="FwReportsViews">
+        <columns>
+            <column name="VIEW_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsViews.VIEW_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="VIEW_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="VIEW_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Enable/Disable done by Cx</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="LIMIT">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+                <unique>false</unique>
+            </column>
+        </columns>
+        <primary-key name="FwReportsViews_PK">
+            <primary-key-column>VIEW_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsViews_FK1" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsViews_FK2" reference-table-name="FwReportsViewsTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>VIEW_TYPE_ID</fk-local-column>
+                        <fk-reference-column>VIEW_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsViewsRows">
+        <columns>
+            <column name="ROW_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsViewsRows.ROW_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="VIEW_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="SORT_BY">
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+                <unique>false</unique>
+                <allowed-values>
+                    <value>desc</value>
+                    <value>asc</value>
+                </allowed-values>
+            </column>
+        </columns>
+        <primary-key name="FwReportsViewsRows_PK">
+            <primary-key-column>ROW_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsViewsRows_FK1" reference-table-name="FwReportsViews">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>VIEW_ID</fk-local-column>
+                        <fk-reference-column>VIEW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsViewsRows_FK2" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsViewsColumns">
+        <columns>
+            <column name="COLUMN_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsViewsColumns.COLUMN_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="VIEW_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsViewsColumns_PK">
+            <primary-key-column>COLUMN_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsViewsColumns_FK1" reference-table-name="FwReportsViews">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>VIEW_ID</fk-local-column>
+                        <fk-reference-column>VIEW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsViewsColumns_FK2" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsViewsColumnValues">
+        <columns>
+            <column name="COLUMN_VALUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsViewsColumnValues.COLUMN_VALUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="COLUMN_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="COLUMN_VALUE_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsViewsColumnValues_PK">
+            <primary-key-column>COLUMN_VALUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsViewsColumnValues_FK1" reference-table-name="FwReportsViewsColumns">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COLUMN_ID</fk-local-column>
+                        <fk-reference-column>COLUMN_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwMultiReportMapping">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwMultiReportMapping.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REFERENCE_REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwMultiReportMapping_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwMultiReportMapping_FK1" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwMultiReportMapping_FK2" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REFERENCE_REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwUserFavouriteReports">
+        <columns>
+            <column name="FAV_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwUserFavouriteReports.FAV_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwUserFavouriteReports_PK">
+            <primary-key-column>FAV_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwUserFavouriteReports_FK1" isbidirectional="false" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwUserFavouriteReports_FK2" isbidirectional="false" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwUserDefaultReports">
+        <columns>
+            <column name="DEF_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwUserDefaultReports.DEF_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwUserDefaultReports_PK">
+            <primary-key-column>DEF_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwUserDefaultReports_FK1" isbidirectional="false" reference-table-name="FwReports">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwUserDefaultReports_FK2" isbidirectional="false" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="FwReportsCategoriesVsUsers">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsCategoriesVsUsers.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CATEGORY_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsCategoriesVsUsers_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsCategoriesVsUsers_FK1" reference-table-name="FwReportsCategories" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CATEGORY_ID</fk-local-column>
+                        <fk-reference-column>CATEGORY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsCategoriesVsUsers_FK2" reference-table-name="AaaUser" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="FwUserReportsCategories_UK">
+                <unique-key-column>USER_ID</unique-key-column>
+                <unique-key-column>CATEGORY_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="FwReportsGroupsVsUsers">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsGroupsVsUsers.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="GROUP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="FwReportsGroupsVsUsers_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsGroupsVsUsers_FK1" reference-table-name="FwReportsGroups" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>GROUP_ID</fk-local-column>
+                        <fk-reference-column>GROUP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsGroupsVsUsers_FK2" reference-table-name="AaaUser" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="FwReportsGroupsVsUsers_UK">
+                <unique-key-column>USER_ID</unique-key-column>
+                <unique-key-column>GROUP_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="FwReportsVsUsers">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>FwReportsVsUsers.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>100</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_OWNER">
+                <data-type>Boolean</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="FwReportsVsUsers_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="FwReportsVsUsers_FK1" reference-table-name="FwReports" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_ID</fk-local-column>
+                        <fk-reference-column>REPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="FwReportsVsUsers_FK2" reference-table-name="AaaUser" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="FwReportsVsUsers_UK">
+                <unique-key-column>USER_ID</unique-key-column>
+                <unique-key-column>REPORT_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="FwReportsVsUITable">
+      <description>
+        <![CDATA[
+            This table is used to create mapping between FwReports and ADSUITableDetails.
+          ]]>
+    </description>
+    <columns>
+        <column name="UNIQUE_ID">
+          <description><![CDATA[PK column of the table]]></description>
+            <data-type>BIGINT</data-type>
+            <nullable>false</nullable>
+            <uniquevalue-generation>
+                <generator-name>FwReportsVsUITable.UNIQUE_ID</generator-name>
+            </uniquevalue-generation>
+        </column>
+        <column name="REPORT_ID">
+            <description><![CDATA[FK column mapped to FwReports table]]></description>
+            <data-type>BIGINT</data-type>
+            <nullable>false</nullable>
+        </column>
+        <column name="TABLEID">
+          <description><![CDATA[FK column mapped to ADSUITableDetails table]]></description>
+            <data-type>BIGINT</data-type>
+            <nullable>false</nullable>
+        </column>
+    </columns>
+    <primary-key name="FwReportsVsUITable_PK">
+        <primary-key-column>UNIQUE_ID</primary-key-column>
+    </primary-key>
+    <foreign-keys>
+        <foreign-key name="FwReportsVsUITable_FK1" reference-table-name="FwReports">
+            <fk-columns>
+                <fk-column>
+                    <fk-local-column>REPORT_ID</fk-local-column>
+                    <fk-reference-column>REPORT_ID</fk-reference-column>
+                </fk-column>
+            </fk-columns>
+            <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+        </foreign-key>
+        <foreign-key name="FwReportsVsUITable_FK2" reference-table-name="ADSUITableDetails">
+            <fk-columns>
+                <fk-column>
+                    <fk-local-column>TABLEID</fk-local-column>
+                    <fk-reference-column>TABLEID</fk-reference-column>
+                </fk-column>
+            </fk-columns>
+            <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+        </foreign-key>
+    </foreign-keys>
+</table>
+</data-dictionary>

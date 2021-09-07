@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--$Id$-->
+
+<dd-files>
+        <ConfFile url="common/data-dictionary.xml" />
+        <ConfFile url="common/uitable/data-dictionary.xml"/>
+        <ConfFile url="common/templates/data-dictionary.xml" />
+        <ConfFile url="common/delegation/data-dictionary.xml" />
+        <ConfFile url="common/domain/data-dictionary.xml"/>
+        <ConfFile url="onpremise/data-dictionary.xml" />
+        <ConfFile url="data-dictionary.xml" />
+        <ConfFile url="common/layout/data-dictionary.xml" />
+        <ConfFile url="popup/data-dictionary.xml" />
+        <ConfFile url="applications/data-dictionary.xml" />
+		<ConfFile url="mobile/data-dictionary.xml"  />
+		<ConfFile url="adsync/data-dictionary.xml" />
+        <ConfFile url="templates/data-dictionary.xml"/>
+        <ConfFile url="logparser/data-dictionary.xml"/>
+        <ConfFile url="common/incident/data-dictionary.xml"/>
+        <ConfFile url="incident/data-dictionary.xml"/>
+        <ConfFile url="flow/data-dictionary.xml"/>
+        <ConfFile url="common/compliance/data-dictionary.xml"/>
+        <ConfFile url="export/data-dictionary.xml"/>
+        <ConfFile url="webhook/data-dictionary.xml"/>
+        <ConfFile url="elasticsearch/data-dictionary.xml"/>
+        <ConfFile url="common/notification-templates/data-dictionary.xml"/>
+        <ConfFile url="onpremise/clustering/data-dictionary.xml"/>
+        <ConfFile url="common/incident/incident-data-dictionary.xml"/>
+        <ConfFile url="common/incident/incident-rule-data-dictionary.xml"/>
+</dd-files>

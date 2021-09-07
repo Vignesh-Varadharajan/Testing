@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <table name="ADSLogTypes">
+        <columns>
+            <column name="LOGTYPE_ID">
+                <description>Logtype Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLogTypes.LOGTYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <description>Logtype NAME</description>
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="SERVER_VALUE">
+                <description>Logtype SERVER_VALUE</description>
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <description>Logtype is predefined or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <description>Logtype order to be shown in UI</description>
+                <data-type>INTEGER</data-type>
+                <default-value>-1</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSLogtypes_PK">
+            <primary-key-column>LOGTYPE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSLogTypeVsFields">
+        <columns>
+            <column name="MAP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLogTypeVsFields.MAP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="LOGTYPE_ID">
+                <description>Logtype Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_ID">
+                <description>Field Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_VIEW_FIELD">
+                <description>Field should be shown in UI or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="IS_INDEXED_FIELD">
+                <description>Field should be indexed or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="PRIORITY">
+                <description>Order of field to be shown in UI</description>
+                <data-type>INTEGER</data-type>
+                <default-value>-1</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSLogTypeVsFields_PK">
+            <primary-key-column>MAP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLogTypeVsFields_FK1" reference-table-name="ADSLogTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LOGTYPE_ID</fk-local-column>
+                        <fk-reference-column>LOGTYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLogTypeVsFields_FK2" reference-table-name="ADSFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_ID</fk-local-column>
+                        <fk-reference-column>FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSLogTypeFieldValueOptions">
+        <columns>
+            <column name="OPTION_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLogTypeFieldValueOptions.OPTION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MAP_ID">
+                <description>Logtype vs Field map ID</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="INDEX_VALUE">
+                <description>Server / indexed value </description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="VIEW_VALUE">
+                <description>View value </description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="PRIORITY">
+                <description>Order of option to be shown in UI</description>
+                <data-type>INTEGER</data-type>
+                <default-value>-1</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSLogtypeFieldValueOptions_PK">
+            <primary-key-column>OPTION_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLogTypeFieldValueOptions_FK1" reference-table-name="ADSLogTypeVsFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MAP_ID</fk-local-column>
+                        <fk-reference-column>MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSLogTypeVsFieldVsUser">
+        <columns>
+            <column name="ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLogTypeVsFieldVsUser.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="MAP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSLogTypeVsFieldVsUser_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLogTypeVsFieldVsUser_FK" reference-table-name="ADSLogTypeVsFields">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MAP_ID</fk-local-column>
+                        <fk-reference-column>MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLogTypeVsFieldVsUser_FK2" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>

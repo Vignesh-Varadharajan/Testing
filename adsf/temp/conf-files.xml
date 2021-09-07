@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conf-files>
+
+    <ConfFile url="ADProducts.xml"/>
+    <ConfFile url="ADSProductAPIs.xml"/>
+    <ConfFile url="ADSProductAPIs_OMP.xml"/>
+	<ConfFile url="ADSMailSettings.xml"/>
+	<ConfFile url="ADSHtmlTemplates.xml"/>
+	<ConfFile url="ADSLicenseAlarmSettings.xml"/>
+	<ConfFile url="ADSLicensePromotionSettings.xml"/>
+    <ConfFile url="ADSNotification.xml"/>
+    <ConfFile url="ADSCountries.xml"/>
+    <ConfFile url="ADSLocaleDetails.xml"/>
+    <ConfFile url="ADSCipherSuites.xml"/>
+    <ConfFile url="ADSConnectionSecurityVersions.xml"/>
+    <ConfFile url="ADSConnectionSecurityVersionVsCipher.xml"/>
+
+    <!--Layout Default Configuration XMLs-->
+    <ConfFile url="layout/ADSLayout.xml"/>
+    <ConfFile url="layout/ADSLayoutTabs.xml"/>
+    <ConfFile url="layout/ADSLayoutContainers.xml"/>
+    <ConfFile url="layout/ADSLayoutLHS.xml"/>
+    <ConfFile url="layout/ADSLayoutRHS.xml"/>
+	
+	<ConfFile url="delegation/ADSTechnicianSettings.xml"/>
+    <ConfFile url="delegation/ADSActions.xml"/>
+    <ConfFile url="delegation/ADSRoleVsActions.xml"/>
+    <ConfFile url="delegation/ADSHDDSettings.xml"/>
+    
+    <ConfFile url="layout/ADSTabVsContainer.xml"/>
+    <!--ConfFile url="layout/ADSContainerVsMenu.xml"/-->
+    <ConfFile url="layout/ADSContainerOptions.xml"/>
+    <ConfFile url="layout/ADSLayoutModules.xml"/>
+    <ConfFile url="layout/ADSContainerVsComponent.xml"/>
+    <ConfFile url="layout/ADSQuickLinks.xml"/>
+
+    <ConfFile url="ADSService.xml"/>
+    <ConfFile url="ADSDBSync.xml"/>
+    <ConfFile url="ADSDBSyncModules.xml"/>
+    <ConfFile url="ADSDBSyncModuleMapping.xml"/>
+
+    <ConfFile url="ADSProductParams.xml"/>
+	
+	<ConfFile url="ADSADSync.xml"/>
+	<ConfFile url="ADSSecretKeys.xml"/>
+	<ConfFile url="ADSRoboUpdateManager.xml"/>
+    <ConfFile url="ADSCreatorDetails.xml"/>
+
+	<!-- Push Notifications -->
+	<ConfFile url="mobile/ADSPushNotificationSettings.xml"/>	
+</conf-files>
+<!--$Id$-->

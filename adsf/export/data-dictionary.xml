@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>
+		<![CDATA[Export schedule Related tables]]>
+	</description>
+	<!-- Schedule related tables starts-->
+
+	<table name="ExportScheduleConfigurations">
+		<columns>
+			<column name="EXPORT_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ExportScheduleConfigurations.EXPORT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="SCHEDULE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="SCHEDULE_DISPLAY_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="EXPORT_FREQUENCY">
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="EXPORT_TIME_TYPE">
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="HOURS">
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="MINUTES">
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="EMAIL_ADDRESS">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+			</column>
+			<column name="EMAIL_SUBJECT">
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+			</column>
+			<column name="TABLE_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="REQ_UNIQUE_ID">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="EXPORT_FORMAT">
+				<data-type>CHAR</data-type>
+				<max-size>10</max-size>
+				<default-value>PDF</default-value>
+				<nullable>false</nullable>
+				<allowed-values>
+					<value>CSV</value>
+					<value>PDF</value>
+				</allowed-values>
+			</column>
+			<column name="ADDITIONAL_PARAMS">
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="USER_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ExportScheduleConfigurations_PK">
+			<primary-key-column>EXPORT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ExportScheduleConfigurations_FK1" reference-table-name="Schedule">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>SCHEDULE_ID</fk-local-column>
+						<fk-reference-column>SCHEDULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ExportScheduleConfigurations_FK2" reference-table-name="AaaUser">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ExportScheduleHistory">
+		<description>
+			<![CDATA[Contains the exported history]]>
+		</description>
+		<columns>
+			<column name="HISTORY_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ExportScheduleHistory.HISTORY_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="EXPORT_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="EXPORT_START_TIME">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="EXPORT_END_TIME">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DOWNLOAD_PATH">
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ExportScheduleHistory_PK">
+			<primary-key-column>HISTORY_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ExportScheduleHistory_FK1" reference-table-name="ExportScheduleConfigurations">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>EXPORT_ID</fk-local-column>
+						<fk-reference-column>EXPORT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<!-- Schedule related tables ends-->
+
+</data-dictionary>
+
+<!--$Id$ -->

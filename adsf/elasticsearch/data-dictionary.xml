@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[ <b>A Short Note On Flow:</b></br> Elasticsearch implemenation tables ]]>
+    </description>
+
+    <table name="ADSESIndexSplitting">
+        <columns>
+            <column name="INDEX_UNIQUE_ID">
+                <description>Unique id of new created index</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESIndexSplitting.INDEX_UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INDEX_NAME">
+                <description>New created index name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="BASE_INDEX_NAME">
+                <description>Original index name </description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="SPLIT_TIME">
+                <description>Time it was splitted</description>
+                <data-type>DATETIME</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESIndexSplitting_PK">
+            <primary-key-column>INDEX_UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+     <table name="ADSESIndexSplittingPolicy">
+        <description>
+            <![CDATA[Office 365 Audit Details]]>
+        </description>
+        <columns>
+            <column name="INDEX_SPLITTING_POLICY_ID">
+                <description>Index Splitting policy id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESIndexSplittingPolicy.INDEX_SPLITTING_POLICY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INDEX_NAME">
+                <description>Policy index name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DOCS_THRESHOLD">
+                <description> Need to create the new index if this limit is reached in the mentioned index</description>
+                <data-type>BIGINT</data-type>
+                <default-value>100000000</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="DAYS_THRESHOLD">
+                <description>Split data if older than mentioned days</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="DAYS_COLUMN">
+                <description>Date filed name to check the threshold</description>
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="SIZE_THRESHOLD">
+                <description>Split data if the index met the mentioned size limit - Size in GIGA BYTES</description>
+                <data-type>DOUBLE</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESIndexSplittingPolicy_PK">
+            <primary-key-column>INDEX_SPLITTING_POLICY_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+
+
+    <table name="ADSESArchiveConfiguration">
+        <columns>
+            <column name="ARCHIVE_ID">
+                <description>Unique id of Archive configuration</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESArchiveConfiguration.ARCHIVE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="IS_ARCHIVE_ENABLED">
+                <description>Flag for archive enabled/disabled</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="ARCHIVE_DAYS">
+                <description>Archive data before the mentioned days</description>
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ARCHIVE_PASSWORD">
+                <description>Password to potect files</description>
+                <data-type>SCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DOCS_THRESHOLD">
+                <description> Minimum count to archive a data from index - Only for type 3 and 4 archives</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+             <column name="LAST_ARCHIVE_TIME">
+                <description>Last data archived time </description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVE_LOCATION">
+                <description>Archive location</description>
+                <data-type>NCHAR</data-type>
+                <max-size>4000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ARCHIVE_STATUS">
+                <description>Status of last archive</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="COMPRESSED_FILE_NAME">
+                <description>Name of thr compredded file</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESArchiveConfiguration_PK">
+            <primary-key-column>ARCHIVE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSESArchiveIndexConfiguration">
+        <columns>
+            <column name="ARCHIVE_INDEX_CONFIG_ID">
+                <description>Unique id of Archive index configuration</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESArchiveIndexConfiguration.ARCHIVE_INDEX_CONFIG_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+                <column name="INDEX">
+                <description>Indices to archive or index prefix to archive, if the field is empty will archive all the index</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INDEX_TYPE">
+                <description>Date wise indices -1  (date wise indices, Will take snopshot and zip the data) / Single indices -2 (Single indices data will be saved as json and zipped)</description>
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVE_TYPE">
+                <description>Snapshot -1 , csv 2</description>
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="DATE_FIELD">
+                <description>Date field to check the archive configuration days - Only for ARCHIVE_TYPE 2</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INDEX_SETTINGS">
+                <description>Index Settings for created index</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESArchiveIndexConfiguration_PK">
+            <primary-key-column>ARCHIVE_INDEX_CONFIG_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+
+    <!-- Node details -->
+    <table name="ADSESNodeDetails">
+        <description>details of nodes</description>
+        <columns>
+            <column name="NODE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESNodeDetails.UID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="HOST_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DOMAIN_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="USER_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+
+            </column>
+            <column name="PASSWORD">
+                <data-type>SCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="OS">
+                <data-type>NCHAR</data-type>
+                <max-size>150</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IP">
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+              </column>
+            <column name="DIRECTORY">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="STATUS">
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TCP_PORT">
+                <data-type>INTEGER</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="NODE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRODUCT_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+             <column name="JVM_HEAP_SIZE">
+                <description>Heap size in GB</description>
+                <data-type>FLOAT</data-type>
+                <max-size>10</max-size>
+                <precision>2</precision>
+                <default-value>2</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_MASTER">
+                <data-type>BOOLEAN</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="NOTIFIED_FOR_STATUS">
+                <data-type>BOOLEAN</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="NOTIFIED_FOR_STORAGE">
+                <data-type>BOOLEAN</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_SUCCESSFUL">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESNodeDetails_PK">
+            <primary-key-column>NODE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSESClusterSettings">
+        <description>es cluster settings</description>
+        <columns>
+            <column name="SETTINGS_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESClusterSettings.SETTINGS_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="SETTING_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <unique>true</unique>
+            </column>
+            <column name="VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_DYNAMIC">
+                <data-type>BOOLEAN</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESClusterSettings_PK">
+            <primary-key-column>SETTINGS_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSESArchiveDetails">
+        <description>Archived and restored index details </description>
+        <columns>
+            <column name="ARCHIVE_UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSESArchiveDetails.ARCHIVE_UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INDEX_NAME">
+                <description>Indices to archive or index prefix to archive, if the field is empty will archive all the index</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INDEX_TYPE">
+                <description>Date wise indices -1  (date wise indices, Will take snopshot and zip the data) / Single indices -2 (Single indices data will be saved as json and zipped)</description>
+                <data-type>TINYINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MIN_EVENT_TIME">
+                <description>Minimum event time that archive having</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MAX_EVENT_TIME">
+                <description>Maximum event time that archive having</description>
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MIN_EVENT_TIME_IN_MILLS">
+                <description>Maximum event time that archive having</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="MAX_EVENT_TIME_IN_MILLS">
+                <description>Maximum event time that archive having</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVE_TYPE">
+                <description>Snapshot -1 , csv 2</description>
+                <data-type>TINYINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVE_CONFIG_ID">
+                <description>Archive configuration base id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_TIME">
+                <description>Archived time</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_STATUS">
+                <description>Archived Status</description>
+                <data-type>TINYINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_DOCS_COUNT">
+                <description>Documents count archived</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_FILE_PATH">
+                <description>Archived file file path</description>
+                <data-type>NCHAR</data-type>
+                <max-size>4000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_FILE_PASSWORD">
+                <description>Archived file password </description>
+                <data-type>SCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="ARCHIVED_FILE_SIZE">
+                <description>Size of archived file</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_RESTORED">
+                <description>Flag for archived file restore</description>
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="RESTORED_TIME">
+                <description>File restored time</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSESArchiveDetails_PK">
+            <primary-key-column>ARCHIVE_UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+</data-dictionary>

@@ -1,0 +1,18 @@
+<!--$Id$-->
+<ContainerVsComponent>
+
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:1" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:1" MODULE_ID="ADSLayoutModules:MODULE_ID:1" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:2" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:2" MODULE_ID="ADSLayoutModules:MODULE_ID:1" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:3" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:3" MODULE_ID="ADSLayoutModules:MODULE_ID:1" />
+
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:4" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:4' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:5" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:5' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:6" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:6' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:7" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:7' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+
+    <!--ADAP Quicklinks-->
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:101" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:101' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:102" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:102' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+    <ADSContainerVsComponent CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:103" COMPONENT_ID='ADSModuleVsComponent:COMPONENT_ID:103' MODULE_ID="ADSLayoutModules:MODULE_ID:2" />
+
+</ContainerVsComponent>

@@ -1,0 +1,13 @@
+<!--$Id$-->
+<TableConfigurations>
+
+    <ADSUITableDetails DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.search.handlers.TagsTableDataHandler" DESCRIPTION="Manage Tag details" NAME="ADSTagDetails" TABLEID="ADSUITableDetails:TABLEID:TAG_DETAILS">
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000101" ColumnName="TAGID" DISPLAY_KEY="TagId" CustomExpression="{}" COLUMN_TABLENAME="ADSTagDetails" COLUMN_DISPLAY_TYPE="FIXED" IsSortable="0" Index="0" Class="hidden"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000102" ColumnName="TAG_ACTIONS" DISPLAY_KEY="ads.search.tags.table.header.action" CustomExpression="{&quot;COMPONENT&quot;:{&quot;NAME&quot;:&quot;ads-tag/table-action&quot;}}" COLUMN_TABLENAME="ADSTagDetails" COLUMN_DISPLAY_TYPE="FIXED" IsSortable="0" Index="1" Class="fw-w-80" IsHTML="3" IS_PSEUDO="TRUE"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000103" ColumnName="TAG_NAME" DISPLAY_KEY="ads.search.tags.table.header.tagname" CustomExpression="{&quot;TOOLTIP_TRUNCATE&quot;:&quot;15&quot;}" COLUMN_TABLENAME="ADSTagDetails" COLUMN_DISPLAY_TYPE="FIXED" IsSortable="1" Index="2" Class="fw-w-100"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000104" ColumnName="TAG_CRITERIA" DISPLAY_KEY="ads.search.tags.table.header.criteria" CustomExpression="{&quot;TOOLTIP_TRUNCATE&quot;:&quot;110&quot;}" COLUMN_TABLENAME="ADSTagDetails" COLUMN_DISPLAY_TYPE="VISIBLE" IsSortable="0" Index="3" IsHTML="0" Class=""/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000105" ColumnName="TAG_NOTE" DISPLAY_KEY="ads.search.tags.table.header.notes" CustomExpression="{&quot;ColumnAction&quot;:&quot;showNotes&quot;}" COLUMN_TABLENAME="ADSTagNote" COLUMN_DISPLAY_TYPE="VISIBLE" IsSortable="0" Index="4" IsHTML="0" Class="fw-w-100" IS_PSEUDO="TRUE"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000106" ColumnName="SEARCH" DISPLAY_KEY="SearchLogs" CustomExpression="{&quot;Actions&quot;:[{ &quot;TEXT&quot; : &quot;Search Logs&quot;,  &quot;ACTION&quot; : &quot;searchLogs&quot;,  &quot;TRANSLATE_WITHOUT_BRAC&quot; : true}]}" COLUMN_TABLENAME="ADSTagDetails" COLUMN_DISPLAY_TYPE="FIXED" IsHTML="0" IsSortable="0" Index="6" IS_PSEUDO="TRUE"/>
+    </ADSUITableDetails>
+
+</TableConfigurations>

@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[Server clustering]]>
+    </description>
+    <table name="ADSClusterNodeDetails">
+        <description>
+            <![CDATA[Cluster App Server Details]]>
+        </description>
+        <columns>
+            <column name="NODE_ID">
+                <description>Unique id of application node</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterNodeDetails.NODE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NODE_PROTOCOL">
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRODUCT_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="NODE_NAME">
+                <description>Unique name if the node</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="NODE_IP">
+                <description>Host IP Address</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="NODE_PORT">
+                <description>Listening Port of the node</description>
+                <data-type>INTEGER</data-type>
+            </column>
+            <column name="IS_SCHEDULER_NODE">
+                <description>Type of node</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_PRIMARY">
+                <description>Is the node primary or secondary</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterNodeDetails_PK">
+            <primary-key-column>NODE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSClusterNodeDetails_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSClusterNodeStatus">
+        <columns>
+            <column name="STATUS_ID">
+                <description>Unique id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterNodeStatus.STATUS_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NODE_ID">
+                <description>Unique id of the node</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <default-value>INACTIVE</default-value>
+                <nullable>false</nullable>
+                <allowed-values>
+                    <value>ACTIVE</value>
+                    <value>INACTIVE</value>
+                </allowed-values>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>800</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterNodeStatus_PK">
+            <primary-key-column>STATUS_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSClusterNodeStatus_FK" reference-table-name="ADSClusterNodeDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NODE_ID</fk-local-column>
+                        <fk-reference-column>NODE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <table name="ADSClusterParams">
+        <columns>
+            <column name="PRODUCT_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="PARAM_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+            <column name="PARAM_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterParams_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+            <primary-key-column>PARAM_NAME</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSClusterParams_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSClusterBalancerConfig">
+        <columns>
+            <column name="ID">
+                <description>Unique id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterBalancerConfig.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PROTOCOL">
+                <data-type>NCHAR</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IP">
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PORT">
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="STATUS">
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterBalancerConfig_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSClusterFilesToWatch">
+        <columns>
+            <column name="ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterFilesToWatch.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DIRECTORY">
+                <description>Directory path relative to server.dir(eg: /webapps/ads/)</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="FILE_NAMES">
+                <description>Comma separated filenames(eg: test.jpg,test1.hta)</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+            <column name="COPY_FILES_ON_CHANGE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterFilesToWatch_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSClusterFileHistory">
+        <columns>
+            <column name="ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterFileHistory.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FILE_PATH">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="LAST_MODIFIED_TIME">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterFileHistory_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSClusterFileVsNode">
+        <columns>
+            <column name="ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClusterFileVsNode.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NODE_ID">
+                <description>Unique id of the node</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FILE_HISTORY_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSClusterFileVsNode_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSClusterFileVsNode_FK" reference-table-name="ADSClusterNodeDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NODE_ID</fk-local-column>
+                        <fk-reference-column>NODE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSClusterFileVsNode_FK1" reference-table-name="ADSClusterFileHistory">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FILE_HISTORY_ID</fk-local-column>
+                        <fk-reference-column>ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>

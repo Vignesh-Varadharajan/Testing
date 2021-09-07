@@ -1,0 +1,40 @@
+<!-- $Id$ -->
+<PredefinedStatusCodes>
+
+    <!-- Use codes from 1 to 10,00,000 here -->
+    <!-- StatusCodes above 10,00,000 are reserved for Product specific codes only -->
+
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:SUCCESS" STATUS_CODE="0"     DESCRIPTION="Success" DISPLAYTEXT="ads.statuscode.displaytext.success" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:UNDEFINED" STATUS_CODE="65535" DESCRIPTION="Undefined Error" DISPLAYTEXT="ads.statuscode.displaytext.undefined" TROUBLESHOOTING_LINK=""/>
+
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:ACCESSDENIED" STATUS_CODE="7426"  DESCRIPTION="Access denied" DISPLAYTEXT="ads.statuscode.displaytext.accessdenied" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:INVALIDPARAMS" STATUS_CODE="7427"  DESCRIPTION="Invalid parameters crossed" DISPLAYTEXT="ads.statuscode.displaytext.invalidparams" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:RESTAPIFAILED" STATUS_CODE="7428"  DESCRIPTION="Rest API call failed" DISPLAYTEXT="ads.statuscode.displaytext.restapi.failed" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:INVALIDQUERY" STATUS_CODE="7429"  DESCRIPTION="Problem while executing database queries" DISPLAYTEXT="ads.statuscode.displaytext.invalidquery" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:NODATA" STATUS_CODE="7430"  DESCRIPTION="No matching rows in table" DISPLAYTEXT="ads.statuscode.displaytext.nodata" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:UNABLETOADD" STATUS_CODE="7431"  DESCRIPTION="Unable to add" DISPLAYTEXT="ads.statuscode.displaytext.unabletoadd" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:UNABLETOUPDATE" STATUS_CODE="7432"  DESCRIPTION="Unable to update" DISPLAYTEXT="ads.statuscode.displaytext.unabletoupdate" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:UNABLETODELETE" STATUS_CODE="7433"  DESCRIPTION="Unable to delete" DISPLAYTEXT="ads.statuscode.displaytext.unabletodelete" TROUBLESHOOTING_LINK=""/>
+
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:FILENOTFOUND" STATUS_CODE="5000"  DESCRIPTION="File does not exists" DISPLAYTEXT="ads.statuscode.displaytext.filenotfound" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:NO_DISK_SPACE" STATUS_CODE="5001"  DESCRIPTION="No disk space" DISPLAYTEXT="ads.statuscode.displaytext.nodiskspace" TROUBLESHOOTING_LINK=""/>
+
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:PRODUCTNOTINTEGRATED" STATUS_CODE="1000" DESCRIPTION="Product not integrated" DISPLAYTEXT="ads.statuscode.displaytext.product.notintegrated" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:PRODUCTNOTRUNNING" STATUS_CODE="1001" DESCRIPTION="No product running" DISPLAYTEXT="ads.statuscode.displaytext.product.notrunning" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:PRODUCTUNSUPPORTED_VERSION" STATUS_CODE="1002" DESCRIPTION="Unsupported product version" DISPLAYTEXT="ads.statuscode.displaytext.product.unsupported_version" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:RESOURCE_MISSING" STATUS_CODE="1003" DESCRIPTION="Localization text missing " DISPLAYTEXT="ads.statuscode.displaytext.resource_missing" TROUBLESHOOTING_LINK=""/>
+
+    <!-- Schedule related status codes-->
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:SCHEDULEDUPLICATEENTRY" STATUS_CODE="2000" DESCRIPTION="Duplicate entry in table" DISPLAYTEXT="ads.statuscode.displaytext.schedule.duplicateentry" TROUBLESHOOTING_LINK=""/>
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:SCHEDULETIMELESSER" STATUS_CODE="2001" DESCRIPTION="No product running" DISPLAYTEXT="ads.statuscode.displaytext.schedule.timelesser" TROUBLESHOOTING_LINK=""/>
+
+    <!-- ZLOGS status codes -->
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:URL_THROTTLE_LIMIT_EXCEED" STATUS_CODE="20000" DESCRIPTION="Url throttle limit exceed" DISPLAYTEXT="ads.statuscode.displaytext.zlogs.urlthrottleexceed" TROUBLESHOOTING_LINK=""/>
+
+    <!-- common/Reports status codes -->
+    <!-- layout status codes-->
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:WIDGET_LIMIT_EXCEEDED" STATUS_CODE="10000" DESCRIPTION="Widgets limit exceeded" DISPLAYTEXT="ads.statuscode.displaytext.widgets.limit.exceed" TROUBLESHOOTING_LINK=""/>
+
+    <ADSResponseStatusCodes UNIQUE_ID="ADSResponseStatusCodes:UNIQUE_ID:FAVOURITES_LIMIT_EXCEED" STATUS_CODE="9000" DESCRIPTION="Favourites limit exceed" DISPLAYTEXT="ads.statuscode.displaytext.favourites.limit.exceed" TROUBLESHOOTING_LINK=""/>
+
+</PredefinedStatusCodes>

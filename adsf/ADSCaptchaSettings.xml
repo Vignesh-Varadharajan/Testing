@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<CaptchaSettings>
+	<ADSCaptchaConfig UNIQUE_ID="ADSCaptchaConfig:UNIQUE_ID:1" IMAGE_WIDTH="160" IMAGE_HEIGHT="55" NOISE_LEVEL="0" IS_BG_APPLIED="false" CAPTCHA_LENGTH="6"/>
+	
+	<ADSCaptchaColors UNIQUE_ID="ADSCaptchaColors:UNIQUE_ID:1" FONT_COLOR="#3b4d5b"/>
+	
+	<ADSCaptchaFonts UNIQUE_ID="ADSCaptchaFonts:UNIQUE_ID:1" FONT_FACE="Verdana Italic" FONT_SIZE="35"/>
+	<ADSCaptchaFonts UNIQUE_ID="ADSCaptchaFonts:UNIQUE_ID:2" FONT_FACE="Arial Italic" FONT_SIZE="35"/>
+	
+	<ADSCaptchaParams UNIQUE_ID="ADSCaptchaParams:UNIQUE_ID:1" PARAM_NAME="SHOW_LOGIN_CAPTCHA" PARAM_VALUE="false"/>
+	<ADSCaptchaParams UNIQUE_ID="ADSCaptchaParams:UNIQUE_ID:2" PARAM_NAME="IS_AUDIO_CAPTCHA_ENABLED" PARAM_VALUE="true"/>
+	
+	<ADSLogonCaptchaSettings UNIQUE_ID="ADSLogonCaptchaSettings:UNIQUE_ID:1" IS_ENABLED="true" MAX_INVALID_LOGIN="3" TIME_TO_RESET="30"/>
+
+	<ADSBlockUserConfig UNIQUE_ID="ADSBlockUserConfig:UNIQUE_ID:1" IS_ENABLED="false" MAX_ATTEMPTS="5" RESET_TIME="30" BLOCKING_DURATION="30"/>
+</CaptchaSettings>

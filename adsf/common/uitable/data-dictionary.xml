@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+    <description>ADS UI Table related Tables</description>
+
+    <table name="ADSUITableDetails">
+        <columns>
+            <column name="TABLEID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableDetails.TABLEID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DATA_HANDLER_CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="STRUCTURE_HANDLER_CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <default-value>com.manageengine.ads.fw.common.table.structure.ClientTableStructureProviderImpl</default-value>
+                <nullable>false</nullable>
+			</column>
+			<column name="EXPORT_HANDLER_CLASS">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>true</nullable>
+            </column>
+            <column name="DEFAULT_SEARCHTYPE">
+                <data-type>INTEGER</data-type>
+                <default-value>1</default-value>
+                <nullable>false</nullable>
+                <unique>false</unique>
+                <allowed-values>
+                    <value>1</value> <!-- Common Search -->
+                    <value>2</value> <!-- KeyBased Search -->
+                </allowed-values>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableDetails_PK">
+            <primary-key-column>TABLEID</primary-key-column>
+        </primary-key>
+        <unique-keys>
+            <unique-key name="ADSUITableDetails_UK">
+                <unique-key-column>NAME</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="ADSUIColumnTransformConfigurations">
+        <description>
+            <![CDATA[Contains the table structure for ember tables]]>
+        </description>
+        <columns>
+            <column name="TRANSFORM_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUIColumnTransformConfigurations.TRANSFORM_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CLASS">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="METHOD">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DEFAULT_ARGS">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUIColumnTransformConfigurations_PK">
+            <primary-key-column>TRANSFORM_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSUIColumnConfigurations">
+        <description>
+            <![CDATA[Contains the table structure for ember components]]>
+        </description>
+        <columns>
+            <column name="CONFIG_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUIColumnConfigurations.CONFIG_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TABLEID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="COLUMNNAME">
+                <data-type>NCHAR</data-type>
+                <max-size>75</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="COLUMN_TABLENAME">
+                <data-type>NCHAR</data-type>
+                <max-size>75</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_KEY">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INDEX">
+                <data-type>FLOAT</data-type>
+                <max-size>50</max-size>
+                <precision>2</precision>
+                <nullable>false</nullable>
+            </column>
+            <column name="CLASS">
+                <description>Style class. For ex : hidden</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+            <column name="TRANSFORM_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="COLUMN_DISPLAY_TYPE">
+                <description>Ex : VISIBLE, HIDDEN, FIXED</description>
+                <data-type>NCHAR</data-type>
+                <default-value>VISIBLE</default-value>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="ISINDICATOR">
+                <description>Used for indicating a special character of value in a column. For ex: image to show a host is
+                    inherited from ADAP.
+                </description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+                <unique>false</unique>
+            </column>
+            <column name="WEIGHT">
+                <data-type>FLOAT</data-type>
+                <max-size>50</max-size>
+                <precision>2</precision>
+                <default-value>2.7</default-value>
+            </column>
+            <column name="ISHTML">
+                <description>To specify the html type of the column. For ex : if value is 3, then component would be placed from
+                    custom expression. If its 0, then would be rendered as normal text
+                </description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+                <unique>false</unique>
+            </column>
+            <column name="ISSORTABLE">
+                <data-type>INTEGER</data-type>
+                <default-value>1</default-value>
+                <unique>false</unique>
+            </column>
+            <column name="CUSTOMEXPRESSION">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PSEUDO">
+                <description>Used to specify if its an actual column or options like enable/disable.</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>FALSE</default-value>
+            </column>
+            <column name="IS_EXPORTABLE">
+                <description>Used to specify if the table can be exported</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>FALSE</default-value>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <default-value>" "</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="ALIAS_NAME">
+              <description><![CDATA[Column alias name to be used]]>
+              </description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="FIELD_TYPE">
+              <description><![CDATA[FIELD_TYPE of the column. 101 -> Integer,
+                  110 -> Date, 120 -> Boolean, 102-> String(Default)]]>
+              </description>
+              <data-type>INTEGER</data-type>
+              <nullable>true</nullable>
+              <unique>false</unique>
+              <allowed-values>
+                <value>101</value>
+                <value>102</value>
+                <value>110</value>
+                <value>120</value>
+              </allowed-values>
+            </column>
+            <column name="COLUMN_FUNCTION">
+              <description><![CDATA[Default Functions supported by mickey like count, maximum, minimum , or any custom functions which will applied on the resourcefield while generating data for a table]]></description>
+              <data-type>NCHAR</data-type>
+              <max-size>255</max-size>
+            </column>
+            <column name="IS_GROUP_CRITERIA">
+              <description><![CDATA[Whether the field is part of a group criteria]]></description>
+              <data-type>BOOLEAN</data-type>
+              <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSUIColumnConfigurations_PK">
+            <primary-key-column>CONFIG_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUIColumnConfigurations_FK2" reference-table-name="ADSUITableDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TABLEID</fk-local-column>
+                        <fk-reference-column>TABLEID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSUIColumnConfigurations_FK1" reference-table-name="ADSUIColumnTransformConfigurations">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TRANSFORM_ID</fk-local-column>
+                        <fk-reference-column>TRANSFORM_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUITableFilters">
+        <columns>
+            <column name="TABLE_FILTER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableFilters.TABLE_FILTER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PARENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TABLE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="FILTER_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ORDER">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_SELECT_ALLOWED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="IS_SEARCH_AVAILABLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="DISPLAY">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="FILTER_CLASS">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="FILTER_METHOD">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableFilters_PK">
+            <primary-key-column>TABLE_FILTER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUITableFilters_FK" reference-table-name="ADSUITableDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TABLE_ID</fk-local-column>
+                        <fk-reference-column>TABLEID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSUITableFilters_FK1" reference-table-name="ADSUITableFilters">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PARENT_ID</fk-local-column>
+                        <fk-reference-column>TABLE_FILTER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUITableModules">
+        <columns>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableModules.MODULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableModules_PK">
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSUITableCategoriesBand">
+        <columns>
+            <column name="CATEGORY_BAND_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableCategoriesBand.CATEGORY_BAND_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CATEGORY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="TABLE_FILTER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ORDER">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ICON_CLASS">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="STYLE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="UI_COMPONENT">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="REQUEST_PARAMETERS">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="REQUEST_URL">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ON_CLICK_FUNCTION">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableCategoriesBand_PK">
+            <primary-key-column>CATEGORY_BAND_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUITableCategoriesBand_FK" reference-table-name="ADSUITableModules" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+            <foreign-key name="ADSUITableCategoriesBand_FK1" reference-table-name="ADSUITableFilters" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TABLE_FILTER_ID</fk-local-column>
+                        <fk-reference-column>TABLE_FILTER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUINonCacheableTables">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSUINonCacheableTables.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TABLEID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUINonCacheableTables_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUINonCacheableTables_FK" reference-table-name="ADSUITableDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TABLEID</fk-local-column>
+                        <fk-reference-column>TABLEID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    
+    <table name="ADSUITableViews">
+        <description>Table to store UI table views</description>
+        <columns>
+            <column name="VIEW_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableViews.VIEW_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="VIEW_NAME">
+                <description>Name of the view</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="VIEW_DESCRIPTION">
+                <description>Description for the view</description>
+                <data-type>CHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TABLEID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="FILTER_CRITERIA">
+                <description>Filter criteria - JSON as sent to server during ADSUITableFilters usage</description>
+                <data-type>CHAR</data-type>
+                <max-size>6000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <description>To differentiate between predefined and custom view to show Edit and delete options</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableViews_PK0">
+            <primary-key-column>VIEW_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUITableViews_FK0" reference-table-name="ADSUITableDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TABLEID</fk-local-column>
+                        <fk-reference-column>TABLEID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSUITableViews_FK1" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREATED_BY</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUITableViewsVsCategoriesBand">
+        <columns>
+            <column name="MAP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITableViewsVsCategoriesBand.MAP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="VIEW_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="CATEGORY_BAND_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSUITableViewsVsCategoriesBand_PK0">
+            <primary-key-column>MAP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUITableViewsVsCategoriesBand_FK0" reference-table-name="ADSUITableViews">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>VIEW_ID</fk-local-column>
+                        <fk-reference-column>VIEW_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSUITableViewsVsCategoriesBand_FK1" reference-table-name="ADSUITableCategoriesBand">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CATEGORY_BAND_ID</fk-local-column>
+                        <fk-reference-column>CATEGORY_BAND_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+
+  <table name="ADSUIColumnJoinDetails">
+  <description>
+    <![CDATA[
+      This table contains info about the join tables required for constructing a query for a particular resource
+    ]]>
+    </description>
+  <columns>
+    <column name="UNIQUE_ID">
+      <description><![CDATA[Unique identifier]]></description>
+      <data-type>BIGINT</data-type>
+      <nullable>false</nullable>
+      <uniquevalue-generation>
+        <generator-name>ADSUIColumnJoinDetails.UNIQUE_ID</generator-name>
+      </uniquevalue-generation>
+    </column>
+    <column name="TABLE_ID">
+      <description><![CDATA[Foreign key which maps to ADSUITableDetails]]></description>
+      <data-type>BIGINT</data-type>
+      <nullable>false</nullable>
+    </column>
+    <column name="BASE_TABLE_NAME">
+      <description><![CDATA[Base table used in join]]></description>
+      <data-type>NCHAR</data-type>
+      <max-size>255</max-size>
+      <nullable>false</nullable>
+    </column>
+    <column name="BASE_TABLE_COLUMN">
+      <description><![CDATA[Base table column used in join. Currently supports only a single column]]></description>
+      <data-type>NCHAR</data-type>
+      <max-size>255</max-size>
+    </column>
+    <column name="JOIN_TABLE_NAME">
+      <description><![CDATA[Join table used in join]]></description>
+      <data-type>NCHAR</data-type>
+      <max-size>255</max-size>
+    </column>
+    <column name="JOIN_TABLE_COLUMN">
+      <description><![CDATA[Join table column used in join. Currently supports only a single column]]></description>
+      <data-type>NCHAR</data-type>
+      <max-size>255</max-size>
+    </column>
+    <column name="JOIN_TYPE">
+      <description><![CDATA[1 -> left,2- >inner , 3-> right (since right join is not present reverse the column order) , 4-> inner (reverse the column order)
+      ]]></description>
+      <data-type>INTEGER</data-type>
+    </column>
+    <column name="JOIN_ORDER">
+      <description><![CDATA[Order in which join is applied]]></description>
+      <data-type>INTEGER</data-type>
+    </column>
+    <column name="IS_INITIAL_TABLE">
+      <description><![CDATA[Whether this table is the base table used while initialising a select query]]></description>
+      <data-type>BOOLEAN</data-type>
+      <default-value>false</default-value>
+    </column>
+  </columns>
+  <primary-key name="ADSUIColumnJoinDetails_PK1">
+    <primary-key-column>UNIQUE_ID</primary-key-column>
+  </primary-key>
+  <foreign-keys>
+    <foreign-key name="ADSUIColumnJoinDetails_FK1" reference-table-name="ADSUITableDetails">
+      <fk-columns>
+        <fk-column>
+          <fk-local-column>TABLE_ID</fk-local-column>
+          <fk-reference-column>TABLEID</fk-reference-column>
+        </fk-column>
+      </fk-columns>
+      <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+    </foreign-key>
+  </foreign-keys>
+</table>
+
+<table name="ADSUIColumnGroupDetails">
+    <description>
+      <![CDATA[
+          This table contains groupby clause info for constructing a query for a particular resource.
+      ]]>
+      </description>
+    <columns>
+      <column name="UNIQUE_ID">
+        <description><![CDATA[Unique identifier]]></description>
+        <data-type>BIGINT</data-type>
+        <nullable>false</nullable>
+        <uniquevalue-generation>
+          <generator-name>ADSUIColumnGroupDetails.UNIQUE_ID</generator-name>
+        </uniquevalue-generation>
+      </column>
+      <column name="TABLE_ID">
+        <description><![CDATA[Foreign key which maps to ADSUITableDetails]]></description>
+        <data-type>BIGINT</data-type>
+        <nullable>false</nullable>
+      </column>
+      <column name="GROUP_BY_TABLE">
+        <description><![CDATA[Table name in which the column on which group by is applied is present]]></description>
+        <data-type>NCHAR</data-type>
+        <max-size>255</max-size>
+      </column>
+      <column name="GROUP_BY_COLUMN">
+        <description><![CDATA[Column on which group by is applied]]></description>
+        <data-type>NCHAR</data-type>
+        <max-size>255</max-size>
+      </column>
+      <column name="GROUP_BY_COLUMN_ALIAS_NAME">
+        <description><![CDATA[Group by alias name which will the column name when sent to the client]]></description>
+        <data-type>NCHAR</data-type>
+        <max-size>255</max-size>
+      </column>
+      <column name="COLUMN_FUNCTION">
+        <description><![CDATA[Create function, if any to be used while adding columns to groupList]]></description>
+        <data-type>NCHAR</data-type>
+        <max-size>255</max-size>
+      </column>
+    </columns>
+    <primary-key name="ADSUIColumnGroupDetails_PK1">
+      <primary-key-column>UNIQUE_ID</primary-key-column>
+    </primary-key>
+    <foreign-keys>
+      <foreign-key name="ADSUIColumnGroupDetails_FK1" reference-table-name="ADSUITableDetails">
+        <fk-columns>
+          <fk-column>
+            <fk-local-column>TABLE_ID</fk-local-column>
+            <fk-reference-column>TABLEID</fk-reference-column>
+          </fk-column>
+        </fk-columns>
+        <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+      </foreign-key>
+    </foreign-keys>
+  </table>
+
+  <table name="ADSUIColumnDefaultCriteria">
+    <description>
+      <![CDATA[
+          This table maps a resourcefield column with a default value to be
+          applied while constructing a resource
+        ]]>
+      </description>
+    <columns>
+      <column name="UNIQUE_ID">
+        <description><![CDATA[Unique identifier]]></description>
+        <data-type>BIGINT</data-type>
+        <nullable>false</nullable>
+        <uniquevalue-generation>
+          <generator-name>ADSUIColumnDefaultCriteria.UNIQUE_ID</generator-name>
+        </uniquevalue-generation>
+      </column>
+      <column name="COLUMN_ID">
+        <description><![CDATA[Foreign key which maps to field_id in ADSUITableDetails]]></description>
+        <data-type>BIGINT</data-type>
+      </column>
+      <column name="DEFAULT_VALUE">
+        <description><![CDATA[Default values for the choosen field]]></description>
+        <data-type>NCHAR</data-type>
+        <max-size>255</max-size>
+      </column>
+      <column name="DEFAULT_CRITERIA_COMPARATOR">
+        <description><![CDATA[the default criteria to apply. IN ,NOT_IN,CONTAINS, NOT_CONTAINS ,etc..,]]></description>
+        <data-type>INTEGER</data-type>
+      </column>
+      <column name="SEPERATOR">
+        <description><![CDATA[Seperator ("and" or "or") to be used when there are multiple default criteria's for a particular resource query generation]]></description>
+        <data-type>NCHAR</data-type>
+      </column>
+      <column name="PRIORITY">
+        <description><![CDATA[The order of execution when are multiple default criteria for a particular query]]></description>
+        <data-type>INTEGER</data-type>
+      </column>
+    </columns>
+      <primary-key name="ADSUIColumnDefaultCriteria_PK1">
+        <primary-key-column>UNIQUE_ID</primary-key-column>
+      </primary-key>
+      <foreign-keys>
+        <foreign-key name="ADSUIColumnDefaultCriteria_FK1" reference-table-name="ADSUIColumnConfigurations">
+          <fk-columns>
+            <fk-column>
+              <fk-local-column>COLUMN_ID</fk-local-column>
+              <fk-reference-column>CONFIG_ID</fk-reference-column>
+            </fk-column>
+          </fk-columns>
+          <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+        </foreign-key>
+      </foreign-keys>
+  </table>
+</data-dictionary>

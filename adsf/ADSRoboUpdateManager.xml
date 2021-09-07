@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ $Id$
+ -->
+<RoboUpdateManager>
+	<ADSRoboUpdateManager RUM_ID="1" CONFIGURED_PRODUCTS="ADManager Plus" ENABLE_UPDATE="false" UPDATE_MY_SELF="false" NOTIFY_ADMIN="true" NOTIFY_AFTER_UPGRADE="false" />
+
+	<ADSRumServerDetails PRODUCT_ID="2" SERVER_URL="https://creator.zoho.com/api/json/robo-update-manager/view/Robo_Update_Manager_View1?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;scope=creatorapi&amp;zc_ownername=ssp" 
+		IS_PATCH_AVAILABLE="true" IS_CONNECTION_FAILURE="false" 
+		UPDATE_URL="https://creator.zoho.com/api/ssp/json/robo-update-manager/form/Robo_Update_Manager/record/update?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;scope=creatorapi&amp;zc_ownername=ssp" />
+</RoboUpdateManager>

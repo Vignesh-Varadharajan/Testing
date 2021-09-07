@@ -1,0 +1,5 @@
+<!--$Id$-->
+<Layout>
+    <ADSLayout LAYOUT_ID="ADSLayout:LAYOUT_ID:1" LAYOUT_NAME="admp.home.layout.name.default_layout" DESCRIPTION="admp.home.layout.desc.default_layout" IS_CUSTOMIZABLE="false" USER_ID="AaaUser:user_id:0"/>
+    <ADSLayout LAYOUT_ID="ADSLayout:LAYOUT_ID:2" LAYOUT_NAME="admp.home.layout.name.adap_dashboard" DESCRIPTION="admp.home.layout.desc.adap_dashboard" IS_CUSTOMIZABLE="false" USER_ID="AaaUser:user_id:0"/>
+</Layout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dynamic-value-handlers>
+    <RowTransformer tablename="ADSSecretKeys" classname="com.manageengine.ads.startup.util.SCHARRowTransformer"/>
+</dynamic-value-handlers>

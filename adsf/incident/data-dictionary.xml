@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>
+		<![CDATA[Incident Workflow Related tables]]>
+	</description>
+	<!-- IMWORKFLOW tables start -->
+	<table name="ADSIMTemplateColumns">
+		<description><![CDATA[This table contains the details of the columns that are to be displayed in list templates page.]]></description>
+		<columns>
+			<column name="COLUMN_ID">
+				<description>ID of the column to be displayed in list workflow page</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMTemplateColumns.COLUMN_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="PRODUCT_ID">
+				<description>ID of the product that is using the column</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TABLE_NAME">
+				<description>Table from which data is to be taken</description>
+				<data-type>NCHAR</data-type>
+				<max-size>2000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="COLUMN_NAME">
+				<description>Column from which data is to be taken</description>
+				<data-type>NCHAR</data-type>
+				<max-size>2000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="COLUMN_DISPLAY_NAME">
+				<description>Value that is displayed in column heading of the table in list workflow page</description>
+				<data-type>NCHAR</data-type>
+				<max-size>2000</max-size>
+			</column>
+			<column name="COLUMN_WIDTH">
+				<description>Width of the column</description>
+				<data-type>INTEGER</data-type>
+				<default-value>10</default-value>
+				<unique>false</unique>
+			</column>
+			<column name="PRIORITY">
+				<description>Order in which the column is displayed</description>
+				<data-type>INTEGER</data-type>
+				<unique>true</unique>
+			</column>
+			<column name="IS_EXT_SOURCE">
+				<description>If true then the data should be taken from the integrated product. Interface implentation needed for this.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="IS_SORTABLE">
+				<description>Whether the table data can be sorted based on this column</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIMTemplateColumns_PK">
+			<primary-key-column>COLUMN_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMTemplateColumns_FK" reference-table-name="ADSProducts" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>PRODUCT_ID</fk-local-column>
+						<fk-reference-column>PRODUCT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMExcludeObjectList">
+		<description><![CDATA[List of objects that should be excluded from particular actions]]></description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique Id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMExcludeObjectList.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="OBJ_NAME">
+				<description>Name of the object that will be matched to the input</description>
+				<data-type>NCHAR</data-type>
+				<max-size>50</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="OBJ_TYPE">
+				<description>Type of object. Eg user, computer</description>
+				<data-type>NCHAR</data-type>
+				<max-size>20</max-size>
+				<unique>false</unique>
+				<allowed-values>
+					<value>COMPUTER</value>
+					<value>USER</value>
+				</allowed-values>
+			</column>
+		</columns>
+		<primary-key name="ADSIMExcludeObjectList_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>	
+	</table>
+
+	<table name="ADSIMCredentials">
+		<description><![CDATA[For common credentials that are used when no credentials are found in the product]]></description>
+		<columns>
+			<column name="CRED_ID">
+				<description>ID of the credential</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMCredentials.CRED_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="CRED_TYPE">
+				<description>Type: whether linux,switch, etc</description>
+				<data-type>NCHAR</data-type>
+				<max-size>50</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="CRED_NAME">
+				<description>Name for the credential</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="USER_NAME">
+				<description>User name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="PASSWORD">
+				<description>Password</description>
+				<data-type>SCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIMCredentials_PK">
+			<primary-key-column>CRED_ID</primary-key-column>
+		</primary-key>	
+	</table>
+
+	<table name="ADSIMCredentialDetails">
+		<description><![CDATA[Additional details needed for credentials like port number etc.]]></description>
+		<columns>
+			<column name="CRED_ID">
+				<description>ID from ADSIMCredentials table</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>Display name of the additional property</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_NAME">
+				<description>TParam name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+			<column name="PARAM_VALUE">
+				<description>param value</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIMCredentialDetails_PK">
+			<primary-key-column>CRED_ID</primary-key-column>
+			<primary-key-column>PARAM_NAME</primary-key-column>
+		</primary-key>	
+		<foreign-keys>
+			<foreign-key name="ADSIMCredentialDetails_FK" reference-table-name="ADSIMCredentials">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>CRED_ID</fk-local-column>
+						<fk-reference-column>CRED_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMBlockCategory">
+		<description><![CDATA[The table that contains the types of the Blocks to be placed in the workflow diagram]]></description>
+		<columns>
+			<column name="BLOCK_CATEG_ID">
+				<description>ID of the Block Category.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockCategory.BLOCK_CATEG_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_CATEG_NAME">
+				<description>Block grouping names. Like Logic, Active Directory, Notification, etc. Will be displayed when creating or modifying the template.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="PRIORITY">
+				<description>Order in which the categories are displayed</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockCategory_PK">
+			<primary-key-column>BLOCK_CATEG_ID</primary-key-column>
+		</primary-key>
+	</table>
+	
+	<table name="ADSIMBlockType">
+		<description><![CDATA[This table represents the vailable Block's input types. Example: Enable account and Disable account will be of same tyeps. As the inputs are same. But they will have different functionality]]></description>
+
+		<columns>
+			<column name="BLOCK_TYPE_ID">
+				<description>Unique key to identify individual block keys</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockType.BLOCK_TYPE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_TYPE_NAME">
+				<description>The display name of the block type</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockType_PK">
+			<primary-key-column>BLOCK_TYPE_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<table name="ADSIMBlock">
+		<description><![CDATA[The table represents the blocks of the workflow chart]]></description>
+		<columns>
+			<column name="BLOCK_ID">
+				<description>Unique key for the blocks</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlock.BLOCK_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_NAME">
+				<description>Name of the block to be displayed</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PRODUCT_ID">
+				<description>Product which serves the action. Will be used to fetch product based values. Refer ADSProducts table. 0 means ADS</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="BLOCK_TYPE_ID">
+				<description>Links to the Type of block which will handle the inputs. Points to values in IMBlockType table</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="BLOCK_CATEG_ID">
+				<description>Denotes the category under which this block will be placed</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="BLOCK_IMG">
+				<description>CSS class of the block's image</description>
+				<data-type>NCHAR</data-type>
+				<max-size>50</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="BLOCK_HANDLER_CLASS">
+				<description>The java class that carries out the mentioned operation</description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="PRIORITY">
+				<description>Order in which the blocks are displayed</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+			</column>
+			<column name="IS_WINDOWS">
+				<description>Whether the block is for performing a windows action</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+			<column name="IS_DECISION">
+				<description>Whether the block is a decision block</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlock_PK">
+			<primary-key-column>BLOCK_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMBlock_FK1" reference-table-name="ADSIMBlockType" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMBlock_FK2" reference-table-name="ADSIMBlockCategory" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_CATEG_ID</fk-local-column>
+						<fk-reference-column>BLOCK_CATEG_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMBlock_FK3" reference-table-name="ADSProducts" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>PRODUCT_ID</fk-local-column>
+						<fk-reference-column>PRODUCT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMBlockTypeInput">
+		<description><![CDATA[This holds the UI component details for each block type available in the template creation page. When a block is edited, the input details for the popup are taken from here]]></description>
+		<columns>
+			<column name="BLOCK_TYPE_INPUT_ID">
+				<description>Unique id for this table</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockTypeInput.BLOCK_TYPE_INPUT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_TYPE_ID">
+				<description>The data block for which the input is provided</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="ATTRIBUTE_NAME">
+				<description>The input for the block in JSON format</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="LABEL">
+				<description>The input for the block in JSON format</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="INPUT_TYPE">
+				<description>The input for the block in JSON format</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+			<column name="IS_CUSTOM_INPUT">
+				<description>If custom ember component is used</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+			<column name="DEFAULT_VALUE">
+				<description>Default value for this input. </description>
+				<data-type>NCHAR</data-type>
+				<max-size>1000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_EDITABLE">
+				<description>Whether the input alone can be editted before execution</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+			<column name="IS_VISIBLE">
+				<description>Whether the input is visible in the UI, if the input is not visible then generally the value cannot be changed.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>TRUE</default-value>
+			</column>
+			<column name="IS_MANDATORY">
+				<description>Whether the input is mandatory.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>TRUE</default-value>
+			</column>
+			<column name="MAX_LENGTH">
+				<description>Max Length of the input. Applicable only to text, textarea for now.</description>
+				<data-type>INTEGER</data-type>
+				<default-value>500</default-value>
+			</column>
+			<column name="MIN_VALUE">
+				<description>Min length of the integer attribute. Will be used along with validate-number in ads-validation-util</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+			</column>
+			<column name="HELP_TEXT">
+				<description>Help text for the input if applicable. Null if not required</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="PLACE_HOLDER_TEXT">
+				<description>Placeholder text for the input if applicable. Null if not required. This is only valid for text and textarea inputs</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockTypeInput_PK">
+			<primary-key-column>BLOCK_TYPE_INPUT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMBlockTypeInput_FK1" reference-table-name="ADSIMBlockType" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMBlockTypeInputMacros">
+		<description><![CDATA[Macros for inputs in ADSIMBlockTypeInput table. The data shoul be given in the integrating product]]></description>
+		<columns>
+			<column name="MACRO_ID">
+				<description>Unique id of the macro</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockTypeInputMacros.MACRO_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_TYPE_INPUT_ID">
+				<description>Block type input for which the options are to be used</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="LABEL">
+				<description>Label of the macro</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="VALUE">
+				<description>Value</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockTypeInputMacros_PK">
+			<primary-key-column>MACRO_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMBlockTypeInputMacros_FK1" reference-table-name="ADSIMBlockTypeInput" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_INPUT_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_INPUT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMBlockTypeInputOptions">
+		<description><![CDATA[Options for inputs in ADSIMBlockTypeInput table]]></description>
+		<columns>
+			<column name="BLOCK_TYPE_INPUT_OPT_ID">
+				<description>Unique id for this table</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockTypeInputOptions.BLOCK_TYPE_INPUT_OPT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_TYPE_INPUT_ID">
+				<description>Block type input for which the options are to be used</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="LABEL">
+				<description>Label of the option</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="VALUE">
+				<description>Value</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_SELECTED">
+				<description>Whether the option is selected</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+			<column name="EXT_SOURCE_NAME">
+				<description>If not null then the data should be taken from the integrated product.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="IS_ALL_OPTIONS">
+				<description>Whether the default all options are to be set.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>FALSE</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockTypeInputOptions_PK">
+			<primary-key-column>BLOCK_TYPE_INPUT_OPT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMBlockTypeInputOptions_FK1" reference-table-name="ADSIMBlockTypeInput" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_INPUT_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_INPUT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMBlockInputValidationIds">
+		<description><![CDATA[Holds all validation IDs that are used for validating block inputs, eg. positive number, email validation, etc. The code for this needs to be added in create-imtemplate.js]]></description>
+		<columns>
+			<column name="VALIDATION_ID">
+				<description></description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIMBlockInputValidationIds.VALIDATION_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="VALIDATION_TYPE_NAME">
+				<description>Name of the validation</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockInputValidationIds_PK">
+			<primary-key-column>VALIDATION_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<table name="ADSIMBlockInputVsValidationId">
+		<description><![CDATA[Mapping between block input and the validation ids]]></description>
+		<columns>
+			<column name="VALIDATION_ID">
+				<description>The validation types that need to be performed on the given input. Refer to ADSIMBlockInputValidationIds table for list of all validation IDS, if new ID is to be added then entry must be made in ADSIMBlockInputValidationIds table</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="BLOCK_TYPE_INPUT_ID">
+				<description>Id from ADSIMBlockTypeInput</description>
+				<data-type>BIGINT</data-type>
+			</column>
+		</columns>
+		<primary-key name="ADSIMBlockInputVsValidationId_PK">
+			<primary-key-column>VALIDATION_ID</primary-key-column>
+			<primary-key-column>BLOCK_TYPE_INPUT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMBlockInputVsValidationId_FK1" reference-table-name="ADSIMBlockInputValidationIds" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>VALIDATION_ID</fk-local-column>
+						<fk-reference-column>VALIDATION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMBlockInputVsValidationId_FK2" reference-table-name="ADSIMBlockTypeInput" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_INPUT_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_INPUT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<!-- Template based Configuration tables starts here -->
+	<table name="ADSIMDataTemplate">
+		<description><![CDATA[Main table for templates. It contains the overview of the template]]></description>
+		<columns>
+			<column name="TEMPLATE_ID">
+				<description>Unique identifier for each template</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMDataTemplate.TEMPLATE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TEMPLATE_NAME">
+				<description>Name of the template</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="TEMPLATE_DESCRIPTION">
+				<description>Can be used to give an overview of the action(s) performed by this template</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+			</column>
+			<column name="CREATED_BY">
+				<description>User ID of the technician or the user who created this template. </description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="CREATED_ON">
+				<description>Creation time of the template</description>
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+			</column>
+			<column name="LAST_MODIFIED">
+				<description>Date and Time of when the recent modification is performed on the template</description>
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+			</column>
+			<column name="STATUS">
+				<description>Denotes whether the template is enabled or disabled or hidden, etc. </description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- UNKNOWN -->
+					<value>1</value> <!-- ENABLED -->
+					<value>2</value> <!-- DISABLED -->
+					<value>3</value> <!-- DELETED -->
+				</allowed-values>
+			</column>
+			<column name="IS_DEFAULT">
+				<description>Whether the template is predefined or created by the user</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSIMDataTemplate_PK">
+			<primary-key-column>TEMPLATE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMDataTemplate_FK" reference-table-name="AaaUser" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>CREATED_BY</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<!-- TODO: Template sharing has to be implemented. When that is implemented, need to give permission to view/use/modify a specified template -->
+
+	<table name="ADSIMDataBlock">
+		<description><![CDATA[This table represents the blocks of a template that has been saved.]]></description>
+		<columns>
+			<column name="DATA_BLOCK_ID">
+				<description>Unique key for the template blocks</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMDataBlock.DATA_BLOCK_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TEMPLATE_ID">
+				<description>The template to which the mentioned block belongs</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="DATA_BLOCK_NAME">
+				<description>Name of the block. Ex: Reset Password, etc.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DESCRIPTION">
+				<description>Description of the Block. Easy for the user to know what they did there.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="BLOCK_ID">
+				<description>Corresponds to the original ID of the Block</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="POS_X">
+				<description>X co-ordinate of the block</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="POS_Y">
+				<description>Y co-ordinate of the block</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSIMDataBlock_PK">
+			<primary-key-column>DATA_BLOCK_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMDataBlock_FK1" reference-table-name="ADSIMDataTemplate" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMDataBlock_FK3" reference-table-name="ADSIMBlock" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_ID</fk-local-column>
+						<fk-reference-column>BLOCK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMDBlockInput">
+		<description><![CDATA[This holds the UI component details for each block type available in the template creation page. When a block is edited, the input details for the popup are taken from here]]></description>
+		<columns>
+			<column name="DATA_BLOCK_INP_ID">
+				<description>Unique id for this table</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMDBlockInput.DATA_BLOCK_INP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="BLOCK_TYPE_INPUT_ID">
+				<description>The entry in ADSIMBlockTypeInput to get label, is editable and validation ids</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="DATA_BLOCK_ID">
+				<description>The data block for which the input is provided</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="VALUE">
+				<description>The input for the block in JSON format. eg. {email:test@test.com,deviceName:comp1}</description>
+				<data-type>NCHAR</data-type>
+				<max-size>500</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSIMDBlockInput_PK">
+			<primary-key-column>DATA_BLOCK_INP_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMDBlockInput_FK1" reference-table-name="ADSIMDataBlock" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DATA_BLOCK_ID</fk-local-column>
+						<fk-reference-column>DATA_BLOCK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMDBlockInput_FK2" reference-table-name="ADSIMBlockTypeInput" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>BLOCK_TYPE_INPUT_ID</fk-local-column>
+						<fk-reference-column>BLOCK_TYPE_INPUT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMDataLink">
+		<description><![CDATA[This column denotes the link between two blocks. Two block may have multiple links based on the condition.]]></description>
+		<columns>
+			<column name="LINK_ID">
+				<description>Unique id for this table</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMDataLink.LINK_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TEMPLATE_ID">
+				<description>The template to which this link belongs to</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="SRC_BLOCK_ID">
+				<description>Originating or source block of the link</description>
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+			</column>
+			<column name="CONDITION">
+				<description>Condition for executing this link. If this is not specified, then the link will be executed for any result from the source or originating block</description>
+				<data-type>NCHAR</data-type>
+				<max-size>2000</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="DEST_BLOCK_ID">
+				<description>The block that will be executed if this link is entered</description>
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIMDataLink_PK">
+			<primary-key-column>LINK_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMDataLink_FK1" reference-table-name="ADSIMDataTemplate" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMDataLink_FK2" reference-table-name="ADSIMDataBlock" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>SRC_BLOCK_ID</fk-local-column>
+						<fk-reference-column>DATA_BLOCK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSIMDataLink_FK3" reference-table-name="ADSIMDataBlock" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DEST_BLOCK_ID</fk-local-column>
+						<fk-reference-column>DATA_BLOCK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMTemplateAudit">
+		<description><![CDATA[This template shows the changes made to the template by an user since it is created.]]></description>
+		<columns>
+			<column name="TEMPLATE_AUDIT_ID">
+				<description>Unique ID for each change (creation or modification) on the template.</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMTemplateAudit.TEMPLATE_AUDIT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TEMPLATE_ID">
+				<description>Id of the template that is created or modified.</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="MODIFIED_BY">
+				<description>User ID of the technician who modified this template.</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="MODIFIED_TIME">
+				<description>The time at which the modification was done</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="CHANGE_TYPE">
+				<description>Type of change performed on the template. Like Creation, Modification and Deletion</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>-1</value> <!-- UNKNOWN -->
+					<value>0</value> <!-- CREATED -->
+					<value>1</value> <!-- ENABLED -->
+					<value>2</value> <!-- DISABLED -->
+					<value>3</value> <!-- DELETED -->
+					<value>4</value> <!-- EDITED -->
+					<!-- We might also include for Sharing the templates, etc. But this is not done now. Adding to TODO list. -->
+				</allowed-values>
+			</column>
+		</columns>
+		<primary-key name="ADSIMTemplateAudit_PK">
+			<primary-key-column>TEMPLATE_AUDIT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMTemplateAudit_FK1" reference-table-name="ADSIMDataTemplate" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<!-- Template based audit tables ends here -->
+
+
+	<!-- Template Execution based tables starts here -->
+	<table name="ADSIMExecution">
+		<description><![CDATA[This table contains the initiated incident execution data. This will contain only the overall information. Detailed actions performed for each blocks will be present in ADSIMExecutionAudit table.]]></description>
+		<columns>
+			<column name="EXECUTION_ID">
+				<description>Unique ID representing each individual incident template executions</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSIMExecution.EXECUTION_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="TEMPLATE_ID">
+				<description>The template ID of the execution. As we dont allow to modify a template after the execution starts, if need to get what was the template data for this execution, refer ADSIMTemplateAudit table</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="INPUT_NAME">
+				<description>The action in the integrated product that causes the template execution. This is used while viewing the WF logs.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="MODIFIED_TIME">
+				<description>The time at which this row was added or last modified whichever is latest</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="STATUS">
+				<description>Shows the execution status of the full process.</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- NOT_DEFINED -->
+					<value>1</value> <!-- EXECUTING -->
+					<value>2</value> <!-- COMPLETED_SUCCESS -->
+					<value>3</value> <!-- COMPLETED_FAILURE -->
+					<value>4</value> <!-- COMPLETED_UNKNOWN -->
+					<value>5</value> <!-- COMPLETED_WITH_ERRORS -->
+					<value>6</value> <!-- INTERRUPTED -->
+				</allowed-values>
+			</column>
+			<column name="STATUS_MSG">
+				<description>Shows the execution status of the full process in plain understandable text.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIMExecution_PK">
+			<primary-key-column>EXECUTION_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMExecution_FK1" reference-table-name="ADSIMDataTemplate" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+	<table name="ADSIMExecutionAudit">
+		<description><![CDATA[This table contains the detailed input and exact result of all the blocks that are completely executed or being executed. This table will not have an entry of a block unless it is executed.]]></description>
+		<columns>
+			<column name="AUDIT_ID">
+				<description>Unique id for Each Audit execution block for any template being executed.</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSIMExecutionAudit.AUDIT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="EXECUTION_ID">
+				<description>Points to the template's current execution id.</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="BLOCK_NAME">
+				<description>Points to the current template's block which status is represented in this record.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="MODIFIED_TIME">
+				<description>The time at which this row was added or last modified whichever is latest</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="STATUS">
+				<description>Status of the block in this record.</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- NOT_DEFINED -->
+					<value>1</value> <!-- EXECUTING -->
+					<value>2</value> <!-- COMPLETED_SUCCESS -->
+					<value>3</value> <!-- COMPLETED_FAILURE -->
+					<value>4</value> <!-- COMPLETED_UNKNOWN -->
+				</allowed-values>
+			</column>
+			<column name="STATUS_MSG">
+				<description>Shows the execution status of the current block in this row in plain understandable text.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSIMExecutionAudit_PK">
+			<primary-key-column>AUDIT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSIMExecutionAudit_FK1" reference-table-name="ADSIMExecution" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>EXECUTION_ID</fk-local-column>
+						<fk-reference-column>EXECUTION_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<!-- Template Execution based tables ends here -->
+
+	<!--IM WORKFLOW TABLES END-->
+	
+</data-dictionary>
+
+<!--$Id$ -->

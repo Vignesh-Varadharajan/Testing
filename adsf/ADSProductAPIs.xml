@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProductAPIs>
+
+	<!--AD360 Primary APIs - Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:1" API_ID="ADSProductAPIs:API_ID:1" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlet/HSKeyAuthenticator">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="productName" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:2" PARAM_NAME="handshakeKey" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:3" PARAM_NAME="format" IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:1" API_ID="ADSProductAPIs:API_ID:2" API_NAME="GET_SSO_TICKET_DETAILS" API_URL="/servlet/GetSSOTicket">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:11" PARAM_NAME="ticket" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:1" API_ID="ADSProductAPIs:API_ID:3" API_NAME="FETCH_EVENTS" API_URL="/RestAPI/FetchEvents" MTCALL_NAME="operation" MTCALL_VALUE="fetchEvents">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:21" PARAM_NAME="LAST_EVENT_ID" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:1" API_ID="ADSProductAPIs:API_ID:4" API_NAME="SYNC_NOW" API_URL="/RestAPI/Synchronize" MTCALL_NAME="operation" MTCALL_VALUE="synchronizeNow"/>
+	<!--AD360 APIs - Ending-->
+
+	<!--Log360 Primary APIs - Starts-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:8" API_ID="ADSProductAPIs:API_ID:8" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlet/HSKeyAuthenticator">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:9" PARAM_NAME="productName" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:10" PARAM_NAME="handshakeKey" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:11" PARAM_NAME="format" IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:8" API_ID="ADSProductAPIs:API_ID:12" API_NAME="GET_SSO_TICKET_DETAILS" API_URL="/servlet/GetSSOTicket">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:13" PARAM_NAME="ticket" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:8" API_ID="ADSProductAPIs:API_ID:13" API_NAME="FETCH_EVENTS" API_URL="/RestAPI/FetchEvents" MTCALL_NAME="operation" MTCALL_VALUE="fetchEvents">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:14" PARAM_NAME="LAST_EVENT_ID" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:8" API_ID="ADSProductAPIs:API_ID:15" API_NAME="SYNC_NOW" API_URL="/RestAPI/Synchronize" MTCALL_NAME="operation" MTCALL_VALUE="synchronizeNow"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:16" API_NAME="GET_URI_RESPONSE" API_URL="/RestAPI/GetURIResponse" IS_HS_REQUIRED="true"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:17" API_NAME="GET_REPORTS_LIST" API_URL="/RestAPI/GetURIResponse" MTCALL_NAME="operation" MTCALL_VALUE="getReportsList" IS_HS_REQUIRED="true"/>
+	<!--Log360 APIs - Ends-->
+
+	<!--ADSSP APIs Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:4" API_ID="ADSProductAPIs:API_ID:5" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlet/HSKeyAuthenticator">
+            <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:4" PARAM_NAME="productName" IS_MANDATORY="true"/>
+            <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:5" PARAM_NAME="handshakeKey" IS_MANDATORY="true"/>
+            <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:6" PARAM_NAME="format" IS_MANDATORY="false"/>
+        </ADSProductAPIs>
+
+
+	    <ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:4" API_ID="ADSProductAPIs:API_ID:6" API_NAME="FETCH_EVENTS" API_URL="/RestAPI/FetchEvents" MTCALL_NAME="operation" MTCALL_VALUE="fetchEvents">
+            <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:7" PARAM_NAME="LAST_EVENT_ID" IS_MANDATORY="true"/>
+    	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:4" API_ID="ADSProductAPIs:API_ID:7" API_NAME="SYNC_NOW" API_URL="/RestAPI/Synchronize" MTCALL_NAME="operation" MTCALL_VALUE="synchronizeNow"/>
+	<!--ADSSP APIs Ending-->
+
+	<!--SDP APIs Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:6" API_ID="ADSProductAPIs:API_ID:50" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlets/HSKeyAuthenticator"/>
+	<!--SDP APIs Ending-->
+	
+	<!--SN APIs Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:7" API_ID="ADSProductAPIs:API_ID:51" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/api/x_manen_admanager/hskeyauthenticator"/>
+	<!--SN APIs Ending-->
+
+	<!--PMP APIs Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:13" API_ID="ADSProductAPIs:API_ID:52" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/restapi/json/validateHandShakeKey"/>
+	<!--PMP APIs Ending-->
+
+	<!--ADMP Product APIs - Starting-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:101" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlet/HSKeyAuthenticator"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:102" API_NAME="LOAD_DASHBOARD_CONTAINERS" API_URL="/RestAPI/GetDashboard" MTCALL_NAME="operation" MTCALL_VALUE="loadContainers"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:103" API_NAME="LOAD_DASHBOARD_COMPONENT" API_URL="/RestAPI/GetDashboard" MTCALL_NAME="operation" MTCALL_VALUE="loadComponent"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:104" API_NAME="GET_SSO_TICKET_DETAILS" API_URL="/servlet/GetSSOTicket">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:71" PARAM_NAME="ticket" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:105" API_NAME="FETCH_EVENTS" API_URL="/RestAPI/FetchEvents" MTCALL_NAME="operation" MTCALL_VALUE="fetchEvents">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:81" PARAM_NAME="LAST_EVENT_ID" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:106" API_NAME="SYNC_NOW" API_URL="/RestAPI/Synchronize" MTCALL_NAME="operation" MTCALL_VALUE="synchronizeNow"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:107" API_NAME="GET_PRODUCT_VERSION" API_URL="/servlet/GetProductVersion"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:108" API_NAME="UPGRADE_LICENSE" API_URL="/RestAPI/UpgradeLicense"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:109" API_NAME="UPDATE_PRODUCT_DETAILS" API_URL="/servlet/UpdateProductDetails"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:110" API_NAME="GET_LICENSE_DETAILS" API_URL="/RestAPI/LicenseMgr" MTCALL_NAME="operation" MTCALL_VALUE="getLicenseDetails"/>
+
+	<!-- Workflow Related APIS Starts -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:111" API_NAME="CREATE_WF_REQUEST" API_URL="/RestAPI/WorkflowAPI" MTCALL_NAME="operation" MTCALL_VALUE="createRequest"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:112" API_NAME="GET_ALL_WF_REQUESTS" API_URL="/RestAPI/WorkflowAPI" MTCALL_NAME="operation" MTCALL_VALUE="getAllRequests"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:113" API_NAME="GET_WF_REQ_DETAILS" API_URL="/RestAPI/WorkflowAPI" MTCALL_NAME="operation" MTCALL_VALUE="getRequestDetails"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:114" API_NAME="GET_WF_CONFIGURED_DOMAINS" API_URL="/RestAPI/WorkflowAPI" MTCALL_NAME="operation" MTCALL_VALUE="getConfiguredDomains"/>
+	<!-- Workflow Related APIS Ends -->
+	
+	
+	
+	
+	<!-- ADMP MOBILE Related APIS Starts -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:115" API_NAME="GET_DOMAIN_LIST" API_URL="/MobileAPI/MobileLogin" MTCALL_NAME="methodToCall" MTCALL_VALUE="domainList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler" />
+
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:116" API_NAME="MOBILE_LOG_IN" API_URL="/MobileAPI/MobileLogin" MTCALL_NAME="methodToCall" MTCALL_VALUE="getAuthTicket" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:101" PARAM_NAME="domainName" IS_MANDATORY="true"/>
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:102" PARAM_NAME="username" IS_MANDATORY="true"/>
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:116" PARAM_NAME="pwd" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:230" API_NAME="MOBILE_LOG_IN" API_URL="/MobileAPI/MobileLogin" MTCALL_NAME="methodToCall" MTCALL_VALUE="getEnrollmentDetails" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:101" PARAM_NAME="domainName" IS_MANDATORY="true"/>
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:102" PARAM_NAME="username" IS_MANDATORY="true"/>
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:210" PARAM_NAME="providerName" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:117" API_NAME="MOBILE_LOG_OFF" API_URL="/MobileAPI/MobileLogin" MTCALL_NAME="methodToCall" MTCALL_VALUE="mobileLogout" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler"/>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:118" API_NAME="GET_AUTH_OBJECT" API_URL="/MobileAPI/GetAuthObject" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:119" API_NAME="AD_USER_LIST" API_URL="/MobileAPI/ADUserList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:131" PARAM_NAME="SORT_COLUMN" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:122" PARAM_NAME="ASCENDING" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:120" API_NAME="AD_GROUP_LIST" API_URL="/MobileAPI/ADGroupList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		 IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:110" PARAM_NAME="isPrimaryGroup" IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:121" API_NAME="GET_USER_DETAILS" API_URL="/MobileAPI/UserDetails" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:111" PARAM_NAME="objectGUID" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:122" API_NAME="ENABLE_USER" API_URL="/MobileAPI/EnableUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="isEnable" 		IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:123" API_NAME="DISABLE_USER" API_URL="/MobileAPI/DisableUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="isEnable" 		IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:124" API_NAME="DELETE_USER" API_URL="/MobileAPI/DeleteUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:125" API_NAME="UNLOCK_USER" API_URL="/MobileAPI/UnlockUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:126" API_NAME="RESET_PWD" API_URL="/MobileAPI/ResetPwd" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:116" PARAM_NAME="pwd" 			IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:127" API_NAME="ADD_REMOVE_GROUPS" API_URL="/MobileAPI/AddRemoveGroups" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="addGroup" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:114" PARAM_NAME="removeGroup" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:115" PARAM_NAME="primaryGroup" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+	
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:128" API_NAME="CREATE_BULK_USER" API_URL="/RestAPI/CreateBulkUser" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:129" API_NAME="USER_TEMPLATES" API_URL="/RestAPI/UserTemplates" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:130" API_NAME="GET_AUTH_INFO" API_URL="/RestAPI/GetAuthInfo" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:131" API_NAME="CONFIGURE_TRUSTED_PRODUCT" API_URL="/RestAPI/ConfigureTrust" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler" >
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="PROTOCOL" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="HOST" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:108" PARAM_NAME="PORT" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:102" PARAM_NAME="userName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:103" PARAM_NAME="password" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:132" API_NAME="GET_AUTH_TOKEN" API_URL="/RestAPI/GetAuthToken" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:102" PARAM_NAME="loginName" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:133" API_NAME="REMOVE_AUTH_TOKEN" API_URL="/RestAPI/RemoveAuthToken" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler" >
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:134" API_NAME="REMOVE_TRUSTED_PRODUCT" API_URL="/RestAPI/RemoveTrust" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler" >
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:139" API_NAME="WORKFLOW_REQUEST_LIST" API_URL="/MobileAPI/WFRequestList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:119" PARAM_NAME="END_INDEX" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:120" PARAM_NAME="ATTRIBUTE_ID" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:121" PARAM_NAME="SEARCH_FILTER" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:122" PARAM_NAME="ASCENDING" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:123" PARAM_NAME="IS_NAVIGATION" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:124" PARAM_NAME="REQUEST_ID" 	 IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:140" API_NAME="WORKFLOW_REQUEST_DETAILS" API_URL="/MobileAPI/WFRequestDetail" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:124" PARAM_NAME="REQUEST_ID" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:141" API_NAME="WORKFLOW_REQUEST_MODIFIED_OBJECTS" API_URL="/MobileAPI/WFRequestObjectList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:120" PARAM_NAME="ATTRIBUTE_ID" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:122" PARAM_NAME="ASCENDING" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:123" PARAM_NAME="IS_NAVIGATION" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:124" PARAM_NAME="REQUEST_ID" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:125" PARAM_NAME="REQUEST_ACTION_ID" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:126" PARAM_NAME="TASK_DETAILS_ID" IS_MANDATORY="true"/>
+		
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:142" API_NAME="WORKFLOW_REQUEST_MANAGEMENT_ACTION" API_URL="/MobileAPI/WFRequestMgmtAction" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:124" PARAM_NAME="REQUEST_ID" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:125" PARAM_NAME="REQUEST_ACTION_ID" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:126" PARAM_NAME="TASK_DETAILS_ID" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:127" PARAM_NAME="OPERATION" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:128" PARAM_NAME="SELECTED_GUID_STRING" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:129" PARAM_NAME="COMMENTS" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:130" PARAM_NAME="OBJECT_UNIQUE_ID" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:143" API_NAME="GENERATE_REPORT" API_URL="/MobileAPI/GenerateReport" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:151" PARAM_NAME="reportId" 		IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:144" API_NAME="REPORT_STATUS" API_URL="/MobileAPI/GetReportStatus" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:151" PARAM_NAME="reportId" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:152" PARAM_NAME="generationId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:145" API_NAME="REPORT_RESULT_LIST" API_URL="/MobileAPI/ReportResultList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:151" PARAM_NAME="reportId" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:152" PARAM_NAME="generationId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<!-- ADMP MOBILE Related APIS Ends  -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:135" API_NAME="SINGLE_SIGNOUT" API_URL="/RestAPI/SSOutAction" MTCALL_NAME="operation" MTCALL_VALUE="logout"/>	
+
+	<!-- BACKUP Related APIS Starts  -->
+	
+    	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:136" API_NAME="DOBACKUP" API_URL="/RestAPI/BackUp" MTCALL_NAME="operation" MTCALL_VALUE="doBackup"/>
+
+    	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:137" API_NAME="GET_BACKUP_DETAILS" API_URL="/RestAPI/GetBackupDetails" MTCALL_NAME="operation" MTCALL_VALUE="getBackupDetails"/>
+
+    	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:138" API_NAME="SET_BACKUP_SCHEDULER" API_URL="/RestAPI/SaveBackupScheduler" MTCALL_NAME="operation" MTCALL_VALUE="saveBackupScheduler"/>
+     
+     	<!-- BACKUP Related APIS Ends  -->
+		<!-- Spicework Related APIS Starts  -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:146" API_NAME="GET_REPORT_CHART" API_URL="/RestAPI/Reports/GetGraph" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:147" API_NAME="GET_REPORT_DATA_MODEL" API_URL="/RestAPI/Reports/GetDataModel" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:148" API_NAME="GET_DIRECT_REPORT" API_URL="/RestAPI/Reports/DirectReport" IS_HS_REQUIRED="false"/>
+     	<!-- Spicework Related APIS Ends  -->
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:149" API_NAME="AD_COMPUTER_LIST" API_URL="/MobileAPI/ADComputerList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:131" PARAM_NAME="SORT_COLUMN" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:122" PARAM_NAME="ASCENDING" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:150" API_NAME="GET_COMPUTER_DETAILS" API_URL="/MobileAPI/ComputerDetails" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:111" PARAM_NAME="objectGUID" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:151" API_NAME="ENABLE_COMPUTER" API_URL="/MobileAPI/EnableComputer" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="isEnable" 		IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:152" API_NAME="DISABLE_COMPUTER" API_URL="/MobileAPI/DisableComputer" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="isEnable" 		IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:153" API_NAME="DELETE_COMPUTER" API_URL="/MobileAPI/DeleteComputer" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:154" API_NAME="RESET_COMPUTER" API_URL="/MobileAPI/ResetComputer" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:155" API_NAME="CREATE_USERS" API_URL="/RestAPI/CreateUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:156" API_NAME="SEARCH_USERS" API_URL="/RestAPI/SearchUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="range" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="startIndex" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:131" PARAM_NAME="sortColumn" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:122" PARAM_NAME="ascending" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:157" API_NAME="API_AUTH_TOKEN" API_URL="/RestAPI/APIAuthToken" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="loginName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="password" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:158" API_NAME="TEMPLATE NAMES" API_URL="/MobileAPI/MTemplateNames" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:159" API_NAME="TEMPLATE LAYOUT" API_URL="/MobileAPI/GetTemplateLayout" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:153" PARAM_NAME="templateName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:154" PARAM_NAME="templateId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:160" API_NAME="NAMING VALUES" API_URL="/MobileAPI/NamingValues" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:155" PARAM_NAME="layoutId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:161" API_NAME="CONTAINER LIST" API_URL="/MobileAPI/GetContainerList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:162" API_NAME="EXPAND CONTAINER" API_URL="/MobileAPI/expandContainer" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:159" PARAM_NAME="nodeClicked" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:163" API_NAME="GROUP VALUES" API_URL="/MobileAPI/GetGroupValues" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:164" API_NAME="MANAGER VALUES" API_URL="/MobileAPI/getManagerValues" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:165" API_NAME="CREATE SINGLE USER" API_URL="/MobileAPI/CreateSingleUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:155" PARAM_NAME="layoutId" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:156" PARAM_NAME="layout" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:157" PARAM_NAME="templateCategoryId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:166" API_NAME="ENROLL DEVICE" API_URL="/MobileAPI/EnrollDevice" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:158" PARAM_NAME="oldAppToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:159" PARAM_NAME="newAppToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:160" PARAM_NAME="appBundleId" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:161" PARAM_NAME="DEVICE_UNIQUE_ID" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:162" PARAM_NAME="DEVICE_MODEL" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:163" PARAM_NAME="OS_VERSION" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:167" API_NAME="REMOVE DEVICE" API_URL="/MobileAPI/RemoveDevice" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>	
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:161" PARAM_NAME="DEVICE_UNIQUE_ID" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>		
+		
+	<!--User Mgmt RESTAPIS Starts  -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:168" API_NAME="ENABLE_USER" API_URL="/RestAPI/EnableUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:169" API_NAME="DISABLE_USER" API_URL="/RestAPI/DisableUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:170" API_NAME="DELETE_USER" API_URL="/RestAPI/DeleteUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:171" API_NAME="UNLOCK_USER" API_URL="/RestAPI/UnlockUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:172" API_NAME="RESET_PWD" API_URL="/RestAPI/ResetPwd" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:116" PARAM_NAME="pwd" 			IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:173" API_NAME="ADD_REMOVE_GROUPS" API_URL="/RestAPI/AddRemoveGroups" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="addGroup" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:114" PARAM_NAME="removeGroup" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:115" PARAM_NAME="primaryGroup" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:192" API_NAME="CREATE_OU" API_URL="/RestAPI/createOU" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:210" API_NAME="CREATE_REQUEST" API_URL="/RestAPI/CreateWorkFlowRequest" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputData" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:211" API_NAME="VALIDATE_AUTHTOKEN" API_URL="/RestAPI/ValidateAuthToken" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:212" API_NAME="GET_ALL_TECHNICIAN_DETAILS" API_URL="/RestAPI/GetAllTechnicianDetails" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:213" API_NAME="API_AUTH_TOKEN_ON_BEHALF" API_URL="/RestAPI/APIAuthTokenOnBehalf" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:117" PARAM_NAME="HDTLoginId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<!--User Mgmt RESTAPIS Ends  -->
+
+	<!--User Mgmt ADMPAPIS Starts  -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:174" API_NAME="ENABLE_USER" API_URL="/ADMPAPI/EnableUser" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:175" API_NAME="DISABLE_USER" API_URL="/ADMPAPI/DisableUser" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:176" API_NAME="DELETE_USER" API_URL="/ADMPAPI/DeleteUser" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:177" API_NAME="UNLOCK_USER" API_URL="/ADMPAPI/UnlockUser" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:178" API_NAME="RESET_PWD" API_URL="/ADMPAPI/ResetPwd" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:116" PARAM_NAME="pwd" 			IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:179" API_NAME="ADD_REMOVE_GROUPS" API_URL="/ADMPAPI/AddRemoveGroups" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+        <ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="addGroup" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:114" PARAM_NAME="removeGroup" 	IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:115" PARAM_NAME="primaryGroup" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:180" API_NAME="AD_GROUP_LIST" API_URL="/RestAPI/ADGroupList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:106" PARAM_NAME="RANGE" 		 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:107" PARAM_NAME="refresh" 		 IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:118" PARAM_NAME="FROM_INDEX" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:109" PARAM_NAME="searchText" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:110" PARAM_NAME="isPrimaryGroup" IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:183" API_NAME="File Server Mgmt Folders" API_URL="/RestAPI/FSMFolderList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:184" API_NAME="File Server Mgmt GroupsWithPermission" API_URL="/RestAPI/GroupsWithPermission" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:164" PARAM_NAME="folderPath" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:165" PARAM_NAME="folderType" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:166" PARAM_NAME="permissions" 	 IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:185" API_NAME="SetFolderPermissions" API_URL="/RestAPI/SetFolderPermissions" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:167" PARAM_NAME="folders" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:168" PARAM_NAME="PERMISSION_COMPONENT" 	 IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:186" API_NAME="RemoveFolderPermissions" API_URL="/RestAPI/RemoveFolderPermissions" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:167" PARAM_NAME="folders" 	 IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:168" PARAM_NAME="PERMISSION_COMPONENT" 	 IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:187" API_NAME="BULK_USER_MODIFY" API_URL="/ADMPAPI/BulkUserModify" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:188" API_NAME="BULK_USER_MODIFY" API_URL="/RestAPI/BulkUserModify" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:189" API_NAME="GET_NAMING_FORMAT" API_URL="/MobileAPI/GetNamingFormat" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:153" PARAM_NAME="templateName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:157" PARAM_NAME="templateCategoryId" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:190" API_NAME="GET_DEPARTMENT_LIST" API_URL="/ADMPAPI/GetDepartmentList" IS_HS_REQUIRED="true" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:191" API_NAME="GET_DEPARTMENT_LIST" API_URL="/RestAPI/GetDepartmentList" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:193" API_NAME="MODIFY_USERS" API_URL="/RestAPI/ModifyUser" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:194" API_NAME="ADD_USERS_TO_GROUPS" API_URL="/RestAPI/AddUsersToGroup" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:113" PARAM_NAME="addGroup" 		IS_MANDATORY="false"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:115" PARAM_NAME="primaryGroup" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:195" API_NAME="REMOVE_USERS_FROM_GROUPS" API_URL="/RestAPI/RemoveUsersFromGroup" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:105" PARAM_NAME="domainName" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:112" PARAM_NAME="inputFormat"	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:1" PARAM_NAME="PRODUCT_NAME" 	IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:114" PARAM_NAME="removeGroup" 	IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+
+	<!--User Mgmt ADMPAPIS Ends  -->	
+
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:181" API_NAME="GET_WIDGET_DETAILS" API_URL="/RestAPI/GetDashboard" MTCALL_NAME="operation" MTCALL_VALUE="getUnusedWidgetDetails"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:182" API_NAME="SECURITY_TOKEN_VALIDATOR" API_URL="/RestAPI/AppsPane" MTCALL_NAME="mTCall" MTCALL_VALUE="securityTokenValidator"/>
+	<!--ADMP Product APIs - Ends-->
+	
+	<!--AD360 IP Restriction APIs - Starts-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:201" API_NAME="GET_IP_RESTRICTION_SETTINGS" API_URL="/RestAPI/IPRestriction" MTCALL_NAME="mTCall" MTCALL_VALUE="getSettings" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="true"/>
+    <ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:202" API_NAME="SAVE_IP_RESTRICTION_SETTINGS" API_URL="/RestAPI/IPRestriction" MTCALL_NAME="mTCall" MTCALL_VALUE="saveSettings" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="true"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:203" API_NAME="GET_METRACK_DATA" API_URL="/RestAPI/METrack" MTCALL_NAME="mTCall" MTCALL_VALUE="getIntegratedProductData"/>	
+    <!--AD360 IP Restriction APIs - Ends-->
+
+	<!-- Feedback APIs - Starts -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1126" API_NAME="GET_FEEDBACK_STATUS" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getFeedbackStatus" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1127" API_NAME="UPDATE_FEEDBACK_STATUS" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="updateFeedbackSettings" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1128" API_NAME="SEND_FEEDBACK_LOGS" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="attachLogs" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1129" API_NAME="CHECK_FEEDBACK_CONNECTION" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="checkConnectivity" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1130" API_NAME="GET_FEEDBACK_PRODUCT_DETAILS" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getProductDetails" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1131" API_NAME="SET_LIC_PROMOTION_STATUS" API_URL="/RestAPI/WC/LicensePromotion" MTCALL_NAME="mTCall" MTCALL_VALUE="setStatus" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1132" API_NAME="SUBMIT_FOOTER_FORM" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="submitForm" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="true"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1133" API_NAME="LOAD_TALLBACK_FORM" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="loadTalkBack" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="true"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1134" API_NAME="SUBMIT_TALLBACK_FORM" API_URL="/RestAPI/WC/FeedbackAction" MTCALL_NAME="mTCall" MTCALL_VALUE="submitTalkBack" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="true"/>
+	<!-- Feedback APIs - Ends -->
+
+	<!-- License Expiry Mailer -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:204" API_NAME="UPGRADE_BUNDLED_LICENSE" API_URL="/RestAPI/UpgradeBundledLicense"  MTCALL_NAME="operation" MTCALL_VALUE="applyComponentLicense"/>
+    <!-- Smart Card Authentication -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:301" API_NAME="GetSmartCardConfig" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="getSmartCardConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:302" API_NAME="GetSmartCardTableConfig" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="getSmartCardTableConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:303" API_NAME="EnableDisableSmartCard" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="enableDisableSmartCard" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:304" API_NAME="EnableDisableSmartCardConfig" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="enableDisableSmartCardConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:305" API_NAME="AddSmartCardConfig" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="addSmartCardConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:306" API_NAME="UpdateSmartCard" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="updateSmartCardConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:307" API_NAME="DeleteSmartCard" API_URL="/RestAPI/WC/SmartCard" MTCALL_NAME="mTCall" MTCALL_VALUE="deleteSmartCardConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<!-- Two Factor Authentication Configuration-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:308" API_NAME="GET_TFA_CONFIG" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getTwoFactorAuthConfig" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:309" API_NAME="GET_TFA_USER_ENROLLMENT_CONFIG" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getUserEnrollmentConfig" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:310" API_NAME="ENABLE_DISABLE_TFA" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="enableDisableTwoFactorAuthConfig" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:311" API_NAME="DELETE_TFA_ENROLLMENT" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="deleteEnrolledUsers" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:312" API_NAME="SAVE_TFA_CONFIG" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="saveTwoFactorModeConfig" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:313" API_NAME="GET_TFA_MODE_CONFIG" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getTwoFactorModeConfig" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:314" API_NAME="SET_TFA_INTEGRATED_PRODUCTS" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="setTwoFactorIntegratedProducts" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<!--TFA Self Enrollment-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:315" API_NAME="GET_TFA_USER_ENROLLMENT_CONFIGURATION" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getSelfEnrollmentConfiguration" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:316" API_NAME="GET_TFA_USER_TRUSTED_BROWSER" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getUserTrustedBrowsers" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:317" API_NAME="TFA_VERIFY_DUO_AUTHNETICATOR" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="verifySelfEnrollmentDUOAuth" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:318" API_NAME="TFA_VERIFY_SECRET_CODE" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="verifySelfEnrollmentSecretCode" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:319" API_NAME="TFA_SEND_SECRET_CODE" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="sendSelfEnrollmentSecretCode" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:320" API_NAME="TFA_DELETE_TRUSTED_BROWSER" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="deleteUserTrustedBrowser" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:321" API_NAME="GET_TFA_MODE_ENROLLMENT" API_URL="/RestAPI/WC/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getSelfEnrollmentDetails" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<!--TFA Login Methods without authentcation-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:322" API_NAME="GET_TFA_USER_MODE_DETAILS" API_URL="/RestAPI/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getEnrollmentDetails" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:323" API_NAME="TFA_SEND_SECRET_KEY" API_URL="/RestAPI/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="sendSecretCode" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:324" API_NAME="TFA_SESSION_INVALIDATE" API_URL="/RestAPI/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="sessionInvalidate" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:325" API_NAME="TFA_VERIFY_SECRET_KEY" API_URL="/RestAPI/TwoFactorAction" MTCALL_NAME="mTCall" MTCALL_VALUE="verifySecretCode" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<!--SSO settings-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:326" API_NAME="GET_SSO_SETTINGS" API_URL="/RestAPI/WC/NTLMSSOSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="getSSOSettings" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:327" API_NAME="NTLM_ENABLE_SETTINGS" API_URL="/RestAPI/WC/NTLMSSOSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="enableSettings" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:328" API_NAME="NTLM_DISABLE_SETTINGS" API_URL="/RestAPI/WC/NTLMSSOSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="disableSettings" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:329" API_NAME="NTLM_SAVE_SETTINGS" API_URL="/RestAPI/WC/NTLMSSOSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="saveSettings" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:330" API_NAME="ENABLE_NTLM_SSO" API_URL="/RestAPI/WC/NTLMSSOSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="ssoConfiguration" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:331" API_NAME="GET_SAML_SETTINGS" API_URL="/RestAPI/WC/SAMLSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="getSAMLSettings" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:332" API_NAME="SAML_DISABLE_SETTINGS" API_URL="/RestAPI/WC/SAMLSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="disableSSO" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:333" API_NAME="SAML_SAVE_SETTINGS" API_URL="/RestAPI/WC/SAMLSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="saveSAMLConfig" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:334" API_NAME="SAML_DOWNLOAD_SP_METADATA" API_URL="/RestAPI/WC/SAMLSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="downloadSPMetadata" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:335" API_NAME="SAML_DOWNLOAD_SP_X509_CERTIFICATE" API_URL="/RestAPI/WC/SAMLSettings" MTCALL_NAME="mTCall" MTCALL_VALUE="downloadSPX509Cert" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:340" API_NAME="GET_CAPTCHA_SETTINGS" API_URL="/RestAPI/WC/CaptchaConfig" MTCALL_NAME="mTCall" MTCALL_VALUE="getCaptchaSettings" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:341" API_NAME="GET_CAPTCHA_SETTINGS" API_URL="/RestAPI/WC/CaptchaConfig" MTCALL_NAME="mTCall" MTCALL_VALUE="updateCaptchaSettings" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:342" API_NAME="GET_GLOBALSEARCH_CONFIG" API_URL="/RestAPI/WC/GlobalSearch" MTCALL_NAME="mTCall" MTCALL_VALUE="getGlobalSearchData" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:343" API_NAME="GET_GLOBALSEARCH_CONFIG" API_URL="/RestAPI/WC/GlobalSearch" MTCALL_NAME="mTCall" MTCALL_VALUE="updateFavourites" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:351" API_NAME="GET_FOOTER_PROMOTION" API_URL="/RestAPI/WC/Promotion" MTCALL_NAME="mTCall" MTCALL_VALUE="getFooterPromotion" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+ 	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:352" API_NAME="UPDATE_PROMOTION_VIEW_STATUS" API_URL="/RestAPI/WC/Promotion" MTCALL_NAME="mTCall" MTCALL_VALUE="updatePromotionViewStatus" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+ 	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:353" API_NAME="GET_PROMOTION_IMAGE" API_URL="/RestAPI/WC/Promotion" MTCALL_NAME="mTCall" MTCALL_VALUE="getPromotionImage" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+	<!--Log Forward Config -->
+  	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:205" API_NAME="FETCH_PRODUCT_LOGFORWARD_CONFIG" API_URL="/RestAPI/LogForwardConfig" MTCALL_NAME="mTCall" MTCALL_VALUE="fetchProductConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="true"/>
+  	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:206" API_NAME="SAVE_PRODUCT_LOGFORWARD_CONFIG" API_URL="/RestAPI/LogForwardConfig" MTCALL_NAME="mTCall" MTCALL_VALUE="saveProductConfig" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="false"/>
+  	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID=207" API_NAME="PRODUCT_LOGFORWARD_ENABLE_DISABLE" API_URL="/RestAPI/LogForwardConfig" MTCALL_NAME="mTCall" MTCALL_VALUE="doProductEnableDisable" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="false"/>
+
+    <!--AD360 Centralized SSL APIs - Starts-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:208" API_NAME="APPLY_CERTIFICATE" API_URL="/RestAPI/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="applyCertificate" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="true"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:209" API_NAME="SSL_RESTART" API_URL="/RestAPI/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="restartProduct" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="true"/>
+	<!--AD360 Centralized SSL API APIs - Ends-->
+	<!--SSL Tool-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:509" API_NAME="GENERATE_CSR" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="generateCSR" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:510" API_NAME="APPLY_SELF_SIGNED_CERTIFICATE" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="applySelfSignedCertificate" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:511" API_NAME="GET_SSL_TOOL_SETTINGS" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="getSSLToolSettings" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="true" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:513" API_NAME="DOWNLOAD_CSR" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="downloadCSR" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:514" API_NAME="ADD_NEW_CERTIFICATE" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="addNewCertificate" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:515" API_NAME="SSL_RESTART" API_URL="/RestAPI/WC/SSLAction" MTCALL_NAME="mTCall" MTCALL_VALUE="restartProduct" IS_DB_SYNC_ENABLED="false" IS_ALLOWED_ON_DEMO="false" IS_HS_REQUIRED="false"/>
+	
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:12" API_ID="ADSProductAPIs:API_ID:701" API_NAME="HSKEY_AUTHENTICATOR" API_URL="/servlet/HSKeyAuthenticator"> 
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:170" PARAM_NAME="productName" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:171" PARAM_NAME="handshakeKey" IS_MANDATORY="true"/>
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:172" PARAM_NAME="format" IS_MANDATORY="false"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:12" API_ID="ADSProductAPIs:API_ID:702" API_NAME="GET_SSO_TICKET_DETAILS" API_URL="/servlet/GetSSOTicket">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:173" PARAM_NAME="ticket" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:12" API_ID="ADSProductAPIs:API_ID:703" API_NAME="FETCH_EVENTS" API_URL="/RestAPI/FetchEvents" MTCALL_NAME="operation" MTCALL_VALUE="fetchEvents">
+		<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:174" PARAM_NAME="LAST_EVENT_ID" IS_MANDATORY="true"/>
+	</ADSProductAPIs>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:12" API_ID="ADSProductAPIs:API_ID:704" API_NAME="SYNC_NOW" API_URL="/RestAPI/Synchronize" MTCALL_NAME="operation" MTCALL_VALUE="synchronizeNow"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:12" API_ID="ADSProductAPIs:API_ID:705" API_NAME="GET_PRODUCT_VERSION" API_URL="/servlet/GetProductVersion"/>
+	<!-- HA Issue Fix API Starts-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:706" API_NAME="HA_UPDATE_PRODUCT_DETAILS" API_URL="/RestAPI/HACluster" MTCALL_NAME="mTCall" MTCALL_VALUE="updateHAProductDetails" IS_DB_SYNC_ENABLED="true" IS_HS_REQUIRED="false" />
+	<!-- HA Issue Fix API Ends-->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:1004" API_NAME="HA_UPDATE_HOST_CHILD_PRODUCT" API_URL="/RestAPI/HAAPI/updateHostNameInChildProducts" SERVLET_CLASS_NAME="com.manageengine.ads.fw.ha.HAAPI" MTCALL_VALUE="updateHostNameInChildProducts" IS_HS_REQUIRED="true" IS_ALLOWED_ON_DEMO="false" IS_DB_SYNC_ENABLED="true" />
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:707" API_NAME="GET_ALL_TECHNICIAN_DETAILS" API_URL="/RestAPI/GetAllTechnicianDetails" IS_HS_REQUIRED="false" API_AUTHORIZATION="com.adventnet.sym.adsm.common.webclient.api.ADMPRestAPIAuthorization" API_ERROR_HANDLER="com.adventnet.sym.adsm.common.webclient.api.APIErrorHandler">
+			<ADSProductAPIParams API_PARAM_ID="ADSProductAPIParams:API_PARAM_ID:104" PARAM_NAME="AuthToken" IS_MANDATORY="true"/>	
+	</ADSProductAPIs>
+	<!-- M365 Tenant setting -->
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:708" API_NAME="UPDATE_AD_DOMAIN" API_URL="/TenantSettings" MTCALL_NAME="method" MTCALL_VALUE="updateADDoaminLink" IS_ALLOWED_ON_DEMO="true" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:709" API_NAME="UPDATE_AD_LINK_ATTRIB" API_URL="/TenantSettings" MTCALL_NAME="method" MTCALL_VALUE="updateADLinkAttribute" IS_ALLOWED_ON_DEMO="true" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:710" API_NAME="VALIDATE_AD_LINK_ATTRIB" API_URL="/TenantSettings" MTCALL_NAME="method" MTCALL_VALUE="validateADDoaminLink" IS_ALLOWED_ON_DEMO="true" IS_DB_SYNC_ENABLED="false" IS_HS_REQUIRED="false"/>
+	<ADSProductAPIs PRODUCT_ID="ADSProducts:PRODUCT_ID:2" API_ID="ADSProductAPIs:API_ID:711" API_NAME="TOGGLE_FULL_SYNC" API_URL="/HiddenAPIs" MTCALL_NAME="operation" MTCALL_VALUE="toggleFullSync" IS_HS_REQUIRED="false" IS_ALLOWED_ON_DEMO="false"/>
+
+</ProductAPIs>
+<!--$Id$-->

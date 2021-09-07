@@ -1,0 +1,21 @@
+<!-- $Id$ -->
+<beans>
+
+    <Bean bean_id="Bean:bean_id:ADSCachedWritePersistence" bean_name="ADSCachedWritePersistence"
+          module_id="adsf" transaction_type="1" classname="com.adventnet.persistence.PersistenceBean">
+        <BeanInterceptor bean_incp_id="BeanInterceptor:bean_incp_id:ADSPersistence-LCI" order_no="1" incp_name="LCI" classname="com.manageengine.ads.fw.sas.cache.ADSCacheInterceptor"/>
+        <BeanInterceptor bean_incp_id="BeanInterceptor:bean_incp_id:ADSPersistence-CGCI" order_no="2" incp_name="CGCI" classname="com.zoho.cache.cg.CGCacheInterceptor"/>
+        <BeanProperties beanprop_id="BeanProperties:beanprop_id:ADSPersistence-CacheName" property="is-cached-flavor" value="false"/>
+    </Bean>
+    <Bean bean_id="Bean:bean_id:ADSCachedReadPersistence" bean_name="ADSCachedReadPersistence"
+          module_id="adsf" classname="com.adventnet.persistence.ReadOnlyPersistenceBean">
+        <BeanInterceptor bean_incp_id="BeanInterceptor:bean_incp_id:ADSCachedPersistence-LCI" order_no="1" incp_name="LCI" classname="com.manageengine.ads.fw.sas.cache.ADSCacheInterceptor"/>
+        <BeanInterceptor bean_incp_id="BeanInterceptor:bean_incp_id:ADSCachedPersistence-CGCI" order_no="2" incp_name="CGCI" classname="com.zoho.cache.cg.CGCacheInterceptor"/>
+        <BeanProperties beanprop_id="BeanProperties:beanprop_id:ADSCachedPersistence-CacheName" property="is-cached-flavor" value="true"/>
+    </Bean>
+
+    <Bean bean_id="Bean:bean_id:ADSRelationalAPIAdapter" bean_name="ADSRelationalAPIAdapter"
+          module_id="adsf" classname="com.manageengine.ads.fw.common.db.RelationalAPIImpl">
+    </Bean>
+
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--$Id$-->
+<ADSClientModule>
+
+    <ADSClientModules MODULE_ID="ADSClientModules:MODULE_ID:ADS_REPORTS" MODULE_NAME="ADS_REPORTS">
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:ADS_REPORTS_HEADER" RENDER_TO="ADS_REPORTS_HEADER"/>
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:ADS_REPORTS_CRITERIA" RENDER_TO="ADS_REPORTS_CRITERIA"/>
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:ADS_REPORTS_BODY" RENDER_TO="ADS_REPORTS_BODY"/>
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:ADS_REPORTS_DATE_PICKER" RENDER_TO="ADS_REPORTS_DATE_PICKER"/>
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:ADS_REPORTS_CUSTOM_CRITERIA" RENDER_TO="ADS_REPORTS_CUSTOM_CRITERIA"/>
+    </ADSClientModules>
+
+</ADSClientModule>

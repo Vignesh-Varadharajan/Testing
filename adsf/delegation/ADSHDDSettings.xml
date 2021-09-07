@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADSHDDSettings>
+    <!-- ADS HDD Audit Actions -->
+    <ADSHDDAuditActions AUDIT_ACTION_ID="1" AUDIT_ACTION_NAME="o365.delegation.audit.modified"/>
+    <ADSHDDAuditActions AUDIT_ACTION_ID="2" AUDIT_ACTION_NAME="o365.delegation.audit.created"/>
+    <ADSHDDAuditActions AUDIT_ACTION_ID="3" AUDIT_ACTION_NAME="o365.delegation.audit.deleted"/>
+    <ADSHDDAuditActions AUDIT_ACTION_ID="4" AUDIT_ACTION_NAME="o365.delegation.hdt_config.active"/>
+    <ADSHDDAuditActions AUDIT_ACTION_ID="5" AUDIT_ACTION_NAME="o365.delegation.hdt_config.disabled"/>
+    <!-- ADS HDD Audit Actions -->
+
+    <!--ADS HDD category-->
+    <ADSHDDCategory CATEGORY_ID="1" CATEGORY_NAME="o365.delegation.audit_catgory.techinican"/>
+    <ADSHDDCategory CATEGORY_ID="2" CATEGORY_NAME="o365.delegation.audit_catgory.role"/>
+    <!--ADS HDD category-->
+
+    <!--ADS HDD Sub category-->
+    <ADSHDDSubCategory SUB_CATEGORY_ID="1" DISPLAY_NAME="o365.delegation.audit.roles"/>
+    <ADSHDDSubCategory SUB_CATEGORY_ID="2" DISPLAY_NAME="o365.delegation.audit.domains"/>
+    <ADSHDDSubCategory SUB_CATEGORY_ID="3" DISPLAY_NAME="o365.delegation.audit.impersonate_admin"/>
+    <!--ADS HDD Sub category-->
+</ADSHDDSettings>

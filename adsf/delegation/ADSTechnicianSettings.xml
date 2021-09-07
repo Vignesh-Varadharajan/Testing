@@ -1,0 +1,23 @@
+<TechnicianSettings>
+<!-- Default Roles -->
+	<!-- Role ID should be the same as that in ADMP, if default Role added to ADMP, same should be added here with same Role ID -->
+	<ADSRoles ROLE_ID="1" ROLE_NAME="Super Admin" ROLE_DESCRIPTION="admp.deleg.hdt_deleg.cre_role.role_desc.super_admin" CREATION_TIME="-1"/><!-- DO NOT CHANGE SUPER ADMIN ROLE_NAME! In OMP the check for Super Admin Role is done based on Role_name. If OMP changes the handling of Super Admin Role, it must be changed here. This will not be displayed so  I18N not required. -->
+	<ADSRoles ROLE_ID="2" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.create_users" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="3" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.reset_password" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="4" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.unlock_users" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="5" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.rename_users" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="6" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.mod_user_props" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="7" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.move_users" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="8" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.move_computers" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="9" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.mod_computers" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+	<ADSRoles ROLE_ID="10000" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.self_service_portal" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>	
+	<ADSRoles ROLE_ID="-1" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.sdp_addon" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>	
+	<ADSRoles ROLE_ID="-2" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.sdp_addon1" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>	
+	<ADSRoles ROLE_ID="-3" ROLE_NAME="admp.deleg.hdt_deleg.cre_role.role_name.sdp_addon3" ROLE_DESCRIPTION="" CREATION_TIME="-1"/>
+
+	<ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:TAB" TYPE_NAME="TAB"/>
+	<ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:LHS_MENU" TYPE_NAME="LHS_MENU"/>
+	<ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:SETTINGS" TYPE_NAME="SETTINGS"/>
+ 
+ <!--reports-->
+ </TechnicianSettings>

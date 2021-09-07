@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ADSConnectionSecurityVersionVsCipher>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:1" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:2" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:2" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:2" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:3" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:3" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:3" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:4" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:4" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:4" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:5" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:5" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:5" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:6" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:7" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:8" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:9" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:10" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:11" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:12" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:13" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:13" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:13" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:14" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:15" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:16" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:16" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:16" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:17" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:18" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:19" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:20" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:20" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:20" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:21" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:21" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:21" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:22" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:22" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:22" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:23" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:23" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:23" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:24" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:24" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:24" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:25" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:25" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:25" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:26" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:26" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:26" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:27" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:27" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:27" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:28" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:28" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:28" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:29" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:30" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:30" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:30" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:31" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:32" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:32" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:32" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:33" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:34" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:35" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:35" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"/>
+
+	<ADSConnectionSecurityVersionVsCipher CIPHER_ID="ADSCipherSuites:CIPHER_ID:35" VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"/>
+
+</ADSConnectionSecurityVersionVsCipher>
+
+<!-- $Id$ -->

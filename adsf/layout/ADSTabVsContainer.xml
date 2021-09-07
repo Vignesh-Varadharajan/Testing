@@ -1,0 +1,11 @@
+<!--$Id$-->
+<TabVsContainer>
+
+    <!--Tab Vs Containers-->
+    <ADSTabVsContainer TAB_ID="ADSLayoutTabs:TAB_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:1" PRIORITY_ID="1" COLUMN_LAYOUT="2"/>
+    <ADSTabVsContainer TAB_ID="ADSLayoutTabs:TAB_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:2" PRIORITY_ID="2" COLUMN_LAYOUT="2"/>
+    <ADSTabVsContainer TAB_ID="ADSLayoutTabs:TAB_ID:1" CONTAINER_ID="ADSLayoutContainers:CONTAINER_ID:3" PRIORITY_ID="3" COLUMN_LAYOUT="2"/>
+
+</TabVsContainer>
+
+

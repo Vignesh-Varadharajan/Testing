@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ADSConnectionSecurityVersions>
+
+	<ADSConnectionSecurityVersions VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:1"
+		VERSION_NAME="TLSv1" CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:2"/>
+
+	<ADSConnectionSecurityVersions VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:2"
+		VERSION_NAME="TLSv1.1" CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:2"/>
+		
+	<ADSConnectionSecurityVersions VERSION_ID="ADSConnectionSecurityVersions:VERSION_ID:3"
+		VERSION_NAME="TLSv1.2" CONNECTION_SECURITY_ID="ADSConnectionSecurity:CONNECTION_SECURITY_ID:2"/>
+	
+ </ADSConnectionSecurityVersions>
+
+<!-- $Id$ -->

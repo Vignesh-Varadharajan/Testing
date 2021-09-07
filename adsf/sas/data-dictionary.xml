@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+
+<!--Export-->
+    <table name="ADSDFSFileDetails">
+        <columns>
+            <column name="FILE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSDFSFileDetails.FILE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="ZID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ZID_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+            <column name="RELATIVE_PATH">
+                <data-type>CHAR</data-type>
+                <max-size>500</max-size>
+            </column>
+            <column name="BLOCK_ID">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="FILE_CREATED_TIME">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSDFSFileDetails_PK">
+            <primary-key-column>FILE_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSExportHistory">
+        <columns>
+            <column name="EXPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSExportHistory.EXPORT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="EXPORT_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="TOTAL_ENTRIES">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="EXPORTED_ENTRIES">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="EXPORT_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>10</max-size>
+            </column>
+            <column name="FILE_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>500</max-size>
+            </column>
+            <column name="STARTED_TIME">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="CREATED_TIME">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_CHILD_EXPORT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>FALSE</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="STATUS">
+                <data-type>CHAR</data-type>
+                <max-size>30</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSExportHistory_PK">
+            <primary-key-column>EXPORT_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSExportParams">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ExportParams.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="EXPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="KEY">
+                <data-type>CHAR</data-type>
+                <max-size>30</max-size>
+            </column>
+            <column name="VALUE">
+                <data-type>CHAR</data-type>
+                <max-size>4000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSExportParams_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSExportParams_FK" reference-table-name="ADSExportHistory">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>EXPORT_ID</fk-local-column>
+                        <fk-reference-column>EXPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSExportSettings">
+      <description>
+        <![CDATA[
+          This table is used to store export related settings
+        ]]>
+      </description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description><![CDATA[PK Column of the table]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSExportSettings.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <description><![CDATA[ID of the user who saved this export setting]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="EXPORT_ENTITY_ID">
+                <description><![CDATA[Which module to associate this export setting with. Example) REPORT_ID of FwReports can be given here]]></description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="EXPORT_DESCRIPTION">
+              <description><![CDATA[Description of the export]]></description>
+                <data-type>CHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="LOGO_IN_ALL_HEADERS">
+              <description><![CDATA[Whether to include logo of the product in each of the pages in the export]]></description>
+              <data-type>BOOLEAN</data-type>
+              <default-value>FALSE</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSExportSettings_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSComplianceExportIDMapping">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSComplianceExportIDMapping.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="COMPLIANCE_EXPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPORT_EXPORT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ComplianceExportIDMapping_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSComplianceExportMapping_FK" reference-table-name="ADSExportHistory">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPLIANCE_EXPORT_ID</fk-local-column>
+                        <fk-reference-column>EXPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSComplianceExportMapping_FK2" reference-table-name="ADSExportHistory">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>REPORT_EXPORT_ID</fk-local-column>
+                        <fk-reference-column>EXPORT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+</data-dictionary>

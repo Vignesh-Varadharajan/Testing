@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Incident_DO>
+
+    <ADSIncidentStatus STATUS_ID="ADSIncidentStatus:STATUS_ID:OPEN" STATUS_COLOUR="#229FDF" STATUS="ads.incident.status.open" IS_DEFAULT="true" />
+    <ADSIncidentStatus STATUS_ID="ADSIncidentStatus:STATUS_ID:IN_PROGRESS" STATUS_COLOUR="#F89057" STATUS="ads.incident.status.in_progress" />
+    <ADSIncidentStatus STATUS_ID="ADSIncidentStatus:STATUS_ID:CLOSED" STATUS_COLOUR="#2DB26D" STATUS="ads.incident.status.closed" STATUS_UPDATE_ACTION="closeAction" />
+
+    <ADSIncidentSeverity SEVERITY_ID="ADSIncidentSeverity:SEVERITY_ID:CRITICAL" SEVERITY_COLOUR="#EB0B2C" SEVERITY="ads.incident.severity.critical" />
+    <ADSIncidentSeverity SEVERITY_ID="ADSIncidentSeverity:SEVERITY_ID:TROUBLE" SEVERITY_COLOUR="#F18C4C" SEVERITY="ads.incident.severity.trouble" />
+    <ADSIncidentSeverity SEVERITY_ID="ADSIncidentSeverity:SEVERITY_ID:ATTENTION" SEVERITY_COLOUR="#229FDF" SEVERITY="ads.incident.severity.attention" />
+
+
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:CREATE_INCIDENT_NAME" ACTIVITY_NAME="CREATE_INCIDENT_NAME" MESSAGE_KEY="ads.incident.activity.create_incident_name_message" HEADER_KEY="ads.incident.activity.create_incident_name_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_INCIDENT_NAME" ACTIVITY_NAME="UPDATE_INCIDENT_NAME" MESSAGE_KEY="ads.incident.activity.update_incident_name_message" HEADER_KEY="ads.incident.activity.update_incident_name_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_INCIDENT_DESCRIPTION" ACTIVITY_NAME="UPDATE_INCIDENT_DESCRIPTION" MESSAGE_KEY="ads.incident.activity.update_incident_desc_message" HEADER_KEY="ads.incident.activity.update_incident_desc_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:CREATE_ASSIGNEE" ACTIVITY_NAME="CREATE_ASSIGNEE" MESSAGE_KEY="ads.incident.activity.create_incident_assignee_message" HEADER_KEY="ads.incident.activity.create_incident_assignee_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_ASSIGNEE" ACTIVITY_NAME="UPDATE_ASSIGNEE" MESSAGE_KEY="ads.incident.activity.update_incident_assignee_message" HEADER_KEY="ads.incident.activity.update_incident_assignee_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:DELETE_ASSIGNEE" ACTIVITY_NAME="DELETE_ASSIGNEE" MESSAGE_KEY="ads.incident.activity.delete_incident_assignee_message" HEADER_KEY="ads.incident.activity.delete_incident_assignee_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_EVIDENCE" ACTIVITY_NAME="UPDATE_EVIDENCE" MESSAGE_KEY="ads.incident.activity.update_incident_evidence_message" HEADER_KEY="ads.incident.activity.update_incident_evidence_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_NOTES" ACTIVITY_NAME="UPDATE_NOTES" MESSAGE_KEY="ads.incident.activity.update_incident_notes_message" HEADER_KEY="ads.incident.activity.update_incident_notes_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_SEVERITY" ACTIVITY_NAME="UPDATE_SEVERITY" MESSAGE_KEY="ads.incident.activity.update_incident_severity_message" HEADER_KEY="ads.incident.activity.update_incident_severity_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_STATUS" ACTIVITY_NAME="UPDATE_STATUS" MESSAGE_KEY="ads.incident.activity.update_incident_status_message" HEADER_KEY="ads.incident.activity.update_incident_status_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:CREATE_DUE_DATE" ACTIVITY_NAME="CREATE_DUE_DATE" MESSAGE_KEY="ads.incident.activity.create_due_date_message" HEADER_KEY="ads.incident.activity.create_due_date_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_DUE_DATE" ACTIVITY_NAME="UPDATE_DUE_DATE" MESSAGE_KEY="ads.incident.activity.update_due_date_message" HEADER_KEY="ads.incident.activity.update_due_date_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:DELETE_DUE_DATE" ACTIVITY_NAME="DELETE_DUE_DATE" MESSAGE_KEY="ads.incident.activity.delete_due_date_message" HEADER_KEY="ads.incident.activity.delete_due_date_header" />
+    <ADSIncidentActivityDetails ACTIVITY_ID="ADSIncidentActivityDetails:ACTIVITY_ID:UPDATE_STATUS_CLOSE_ACTION" ACTIVITY_NAME="UPDATE_STATUS_CLOSEACTION" MESSAGE_KEY="ads.incident.activity.update_incident_close_message" HEADER_KEY="ads.incident.activity.update_incident_close_header" />
+
+</Incident_DO>

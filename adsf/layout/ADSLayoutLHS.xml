@@ -1,0 +1,8 @@
+<!--$Id$-->
+<LayoutLHS>
+
+    <ADSLayoutLHS LAYOUT_ID="ADSLayout:LAYOUT_ID:1" TAB_ID="ADSLayoutTabs:TAB_ID:1" PRIORITY_ID="1"/>
+    <ADSLayoutLHS LAYOUT_ID="ADSLayout:LAYOUT_ID:2" TAB_ID="ADSLayoutTabs:TAB_ID:1" PRIORITY_ID="1"/>
+    <ADSLayoutLHS LAYOUT_ID="ADSLayout:LAYOUT_ID:2" TAB_ID="ADSLayoutTabs:TAB_ID:2" PRIORITY_ID="1"/>
+    
+</LayoutLHS>

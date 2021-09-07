@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+    <description>Domain Discovery related Tables</description>
+
+    <table name="ADSCredentials">
+        <description>
+            <![CDATA[Contains the Credentials Details]]>
+        </description>
+        <columns>
+            <column name="CREDENTIAL_ID">
+                <description>Unique Identifier for the Table</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSCredentials.CREDENTIAL_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_NAME">
+                <description>UserName used for authentication</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PASSWORD">
+                <description>Password used for authentication</description>
+                <data-type>SCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="DOMAIN_NAME">
+                <description>Domain name used for authentication</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSCredentials_PK">
+            <primary-key-column>CREDENTIAL_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSForestConfiguration">
+        <description>
+            <![CDATA[Contains the Forest Details]]>
+        </description>
+        <columns>
+            <column name="FOREST_ID">
+                <description>Unique Identifier for the table</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSForestConfiguration.FOREST_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FOREST_NAME">
+                <description>Name of the Forest</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+            <column name="FOREST_DN">
+                <description>Distinguished name of the Forest</description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+            <column name="ROOT_DOMAIN_NAMING_CONTEXT">
+                <description>Root Domain Naming Context</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="SCHEMA_NAMING_CONTEXT">
+                <description>Scheha Naming Context</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="CONFIGURATION_NAMING_CONTEXT">
+                <description>Configuration Naming context</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>true</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="FOREST_DNS_ZONES">
+                <description>ForestDnsZones Partition</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>true</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="CREDENTIAL_ID">
+                <description>Reference to the Credential Table</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSForestConfiguration_PK">
+            <primary-key-column>FOREST_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSForestConfiguration_FK" reference-table-name="ADSCredentials">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREDENTIAL_ID</fk-local-column>
+                        <fk-reference-column>CREDENTIAL_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSDomainConfiguration">
+        <description>
+            <![CDATA[Contains the Forest Details]]>
+        </description>
+        <columns>
+            <column name="DOMAIN_ID">
+                <description>Unique Identifier for the table</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSDomainConfiguration.DOMAIN_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DOMAIN_NAME">
+                <description>Domain Name.</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="DOMAIN_DNS_NAME">
+                <description>Domain Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DOMAIN_FLAT_NAME">
+                <description>Domain Flat Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DEFAULT_NAMING_CONTEXT">
+                <description>Default Naming Context</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="DOMAIN_DNS_ZONES">
+                <description>DomainDnsZones Partition</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+                <nullable>true</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="IS_AUTHENTICATION_REQUIRED">
+                <description>Column Specifying Whether Authentication is required or
+                    Not</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="IS_DEFAULT_DOMAIN">
+                <description>Column specifying whether this domain is the Default
+                    Domain</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="DOMAIN_FUNCTIONAL_LEVEL">
+                <description>functional level of domain</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="ADMIN_STATUS">
+                <description>Domain Status - disable/enable/delete</description>
+                <data-type>INTEGER</data-type>
+                <default-value>1</default-value>
+            </column>
+            <column name="STATUS_MESSAGE">
+                <description>ERROR MESSAGE</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+            <column name="CREDENTIAL_ID">
+                <description>Reference to Credentials</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="FOREST_ID">
+                <description>Reference to the Forest to which this domain belongs</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="IS_LDAP_SSL_ENABLED">
+				<description>Enabling LDAP security certificate</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+        </columns>
+        <primary-key name="ADSDomainConfiguration_PK">
+            <primary-key-column>DOMAIN_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSDomainConfiguration_FK" reference-table-name="ADSForestConfiguration">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FOREST_ID</fk-local-column>
+                        <fk-reference-column>FOREST_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSDomainConfiguration_FK1" reference-table-name="ADSCredentials">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREDENTIAL_ID</fk-local-column>
+                        <fk-reference-column>CREDENTIAL_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSDCConfiguration">
+        <description>
+            <![CDATA[DC Configuration]]>
+        </description>
+        <columns>
+            <column name="DOMAIN_CONTROLLER_ID">
+                <description>Domain Controller Id.</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSDCConfiguration.DOMAIN_CONTROLLER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DOMAIN_CONTROLLER_NAME">
+                <description>DC name for the domain</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DOMAIN_ID">
+                <description>Domian to which this DC belongs to</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority in which DC is accessed</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="MESSAGE">
+                <description>ERROR MESSAGE</description>
+                <data-type>NCHAR</data-type>
+                <max-size>256</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSDCConfiguration_PK">
+            <primary-key-column>DOMAIN_CONTROLLER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSDCConfiguration_FK" reference-table-name="ADSDomainConfiguration" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>DOMAIN_ID</fk-local-column>
+                        <fk-reference-column>DOMAIN_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!--Even if we modify or delete the domains from Domain Settings, this table rows won't reflect. This will be used to map the Audit related data-->
+    <table name="ADSDomains">
+        <description>
+            <![CDATA[Contains the Domain Unique Id vs Domain Name]]>
+        </description>
+        <columns>
+            <column name="DOMAIN_UID">
+                <description>Unique Identifier for the Domain</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSDomains.DOMAIN_UID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DOMAIN_NAME">
+                <description>Domain Name.</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSDomains_PK">
+            <primary-key-column>DOMAIN_UID</primary-key-column>
+        </primary-key>
+    </table>
+
+</data-dictionary>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<Syncdata>
+
+<!-- Creating New persistence Bean to Ignore notification of DB Operation which will be used by the Executor -->
+<Bean bean_id="Bean:bean_id:DBSyncPersistence" bean_name="DBSyncPersistence" module_id="Persistence" transaction_type="1" 	   classname="com.adventnet.persistence.PersistenceBean"> </Bean> 
+
+
+ <!-- 
+      Configuring the Classes that should be used for DBSynchronization 
+      Republish: Setting this to True as the Performed DB Operation should be distributed to other products
+ -->
+<ADSDBSynchronization 
+		PUBLISHER_CLASS="com.adventnet.sym.adsm.common.server.dbsync.ADMPPublisherImpl" 
+		SUBSCRIBER_CLASS="com.manageengine.ads.fw.dbsync.SubscriberImpl"
+		DISTRIBUTOR_CLASS="com.manageengine.ads.fw.dbsync.DistributorImpl"
+		EXECUTOR_CLASS="com.adventnet.sym.adsm.common.server.dbsync.ADMPExecutorImpl"
+		LOG_FILE_PATH="../data"
+		LOG_FILE_NAME="adsDBSyncLog"
+		LOG_FILE_SIZE="100000"
+		REPUBLISH="false" />
+		
+
+<ADSDBSyncSubscription SUBSCRIPTION_ID="ADSDBSyncSubscription:SUBSCRIPTION_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:1" LAST_EVENT_ID="0"/> 
+
+
+<ADSDBSyncDistribution DISTRIBUTION_ID="ADSDBSyncDistribution:DISTRIBUTION_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:1" LAST_EVENT_ID="0"/> 
+
+<ADSDBSyncSubscription SUBSCRIPTION_ID="ADSDBSyncSubscription:SUBSCRIPTION_ID:2" PRODUCT_ID="ADSProducts:PRODUCT_ID:4" LAST_EVENT_ID="0"/> 
+
+<ADSDBSyncDistribution DISTRIBUTION_ID="ADSDBSyncDistribution:DISTRIBUTION_ID:2" PRODUCT_ID="ADSProducts:PRODUCT_ID:4" LAST_EVENT_ID="0"/> 
+
+<ADSDBSyncSubscription SUBSCRIPTION_ID="ADSDBSyncSubscription:SUBSCRIPTION_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:8" LAST_EVENT_ID="0"/> 
+
+<ADSDBSyncDistribution DISTRIBUTION_ID="ADSDBSyncDistribution:DISTRIBUTION_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:8" LAST_EVENT_ID="0"/>
+
+<ADSDBSyncSubscription SUBSCRIPTION_ID="ADSDBSyncSubscription:SUBSCRIPTION_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:12" LAST_EVENT_ID="0"/> 
+<ADSDBSyncDistribution DISTRIBUTION_ID="ADSDBSyncDistribution:DISTRIBUTION_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:12" LAST_EVENT_ID="0"/>
+
+</Syncdata>
+<!--$Id$-->

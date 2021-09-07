@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+
+	<description>
+		<![CDATA[Tables related to the Log Parsing for different types of log formats]]>
+	</description>
+
+	<table name="ADSLogParserFormats">
+		<description>LogFormat related details will be stored</description>
+		<columns>
+			<column name="FORMAT_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserFormats.FORMAT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="FORMAT_NAME">
+				<description>Pattern Name</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="FORMAT_DESC">
+				<description>Pattern Name</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="FILE_NAME">
+				<description>Pattern Name</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="USER_DEFINED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="IS_PRIMARY">
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+			</column>
+			<column name="IS_REGENERATE">
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+			</column>
+			<column name="MULTILINE">
+				<data-type>INTEGER</data-type>
+				<default-value>1</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_FILE_IMPORT_SUPPORTED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="LOG_PREFIX">
+				<description>Prefix for each log line</description>
+				<data-type>CHAR</data-type>
+				<max-size>-1</max-size>
+			</column>
+			<column name="LOG_SUFFIX">
+				<description>Suffix for each log line to determine the end of log</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+		</columns>
+		<primary-key name="ADSLogParserFormats_PK">
+			<primary-key-column>FORMAT_ID</primary-key-column>
+		</primary-key>
+		<unique-keys>
+			<unique-key name="ADSLogParserFormats_UK1">
+				<unique-key-column>FORMAT_ID</unique-key-column>
+			</unique-key>
+			<unique-key name="ADSLogParserFormats_UK2">
+				<unique-key-column>FORMAT_NAME</unique-key-column>
+			</unique-key>
+			<unique-key name="ADSLogParserFormats_UK3">
+				<unique-key-column>FILE_NAME</unique-key-column>
+			</unique-key>
+		</unique-keys>
+	</table>
+
+	<table name="ADSLogFormatDetails">
+		<description>This table will contain details about the log formats</description>
+		<columns>
+			<column name="FORMAT_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>true</unique>
+				<uniquevalue-generation>
+					<generator-name>ADSLogFormatDetails.FORMAT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="FORMAT_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>50</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="FORMATDESC">
+				<data-type>CHAR</data-type>
+				<max-size>200</max-size>
+			</column>
+			<column name="IS_TABLE_CREATED">
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="HRTREND_TABLE_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>150</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="REPORT_TABLE_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>150</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="LONG_REPORT_TABLE_NAME">
+				<data-type>CHAR</data-type>
+				<max-size>150</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSLogFormatDetails_PK">
+			<primary-key-column>FORMAT_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<table name="ADSLogParserFormatVsLocale">
+		<description>To maintain separate locale list for a particular logformat</description>
+		<columns>
+			<column name="LOCALEMAP_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserFormatVsLocale.LOCALEMAP_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="LOCALE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="FORMAT_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+
+		<primary-key name="ADSLogParserFormatVsLocale_PK">
+			<primary-key-column>LOCALEMAP_ID</primary-key-column>
+		</primary-key>
+
+		<foreign-keys>
+			<foreign-key name="ADSLogParserFormatVsLocale_FK1" isbidirectional="false"
+						 reference-table-name="ADSLogParserFormats">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>FORMAT_ID</fk-local-column>
+						<fk-reference-column>FORMAT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key name="ADSLogParserFormatVsLocale_FK2" isbidirectional="false"
+						 reference-table-name="ADSLocaleDetails">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>LOCALE_ID</fk-local-column>
+						<fk-reference-column>LOCALE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+		<unique-keys>
+			<unique-key name="ADSLogParserFormatVsLocale_UK">
+				<unique-key-column>LOCALEMAP_ID</unique-key-column>
+			</unique-key>
+		</unique-keys>
+	</table>
+
+	<table name="ADSLogParserRules">
+		<description>All Parser rules will be listed in this table based on LogType</description>
+		<columns>
+			<column name="RULE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserRules.RULE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="LOCALEMAP_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="RULE_NAME">
+				<description>Pattern Name</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="RULE_CATEGORY">  <!-- 1:KeyRule 2:SkipRule 3:NonSkipRule-->
+				<data-type>INTEGER</data-type>
+				<default-value>3</default-value>
+				<nullable>false</nullable>
+				<allowed-values>
+					<value>1</value>
+					<value>2</value>
+					<value>3</value>
+				</allowed-values>
+			</column>
+			<column name="APPLY_ON">
+				<description>Apply on</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="PRIORITY">
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="USER_DEFINED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSLogParserRules_PK">
+			<primary-key-column>RULE_ID</primary-key-column>
+		</primary-key>
+
+
+		<foreign-keys>
+			<foreign-key name="ADSLogParserRules_FK" isbidirectional="false"
+						 reference-table-name="ADSLogParserFormatVsLocale">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>LOCALEMAP_ID</fk-local-column>
+						<fk-reference-column>LOCALEMAP_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+
+		<unique-keys>
+			<unique-key name="ADSLogParserRules_UK">
+				<unique-key-column>RULE_ID</unique-key-column>
+			</unique-key>
+		</unique-keys>
+	</table>
+
+	<table name="ADSLogParserAttributes">
+		<description>Attributes for ParserRules</description>
+		<columns>
+			<column name="ATTR_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserAttributes.ATTR_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="RULE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="GROUP_NUMBER">
+				<data-type>INTEGER</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="KEY">
+				<description>Pattern Before Compile</description>
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="VALUE">
+				<description>Pattern Before Compile</description>
+				<data-type>CHAR</data-type>
+				<max-size>500</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="TYPE">
+				<description>Pattern Before Compile</description>
+				<data-type>CHAR</data-type>
+				<max-size>25</max-size>
+				<default-value>group</default-value>
+				<nullable>true</nullable>
+				<allowed-values>
+					<value>open</value>
+					<value>derived</value>
+					<value>namedregex</value>
+					<value>group</value>
+					<value>numberfromarray</value>
+					<value>numberfromarrayzero</value>
+				</allowed-values>
+			</column>
+		</columns>
+		<primary-key name="ADSLogParserAttributes_PK">
+			<primary-key-column>ATTR_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSLogParserAttributes_FK1" isbidirectional="false" reference-table-name="ADSLogParserRules">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>RULE_ID</fk-local-column>
+						<fk-reference-column>RULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+
+		<unique-keys>
+			<unique-key name="ADSLogParserAttributes_UK">
+				<unique-key-column>ATTR_ID</unique-key-column>
+			</unique-key>
+		</unique-keys>
+
+	</table>
+
+	<table name="ADSLogParserRuleType">
+		<description>Diiferent format types will be listed here</description>
+		<columns>
+			<column name="TYPE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserRuleType.TYPE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="RULE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TYPE">
+				<description>Pattern Before Compile</description>
+				<data-type>CHAR</data-type>
+				<max-size>20</max-size>
+				<default-value>REGEX</default-value>
+				<nullable>false</nullable>
+				<allowed-values>
+					<value>REGEX</value>
+					<value>LOGFORMAT</value>
+					<value>SEPARATOR</value>
+				</allowed-values>
+			</column>
+			<column name="RAW_PATTERN">
+				<description>Pattern Before Compile</description>
+				<data-type>CHAR</data-type>
+				<max-size>10000</max-size>
+				<nullable>true</nullable> <!-- No Pattern for Windows-NT Logs -->
+			</column>
+			<column name="REGEX_PATTERN">
+				<description>Pattern After Compiled Raw_Pattern</description>
+				<data-type>CHAR</data-type>
+				<max-size>10000</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="VALUE_SEPARATOR">
+				<data-type>CHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="KEY_SEPARATOR">
+				<data-type>CHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="LOGFORMAT">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="VALUE_GROUPING_CHAR">
+				<data-type>CHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSLogParserRuleType_PK">
+			<primary-key-column>TYPE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSLogParserRuleType_FK" isbidirectional="false" reference-table-name="ADSLogParserRules">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>RULE_ID</fk-local-column>
+						<fk-reference-column>RULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+		<unique-keys>
+			<unique-key name="ADSLogParserRuleType_UK">
+				<unique-key-column>TYPE_ID</unique-key-column>
+			</unique-key>
+		</unique-keys>
+	</table>
+
+	<table name="ADSLogParserRuleSettings">
+		<description>Condition to check , is it needed to apply rule</description>
+		<columns>
+			<column name="APPLY_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSLogParserRuleSettings.APPLY_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="RULE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="FIELD">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="VALUE">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>true</nullable>
+			</column>
+			<column name="CONDITION">
+				<data-type>CHAR</data-type>
+				<max-size>250</max-size>
+				<default-value>EQUALS</default-value>
+				<nullable>true</nullable>
+				<allowed-values>
+					<value>EQUALS</value>
+					<value>MULTI</value>
+					<value>RANGE</value>
+					<value>MULTI_RANGE</value>
+					<value>CONTAINS</value>
+					<value>REGEX</value>
+				</allowed-values>
+			</column>
+		</columns>
+		<primary-key name="ADSLogParserRuleSettings_PK">
+			<primary-key-column>APPLY_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSLogParserRuleSettings_FK" isbidirectional="false" reference-table-name="ADSLogParserRules">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>RULE_ID</fk-local-column>
+						<fk-reference-column>RULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+		<unique-keys>
+			<unique-key name="ADSLogParserRuleSettings_UK">
+				<unique-key-column>APPLY_ID</unique-key-column>
+			</unique-key>
+		</unique-keys>
+	</table>
+
+</data-dictionary>
+<!--$Id$ -->

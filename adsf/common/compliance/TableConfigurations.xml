@@ -1,0 +1,23 @@
+<!--$Id$-->
+<TableConfigurations>
+
+    <!-- ComplianceTableNameConstants report page table table -->
+    <ADSUITableDetails DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.compliance.table.model.ComplianceCustomTableDataHandler" DESCRIPTION="Compliance table data" NAME="COMPLIANCE_REPORT" TABLEID="ADSUITableDetails:TABLEID:COMPLIANCE_REPORT" STRUCTURE_HANDLER_CLASS="com.manageengine.ads.fw.common.compliance.table.model.ComplianceCustomTableStructureHandler">
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1000001" COLUMN_DISPLAY_TYPE="HIDDEN" COLUMN_TABLENAME="ComplianceTableData" Class="hidden" ColumnName="TIME" CustomExpression="{}" DISPLAY_KEY="" Index="1" IsIndicator="0" Weight="0" />
+    </ADSUITableDetails>
+
+    <!-- Manage compliance page -->
+    <ADSUITableDetails DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.compliance.table.model.ManageComplianceTableDataHandler" DEFAULT_SEARCHTYPE="2" DESCRIPTION="Manage compliance table" NAME="MANAGE_COMPLIANCE" TABLEID="ADSUITableDetails:TABLEID:MANAGE_COMPLIANCE">
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1001001" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="CompliancePolicy" Class="hidden" ColumnName="LAYOUT_ID" CustomExpression="{}" DISPLAY_KEY="" Index="-1" IsHTML="0" IsIndicator="0" IsSortable="0" Weight="0"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1001002" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="CompliancePolicy" Class="" ColumnName="ACTIONS" CustomExpression="{&quot;COMPONENT&quot;:{&quot;NAME&quot;:&quot;compliance/table-action&quot;}}" DISPLAY_KEY="ads.table.compliance.manage.actions" Index="0" IsHTML="3" IsIndicator="0" IsSortable="0" TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1000" Weight="1.5" IS_PSEUDO="TRUE"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1001003" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="ADSLayout" Class="" ColumnName="LAYOUT_NAME" CustomExpression="{&quot;TOOLTIP_TRUNCATE&quot;:&quot;25&quot;}" DISPLAY_KEY="ads.table.compliance.manage.layout_name" Index="1" IsHTML="0" IsIndicator="0" IsSortable="0" TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1001"/>
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1001004" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="CompliancePolicy" Class="" ColumnName="DESCRIPTION" CustomExpression="{&quot;TOOLTIP_TRUNCATE&quot;:&quot;60&quot;}" DISPLAY_KEY="ads.table.compliance.manage.desc" Index="2" IsHTML="0" IsIndicator="0" IsSortable="0" TRANSFORM_ID="ADSUIColumnTransformConfigurations:TRANSFORM_ID:1002" />
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1001005" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="CompliancePolicy" Class="" ColumnName="ENABLE_ACTION" CustomExpression="{&quot;COMPONENT&quot;:{&quot;NAME&quot;:&quot;compliance/enable-disable&quot;}}" DISPLAY_KEY="ads.table.compliance.manage.enable_action" Index="3" IsHTML="3" IsIndicator="0" IsSortable="0" Weight="1.5" IS_PSEUDO="TRUE"/>
+    </ADSUITableDetails>
+
+    <!-- ComplianceTableNameConstants additional criteria table in case report group has any additional criteria -->
+    <ADSUITableDetails DATA_HANDLER_CLASS="com.manageengine.ads.fw.common.compliance.table.model.ComplianceCustomTableDataHandler" DESCRIPTION="Compliance report group additional criteria table data" NAME="COMPLIANCE_REPORT_GROUP_CRITERIA" TABLEID="ADSUITableDetails:TABLEID:COMPLIANCE_REPORT_GROUP_CRITERIA" STRUCTURE_HANDLER_CLASS="com.manageengine.ads.fw.common.compliance.table.model.ComplianceCustomTableStructureHandler">
+        <ADSUIColumnConfigurations CONFIG_ID="ADSUIColumnConfigurations:CONFIG_ID:1004001" COLUMN_DISPLAY_TYPE="FIXED" COLUMN_TABLENAME="ComplianceTableData" Class="hidden" ColumnName="TIME" CustomExpression="{}" DISPLAY_KEY="" Index="1" IsIndicator="0" Weight="0" />
+    </ADSUITableDetails>
+
+</TableConfigurations>

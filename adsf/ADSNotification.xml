@@ -1,0 +1,21 @@
+<NotificationDetails>
+	<!-- Types for Insta Notification Starts here-->
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:1"  NOTIFICATION_NAME="Instant Notification"  DISPLAY_NAME="ads_admin_notifications_insta_notification_intant_name" IS_ENABLED="false" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:2"  NOTIFICATION_NAME="Event Notification"  DISPLAY_NAME="ads_admin_notifications_insta_notification_event_name" IS_ENABLED="false" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:3"  PARENT_ID="ADSNotificationTypes:NOTIFICATION_ID:2" NOTIFICATION_NAME="Webinar"  DISPLAY_NAME="ads_admin_notifications_insta_notification_webinar_name" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:4"  PARENT_ID="ADSNotificationTypes:NOTIFICATION_ID:2" NOTIFICATION_NAME="Seminar"  DISPLAY_NAME="ads_admin_notifications_insta_notification_seminar_name" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:5"  PARENT_ID="ADSNotificationTypes:NOTIFICATION_ID:2" NOTIFICATION_NAME="Workshop"  DISPLAY_NAME="ads_admin_notifications_insta_notification_workshop_name" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:6"  PARENT_ID="ADSNotificationTypes:NOTIFICATION_ID:1" NOTIFICATION_NAME="Release Mailer"  DISPLAY_NAME="ads_admin_notifications_insta_notification_release_mailer_name" />
+	<ADSNotificationTypes NOTIFICATION_ID="ADSNotificationTypes:NOTIFICATION_ID:7"  PARENT_ID="ADSNotificationTypes:NOTIFICATION_ID:1" NOTIFICATION_NAME="Promotional Mailer"  DISPLAY_NAME="ads_admin_notifications_insta_notification_promotional_name" />
+	<!-- Types for Insta Notification Ends here-->
+	
+	<!-- Notification Server Details Starts here-->
+		<ADSNotificationServerDetails PRODUCT_ID="ADSProducts:PRODUCT_ID:2" 
+	    SERVER_URL="https://creator.zoho.com/api/json/notifications/view/Notification_Detailed_Report?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;scope=creatorapi&amp;zc_ownername=ssp" 
+	    UPDATE_URL="https://creator.zoho.com/api/ssp/json/notifications/form/Notification/record/update?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;scope=creatorapi&amp;zc_ownername=ssp" />
+	<!-- Notification Server Details Ends here-->
+	
+	<!--Downtime notification should be enabled by default-->
+	<ADSDownTimeSettings PRODUCT_ID="ADSProducts:PRODUCT_ID:2" SUBJECT="admp.admin.server_settings.product_downtime_notify_sub" CONTENT="admp.admin.server_settings.product_downtime_notify_msg_plain_text" IS_ENABLED="true" />
+
+</NotificationDetails>

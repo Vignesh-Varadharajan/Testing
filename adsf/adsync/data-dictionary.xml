@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+
+	<description> <![CDATA[ADSync related tables]]>
+	</description>
+
+	<table name="ADSADSynchronization">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="AD_SYNC_ID">
+				<description>AD Sync Id. </description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSADSynchronization.AD_SYNC_ID</generator-name>
+				</uniquevalue-generation>             
+			</column>	
+			<column name="DOMAIN_NAME">
+				<description>Domain Name </description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="DEFAULT_OBJS_REFRESHED_TIME">
+				<description>Time at which default objects updated</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>  
+			</column>
+			<column name="OTHER_OBJS_REFRESHED_TIME">
+				<description>Time at which all objects updated</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>  
+			</column>
+			<column name="FULL_REFRESHED_TIME">
+				<description>Time at which last Full Sync occurred</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>  
+			</column>
+			<column name="DATA_SYNC_ID">
+				<description>Data Sync Id for storing ADSync data required for multiple products</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>  
+			</column>
+		</columns>
+		<primary-key name="ADSADSynchronization_PK">
+			<primary-key-column>AD_SYNC_ID</primary-key-column>
+		</primary-key>
+	</table>
+	
+	<table name="ADSADSyncResults">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="AD_SYNC_ID">
+				<description>AD Sync Id. </description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>       
+			</column>	
+			<column name="BASE_DN">
+				<description>Domain Name </description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Type of object </description>
+				<data-type>NCHAR</data-type>
+				<max-size>80</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="LAST_METHOD_USED">
+				<description>Method used for last update</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="COOKIE_VALUE">				<!--The cookie is null for full sync -->
+				<description>Previous Cookie </description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+			</column>
+			<column name="COOKIE_DC_NAME">
+				<description>Name of domain controller while using cookie</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="USN_VALUE">		<!--The min value for usn is 0L, so full sync-->
+				<description>Previous highest USNChanged </description>
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>  
+			</column>
+			<column name="USN_DC_NAME">
+				<description>Name of domain controller while using usn</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="INVOCATION_ID">		<!--If domain uses only cookie then invocationId will be null-->
+				<description>Invocation ID of Domain Controller</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+			<column name="FULL_REFRESHED_TIME">
+				<description>Time at which last Full Sync occurred</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>  
+			</column>	
+		</columns>
+		<primary-key name="ADSADSyncResults_PK">
+			<primary-key-column>AD_SYNC_ID</primary-key-column>
+			<primary-key-column>BASE_DN</primary-key-column>
+			<primary-key-column>OBJECT_TYPE</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSADSyncResults_FK" reference-table-name="ADSADSynchronization" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>AD_SYNC_ID</fk-local-column>
+						<fk-reference-column>AD_SYNC_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>		
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	
+	<table name="ADSADSyncObjects">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="OBJECT_ID">
+				<description>Unique Id for a object in a product. </description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSADSyncObjects.OBJECT_ID</generator-name>
+				</uniquevalue-generation>             
+			</column>	
+			<column name="DOMAIN_ID">
+				<description>DOMAIN_ID of the domain in which sync must happen </description>
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+			</column>
+			<column name="OBJECT_TYPE">
+				<description>Type of object </description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="SEARCH_STRING">
+				<description>Search string to get all objects of given type </description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="IS_ENABLED"> 
+				<description>Whether this type is enable or not to fetch objects.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="IS_FULL_REFRESEH_ENABLED"> 
+				<description>Whether this type is enable or not to do full sync if time exceeds full refresh interval.</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="IS_FUNCTIONAL_LEVEL_BASED"> 
+				<description>Whether this type cookie sync based on forest functional level</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="PRIORITY_ID">
+				<description>Priority in which objects are updated</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="BASE_DN">
+				<description>Search string to get all objects of given type </description>
+				<data-type>NCHAR</data-type>
+				<max-size>2000</max-size>
+			</column>
+			<column name="SEARCH_PREFERENCE">
+				<description>ADS_SEARCHPREF_DIRSYNC_FLAG Example:2048 (LDAP_DIRSYNC_ANCESTORS_FIRST_ORDER(0x00000800)) </description>
+				<data-type>BIGINT</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSADSyncObjects_PK">
+			<primary-key-column>OBJECT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSADSyncObjects_FK" reference-table-name="ADSDomainConfiguration" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DOMAIN_ID</fk-local-column>
+						<fk-reference-column>DOMAIN_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>		
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	
+	<table name="ADSADSyncSettings">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="UNIQUE_ID">
+				<description>Unique Id for a product. </description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSADSyncSettings.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>	            
+			</column>	
+			<column name="FULL_REFRESH_INTERVAL">
+				<description>For how many hours once full sync should happen</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="FULL_REFRESH_UNIT_OF_TIME">
+				<description>Unit of interval once full sync should happen </description>
+				<data-type>NCHAR</data-type>
+				<max-size>20</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="OTHER_OBJ_REFRESH_INTERVAL">
+				<description>For how many hours once other objects should updated</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="OTHER_OBJ_UNIT_OF_TIME">
+				<description>Unit of interval once other objects should updated </description>
+				<data-type>NCHAR</data-type>
+				<max-size>20</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="LISTENER_IMPL_CLASS_NAME">
+				<description>Class used for update DB in product</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable> 
+			</column>
+			<column name="ENABLE_AUDIT">
+				<description>Enable to update status of ADSync</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="SYNC_RETRIEVAL_METHOD">
+				<description>Check the Retrieval Method</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="DATA_SYNC_ID">
+				<description>Data Sync Id Id for storing ADSync data required for multiple products</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<nullable>false</nullable>  
+			</column>
+		</columns>
+		<primary-key name="ADSADSyncSettings_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+	</table>
+	
+	<table name="ADSADSyncAudit">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="AUDIT_ID">
+				<description>AUDIT Id for a product. </description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSADSyncAudit.AUDIT_ID</generator-name>
+				</uniquevalue-generation>	            
+			</column>	
+			<column name="DOMAIN_NAME">
+				<description>Domain Name </description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="SYNC_START_TIME">
+				<description>Time at which sync is started </description>
+				<data-type>TIMESTAMP</data-type>
+				<nullable>false</nullable>  
+			</column>
+			<column name="SYNC_END_TIME">
+				<description>>Time at which sync is completed </description>
+				<data-type>TIMESTAMP</data-type>
+				<nullable>false</nullable>  
+			</column>
+			<column name="LAST_METHOD_USED">
+				<description>Method used for last update</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>  
+			</column>
+			<column name="IS_FULL_SYNC">
+				<description>is full sync of the domain</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="IS_OTHER_OBJS_SYNC">
+				<description>is other objects are updating</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+		        <nullable>false</nullable> 
+			</column>
+			<column name="STATUS_MESSAGE">
+				<description>Status of the Sync</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>  
+			</column>
+		</columns>
+		<primary-key name="ADSADSyncAudit_PK">
+			<primary-key-column>AUDIT_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSADSyncObjAttributes">
+		<description>
+			<![CDATA[ADSync Values]]>
+		</description>
+		<columns>  
+			<column name="OBJECT_ID">
+				<description>Unique Id for a object in a product. </description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>	
+			<column name="ATTRIB_LDAP_NAME">
+				<description>LDAP Name of attribute</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>  
+			</column>
+		</columns>
+		<primary-key name="ADSADSyncObjAttributes_PK">
+			<primary-key-column>OBJECT_ID</primary-key-column>
+			<primary-key-column>ATTRIB_LDAP_NAME</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSADSyncObjAttributes_FK" reference-table-name="ADSADSyncObjects" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>OBJECT_ID</fk-local-column>
+						<fk-reference-column>OBJECT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>		
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	
+</data-dictionary>
+
+<!--$Id$ -->

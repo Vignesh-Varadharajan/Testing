@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+
+    <description> Templates are customizable by user and used to perform management operations   </description>
+
+    <table name="ADSUIComponents">
+        <description><![CDATA[Various UI Components]]></description>
+        <columns>
+            <column name="UI_COMPONENT_ID">
+                <description>Unique id of each UI Component</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUIComponents.UI_COMPONENT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="COMPONENT">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="COMPONENT_TYPE">
+                <data-type>NCHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="COMPONENT_HANDLER">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DATA_TABLE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>128</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUIComponents_PK">
+            <primary-key-column>UI_COMPONENT_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSUserDelegatedTemplates">
+        <description><![CDATA[Default template for a template type for a user is defined.]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each Tray Component</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUserDelegatedTemplates.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUserDelegatedTemplates_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="AaaUser" name="ADSUserDelegatedTemplates_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSUITemplateTypes" name="ADSUserDelegatedTemplates_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_TYPE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSUserDelegatedTemplates_FK3" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateComponents">
+        <description><![CDATA[Various Field Tray Components]]></description>
+        <columns>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <description>Unique id of each Tray Component</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateComponents.TEMPLATE_COMPONENT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="COMPONENT_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_WRAPPER">
+                <description>if true, by default component will comes with lable,toolTip and other attribs</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_FILTERABLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_SECURITY_OPTION_NEEDED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_ASSIGNABLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name=" ADSTemplateComponents_PK">
+            <primary-key-column>TEMPLATE_COMPONENT_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+
+    <table name="ADSTemplateCompDefinition">
+        <description><![CDATA[Definition for a field tray component]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each field in definition</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateCompDefinition.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="UI_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_VISIBLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="STYLE_CLASSES">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="MARGIN">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PADDING">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="BORDER">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INLINE_STYLES">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PLACE_HOLDER_TEXT">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PARENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="HTML_TAG_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="INPUT_FIELD_TYPE">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="MACROS">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+
+            <column name="PARAM_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PARAM_DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DATA_TYPE">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="EXTENDED_PROPERTIES">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateCompDefinition_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUIComponents" name="ADSTemplateCompDefinition_FK">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>UI_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>UI_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateCompDefinition_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PARENT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateCompMapping">
+        <description><![CDATA[Layout definition for a group of components(say task)]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each field in definition</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUICompVsLayout.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+
+            <column name="TEMPLATE_COMP_UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSUICompVsLayout_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateComponents" name="ADSUICompVsLayout_FK">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSUICompVsLayout_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMP_UNIQUE_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateCompDefaultValues">
+        <description><![CDATA[values for each ui layout]]></description>
+        <columns>
+            <column name="DEFAULT_VALUE_ID">
+                <description>Unique id of each Field Comp vs Operation Param</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateCompDefaultValues.DEFAULT_VALUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_COMP_UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PARAM_NAME">
+                <description><![CDATA[ Used only for UI. This is not required for execution of tasks.]]></description>
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="SERVER_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="CLIENT_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>400</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>INTEGER</data-type>
+                <default-value>1</default-value>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateCompDefaultValues_PK">
+            <primary-key-column>DEFAULT_VALUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateCompDefaultValues_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMP_UNIQUE_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateCompConstraints">
+        <description><![CDATA[Unique id of each Field Comp vs Operation Rule]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each Field Comp vs Rule</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUILayoutConstraints.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TRIGGER_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TARGET_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="CONDITION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="SUCCESS_ACTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="FAILURE_ACTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateCompConstraints_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateCompConstraints_FK1" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TRIGGER_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateCompConstraints_FK2" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TARGET_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUITemplateVsTabs">
+        <description><![CDATA[Tabs for a template]]></description>
+        <columns>
+            <column name="TEMPLATE_TAB_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITemplateVsTabs.TEMPLATE_TAB_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PARENT_TAB_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TAB_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="STYLE_CLASSES">
+                <description>Any style specific for a tab such as logo,..</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <default-value>0</default-value>
+            </column>
+            <column name="IS_SILENTLY_ACTIVE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_RESTRICTED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_SELECTED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSUITemplateVsTabs_PK">
+            <primary-key-column>TEMPLATE_TAB_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSUITemplateVsTabs_FK1" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSUITemplateVsTabs" name="ADSUITemplateVsTabs_FK2" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PARENT_TAB_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateTabGroups">
+        <description><![CDATA[Groups for a Tab]]></description>
+        <columns>
+            <column name="TEMPLATE_TAB_GRP_ID">
+                <description>Unique id of each group in a tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateTabGroups.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_TAB_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="GROUP_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="STYLE_CLASSES">
+                <description>Any style specific for a tab such as logo,..</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="COLUMNS">
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_SILENTLY_ACTIVE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateTabGroups_PK">
+            <primary-key-column>TEMPLATE_TAB_GRP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplateVsTabs" name="ADSTemplateTabGroups_FK1" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_TAB_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateTabGroupComps">
+        <description><![CDATA[Components in a Group]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateTabGroupComps.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_TAB_GRP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="STYLE_CLASSES">
+                <description>Any style specific for a tab such as logo,..</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="COLUMN">
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <default-value>1</default-value>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateTabGroupComps_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateTabGroups" name="ADSTemplateTabGroupComps_FK1" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_TAB_GRP_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TAB_GRP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateComponents" name="ADSTemplateTabGroupComps_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateValueMap">
+        <columns>
+            <column name="FIELD_VALUE_MAP_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateValueMap.FIELD_VALUE_MAP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateValueMap_PK">
+            <primary-key-column>FIELD_VALUE_MAP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSTemplateValueMap_FK" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTemplateFieldValues">
+        <description><![CDATA[Definition of Components in a Group]]></description>
+        <columns>
+            <column name="FIELD_VALUES_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateFieldValues.FIELD_VALUES_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FIELD_VALUE_MAP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_COMP_UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateFieldValues_PK">
+            <primary-key-column>FIELD_VALUES_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateFieldValues_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMP_UNIQUE_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateValueMap" name="ADSTemplateFieldValues_FK3">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_VALUE_MAP_ID</fk-local-column>
+                        <fk-reference-column>FIELD_VALUE_MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- LHS tray panel -->
+    <table name="ADSTemplateLHSTabs">
+        <description><![CDATA[Various Field Tray Components]]></description>
+        <columns>
+            <column name="TAB_ID">
+                <description>Unique id of each Tray Category</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateLHSTabs.TAB_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PARENT_TAB_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateLHSTabs_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateLHSTabs" name="ADSTemplateLHSTabs_FK" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PARENT_TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSUITemplateTypes" name="ADSTemplateLHSTabs_FK2" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_TYPE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSTemplateLHSTabsGroups">
+        <description><![CDATA[Various Field Tray Components]]></description>
+        <columns>
+            <column name="TAB_GROUP_ID">
+                <description>Unique id of each Tray Category</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateLHSTabsGroups.TAB_GROUP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TAB_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateLHSTabsGroups_PK">
+            <primary-key-column>TAB_GROUP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateLHSTabs" name="ADSTemplateLHSTabsGroups_FK" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSUITemplateTypeComps">
+        <description><![CDATA[Operation Vs Tray Components Vs Category]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each Operation vs Tray Component</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITemplateTypeComps.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAB_GROUP_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITemplateTypeComps_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateComponents" name="ADSUITemplateTypeComps_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateLHSTabsGroups" name="ADSUITemplateTypeComps_FK3">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_GROUP_ID</fk-local-column>
+                        <fk-reference-column>TAB_GROUP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSTemplateCompExtended">
+        <description><![CDATA[Definition of Components in a Group]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateCompExtended.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_VISIBLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_SILENTLY_ACTIVE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_READONLY">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="HELP_TEXT">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateCompExtended_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSTemplateCompExtended_FK" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateComponents" name="ADSTemplateCompExtended_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="AaaUser" name="ADSTemplateCompExtended_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+
+    </table>
+    <table name="ADSTemplateCompDefnExtended">
+        <description><![CDATA[Definition of Components in a Group]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateCompDefnExtended.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_COMP_UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="STYLE_CLASSES">
+                <description>Any style specific for a tab such as logo,..</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="LABEL">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_VISIBLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_SILENTLY_ACTIVE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="IS_READONLY">
+                <data-type>BOOLEAN</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_EDITABLE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="HELP_TEXT">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateCompDefnExtended_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSTemplateCompDefnExtended_FK" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateCompDefnExtended_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMP_UNIQUE_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="AaaUser" name="ADSTemplateCompDefnExtended_FK3">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSTemplatePasswordPolicy">
+        <description>
+            <![CDATA[Contains Criteria for Password Generation]]>
+        </description>
+        <columns>
+            <column name="POLICY_ID">
+                <description>Policy id.</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplatePasswordPolicy.POLICY_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="POLICY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="MINIMUM_PASSWORD_LENGTH">
+                <description>Minimum Password Length.</description>
+                <data-type>INTEGER</data-type>
+                <default-value>8</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="MAXIMUM_PASSWORD_LENGTH">
+                <description>Maximum Password Length. </description>
+                <data-type>INTEGER</data-type>
+                <default-value>12</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="NO_OF_SPECIAL_CHARACTERS">
+                <description>Number Of Special Characters. </description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+
+            </column>
+            <column name="NO_OF_NUMERALS">
+                <description>Number Of Numerals. </description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+
+            </column>
+            <column name="START_WITH_ALPHABET">
+                <description>Start With An Alphabet.</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="USE_DICTIONARY_WORDS">
+                <description>Use dictionary words</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="CASE_SENSITIVE_OPTION">
+                <description>0-MIXED/1-Lower/2-Upper</description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+            </column>
+            <column name="EXCLUDE_TEXT">
+                <description>Numeral Required</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplatePasswordPolicy_PK">
+            <primary-key-column>POLICY_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSTemplateNamingFormats">
+        <description>
+            <![CDATA[
+		Contains the naming formats
+		]]>
+        </description>
+        <columns>
+            <column name="FORMAT_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateNamingFormats.FORMAT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FORMAT_DISPLAY_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FORMAT_VALUE">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FORMAT_TYPE">
+                <description>O-Normal type/1-advanced type</description>
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+            </column>
+            <column name="RESTRICTED_LENGTH">
+                <data-type>INTEGER</data-type>
+                <default-value>-1</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="FORMAT_CASE">
+                <data-type>INTEGER</data-type>
+                <default-value>0</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="REMOVE_SPACE">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="REMOVE_UMLAUTS">
+                <description>Boolean value to remove umlauts from the format value or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="TRIM_SPACES_DOTS">
+                <description>Boolean value to remove unwanted spaces and dots</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="REMOVE_CHARACTERS">
+                <description>Removal characters</description>
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateNamingFormats_PK">
+            <primary-key-column>FORMAT_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSUmlautConfigurations">
+        <description>
+            <![CDATA[
+		Contains the Umlaut Configurations
+		]]>
+        </description>
+        <columns>
+            <column name="UMLAUT_ID">
+                <description>Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUmlautConfigurations.UMLAUT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="UMLAUT">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="REPLACE_CHAR">
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUmlautConfigurations_PK">
+            <primary-key-column>UMLAUT_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSTemplateFormatDefaultSettings">
+        <description>
+            <![CDATA[
+            Contains the Default formats selected by the user
+            ]]>
+        </description>
+        <columns>
+            <column name="SETTING_ID">
+                <description>Id for the Format Rule Conditions</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateFormatDefaultSettings.SETTING_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PARAM_TYPE">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="PARAM_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="FORMAT_ID">
+                <description>Rule ID for the Conditions</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateFormatDefaultSettings_PK">
+            <primary-key-column>SETTING_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSTemplateFormatDefaultSettings_fk" reference-table-name="ADSTemplateNamingFormats" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FORMAT_ID</fk-local-column>
+                        <fk-reference-column>FORMAT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSTemplateFieldVsFormats">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateFieldVsFormats.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_COMP_UNIQUE_ID">
+                <description>Rule ID for the Conditions</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TEMPLATE_ID">
+                <description>Rule ID for the Conditions</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="FIELD_VALUE_MAP_ID">
+                <description>Rule ID for the Conditions</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="FORMAT_ID">
+                <description>Rule ID for the Conditions</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateFieldVsFormats_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSTemplateFieldVsFormats_fk0">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateValueMap" name="ADSTemplateFieldVsFormats_fk1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_VALUE_MAP_ID</fk-local-column>
+                        <fk-reference-column>FIELD_VALUE_MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateCompDefinition" name="ADSTemplateFieldVsFormats_fk2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMP_UNIQUE_ID</fk-local-column>
+                        <fk-reference-column>UNIQUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSTemplateFieldVsFormats_fk3" reference-table-name="ADSTemplateNamingFormats" >
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FORMAT_ID</fk-local-column>
+                        <fk-reference-column>FORMAT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+
+    </table>
+	<table name="ADSTemplateOrgAttributes">
+        <description>
+            <![CDATA[
+		Contains the naming formats
+		]]>
+        </description>
+        <columns>
+            <column name="ATTRIBUTE_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateOrgAttributes.ATTRIBUTE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="ATTRIBUTE_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_RESTRICTED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateOrgAttributes_PK">
+            <primary-key-column>ATTRIBUTE_ID</primary-key-column>
+        </primary-key>
+    </table>
+	<table name="ADSTemplateOrgAttributeValues">
+        <description>
+            <![CDATA[
+		Contains the naming formats
+		]]>
+        </description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateOrgAttributeValues.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="ATTRIBUTE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ATTRIBUTE_VALUE">
+                <data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateOrgAttributeValues_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+		<foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateOrgAttributes" name="ADSTemplateOrgAttributeValues_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ATTRIBUTE_ID</fk-local-column>
+                        <fk-reference-column>ATTRIBUTE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+		</foreign-keys>
+    </table>
+	
+	<table name="ADSTemplateRules">
+        <description><![CDATA[Definition of Components in a Group]]></description>
+        <columns>
+            <column name="RULE_ID">
+                <description>Unique id of each tab in a template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateRules.RULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="RULE_NAME">
+                <data-type>NCHAR</data-type>
+				<max-size>255</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="RULE_CONDITIONS">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="ASSIGN_VALUES">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="IS_DISABLED">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <default-value>1</default-value>
+            </column>
+            <column name="CRITERIA_PATTERN">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateRules_PK">
+            <primary-key-column>RULE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplates" name="ADSTemplateRules_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+			<foreign-key reference-table-name="ADSTemplateValueMap" name="ADSTemplateRules_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RULE_CONDITIONS</fk-local-column>
+                        <fk-reference-column>FIELD_VALUE_MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="ADSTemplateValueMap" name="ADSTemplateRules_FK3">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ASSIGN_VALUES</fk-local-column>
+                        <fk-reference-column>FIELD_VALUE_MAP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+	<table name="ADSTemplateRuleComponents">
+        <columns>
+            <column name="RULE_COMPONENT_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateRuleComponents.RULE_COMPONENT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="RULE_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+            </column>
+		</columns>
+		<primary-key name="ADSTemplateRuleComponents_PK">
+			<primary-key-column>RULE_COMPONENT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="ADSTemplateRules" name="ADSTemplateRuleComponents_FK1">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>RULE_ID</fk-local-column>
+						<fk-reference-column>RULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSTemplateComponents" name="ADSTemplateRuleComponents_FK2">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+	<table name="ADSTemplateRuleInputDetails">
+        <columns>
+            <column name="RULE_FIELD_VALUE_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateRuleInputDetails.RULE_FIELD_VALUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="RULE_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TEMPLATE_COMPONENT_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="QUERY_CONST">
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="CONDITION">
+                <data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+            </column>
+			<column name="CONDITION_INDEX">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateRuleInputDetails_PK">
+            <primary-key-column>RULE_FIELD_VALUE_ID</primary-key-column>
+        </primary-key>
+		<foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateRules" name="ADSTemplateRuleInputDetails_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RULE_ID</fk-local-column>
+                        <fk-reference-column>RULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+			<foreign-key reference-table-name="ADSTemplateComponents" name="ADSTemplateRuleInputDetails_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+		</foreign-keys>
+    </table>
+	<table name="ADSTemplateRuleMapping">
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Id for the attributes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSTemplateRuleMapping.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="RULE_FIELD_VALUE_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="FIELD_VALUES_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSTemplateRuleMapping_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+		<foreign-keys>
+            <foreign-key reference-table-name="ADSTemplateRuleInputDetails" name="ADSTemplateRuleMapping_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RULE_FIELD_VALUE_ID</fk-local-column>
+                        <fk-reference-column>RULE_FIELD_VALUE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+			<foreign-key reference-table-name="ADSTemplateFieldValues" name="ADSTemplateRuleMapping_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>FIELD_VALUES_ID</fk-local-column>
+                        <fk-reference-column>FIELD_VALUES_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+		</foreign-keys>
+    </table>
+	<table name="ADSTechnicianDefaultTemplates">
+		<description><![CDATA[Default template for a template type for a user is defined.]]></description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<description>Unique id of each Tray Component</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSTechnicianDefaultTemplates.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="USER_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="TEMPLATE_TYPE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="DEFAULT_TEMPLATE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSTechnicianDefaultTemplates_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key reference-table-name="AaaUser" name="ADSTechnicianDefaultTemplates_FK1">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSUITemplateTypes" name="ADSTechnicianDefaultTemplates_FK2" >
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>TEMPLATE_TYPE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_TYPE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+			<foreign-key reference-table-name="ADSUITemplates" name="ADSTechnicianDefaultTemplates_FK3" >
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>DEFAULT_TEMPLATE_ID</fk-local-column>
+						<fk-reference-column>TEMPLATE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+
+</data-dictionary>

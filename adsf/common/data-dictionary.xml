@@ -1,0 +1,1051 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+
+<data-dictionary name="adsf">
+
+    <description> <![CDATA[OnPrem - Cloud Common Implementation tables]]>
+    </description>
+
+    <table name="ADSClassLoader">
+        <description>
+            <![CDATA[Common Implementation Classes]]>
+        </description>
+        <columns>
+            <column name="MODULE_ID">
+                <description>Module ID </description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSClassLoader.MODULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_NAME">
+                <description>Module Name </description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IMPL_CLASS">
+                <description>Implementation Class </description>
+                <data-type>CHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>The Description of the module</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSClassLoader_PK">
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSNotificationCenter">
+        <description>
+            <![CDATA[Contains Notification Center Entry Details]]>
+        </description>
+        <columns>
+            <column name="NOTIFICATION_ID">
+                <description>UNIQUE ID</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationCenter.NOTIFICATION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_NAME">
+                <description>The name of the notification module</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IMPL_CLASS">
+                <description>Conatins Handler class name of the notifiaction module</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <description>This flag specifies whether the notification module is enabled</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>TRUE</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationCenter_PK">
+            <primary-key-column>NOTIFICATION_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+	<table name="ADSCountries">
+		<description>
+			<![CDATA[ Holds countries List
+			]]>
+		</description>
+		<columns>
+			<column name="COUNTRY_ID">
+				<description>Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSCountries.COUNTRY_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="COUNTRY_CODE">
+				<description>Countries ID</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="CO">
+				<description>Country Name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="C">
+				<description>Country Abbrevation</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSCountries_PK">
+			<primary-key-column>COUNTRY_ID</primary-key-column>
+		</primary-key>
+	</table>
+	<table name="ADSCountryStates">
+		<description>
+			<![CDATA[ Holds countries List
+			]]>
+		</description>
+		<columns>
+			<column name="STATE_ID">
+				<description>Unique identifier</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSCountryStates.STATE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="COUNTRY_ID">
+				<description>Identifier of the country</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="STATE_NAME">
+				<description>State Name</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="STATE_CODE">
+				<description>State Codes</description>
+				<data-type>NCHAR</data-type>
+				<max-size>10</max-size>
+				<nullable>false</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSCountryStates_PK">
+			<primary-key-column>STATE_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSCountryStates_FK" reference-table-name="ADSCountries" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>COUNTRY_ID</fk-local-column>
+						<fk-reference-column>COUNTRY_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+    <table name="ADSCache">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+                <uniquevalue-generation>
+                    <generator-name>ADSCache.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CACHE_KEY">
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="CACHE_VALUE">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSCache_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSSystemDefaults">
+        <description><![CDATA[Contains the default Personalize Settings details ]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique value for each parameter</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSSystemDefaults.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="BROWSER_TITLE">
+                <description>Title to display in the browser</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_PATH">
+                <description>Path of the logo located</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_WIDTH">
+                <description>Width of the logo to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_HEIGHT">
+                <description>Height of the logo to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="FAVICON_PATH">
+                <description>Path of the favicon located</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="THEME_COLOR">
+                <description>Theme color of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="TIME_ZONE">
+                <description>Time zone to be used</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DATE_TIME_FORMAT">
+                <description>Time and Date format to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="ENABLE_FORGOT_PWD">
+                <description>Boolean to show the forgot password link</description>
+                <data-type>BOOLEAN</data-type>
+                <max-size>250</max-size>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSSystemDefaults_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <!--Locale-->
+    <table name="ADSLocaleDetails">
+        <description><![CDATA[I18N Local Details]]></description>
+        <columns>
+            <column name="LOCALE_ID">
+                <description>A unique locale id for each country languages</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSLocaleDetails.LOCALE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="LANGUAGE">
+                <description>Locale Language</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="COUNTRY">
+                <description>Locale Country</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>Locale Display Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSLocaleDetails_PK">
+            <primary-key-column>LOCALE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <!--Products-->
+    <table name="ADSProducts">
+        <description>
+            <![CDATA[Supported AD Products]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>AD Product Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSProducts.PRODUCT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PRODUCT_NAME">
+                <description>AD Product's Full Name e.g ManageEngine ADManager Plus</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="TAG_NAME">
+                <description>Product abbreviation</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>AD Product's Display Name e.g ADManager Plus</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon Style</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="IS_CUSTOM_APP">
+                <description>User can add custom application in the apps pane</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PRIMARY_PRODUCT">
+                <description>Check for Primary Product</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority in which order it should be showed</description>
+                <data-type>BIGINT</data-type>
+                <default-value>0</default-value>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Components shown or hide in dashboard will be decided based on this column</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="COMPONENT_NAME">
+                <description>AD Product's License Component Name e.g AD Auditing</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="ICON_DISPLAY_NAME">
+                <description>Icon text</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSProducts_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSProductParams">
+        <description>
+            <![CDATA[Maintaining the Product params details]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>AD Product Id.</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARAM_NAME">
+                <description>Key name of the parameter.</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARAM_VALUE">
+                <description>Value of the parameter.</description>
+                <data-type>NCHAR</data-type>
+                <max-size>4000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSProductParams_PK">
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+            <primary-key-column>PARAM_NAME</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSProductParams_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <!-- Response status sent from ajax calls starts-->
+
+	<table name="ADSResponseStatusCodes">
+		<description>
+			<![CDATA[contains Status code and details of localerrorcodes]]>
+		</description>
+		<columns>
+			<column name="UNIQUE_ID">
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSResponseStatusCodes.UNIQUE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="STATUS_CODE">
+				<data-type>BIGINT</data-type>
+				<max-size>50</max-size>
+				<nullable>false</nullable>
+				<unique>true</unique>
+			</column>
+			<column name="DESCRIPTION">
+				<data-type>NCHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="DISPLAYTEXT">
+				<data-type>CHAR</data-type>
+				<max-size>255</max-size>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="TROUBLESHOOTING_LINK">
+				<data-type>CHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSResponseStatusCodes_PK">
+			<primary-key-column>UNIQUE_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+
+    <table name="ADSPersonalizeSettings">
+        <description><![CDATA[Contains the Personalize Settings details for the particular user]]></description>
+        <columns>
+            <column name="USER_ID">
+                <description>Unique value for each parameter</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="BROWSER_TITLE">
+                <description> Title to display in the browser</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_PATH">
+                <description>Path of the logo located</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_WIDTH">
+                <description>Width of the logo to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOGO_HEIGHT">
+                <description>Height of the logo to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="FAVICON_PATH">
+                <description>Path of the favicon located</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="THEME_COLOR">
+                <description>Theme color of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="TIME_ZONE">
+                <description>Time zone to be used</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DATE_TIME_FORMAT">
+                <description>Time and Date format to be displayed</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="ENABLE_FORGOT_PWD">
+                <description>Boolean to show the forgot password link</description>
+                <data-type>BOOLEAN</data-type>
+                <max-size>250</max-size>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSPersonalizeSettings_PK">
+            <primary-key-column>USER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSPersonalizeSettings_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+        </foreign-keys>
+    </table>
+    <!--Locale-->
+    <table name="ADSUserVsLocale">
+        <description><![CDATA[User Id and Locale Id Mapping Table]]></description>
+        <columns>
+            <column name="USER_ID">
+                <description>USER Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="LOCALE_ID">
+                <description>A unique locale id for each country languages</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUserVsLocale_PK">
+            <primary-key-column>USER_ID</primary-key-column>
+            <primary-key-column>LOCALE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSUserVsLocale_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSUserVsLocale_FK1" reference-table-name="ADSLocaleDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LOCALE_ID</fk-local-column>
+                        <fk-reference-column>LOCALE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- ADSSecretKeys Configuration -->
+    <table name="ADSSecretKeys">
+      <description>
+        <![CDATA[Contains the Secret Details]]>
+      </description>
+      <columns>
+        <column name="SECRET_ID">
+          <description>Unique Identifier for the Table</description>
+          <data-type>BIGINT</data-type>
+          <nullable>false</nullable>
+          <uniquevalue-generation>
+            <generator-name>ADSSecretKeys.SECRET_ID</generator-name>
+          </uniquevalue-generation>
+        </column>
+        <column name="SECRET_KEY">
+          <description>Name of the secret key</description>
+          <data-type>NCHAR</data-type>
+          <max-size>250</max-size>
+          <nullable>false</nullable>
+        </column>
+        <column name="SECRET_VALUE">
+          <description>Salt is a string that is used to encrypt the password.</description>
+          <data-type>SCHAR</data-type>
+          <max-size>512</max-size>
+          <nullable>true</nullable>
+        </column>
+      </columns>
+      <primary-key name="ADSSecretKeys_PK">
+        <primary-key-column>SECRET_ID</primary-key-column>
+      </primary-key>
+    </table>
+
+    <table name="ADSMacros">
+        <description>Table for Macros Value and Macro display values</description>
+        <columns>
+            <column name="MACRO_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSMacros.MACRO_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MACRO_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <unique>true</unique>
+            </column>
+            <column name="MACRO_DISPLAY_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSMacros_PK">
+            <primary-key-column>MACRO_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSExportPasswords">
+        <description>Storing export passwords</description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSExportPasswords.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="PASSWORD">
+                <data-type>SCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSExportPasswords_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSExportPasswords_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <!--AD360 Menu Items -->
+    <table name="ADSMenu">
+        <description>
+            <![CDATA[AD360 Menu Items Table]]>
+        </description>
+        <columns>
+            <column name="MENU_ID">
+                <description>AD360 Menu Unquie Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSMenu.MENU_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <description>Name to identify the menu</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>A Display Name for Each Menu</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>The Description of the menu item</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon Style</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="TOOL_TIP_TEXT">
+                <description>Toop tip text</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="ONCLICK_FUNC">
+                <description>Javascript trigger function of the menu item</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSMenu_PK">
+            <primary-key-column>MENU_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <!-- Integrated Product API Details -->
+    <table name="ADSProductAPIs">
+        <description>
+            <![CDATA[AD Products Exposed APIs]]>
+        </description>
+        <columns>
+            <column name="PRODUCT_ID">
+                <description>A unique id for each product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="API_ID">
+                <description>AD Products API Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSProductAPIs.API_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="API_NAME">
+                <description>Name to identify the api</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="API_URL">
+                <description>API URL</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="SERVLET_CLASS_NAME">
+                <description>Name of the class which identifies the Method to call incase of Servlet</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="MTCALL_NAME">
+                <description>Name of the parameter which identifies the Method to call incase of  DispatchAction</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="MTCALL_VALUE">
+                <description>The Method Name which should be called incase of DispatchAction</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="IS_HS_REQUIRED">
+                <description>Parameter which specifies whether handshake is required</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="IS_ALLOWED_ON_DEMO">
+                <description>Parameter which specifies whether API is allowed on demo mode</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="IS_DB_SYNC_ENABLED">
+                <description>Parameter which specifies whether product should publish the respective API</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="API_AUTHORIZATION">
+                <description>Class Name of the API Authorization</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="API_ERROR_HANDLER">
+                <description>Class Name of the API Authorization</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+			</column>
+			<column name="IS_API_EXPOSED">
+				<description>Parameter which specifies whether api is exposed to public</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+            </column>
+			<column name="TOKEN_HANDSHAKE">
+				<description>Parameter which specifies whether handshake is done using access tokens</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+        </columns>
+        <primary-key name="ADSProductAPIs_PK">
+            <primary-key-column>API_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSProductAPIs_FK" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+	<!--API Scope Table-->
+	<table name="ADSProductAPIScopes">
+		<description>
+            <![CDATA[AD Products Exposed APIs]]>
+        </description>
+        <columns>
+            <column name="API_ID">
+                <description>Unique identifier of an API</description>
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="API_SCOPE">
+				<description>Scope of the API 0-Read, 1-Write</description>
+				<data-type>INTEGER</data-type>
+				<nullable>true</nullable>
+			</column>
+		</columns>
+		<primary-key name="ADSProductAPIScopes_PK">
+			<primary-key-column>API_ID</primary-key-column>
+			<primary-key-column>API_SCOPE</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSProductAPIScopes_FK_1" reference-table-name="ADSProductAPIs" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>API_ID</fk-local-column>
+						<fk-reference-column>API_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+    <!-- Integrated Product API Params Table -->
+    <table name="ADSProductAPIParams">
+        <description>
+            <![CDATA[AD Products Exposed API Params]]>
+        </description>
+        <columns>
+            <column name="API_PARAM_ID">
+                <description>AD Products API Param Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSProductAPIParams.API_PARAM_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="API_ID">
+                <description>A unique id for each api</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARAM_NAME">
+                <description>Name to identify the param</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_MANDATORY">
+                <description>0- optional paramater 1- mandatory paramater</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSProductAPIParams_PK">
+            <primary-key-column>API_PARAM_ID</primary-key-column>
+            <primary-key-column>API_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSProductAPIParams_FK" reference-table-name="ADSProductAPIs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>API_ID</fk-local-column>
+                        <fk-reference-column>API_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSProductAPIsVsAllowedHTTPMethod">
+        <description><![CDATA[Contains the ADS Product API and HTTP method mapping details]]></description>
+        <columns>
+            <column name="API_ID">
+                <description>Unique API ID</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+
+            <column name="HTTP_METHOD">
+                <description>HTTP Method (0-GET, 1-POST, 2-PUT, 3-DELETE, 4-HEAD, 5-CONNECT, 6-OPTIONS, 7-TRACE, 8-PATCH)</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <allowed-values>
+                    <from>0</from>
+                    <to>8</to>
+                </allowed-values>
+            </column>
+        </columns>
+
+        <primary-key name="ADSProductAPIsVsAllowedHTTPMethod_PK">
+            <primary-key-column>API_ID</primary-key-column>
+            <primary-key-column>HTTP_METHOD</primary-key-column>
+        </primary-key>
+
+        <foreign-keys>
+            <foreign-key name="ADSProductAPIsVsAllowedHTTPMethod_FK" reference-table-name="ADSProductAPIs" isbidirectional="false">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>API_ID</fk-local-column>
+                        <fk-reference-column>API_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSFields">
+        <columns>
+            <column name="FIELD_ID">
+                <description>Field Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSFields.FIELD_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <description>Field Name</description>
+                <data-type>CHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_PREDEFINED">
+                <description>Field is predefined or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="FIELD_TYPE">
+                <description>Field type</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+            <column name="RUN_TIME_TYPE">
+                <description>Field java runtime type</description>
+                <data-type>CHAR</data-type>
+                <max-size>50</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSFields_PK">
+            <primary-key-column>FIELD_ID</primary-key-column>
+        </primary-key>
+    </table>
+    <table name="ADSClientModules">
+        <description>
+            <![CDATA[Common Custom Components]]>
+        </description>
+        <columns>
+            <column name="MODULE_ID">
+                <description>Module Unique Id</description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSClientModules.MODULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_NAME">
+                <description>Module Name </description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSClientModules_PK">
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSCustomComponentsRenderTo">
+        <columns>
+            <column name="ID">
+                <description>UNIQUE ID </description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSCustomComponentsRenderTo.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <description>Module Unique Id</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="RENDER_TO">
+                <description>Render to place Name </description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSCustomComponentsRenderTo_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSCustomComponentsRenderTo_FK1" reference-table-name="ADSClientModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSCustomComponentsMapping">
+        <columns>
+            <column name="MAP_ID">
+                <description>MAP ID </description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSCustomComponentsMapping.MAP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="RENDER_TO_ID">
+                <description>RENDER_TO ID</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="COMPONENT_NAME">
+                <description>UI component to be rendered</description>
+                <data-type>CHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSCustomComponentsMapping_PK">
+            <primary-key-column>MAP_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSCustomComponentsMapping_FK1" reference-table-name="ADSCustomComponentsRenderTo">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RENDER_TO_ID</fk-local-column>
+                        <fk-reference-column>ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>
+
+        <!--$Id$ -->

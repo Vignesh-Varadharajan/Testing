@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>Notification templates FW is used to create templates for mail/SMS notifications and can be used later.</description>
+
+    <table name="ADSNotificationTemplatesModules">
+        <columns>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesModules.MODULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="MODULE_DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>300</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesModules_PK">
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSNotificationTemplatesConfig">
+        <columns>
+            <column name="CONFIG_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesConfig.CONFIG_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CONFIG_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesConfig_PK">
+            <primary-key-column>CONFIG_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSNotificationTemplatesModuleVsConfig">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesModuleVsConfig.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONFIG_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesModuleVsConfig_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesModuleVsConfig_FK1" reference-table-name="ADSNotificationTemplatesModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesModulesVsConfig_FK2" reference-table-name="ADSNotificationTemplatesConfig">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONFIG_ID</fk-local-column>
+                        <fk-reference-column>CONFIG_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesModulesVsConfig_UK1">
+                <unique-key-column>MODULE_ID</unique-key-column>
+                <unique-key-column>CONFIG_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="ADSNotificationTemplateFileFormats">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplateFileFormats.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="FILE_FORMAT_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+            <column name="FILE_FORMAT_DISPLAY_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+            <column name="PRIORITY">
+                <data-type>TINYINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplateFileFormats_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSNotificationTemplateTypes">
+        <columns>
+            <column name="NOTIFICATION_TEMPLATE_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplateTypes.NOTIFICATION_TEMPLATE_TYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_TYPE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+                <nullable>false</nullable>
+                <unique>true</unique>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplateTypes_PK">
+            <primary-key-column>NOTIFICATION_TEMPLATE_TYPE_ID</primary-key-column>
+        </primary-key>
+
+    </table>
+
+    <table name="ADSNotificationTemplatesParams">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesParams.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PARAM_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARAM_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesParams_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesParams_UK1">
+                <unique-key-column>PARAM_NAME</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplates">
+        <columns>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplates.NOTIFICATION_TEMPLATE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="TEMPLATE_DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+            <column name="NOTIFICATION_MODE">
+                <description>
+                    0.Mail
+                    1.SMS
+                    2.Both
+                </description>
+                <data-type>TINYINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CREATED_BY_USER_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="MODIFIED_BY_USER_ID">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="CREATION_TIME_IN_MILLIS">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="MODIFIED_TIME_IN_MILLIS">
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="SHARE_TYPE">
+                <description>
+                    1.None
+                    2.All
+                    3.Restricted
+                </description>
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplates_PK">
+            <primary-key-column>NOTIFICATION_TEMPLATE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplates_FK1" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREATED_BY_USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplates_FK2" reference-table-name="ADSNotificationTemplatesModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplates_FK3" reference-table-name="ADSNotificationTemplateTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_TYPE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSNotificationTemplatesVsConfig">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesVsConfig.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONFIG_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PARAM_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesVsConfig_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesVsConfig_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesVsConfig_FK2" reference-table-name="ADSNotificationTemplatesConfig">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONFIG_ID</fk-local-column>
+                        <fk-reference-column>CONFIG_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesVsConfig_UK1">
+                <unique-key-column>NOTIFICATION_TEMPLATE_ID</unique-key-column>
+                <unique-key-column>CONFIG_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesShare">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesShare.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SHARED_USER_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesShare_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesShare_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesShare_FK2" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>SHARED_USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesMailContent">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesMailContent.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SUBJECT">
+                <data-type>NCHAR</data-type>
+                <max-size>4000</max-size>
+            </column>
+            <column name="CONTENT">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+            <column name="EDITOR_MODE">
+                <description>
+                    1.Plain
+                    2.Rich-Text
+                </description>
+                <data-type>TINYINT</data-type>
+                <default-value>2</default-value>
+            </column>
+            <column name="ATTACHMENT_DETAILS">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+            <column name="PRIORITY">
+                <description>
+                    0.Low
+                    1.Medium
+                    2.High
+                </description>
+                <data-type>TINYINT</data-type>
+                <default-value>1</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesMailContent_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesMailContent_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesSmsContent">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesSmsContent.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONTENT">
+                <data-type>NCHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesSmsContent_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesSmsContent_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesVsEmailRcpts">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesVsEmailRcpts.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="EMAIL_ID">
+                <data-type>NCHAR</data-type>
+                <max-size>400</max-size>
+            </column>
+            <column name="RECIPIENT_TYPE">
+                <description>
+                    1.TO
+                    2.CC
+                    3.BCC
+                </description>
+                <data-type>TINYINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesVsEmailRcpts_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesVsEmailRcpts_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesVsSmsRcpts">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesVsSmsRcpts.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="MOBILE_NO">
+                <data-type>NCHAR</data-type>
+                <max-size>15</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesVsSmsRcpts_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesVsSmsRcpts_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    
+    <table name="ADSNotificationTemplatesRcptMacros">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesRcptMacros.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="RCPT_MACRO_TYPE">
+                <description>
+                    1. Default Type
+                    Product teams can add macro types here...
+                </description>
+                <data-type>BIGINT</data-type>
+                <default-value>1</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="MACRO_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+            <column name="RECIPIENT_TYPE">
+                <description>
+                    1.TO
+                    2.CC
+                    3.BCC
+                </description>
+                <data-type>TINYINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesRcptMacros_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesRcptMacros_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    
+    
+    <table name="ADSNotificationTemplatesSmsRcptMacros">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesSmsRcptMacros.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NOTIFICATION_TEMPLATE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="RCPT_MACRO_TYPE">
+                <description>
+                    1. Default Type
+                    Product teams can add macro types here...
+                </description>
+                <data-type>BIGINT</data-type>
+                <default-value>1</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="MACRO_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>255</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesSmsRcptMacros_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesSmsRcptMacros_FK1" reference-table-name="ADSNotificationTemplates">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>NOTIFICATION_TEMPLATE_ID</fk-local-column>
+                        <fk-reference-column>NOTIFICATION_TEMPLATE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    
+    
+    <table name="ADSNotificationTemplatesModulesVsContentMacros">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesModulesVsContentMacros.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="MACRO_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesModulesVsContentMacros_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesModulesVsContentMacros_FK1" reference-table-name="ADSNotificationTemplatesModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesModulesVsContentMacros_FK2" reference-table-name="ADSMacros">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MACRO_ID</fk-local-column>
+                        <fk-reference-column>MACRO_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesModulesVsContentMacros_UK">
+                <unique-key-column>MODULE_ID</unique-key-column>
+                <unique-key-column>MACRO_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+
+    <table name="ADSNotificationTemplatesModulesVsRcptMacros">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesModulesVsRcptMacros.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="RCPT_MACRO_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesModulesVsRcptMacros_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesModulesVsRcptMacros_FK1" reference-table-name="ADSNotificationTemplatesModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesModulesVsRcptMacros_FK2" reference-table-name="ADSMacros">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RCPT_MACRO_ID</fk-local-column>
+                        <fk-reference-column>MACRO_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesModulesVsRcptMacros_UK">
+                <unique-key-column>MODULE_ID</unique-key-column>
+                <unique-key-column>RCPT_MACRO_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+    <table name="ADSNotificationTemplatesModulesVsSmsRcptMacros">
+        <columns>
+            <column name="UNIQUE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSNotificationTemplatesModulesVsSmsRcptMacros.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="MODULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="RCPT_MACRO_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSNotificationTemplatesModulesVsSmsRcptMacros_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSNotificationTemplatesModulesVsSmsRcptMacros_FK1" reference-table-name="ADSNotificationTemplatesModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSNotificationTemplatesModulesVsSmsRcptMacros_FK2" reference-table-name="ADSMacros">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>RCPT_MACRO_ID</fk-local-column>
+                        <fk-reference-column>MACRO_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+        <unique-keys>
+            <unique-key name="ADSNotificationTemplatesModulesVsSmsRcptMacros_UK">
+                <unique-key-column>MODULE_ID</unique-key-column>
+                <unique-key-column>RCPT_MACRO_ID</unique-key-column>
+            </unique-key>
+        </unique-keys>
+    </table>
+
+
+</data-dictionary>
+        <!--$Id$ -->

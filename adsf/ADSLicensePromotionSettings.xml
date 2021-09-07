@@ -1,0 +1,9 @@
+<!--$Id$-->
+<PromotionSettings>
+	<ADSLicPromotionParams UNIQUE_ID="ADSLicPromotionParams:UNIQUE_ID:1" REMINDER_DAYS="10" />
+	
+	<ADSLicPromotionSettings UNIQUE_ID="ADSLicPromotionSettings:UNIQUE_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:3" DASHBOARD_CONTENT="ads.home.layout.dashboard.promotion.adap" LOGIN_CONTENT="ads.home.layout.login.promotion.adap" MAILER_CONTENT="ads.license.mailer.promotion.adap" PRIORITY="1"/>
+	<ADSLicPromotionSettings UNIQUE_ID="ADSLicPromotionSettings:UNIQUE_ID:2" PRODUCT_ID="ADSProducts:PRODUCT_ID:4" DASHBOARD_CONTENT="ads.home.layout.dashboard.promotion.adssp" LOGIN_CONTENT="ads.home.layout.login.promotion.adssp" MAILER_CONTENT="ads.license.mailer.promotion.adssp" PRIORITY="2"/>
+	<ADSLicPromotionSettings UNIQUE_ID="ADSLicPromotionSettings:UNIQUE_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:5" DASHBOARD_CONTENT="ads.home.layout.dashboard.promotion.erp" LOGIN_CONTENT="ads.home.layout.login.promotion.erp" MAILER_CONTENT="ads.license.mailer.promotion.erp" PRIORITY="3"/>
+	<ADSLicPromotionSettings UNIQUE_ID="ADSLicPromotionSettings:UNIQUE_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:6" DASHBOARD_CONTENT="ads.home.layout.dashboard.promotion.o365" LOGIN_CONTENT="ads.home.layout.login.promotion.o365" MAILER_CONTENT="ads.license.mailer.promotion.o365" PRIORITY="4"/>
+</PromotionSettings>

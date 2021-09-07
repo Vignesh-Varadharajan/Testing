@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ADSActions>
+    <ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:1" TYPE_NAME="Tabs"/>
+    <ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:2" TYPE_NAME="SubTabs"/>
+    <ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:3" TYPE_NAME="Domain Actions"/>
+    <ADSActionTypes TYPE_ID="ADSActionTypes:TYPE_ID:4" TYPE_NAME="Common Actions"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:1" ACTION_NAME="#/dashboard" DISPLAY_NAME="rmp.common.Dashboard" PARENT_ACTION_ID="0" ACTION_URL="/dashboard" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:1"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:2" ACTION_NAME="#/activedirectory/operationsummary" DISPLAY_NAME="rmp.common.Recovery" PARENT_ACTION_ID="0" ACTION_URL="/dashboard" PRIORITY="2" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:1"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:4" ACTION_NAME="#/admin/ntservice" DISPLAY_NAME="rmp.common.Admin" PARENT_ACTION_ID="0" ACTION_URL="" PRIORITY="5" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:1"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:5" ACTION_NAME="#/support" DISPLAY_NAME="rmp.common.Support" PARENT_ACTION_ID="0" ACTION_URL="" PRIORITY="6" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:1"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:10" ACTION_NAME="activedirectory.operationsummary" DISPLAY_NAME="rmp.common.Status" PARENT_ACTION_ID="ADSActions:ACTION_ID:2" ACTION_URL="/dashboard" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:2"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:11" ACTION_NAME="activedirectory.restore" DISPLAY_NAME="rmp.common.Restore" PARENT_ACTION_ID="ADSActions:ACTION_ID:2" ACTION_URL="/restore/search" PRIORITY="2" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:2"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:20" ACTION_NAME="activedirectory.backupsettings" DISPLAY_NAME="rmp.common.Backup_Settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:2" ACTION_URL="/backupSettingsShow" PRIORITY="10" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:2"/>
+     <ADSActions ACTION_ID="ADSActions:ACTION_ID:42" ACTION_NAME="View backupSettings" DISPLAY_NAME="rmp.common.Backup_Settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:20" ACTION_URL="/backupSettingsShow" PRIORITY="3" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+   <ADSActions ACTION_ID="ADSActions:ACTION_ID:21" ACTION_NAME="activedirectory.recoverysettings" DISPLAY_NAME="rmp.common.Recovery_Settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:2" ACTION_URL="/recoverySettingsShow" PRIORITY="11" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:2"/>
+       <!--Backup operations -->
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:43" ACTION_NAME="View recoverySettings" DISPLAY_NAME="rmp.common.Recovery_Settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:21" ACTION_URL="/recoverySettingsShow" PRIORITY="2" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+   <ADSActions ACTION_ID="ADSActions:ACTION_ID:27" ACTION_NAME="Backup Settings/BackupNow" DISPLAY_NAME="rmp.actions.backup_settings_backup" PARENT_ACTION_ID="ADSActions:ACTION_ID:20" ACTION_URL="/BackupNow" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+        <!--Edit settings operations -->
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:26" ACTION_NAME="Edit backup settings" DISPLAY_NAME="rmp.actions.edit_backup_settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:20" ACTION_URL="/ConfigureBackupSettings/saveSchedule" PRIORITY="2" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:28" ACTION_NAME="Edit recovery settings" DISPLAY_NAME="rmp.actions.edit_recovery_settings" PARENT_ACTION_ID="ADSActions:ACTION_ID:21" ACTION_URL="/ConfigureRecoverySettings/UPDATE" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:32" ACTION_NAME="admin.notification" DISPLAY_NAME="rmp.common.notification" PARENT_ACTION_ID="ADSActions:ACTION_ID:4" ACTION_URL="/notifications/1" PRIORITY="4" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:2"/>
+    <!--Recovery operations -->
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:14" ACTION_NAME="Revert changes" DISPLAY_NAME="rmp.actions.revert" PARENT_ACTION_ID="ADSActions:ACTION_ID:10" ACTION_URL="/Revert" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+    <ADSActions ACTION_ID="ADSActions:ACTION_ID:15" ACTION_NAME="restoreAction" DISPLAY_NAME="rmp.actions.restore" PARENT_ACTION_ID="ADSActions:ACTION_ID:11" ACTION_URL="/restore/apply" PRIORITY="1" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+	<ADSActions ACTION_ID="ADSActions:ACTION_ID:16" ACTION_NAME="RevertAllObjects" DISPLAY_NAME="rmp.actions.revertAll" PARENT_ACTION_ID="ADSActions:ACTION_ID:11" ACTION_URL="/RevertAllObjects" PRIORITY="2" ACTION_TYPE_ID="ADSActionTypes:TYPE_ID:3"/>
+
+   
+</ADSActions>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ProductParams>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:1" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/ad360.html"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:3" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/adap.html?LinkID=65"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:4" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/adssp.html?LinkID=64"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:5" PRODUCT_ID="ADSProducts:PRODUCT_ID:5" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/erp.html?LinkID=66"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:6" PRODUCT_ID="ADSProducts:PRODUCT_ID:6" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/serviceDeskPlusMkg.html"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:7" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="RESOURCE_BUNDLE_NAME" PARAM_VALUE="adsm/ApplicationResources"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:8" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="JS_RESOURCE_BUNDLE_NAME" PARAM_VALUE="adsm/jsMessage/ApplicationResources_script"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:9" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="PRODUCT_AUTHENTICATION_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.ADMPProductAuthenticator"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:10" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="VERSION_HANDLER_CLASS" PARAM_VALUE="com.manageengine.ads.fw.db.backup.BackUpRestoreHandler"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:11" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="ADS_DOMAIN_IMPL_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.api.ADSDomainImpl"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:12" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="VIEW_LEAD_RESELLER_URL" PARAM_VALUE="https://creator.zoho.com/api/json/leads-from-resellers/view/Resellers_Details_Report?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;zc_ownername=ssp&amp;scope=creatorapi"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:13" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="ADD_LEAD_RESELLER_URL" PARAM_VALUE="https://creator.zoho.com/api/xml/write?authtoken=b9031e999f899a63fee1dad75ca5a357&amp;zc_ownername=ssp&amp;scope=creatorapi"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:14" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="CURRENT_COUNTRY" PARAM_VALUE=""/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:15" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="DEFAULT_LOCALE" PARAM_VALUE="en_US"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:16" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IS_LIC_EXPIRY_TEMPLATE_ENABLED" PARAM_VALUE="true"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:17" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IS_AMS_ENABLED" PARAM_VALUE="true"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:18" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="DEFAULT_LIC_PARENT_APP" PARAM_VALUE="ManageEngine AD360"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:19" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="ADSF_DATA_PROVIDER" PARAM_VALUE="com.adventnet.sym.adsm.common.server.i18n.ADMPDataProvider"/>
+ 	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:20" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IP_LOCATION_FINDER_URL" PARAM_VALUE="https://iplocation.zoho.com/" />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:21" PRODUCT_ID="ADSProducts:PRODUCT_ID:7" PARAM_NAME="JUMPTO_URL" PARAM_VALUE=""/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:22" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="LOGFORWARD_SYSLOG_CEF_SUPPORT" PARAM_VALUE="false"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:23" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="LOGFORWARD_SYSLOG_RAWLOG_SUPPORT" PARAM_VALUE="true"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:24" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IS_LOGFORWARD_CONFIG_ALLOWED" PARAM_VALUE="true"/>	
+    <ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:25" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="SSL_HANDLER_IMPL" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.api.ADSSSLImpl"/>
+
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:26" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="JUMPTO_URL" PARAM_VALUE=""/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:27" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="TWO_FACTOR_AUTH_URL" PARAM_VALUE="/two_factor_auth"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:28" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="MAIL_DEV_MODE" PARAM_VALUE="none"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:29" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="LOGON_AUDIT_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.ADMPHDTLogonAudit"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:30" PRODUCT_ID="ADSProducts:PRODUCT_ID:13" PARAM_NAME="JUMPTO_URL" PARAM_VALUE=""/>
+
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:31" PRODUCT_ID="ADSProducts:PRODUCT_ID:11" PARAM_NAME="JUMPTO_URL" PARAM_VALUE="/html/o365.html"/>
+	
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:28" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="MULTI_FACTOR_AUTH_IMPL_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.ADMPAuthImpl"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:29" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="AAALOGIN_VS_DOMAINDETAILS_MAPPING_PARAM" PARAM_VALUE="DOMAIN_FLAT_NAME"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:30" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="TFA_GOOGLE_QR_DIRECTORY" PARAM_VALUE="webapps/adsm"/>
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:31" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="APPSPANE_PROVIDER_IMPL" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.ADSAppsPaneProvider" />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:32" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="FORCE_TFA_STATUS" PARAM_VALUE="true" />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:33" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="FORCE_SAML_LOGIN" PARAM_VALUE="false" />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:34" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="SAML_CUSTOM_URL" PARAM_VALUE="" />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:35" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="GlobalSearchHandlerClass" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.api.GlobalSearchHandler"  />
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:36" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="TWO_FACTOR_AUDIT_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.ADMPHDTLogonAudit"/>
+
+	<ADSProductParams PARAM_ID="ADSProductParams:PARAM_ID:INTEGRATION_CHANGE_LISTENER_IMPL" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="INTEGRATION_CHANGE_LISTENER_IMPL" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.admin.IntegrationChangeListenerImpl"/>
+	
+	<ADSHAFileReplication CONFIG_ID="ADSHAFileReplication:CONFIG_ID:1" IS_REPLICATION_ENABLED="true" REPLICATION_SCHEDULE="15" MIRROR_DIR_LIST="1:blog,2:data,3:help,4:images,5:licenses,6:resources,7:lib,8:tools,9:webapps,10:audit-data" COPY_DIR_LIST="1:conf" COPY_EXCLUDE_DIR_LIST="1:Persistence" COPY_EXCLUDE_FILES_LIST="1:fos.conf,database_params.conf,database_params.conf.old,wrapper.conf,product.conf,product_detail.conf,customer-config.xml,customer-config.xml.old" />
+	
+	<ADSBackupDB BDB_ID="ADSBackupDB:BDB_ID:BackupDB" LOCATION="%installationDirectory%\Backup" DAYS_TO_OVERWRITE="30" CONFIGURED_PRODUCTS="[ADMP]" ENABLE_BACKUP="false"/>	
+	
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CUSTOM_SSO" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:2" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_MAIL_SETTINGS" DB_SYNC_MODULE_NAME="ADSMailSettings" IS_DB_SYNC_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="SINGLE_APPSPANE" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_NTLM_SSO" DB_SYNC_MODULE_NAME="SSOConfig" IS_ENABLED="true" IS_DB_SYNC_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:5" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="IP_RESTRICTION" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:6" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CLICK_JACKING" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:7" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_LOGFORWARD_CONFIG" IS_ENABLED="true" IS_DB_SYNC_ENABLED="true"/>
+    <ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:8" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_SSL" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:9" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_TFA" IS_ENABLED="true"/>
+	<ADSFeatures PARAM_ID="ADSFeatures:PARAM_ID:10" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" FEATURE_NAME="CENTRALIZED_SCA" IS_ENABLED="true" />
+
+	<!--ADS Filter Params Entry-->
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:1" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="API_URL_PATTERN" PARAM_VALUE="/RestAPI/.*|/MobileAPI/.*|/ADMPAPI/.*|/TenantSettings|/HiddenAPIs"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:2" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="API_AUTHORIZATION" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.api.ADMPInternalAPIAuthorization"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:3" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="API_ERROR_HANDLER" PARAM_VALUE="com.adventnet.sym.adsm.common.webclient.api.ADMPAPIErrorHandler"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:4" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="URL_PATTERN" PARAM_VALUE=".*.do|/adsAuthenticator"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:5" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="LOGOUT_URL" PARAM_VALUE="/SSOutAction.do|/logout.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:6" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="EXCLUDE_URL_PATTERN" PARAM_VALUE="/servlet/.*|/RestAPI/.*|/MobileAPI/.*|/ADMPAPI/.*|/RestAPIResponse.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:7" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="TICKET_GENERATOR" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.SSOTicketGenerator"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:8" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="CUSTOM_SSO_AUTH_CLASS" PARAM_VALUE="com.adventnet.sym.adsm.common.server.admin.authentication.ADMPCustomSSOAuthenticator"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:9" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="DOMAIN_CONFIG_TABLE" PARAM_VALUE="ADSMDomainConfiguration"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:10" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="APPSPANE_EXCLUDE_URL_PATTERN" PARAM_VALUE="/.*.png|/.*.jpg|/.*.gif|/.*.ico|/.*.js|/.*.css|.*.jsp|/.*.txt|/.*.html|/servlet/.*|/RestAPI/.*|/MobileAPI/.*|/ADMPAPI/.*|/login.do|/AppsHome.do|/Home.do|/JumpToAction.do|/ADSLayout.do|/RestAPIResponse.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:11" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="APPSPANE_REDIRECT_URL" PARAM_VALUE="home.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:12" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="APPSPANE_HOMEPAGE_URL" PARAM_VALUE="/AppsHome.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:13" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="APPSPANE_URL_PATTERN" PARAM_VALUE="/.*"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:14" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="NTLM_REDIRECT_URL" PARAM_VALUE="/home.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:15" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="NTLM_EXCLUDE_URL" PARAM_VALUE="*SSOutAction.do*"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:16" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="NTLM_FALL_BACK_LOCATION" PARAM_VALUE="/home.do?LogoutFromSSO=false"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:17" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="X-FRAME-OPTION" PARAM_VALUE="SAMEORIGIN"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:18" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IP_RESTRICTION_EXCLUDE_URL_PATTERN" PARAM_VALUE="/adsf/jsp/common/IPRestriction.jsp|/.*.ip-restriction.css|/.*.flat-ads-common-sprites-images.png|/charts/.*"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:19" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="CLICK_JACKING_EXCLUDE_URL_PATTERN" PARAM_VALUE="/RestAPI/.*|/adsf/jsp/.*|/jsp/.*|/adsAuthenticator|/LoadFrame|/AppsHome.do|/home.do|/SSOutAction.do|/logout.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:20" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IP_RESTRICTION_REDIRECT_URL" PARAM_VALUE="/Unauthorized.do"/>
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:21" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IP_RESTRICTION_URL" PARAM_VALUE="/RestAPI/WC/IPRestriction" />
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:22" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="IP_RESTRICTION_REDIRECTION_EXCLUDE_URL_PATTERN" PARAM_VALUE="/PrintReport.do" />
+	<ADSFilterParams PARAM_ID="ADSFilterParams:PARAM_ID:23" PRODUCT_ID="ADSProducts:PRODUCT_ID:2" PARAM_NAME="API_AUTH_URL_PATTERN" PARAM_VALUE="/RestAPI/.*|/TenantSettings|/HiddenAPIs" />
+</ProductParams>
+	<!-- $Id$ -->
+	

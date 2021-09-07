@@ -1,0 +1,1302 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<!-- $Id$ -->
+
+<data-dictionary name="adsf">
+
+    <description>Layout Customization - Data Model</description>
+
+    <!--  ADSLayout group table for group layout under a module-->
+    <table name="ADSLayoutGroup">
+        <description><![CDATA[Master table for holding all the layout group]]></description>
+        <columns>
+            <column name="LAYOUT_GROUP_ID">
+                <description>A unique id for each layout group</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutGroup.LAYOUT_GROUP_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="LAYOUT_GROUP_NAME">
+                <description>Name to identify the layout group</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>The Description of the layout group</description>
+                <data-type>CHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutGroup_PK">
+            <primary-key-column>LAYOUT_GROUP_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <!--  AD360 Mater table for Domain & Login based Layout Customization-->
+    <table name="ADSLayout">
+        <description><![CDATA[Master table for holding all the layout based on domain and login]]></description>
+        <columns>
+            <column name="LAYOUT_ID">
+                <description>A unique id for each layout</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayout.LAYOUT_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="LAYOUT_NAME">
+                <description>Name to identify the layout</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <description>The Description of the layout</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="USER_ID">
+                <description>User Login Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="REFRESH_INTERVAL">
+                <description>Refresh interval in seconds</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+			<column name="LAYOUT_GROUP_ID">
+				<description>A group under which this layout is placed</description>
+				<data-type>BIGINT</data-type>
+				<nullable>true</nullable>
+			</column>
+        </columns>
+        <primary-key name="ADSLayout_PK">
+            <primary-key-column>LAYOUT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayout_FK" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLayout_FK1" reference-table-name="ADSLayoutGroup">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_GROUP_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_GROUP_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Layout Tabs data model Table-->
+    <table name="ADSLayoutTabs">
+        <description><![CDATA[Table for layout tabs creation]]></description>
+        <columns>
+            <column name="LAYOUT_ID">
+                <description>A unique id for each layout</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TAB_ID">
+                <description>Tab Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutTabs.TAB_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TAB_NAME">
+                <description>Name to identify the tab</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon style for container</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_CUSTOMIZABLE">
+                <description>Property to check whether the tab is fixed or can be removed</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>true</nullable>
+			</column>
+			<column name="IS_TRANSLATION_NEEDED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+				<nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabs_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabs_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!--ADSLayoutTabsVsHeaderComponent-->
+    <table name="ADSLayoutTabsVsHeaderComponent">
+        <columns>
+            <column name="TAB_ID">
+                <description>A unique id for each tab</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="HEADER_COMPONENT">
+                <description>Header Component Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabsVsHeaderComponent_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabsVsHeaderComponent_FK1" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Layout Containers data model table-->
+    <table name="ADSLayoutContainers">
+        <description><![CDATA[Table for mapping the layout and domain/login]]></description>
+        <columns>
+            <column name="LAYOUT_ID">
+                <description>A unique id for each layout</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutContainers.CONTAINER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CONTAINER_NAME">
+                <description>Name to identify the container</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="WIDTH">
+                <description>Width of the container in px. Set -1 for width:auto</description>
+                <data-type>BIGINT</data-type>
+                <default-value>33</default-value>
+            </column>
+            <column name="HEIGHT">
+                <description>Height of the container in px. Set -1 for height:auto</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="IS_CUSTOMIZABLE">
+                <description>Property whether to check whether the container is fixed or can be removed</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon style for container</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="SHOW_HEADER">
+                <description>Property whether to check whether the container is needed header or not</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+			<column name="IS_TRANSLATION_NEEDED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+				<nullable>false</nullable>
+			</column>
+			<column name="IS_DEFAULT">
+				<description>This property holds true when the container is used in default tabs and can not be removed even though it can be customized</description>
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+        </columns>
+        <primary-key name="ADSLayoutContainers_PK">
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutContainers_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Layout Vs Tab Mapping Table for LHS -->
+    <table name="ADSLayoutLHS">
+        <description><![CDATA[Table for mapping the layout and tab for lhs]]></description>
+        <columns>
+            <column name="LAYOUT_ID">
+                <description>A unique id for each layout</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="TAB_ID">
+                <description>A unique id for each tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutLHS_PK">
+            <primary-key-column>LAYOUT_ID</primary-key-column>
+            <primary-key-column>TAB_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutLHS_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLayoutLHS_FK1" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Layout Vs Container Mapping Table for RHS-->
+    <table name="ADSLayoutRHS">
+        <description><![CDATA[Table for mapping the layout and container for rhs]]></description>
+        <columns>
+            <column name="LAYOUT_ID">
+                <description>A unique id for each layout</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutRHS_PK">
+            <primary-key-column>LAYOUT_ID</primary-key-column>
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutRHS_FK" reference-table-name="ADSLayout">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>LAYOUT_ID</fk-local-column>
+                        <fk-reference-column>LAYOUT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLayoutRHS_PK1" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+	<!-- Layout Modules Table -->
+	<table name="ADSLayoutModules">
+		<description><![CDATA[Layout Modules]]></description>
+		<columns>
+			<column name="MODULE_ID">
+				<description>Layout Module Id</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSLayoutModules.MODULE_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="NAME">
+				<description>Name to identify the module</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DISPLAY_NAME">
+				<description>A Display Name for Each Tab</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="DATA_PROVIDER_CLASS">
+				<description>Class where component data model operation done here</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="GENERATOR_CLASS">
+				<description>Class where component will be generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="EDIT_HANDLER">
+				<description>Class where edit details widget details will be generated</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+			</column>
+			<column name="IS_GRAPH">
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+            <column name="IS_CUSTOMIZABLE_MODULE">
+                <description>Parameter to decide if this module needs to be shown in the UI during add/edit widget.</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+			</column>
+		</columns>
+		<primary-key name="ADSLayoutModules_PK">
+			<primary-key-column>MODULE_ID</primary-key-column>
+		</primary-key>
+	</table>
+
+	<!-- Layout Module Vs Component Table -->
+	<table name="ADSModuleVsComponent">
+		<description><![CDATA[Layout Modules Components]]></description>
+		<columns>
+			<column name="COMPONENT_ID">
+				<description>Module Component Id</description>
+				<data-type>BIGINT</data-type>
+				<uniquevalue-generation>
+					<generator-name>ADSModuleVsComponent.COMPONENT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="COMPONENT_NAME">
+				<description>Name to identify the component</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="COMPONENT_DISPLAY_NAME">
+				<description>Display name of the component</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MODULE_ID">
+				<description>Layout Module Id</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+			</column>
+			<column name="MODULE_TABLE_NAME">
+				<description>Name to identify the module table</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="CRITERIA_COLUMN">
+				<description>Criteria Column for the module table</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="REQUIRED_COLUMN">
+				<description>Required Column from the module table</description>
+				<data-type>NCHAR</data-type>
+				<max-size>250</max-size>
+				<nullable>false</nullable>
+			</column>
+			<column name="MODULE_PLACEHOLDER">
+				<description>Layout Placeholder Value 1-LHS 2-RHS 3-Both</description>
+				<data-type>BIGINT</data-type>
+				<default-value>1</default-value>
+				<nullable>false</nullable>
+			</column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+		</columns>
+		<primary-key name="ADSModuleVsComponent_PK">
+			<primary-key-column>COMPONENT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSModuleVsComponent_FK" reference-table-name="ADSLayoutModules">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>MODULE_ID</fk-local-column>
+						<fk-reference-column>MODULE_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+    <!-- Layout Vs Container Mapping table-->
+    <table name="ADSTabVsContainer">
+        <description><![CDATA[Table for mapping the layout and domain/login]]></description>
+        <columns>
+            <column name="TAB_ID">
+                <description>A unique id for each tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="X_COORDINATE">
+                <description>It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="Y_COORDINATE">
+                <description>It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="IS_HEADER">
+                <description>Flag to determine if its a header container</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTabVsContainer_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSTabVsContainer_FK" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSTabVsContainer_FK1" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Container Vs Menu Mapping table-->
+    <table name="ADSContainerVsMenu">
+        <description><![CDATA[Table for mapping the container and menu items]]> </description>
+        <columns>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="MENU_ID">
+                <description>A unique id for each menu</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSContainerVsMenu_PK">
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+            <primary-key-column>MENU_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSContainerVsMenu_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSContainerVsMenu_FK1" reference-table-name="ADSMenu">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MENU_ID</fk-local-column>
+                        <fk-reference-column>MENU_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Container Vs Type Mapping table-->
+    <table name="ADSContainerVsType">
+        <description><![CDATA[Table for mapping the container and component type]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>AD360 Container Type Unquie Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSContainerVsType.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TYPE">
+                <description>The name of the type</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon Style</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TOOL_TIP_TEXT">
+                <description>Toop tip text</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="ONCLICK_FUNC">
+                <description>Javascript trigger function of the type</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+			<column name="IS_STACKED">
+				<data-type>BOOLEAN</data-type>
+				<default-value>false</default-value>
+			</column>
+			<column name="IS_LOGARITHMIC">
+				<data-type>BOOLEAN</data-type>
+				<default-value>true</default-value>
+			</column>
+			<column name="CHART_COLOR">
+				<description>The colour of the graph</description>
+				<data-type>NCHAR</data-type>
+				<max-size>100</max-size>
+			</column>
+        </columns>
+        <primary-key name="ADSContainerVsType_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSContainerVsType_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Container Vs Duration Mapping table-->
+    <table name="ADSContainerVsDuration">
+        <description><![CDATA[Table for mapping the container and component time period]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>AD360 Container Type Unquie Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSContainerVsDuration.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="DURATION">
+                <description>Time Period</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="TOOL_TIP_TEXT">
+                <description>Toop tip text</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="ONCLICK_FUNC">
+                <description>Javascript trigger function of the duration</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSContainerVsDuration_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSContainerVsDuration_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- Container Vs Component Mapping table-->
+    <table name="ADSContainerVsComponent">
+        <description><![CDATA[Table for mapping the container, component and component module]]> </description>
+        <columns>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="COMPONENT_ID">
+                <description>Mapping unique id for components(requried graph,alert,etc..)</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="MODULE_ID">
+                <description>AD Products Exposed Module Id</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSContainerVsComponent_PK">
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+            <primary-key-column>MODULE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSContainerVsComponent_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSContainerVsComponent_FK1" reference-table-name="ADSLayoutModules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>MODULE_ID</fk-local-column>
+                        <fk-reference-column>MODULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSContainerVsComponent_FK2" reference-table-name="ADSModuleVsComponent">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>COMPONENT_ID</fk-local-column>
+                        <fk-reference-column>COMPONENT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!-- QuickLinks Mapping table-->
+    <table name="ADSQuickLinks">
+        <description><![CDATA[AD360 QuickLinks Table to display the quicklinks]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>AD QUICK LINK Unique Id</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSQuickLinks.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description>Name for each QuickLink</description>
+                <data-type>NCHAR</data-type>
+                <max-size>200</max-size>
+            </column>
+            <column name="ICON_STYLE">
+                <description>Icon for each QuickLink</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="PROMOTION_URL">
+                <description>Webpage Url for each QuickLink</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+            </column>
+            <column name="URL">
+                <description>Product Url for each QuickLink</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+            </column>
+            <column name="TARGET">
+                <description>Url for each QuickLink</description>
+                <data-type>NCHAR</data-type>
+                <max-size>100</max-size>
+            </column>
+            <column name="PRODUCT_ID">
+                <description>Id of the Product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <unique>false</unique>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSQuickLinks_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSQuickLinks_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSQuickLinks_FK1" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSEmbedWidgetDetails">
+        <description><![CDATA[Defines the various exported graphs]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>A unique id for ADSEmbedWidgetDetails</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSEmbedWidgetDetails.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>ID of the graph</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="USER_ID">
+                <description>ID of the user</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TAB_ID">
+                <description>ID of the tab</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="DOMAIN_NAME">
+                <description>account name or domain name</description>
+                <data-type>NCHAR</data-type>
+            </column>
+            <column name="LOCALE">
+                <description>Locale Language</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="GRAPH_TYPE">
+                <description>Type of Widget</description>
+                <data-type>NCHAR</data-type>
+            </column>
+            <column name="DURATION">
+                <description>Duration of Widget</description>
+                <data-type>NCHAR</data-type>
+            </column>
+            <column name="CONTAINER_NAME">
+                <description>Name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="REFRESH_INTERVAL">
+                <description>Refresh Interval</description>
+                <data-type>BIGINT</data-type>
+                <default-value>120</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSEmbedWidgetDetails_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="AaaUser" name="ADSEmbedWidgetDetails_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+        </foreign-keys>
+    </table>
+    <table name="ADSEmbedDashboardDetails">
+        <description><![CDATA[Defines the various exported graphs]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>A unique id for ADSEmbedWidgetDetails</description>
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSEmbedDashboardDetails.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="USER_ID">
+                <description>ID of the user</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="TAB_ID">
+                <description>ID of the product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="DOMAIN_NAME">
+                <description>account name or domain name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LOCALE">
+                <description>Locale Language</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="REFRESH_INTERVAL">
+                <description>Refresh Interval</description>
+                <data-type>BIGINT</data-type>
+                <default-value>120</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSEmbedDashboardDetails_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="AaaUser" name="ADSEmbedDashboardDetails_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+
+        </foreign-keys>
+    </table>
+    <table name="ADSLayoutRHSPromotion">
+        <description><![CDATA[RHS Promotion componets]]></description>
+        <columns>
+            <column name="UNIQUE_ID">
+                <description>Unique id for components</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutRHSPromotion.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PRODUCT_ID">
+                <description>Id of the Product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CONTAINER_ID">
+                <description>Container ID for each product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutRHSPromotion_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutRHSPromotion_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLayoutRHSPromotion_FK1" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSTabTemplates">
+        <columns>
+            <column name="ID">
+                <data-type>BIGINT</data-type>
+                <uniquevalue-generation>
+                    <generator-name>ADSTabTemplates.ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+            <!--Comma separated values of available widgets-->
+            <column name="AVAILABLE_WIDGETS">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+            </column>
+            <column name="CONF_FILE_PATH">
+                <data-type>CHAR</data-type>
+                <max-size>-1</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_IMAGE">
+                <data-type>CHAR</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="SUMMARY_IMAGE">
+                <data-type>CHAR</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_CUSTOM">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRIORITY_ID">
+                <description>Priority. It is used while displaying in ui</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSTabTemplates_PK">
+            <primary-key-column>ID</primary-key-column>
+        </primary-key>
+    </table>
+    <!--ADS LayoutTab Vs Product API Mapping-->
+    <table name="ADSLayoutTabsVsProducts">
+        <description><![CDATA[Contains the Layout Tab & Product Mapping details]]></description>
+        <columns>
+            <column name="TAB_ID">
+                <description>A unique id for each tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PRODUCT_ID">
+                <description>A unique id for each integrated product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabsVsProducts_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+            <primary-key-column>PRODUCT_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabsVsProducts_FK" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSLayoutTabsVsProducts_FK1" reference-table-name="ADSProducts">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PRODUCT_ID</fk-local-column>
+                        <fk-reference-column>PRODUCT_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <!--ADSLayoutTabsVsParams-->
+    <table name="ADSLayoutTabsVsParams">
+        <columns>
+            <column name ="TAB_ID">
+                <description>A unique id for each tab</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name ="PARAM_NAME">
+                <description>Parameter name</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name ="PARAM_VALUE">
+                <description>Parameter value to get from request</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="PARAM_TYPE">
+                <description>Parameter type request or session</description>
+                <data-type>NCHAR</data-type>
+                <default-value>NORMAL</default-value>
+                <allowed-values>
+                    <value>NORMAL</value>
+                    <value>REQUEST</value>
+                    <value>SESSION</value>
+                </allowed-values>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabsVsParams_PK">
+            <primary-key-column>TAB_ID</primary-key-column>
+            <primary-key-column>PARAM_NAME</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabsVsParams_FK" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSLayoutTabsVsPromotion">
+        <columns>
+            <column name="TAB_ID">
+                <description>Layout Tab Id of Product</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="PROMOTION_ID">
+                <description>Unique Id for each promotion</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutTabsVsPromotion.PROMOTION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="SCREENSHOT_ICON">
+                <description>Screenshot image name of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="HEADING">
+                <description>Heading text of Promotion </description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+
+            <column name="DESCRIPTION">
+                <description>Promotion Description </description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="BUY_NOW_LINK">
+                <description> Download link of the product</description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabsVsPromotion_PK">
+            <primary-key-column>PROMOTION_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabsVsPromotion_FK" reference-table-name="ADSLayoutTabs">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TAB_ID</fk-local-column>
+                        <fk-reference-column>TAB_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSLayoutTabsVsPromotionLinks">
+        <columns>
+            <column name="UNIQUE_ID">
+                <description> Unique ID for each Promotion Link</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSLayoutTabsVsPromotionLinks.UNIQUE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="PROMOTION_ID">
+                <description> Id for each promotion </description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="DISPLAY_NAME">
+                <description> Display name of the link </description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="LINK">
+                <description> Promotion link Address  </description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSLayoutTabsVsPromotionLinks_PK">
+            <primary-key-column>UNIQUE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSLayoutTabsVsPromotionLinks_FK" reference-table-name="ADSLayoutTabsVsPromotion">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>PROMOTION_ID</fk-local-column>
+                        <fk-reference-column>PROMOTION_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSDashboardCustomization">
+        <description><![CDATA[Contains the point product container and ad360 container mapping]]></description>
+        <columns>
+            <column name="CONTAINER_ID">
+                <description>A unique id for each container</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="POINT_PRODUCT_ID">
+                <description>A unique id for each integrated product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+            <column name="POINT_PRODUCT_CONTAINER_ID">
+                <description>A unique id for each integrated product</description>
+                <data-type>BIGINT</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSDashboardCustomization_PK">
+            <primary-key-column>CONTAINER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSDashboardCustomization_FK" reference-table-name="ADSLayoutContainers">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CONTAINER_ID</fk-local-column>
+                        <fk-reference-column>CONTAINER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    <table name="ADSLayoutResetConfig">
+	    <description><![CDATA[Contains the table name and other details to Reset layouts to its default values]]></description>
+	    <columns>
+		    <column name="UNIQUE_ID">
+			    <description>A unique id for each table</description>
+			    <data-type>BIGINT</data-type>
+			    <nullable>false</nullable>
+			    <uniquevalue-generation>
+					<generator-name>ADSLayoutResetConfig.UNIQUE_ID</generator-name>
+			    </uniquevalue-generation>
+		    </column>
+		    <column name="TABLE_NAME">
+			    <description>Name of the table that need to be restored</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>250</max-size>
+			    <nullable>false</nullable>
+		    </column>
+		     <column name="DATA_FILE">
+			    <description>Data file of the table to restore</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>-1</max-size>
+			    <nullable>false</nullable>
+		    </column>
+		    <column name="UVH_COLUMNS">
+			    <description>Comma seperated column names of TABLE_NAME, to which uvh values should be restored</description>
+			    <data-type>NCHAR</data-type>
+			    <max-size>-1</max-size>
+		    </column>
+	    </columns>
+	    <primary-key name="ADSResetLayoutConfig_PK">
+		    <primary-key-column>UNIQUE_ID</primary-key-column>
+	    </primary-key>
+    </table>
+</data-dictionary>
+
+<!--$Id$-->

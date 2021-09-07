@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--$Id$-->
+<ADSClientModule>
+
+
+    <ADSClientModules MODULE_ID="ADSClientModules:MODULE_ID:COMPLIANCE" MODULE_NAME="COMPLIANCE">
+        <ADSCustomComponentsRenderTo ID="ADSCustomComponentsRenderTo:ID:COMPLIANCE_DATE_PICKER" RENDER_TO="COMPLIANCE_DATE_PICKER"/>
+    </ADSClientModules>
+
+
+</ADSClientModule>

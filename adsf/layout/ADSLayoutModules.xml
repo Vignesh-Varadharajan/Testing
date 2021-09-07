@@ -1,0 +1,21 @@
+<!--$Id$-->
+<LayoutModules>
+	
+	<ADSLayoutModules MODULE_ID="ADSLayoutModules:MODULE_ID:1" NAME="graph" DISPLAY_NAME="adssp.home.layout.module.graph" DATA_PROVIDER_CLASS="com.adventnet.sym.adsm.common.webclient.graphs.GraphDataProvider" GENERATOR_CLASS="com.adventnet.sym.adsm.common.webclient.graphs.GraphGenerator">
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:1" MODULE_TABLE_NAME="ADSGraphs" CRITERIA_COLUMN="GRAPH_NAME" REQUIRED_COLUMN="GRAPH_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:1" COMPONENT_NAME="USER_REPORTS" COMPONENT_DISPLAY_NAME="admp.home.layout.container_name.user_reports" MODULE_PLACEHOLDER="1"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:1" MODULE_TABLE_NAME="ADSGraphs" CRITERIA_COLUMN="GRAPH_NAME" REQUIRED_COLUMN="GRAPH_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:2" COMPONENT_NAME="SYSTEM_REPORTS" COMPONENT_DISPLAY_NAME="admp.home.layout.container_name.system_reports" MODULE_PLACEHOLDER="1"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:1" MODULE_TABLE_NAME="ADSGraphs" CRITERIA_COLUMN="GRAPH_NAME" REQUIRED_COLUMN="GRAPH_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:3" COMPONENT_NAME="OTHER_REPORTS" COMPONENT_DISPLAY_NAME="admp.home.layout.container_name.other_reports" MODULE_PLACEHOLDER="1"/>
+	</ADSLayoutModules>
+
+	<ADSLayoutModules MODULE_ID="ADSLayoutModules:MODULE_ID:2" NAME="quicklinks" DISPLAY_NAME="adssp.home.layout.module.quicklinks" DATA_PROVIDER_CLASS="com.manageengine.ads.fw.dashboard.QuickLinksDataProvider" GENERATOR_CLASS="com.adventnet.sym.adsm.common.webclient.dashboard.ADMPQuickLinksDataProvider">
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:4" COMPONENT_NAME="4" COMPONENT_DISPLAY_NAME="admp.home.feature.heading.activedirectory_management" MODULE_PLACEHOLDER="2"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:5" COMPONENT_NAME="5" COMPONENT_DISPLAY_NAME="admp.home.feature.heading.activedirectory_reports" MODULE_PLACEHOLDER="2"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:6" COMPONENT_NAME="6" COMPONENT_DISPLAY_NAME="admp.home.feature.heading.help_desk_delegation" MODULE_PLACEHOLDER="2"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:7" COMPONENT_NAME="7" COMPONENT_DISPLAY_NAME="admp.home.feature.heading.workflow" MODULE_PLACEHOLDER="2"/>
+
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:101" COMPONENT_NAME="101" COMPONENT_DISPLAY_NAME="admp.auditing.quicklink.header.ad_obj_auditing" MODULE_PLACEHOLDER="2"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:102" COMPONENT_NAME="102" COMPONENT_DISPLAY_NAME="admp.auditing.quicklink.header.file_server_auditing" MODULE_PLACEHOLDER="2"/>
+		<ADSModuleVsComponent MODULE_ID="ADSLayoutModules:MODULE_ID:2" MODULE_TABLE_NAME="ADSQuickLinks" CRITERIA_COLUMN="UNIQUE_ID" REQUIRED_COLUMN="CONTAINER_ID" COMPONENT_ID="ADSModuleVsComponent:COMPONENT_ID:103" COMPONENT_NAME="103" COMPONENT_DISPLAY_NAME="admp.auditing.quicklink.header.server_auditing" MODULE_PLACEHOLDER="2"/>
+	</ADSLayoutModules>
+
+</LayoutModules>

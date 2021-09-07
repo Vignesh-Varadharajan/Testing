@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ADSLocaleDetails>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:0" LANGUAGE="--" COUNTRY="--" DISPLAY_NAME="admin.persnalize_settings.browser_default"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:1" LANGUAGE="en" COUNTRY="US" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.english"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:2" LANGUAGE="nl" COUNTRY="NL" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.dutch"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:3" LANGUAGE="it" COUNTRY="IT" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.italian"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:4" LANGUAGE="fr" COUNTRY="FR" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.french"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:5" LANGUAGE="ja" COUNTRY="JP" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.japanese"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:6" LANGUAGE="de" COUNTRY="DE" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.german"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:7" LANGUAGE="zh" COUNTRY="CN" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.chinese"/>
+	<ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:8" LANGUAGE="es" COUNTRY="ES" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.spanish"/>
+    <ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:9" LANGUAGE="tr" COUNTRY="TR" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.turkish"/>
+    <ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:10" LANGUAGE="ar" COUNTRY="EG" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.arabic"/>
+    <ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:11" LANGUAGE="iw" COUNTRY="IL" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.hebrew"/>
+    <ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:12" LANGUAGE="zh" COUNTRY="TW" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.chinese_traditional"/>
+    <ADSLocaleDetails LOCALE_ID="O365LocaleDetails:LOCALE_ID:13" LANGUAGE="ko" COUNTRY="KR" DISPLAY_NAME="admp.admin.gen_settgs.person.lang.korean"/>
+</ADSLocaleDetails>

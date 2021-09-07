@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+	<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+	<description>
+		<![CDATA[Webhook related tables]]>
+	</description>
+
+    <table name="ADSWebhookTemplates">
+        <description><![CDATA[Table for all template details]]></description>
+        <columns>
+            <column name="WEBHOOK_ID">
+                <description>Unique id of each webhook template</description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSWebhookTemplates.WEBHOOK_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="NAME">
+                <description>Name of the webhook template </description>
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="DESCRIPTION">
+                <description>Optional description of the webhook template</description>
+                <data-type>NCHAR</data-type>
+                <max-size>500</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="URL">
+                <description>URL to which request is sent</description>
+                <data-type>NCHAR</data-type>
+                <max-size>2000</max-size>
+            </column>
+            <column name="STATUS">
+				<description>Denotes whether the template is enabled or disabled or hidden, etc. </description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- ENABLED -->
+					<value>1</value> <!-- DISABLED -->
+				</allowed-values>
+			</column>
+            <column name="USER_ID">
+				<description>User ID of the technician or the user who created this template. </description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="CREATED_ON">
+				<description>Creation time of the template</description>
+				<data-type>BIGINT</data-type>
+			</column>
+			<column name="LAST_MODIFIED">
+				<description>Date and Time of when the recent modification is performed on the template</description>
+				<data-type>BIGINT</data-type>
+			</column>
+            <column name="METHOD">
+				<description>Method that is used. GET, POST, DELETE, etc</description>
+				<data-type>NCHAR</data-type>
+				<allowed-values>
+					<value>GET</value>
+					<value>POST</value>
+					<value>PUT</value>
+					<value>DELETE</value>
+					<value>HEAD</value>
+					<value>CONNECT</value>
+					<value>OPTIONS</value>
+					<value>TRACE</value>
+					<value>PATCH</value>
+				</allowed-values>
+			</column>
+            <column name="MESSAGE_TYPE">
+				<description>Message type. None, JSON, etc</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- NONE -->
+					<value>1</value> <!-- JSON -->
+                    <value>2</value> <!-- XML -->
+				</allowed-values>
+			</column>
+            <column name="MESSAGE_BODY">
+                <description>Message body of the webhook template</description>
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSWebhookTemplates_PK">
+            <primary-key-column>WEBHOOK_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+			<foreign-key name="ADSWebhookTemplates_FK" reference-table-name="AaaUser" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>USER_ID</fk-local-column>
+						<fk-reference-column>USER_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+    </table>
+
+    <table name="ADSWebhookParams">
+        <description><![CDATA[Table for the params configured in the webhook]]></description>
+        <columns>
+            <column name="PARAM_ID">
+                <description>Unique id of each param</description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSWebhookParams.PARAM_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="WEBHOOK_ID">
+                <description>Unique id of each webhook template</description>
+                <data-type>BIGINT</data-type>
+                <unique>false</unique>
+            </column>
+            <column name="PARAM_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="PARAM_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSWebhookParams_PK">
+            <primary-key-column>PARAM_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+			<foreign-key name="ADSWebhookParams_FK1" reference-table-name="ADSWebhookTemplates" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>WEBHOOK_ID</fk-local-column>
+						<fk-reference-column>WEBHOOK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSWebhookHeaders">
+        <description><![CDATA[Table for the header configured in the webhook]]></description>
+        <columns>
+            <column name="HEADER_ID">
+                <description>Unique id of each param</description>
+                <data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSWebhookHeaders.HEADER_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="WEBHOOK_ID">
+                <description>Unique id of each webhook template</description>
+                <data-type>BIGINT</data-type>
+                <unique>false</unique>
+            </column>
+            <column name="HEADER_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+            </column>
+            <column name="HEADER_VALUE">
+                <data-type>NCHAR</data-type>
+                <max-size>1000</max-size>
+            </column>
+        </columns>
+        <primary-key name="ADSWebhookHeaders_PK">
+            <primary-key-column>HEADER_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+			<foreign-key name="ADSWebhookHeaders_FK1" reference-table-name="ADSWebhookTemplates" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>WEBHOOK_ID</fk-local-column>
+						<fk-reference-column>WEBHOOK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+        </foreign-keys>
+    </table>
+
+	<table name="ADSWebhookAudit">
+		<description><![CDATA[Table to audit the webhook execution details]]></description>
+		<columns>
+			<column name="AUDIT_ID">
+				<description>Unique id for each webhook execution</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<uniquevalue-generation>
+					<generator-name>ADSWebhookAudit.AUDIT_ID</generator-name>
+				</uniquevalue-generation>
+			</column>
+			<column name="WEBHOOK_ID">
+				<description>ID of the webhook template that is being executed.</description>
+				<data-type>BIGINT</data-type>
+				<unique>false</unique>
+			</column>
+			<column name="START_TIME">
+				<description>The time at which this execution was started</description>
+				<data-type>BIGINT</data-type>
+				<nullable>false</nullable>
+				<unique>false</unique>
+			</column>
+			<column name="STATUS">
+				<description>Status of the webhook execution in this record.</description>
+				<data-type>INTEGER</data-type>
+				<default-value>0</default-value>
+				<unique>false</unique>
+				<allowed-values>
+					<value>0</value> <!-- NOT_DEFINED -->
+					<value>1</value> <!-- EXECUTING -->
+					<value>2</value> <!-- COMPLETED_SUCCESS -->
+					<value>3</value> <!-- COMPLETED_FAILURE -->
+					<value>4</value> <!-- COMPLETED_UNKNOWN -->
+				</allowed-values>
+			</column>
+			<column name="STATUS_MSG">
+				<description>Shows the execution status of the current block in this row in plain understandable text.</description>
+				<data-type>NCHAR</data-type>
+				<max-size>-1</max-size>
+				<nullable>true</nullable>
+				<unique>false</unique>
+			</column>
+		</columns>
+		<primary-key name="ADSWebhookAudit_PK">
+			<primary-key-column>AUDIT_ID</primary-key-column>
+		</primary-key>
+		<foreign-keys>
+			<foreign-key name="ADSWebhookAudit_FK1" reference-table-name="ADSWebhookTemplates" isbidirectional="false">
+				<fk-columns>
+					<fk-column>
+						<fk-local-column>WEBHOOK_ID</fk-local-column>
+						<fk-reference-column>WEBHOOK_ID</fk-reference-column>
+					</fk-column>
+				</fk-columns>
+				<fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+			</foreign-key>
+		</foreign-keys>
+	</table>
+
+</data-dictionary>
+
+<!--$Id$ -->

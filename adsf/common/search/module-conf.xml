@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--$Id$-->
+<CustomComponents>
+
+    <ADSClientModules-set>
+        <ADSClientModules MODULE_ID="ADSClientModules:MODULE_ID:SEARCH" MODULE_NAME="SEARCH"/>
+    </ADSClientModules-set>
+
+    <ADSCustomComponentsRenderTo-set>
+        <ADSCustomComponentsRenderTo  MODULE_ID="ADSClientModules:MODULE_ID:SEARCH" ID="ADSCustomComponentsRenderTo:ID:SEARCH_HEADER" RENDER_TO="searchHeader"/>
+        <ADSCustomComponentsRenderTo   MODULE_ID="ADSClientModules:MODULE_ID:SEARCH" ID="ADSCustomComponentsRenderTo:ID:SEARCH_CRITERIA_HEADER" RENDER_TO="searchCriteriaHeader"/>
+        <ADSCustomComponentsRenderTo   MODULE_ID="ADSClientModules:MODULE_ID:SEARCH" ID="ADSCustomComponentsRenderTo:ID:SEARCH_TOP_LEAST_HEADER" RENDER_TO="searchTopLeastHeader"/>
+    </ADSCustomComponentsRenderTo-set>
+
+</CustomComponents>

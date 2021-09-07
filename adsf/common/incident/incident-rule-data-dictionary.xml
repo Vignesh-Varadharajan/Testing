@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<!-- $Id$ -->
+
+<data-dictionary name="adsf">
+    <description>Incident rule related tables</description>
+
+    <table name="ADSIncidentRules">
+        <description>Table contains rule name and who created the rule</description>
+        <columns>
+            <column name="INCIDENT_RULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRules.INCIDENT_RULE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INCIDENT_RULE_NAME">
+                <data-type>CHAR</data-type>
+                <max-size>180</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="INCIDENT_RULE_DESCRIPTION">
+                <data-type>CHAR</data-type>
+                <max-size>1000</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY_USER_ID">
+                <description>Id of operator who created the incident rule</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <description>Name of operator who created the incident rule</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="INCIDENT_SEVERITY_ID">
+                <description>Incident under this rule will be mapped with this severity</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="THRESHOLD_VALUE">
+                <description>Threshold value for the incident</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="THRESHOLD_TIME_RANGE">
+                <description>Threshold time range for the incident in minutes</description>
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_ENABLED">
+                <description>Enabled status of incident rule</description>
+                <data-type>BOOLEAN</data-type>
+                <default-value>true</default-value>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRules_PK0">
+            <primary-key-column>INCIDENT_RULE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentRules_FK0" reference-table-name="ADSIncidentSeverity">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>INCIDENT_SEVERITY_ID</fk-local-column>
+                        <fk-reference-column>SEVERITY_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-SET-NULL</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentRules_FK1" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREATED_BY_USER_ID</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-SET-NULL</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSIncidentRuleVsUser">
+        <description>Assign to user details for the rule</description>
+        <columns>
+            <column name="RULE_VS_USER_MAPPING_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRuleVsUser.RULE_VS_USER_MAPPING_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="INCIDENT_RULE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="ASSIGN_TO">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="USER_NAME">
+                <data-type>CHAR</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRuleVsUser_PK0">
+            <primary-key-column>RULE_VS_USER_MAPPING_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentRuleVsUser_FK0" reference-table-name="ADSIncidentRules">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>INCIDENT_RULE_ID</fk-local-column>
+                        <fk-reference-column>INCIDENT_RULE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentRuleVsUser_FK1" reference-table-name="AaaUser">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>ASSIGN_TO</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSIncidentRuleCriteriaFieldTypes">
+        <description>Field types as select, text, number etc</description>
+        <columns>
+            <column name="CRITERIA_FIELD_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRuleCriteriaFieldTypes.CRITERIA_FIELD_TYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CRITERIA_FIELD_TYPE">
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="FIELD_TYPE_CLIENT_ID">
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRuleCriteriaFieldTypes_PK0">
+            <primary-key-column>CRITERIA_FIELD_TYPE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSIncidentRuleCriteriaFieldComparisonOptions">
+        <description>Table to get comparison options for each field</description>
+        <columns>
+            <column name="OPTION_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRuleCriteriaFieldComparisonOptions.OPTION_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="OPTION_CLIENT_ID">
+                <data-type>INTEGER</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="OPTION">
+                <description>I18N value such as ads.equals, ads.not_equals etc</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRuleCriteriaFieldComparisonOptions_PK0">
+            <primary-key-column>OPTION_ID</primary-key-column>
+        </primary-key>
+    </table>
+    
+    <table name="ADSIncidentRuleCriteriaFieldDetails">
+        <columns>
+            <column name="CRITERIA_FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRuleCriteriaFieldDetails.CRITERIA_FIELD_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CRITERIA_FIELD_DISPLAY_NAME">
+                <description>Criteria field name in I18N</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="CRITERIA_FIELD_NAME">
+                <description>Criteria field name used for mapping with handler class and identifier</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+            <column name="CRITERIA_FIELD_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="CRITERIA_FIELD_HANDLER_CLASS">
+                <description>Class implements IncidentRuleCriteriaFieldAdapter</description>
+                <data-type>CHAR</data-type>
+                <max-size>200</max-size>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRuleCriteriaFieldDetails_PK0">
+            <primary-key-column>CRITERIA_FIELD_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentRuleCriteriaFieldDetails_FK0" reference-table-name="ADSIncidentRuleCriteriaFieldTypes">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CRITERIA_FIELD_TYPE_ID</fk-local-column>
+                        <fk-reference-column>CRITERIA_FIELD_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+
+    <table name="ADSIncidentRuleCriteriaFieldVsOptions">
+        <columns>
+            <column name="MAPPING_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSIncidentRuleCriteriaFieldVsOptions.MAPPING_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="CRITERIA_FIELD_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+            <column name="OPTION_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSIncidentRuleCriteriaFieldVsOptions_PK0">
+            <primary-key-column>MAPPING_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key name="ADSIncidentRuleCriteriaFieldVsOptions_FK0" reference-table-name="ADSIncidentRuleCriteriaFieldDetails">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CRITERIA_FIELD_ID</fk-local-column>
+                        <fk-reference-column>CRITERIA_FIELD_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key name="ADSIncidentRuleCriteriaFieldVsOptions_FK1" reference-table-name="ADSIncidentRuleCriteriaFieldComparisonOptions">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>OPTION_ID</fk-local-column>
+                        <fk-reference-column>OPTION_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+    
+</data-dictionary>

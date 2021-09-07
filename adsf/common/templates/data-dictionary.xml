@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE data-dictionary SYSTEM "data-dictionary.dtd">
+<data-dictionary name="adsf">
+    <description>
+        <![CDATA[Tables related to UI Templates]]>
+    </description>
+
+    <table name="ADSUITemplateTypes">
+        <columns>
+            <column name="TEMPLATE_TYPE_ID">
+                <description>A unique id for each Template Type</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITemplateTypes.TEMPLATE_TYPE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_TYPE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_TYPE_DESC">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_TYPE_DISPLAY_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+            </column>
+            <column name="IS_SYSTEM">
+                <data-type>BOOLEAN</data-type>
+            </column>
+        </columns>
+        <primary-key name="ADSUITemplateTypes_PK">
+            <primary-key-column>TEMPLATE_TYPE_ID</primary-key-column>
+        </primary-key>
+    </table>
+
+    <table name="ADSUITemplates">
+        <description><![CDATA[ Template Details]]> </description>
+        <columns>
+            <column name="TEMPLATE_ID">
+                <description>A unique id for each Template</description>
+                <data-type>BIGINT</data-type>
+                <nullable>false</nullable>
+                <uniquevalue-generation>
+                    <generator-name>ADSUITemplates.TEMPLATE_ID</generator-name>
+                </uniquevalue-generation>
+            </column>
+            <column name="TEMPLATE_NAME">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_TITLE">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="DESCRIPTION">
+                <data-type>NCHAR</data-type>
+                <max-size>250</max-size>
+                <nullable>true</nullable>
+            </column>
+            <column name="TEMPLATE_TYPE_ID">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_BY">
+                <data-type>BIGINT</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="CREATED_ON">
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="LAST_MODIFIED_ON">
+                <data-type>DATETIME</data-type>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_DEFAULT">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+            <column name="IS_SYSTEM">
+                <data-type>BOOLEAN</data-type>
+                <default-value>false</default-value>
+                <nullable>true</nullable>
+            </column>
+        </columns>
+        <primary-key name="ADSUITemplates_PK">
+            <primary-key-column>TEMPLATE_ID</primary-key-column>
+        </primary-key>
+        <foreign-keys>
+            <foreign-key reference-table-name="ADSUITemplateTypes" name="ADSUITemplates_FK1">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>TEMPLATE_TYPE_ID</fk-local-column>
+                        <fk-reference-column>TEMPLATE_TYPE_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+            <foreign-key reference-table-name="AaaUser" name="ADSUITemplates_FK2">
+                <fk-columns>
+                    <fk-column>
+                        <fk-local-column>CREATED_BY</fk-local-column>
+                        <fk-reference-column>USER_ID</fk-reference-column>
+                    </fk-column>
+                </fk-columns>
+                <fk-constraints>ON-DELETE-CASCADE</fk-constraints>
+            </foreign-key>
+        </foreign-keys>
+    </table>
+</data-dictionary>
+<!--$Id$ -->

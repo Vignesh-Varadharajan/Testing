@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Notifications>
+    <ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:1" NOTIFICATION_NAME="SERVICE_NOTIFIER" IMPL_CLASS="com.manageengine.ads.fw.notifications.impl.ServiceNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:2" NOTIFICATION_NAME="MAIL_SERVER_NOTIFIER" IMPL_CLASS="com.manageengine.ads.fw.notifications.impl.MailServerNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:3" NOTIFICATION_NAME="FREE_SPACE_NOTIFIER" IMPL_CLASS="com.manageengine.ads.fw.notifications.impl.FreeSpaceNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:4" NOTIFICATION_NAME="GPO_ERROR_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.GPOErrorNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:5" NOTIFICATION_NAME="REGISTRY_UPDATE_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.RegistryUpdateNotifier"/>
+    <ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:6" NOTIFICATION_NAME="CHANGE_DEFAULT_PASSWORD_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.ChangePasswordNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:7" NOTIFICATION_NAME="NODE_DOWN_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.ESNodeDownNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:8" NOTIFICATION_NAME="NODE_STORAGE_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.ESNodeStorageNotifier"/>
+	<ADSNotificationCenter NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:9" NOTIFICATION_NAME="DB_BACKUP_DISABLED_NOTIFIER" IMPL_CLASS="com.manageengine.rmp.admin.productnotifier.ESNodeStorageNotifier"/>
+
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:1" ROLE_ID="AaaRole:role_id:0"/>
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:2" ROLE_ID="AaaRole:role_id:0"/>
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:3" ROLE_ID="AaaRole:role_id:0"/>
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:4" ROLE_ID="AaaRole:role_id:0"/>
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:5" ROLE_ID="AaaRole:role_id:0"/>
+    <ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:6" ROLE_ID="AaaRole:role_id:0"/>
+    <ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:7" ROLE_ID="AaaRole:role_id:0"/>
+    <ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:8" ROLE_ID="AaaRole:role_id:0"/>
+	<ADSRoleVsNotification NOTIFICATION_ID="ADSNotificationCenter:NOTIFICATION_ID:9" ROLE_ID="AaaRole:role_id:0"/>
+
+</Notifications>
