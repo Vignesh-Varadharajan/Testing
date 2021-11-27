@@ -135,24 +135,13 @@
 			<![CDATA[ADSync Values]]>
 		</description>
 		<columns>  
-			<column name="OBJECT_ID">
-				<description>Unique Id for a object in a product. </description>
-				<data-type>BIGINT</data-type>
-				<uniquevalue-generation>
-					<generator-name>ADSADSyncObjects.OBJECT_ID</generator-name>
-				</uniquevalue-generation>             
-			</column>	
+
 			<column name="DOMAIN_ID">
 				<description>DOMAIN_ID of the domain in which sync must happen </description>
 				<data-type>BIGINT</data-type>
 				<nullable>true</nullable>
 			</column>
-			<column name="OBJECT_TYPE">
-				<description>Type of object </description>
-				<data-type>NCHAR</data-type>
-				<max-size>100</max-size>
-				<nullable>false</nullable>  
-			</column>
+
 			<column name="SEARCH_STRING">
 				<description>Search string to get all objects of given type </description>
 				<data-type>NCHAR</data-type>
