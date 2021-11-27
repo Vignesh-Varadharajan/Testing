@@ -8,9 +8,6 @@
 	</description>
 
 	<table name="ADSADSynchronization">
-		<description>
-			<![CDATA[ADSync Values]]>
-		</description>
 		<columns>  
 			<column name="AD_SYNC_ID">
 				<description>AD Sync Id. </description>
@@ -53,9 +50,6 @@
 	</table>
 	
 	<table name="ADSADSyncResults">
-		<description>
-			<![CDATA[ADSync Values]]>
-		</description>
 		<columns>  
 			<column name="AD_SYNC_ID">
 				<description>AD Sync Id. </description>
