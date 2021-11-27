@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClassLoaderDetails>
-    <ADSClassLoader MODULE_ID="ADSClassLoader:MODULE_ID:NOTIFICATION_TEMPLATES" MODULE_NAME="NOTIFICATION_TEMPLATES" IMPL_CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateHandler" DESCRIPTION="Notification templates handler class"/>
+    <ADSClassLoader MODULE_ID="ADSClassLo        ader:MODULE_ID:NOTIFICATION_TEMPLATES" MODULE_NAME="NOTIFICATION_TEMPLATES" IMPL_CLASS="com.manageengine.o365.server.notificationtemplates.NotificationTemplateHandler" DESCRIPTION="Notification templates handler class"/>
 </ClassLoaderDetails>

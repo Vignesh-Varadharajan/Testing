@@ -3,7 +3,7 @@
 <data-dictionary name="adsf">
     <description>
         <![CDATA[ <b>A Short Note On Flow:</b></br> Flow will execute a series of tasks and conditions. ]]>
-    </description>
+    </description>  
 
     <table name="ADSFlowObjectTypes">
         <columns>

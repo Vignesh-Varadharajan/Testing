@@ -11,6 +11,8 @@
 	<ADSProducts PRODUCT_ID="ADSProducts:PRODUCT_ID:8" PRODUCT_NAME="ManageEngine Log360" TAG_NAME="LOG360" DISPLAY_NAME="Log360" ICON_STYLE="overview" IS_PRIMARY_PRODUCT="false" PRIORITY_ID="8" COMPONENT_NAME="ManageEngine Log360" ICON_DISPLAY_NAME="ads.common.text.overview" />
 	<ADSProducts PRODUCT_ID="ADSProducts:PRODUCT_ID:9" PRODUCT_NAME="ManageEngine EventLog Analyzer" TAG_NAME="ELA" DISPLAY_NAME="EventLog Analyzer" ICON_STYLE="ela" IS_PRIMARY_PRODUCT="false" PRIORITY_ID="9" COMPONENT_NAME="EventLog Analyzer" ICON_DISPLAY_NAME="SIEM"/>
 
+
+
 	<ADSProducts PRODUCT_ID="ADSProducts:PRODUCT_ID:10" PRODUCT_NAME="ManageEngine Cloud Security Plus" TAG_NAME="CSP" DISPLAY_NAME="Cloud Security Plus" ICON_STYLE="csp" IS_PRIMARY_PRODUCT="false" PRIORITY_ID="10" COMPONENT_NAME="Cloud Security Plus" ICON_DISPLAY_NAME="Cloud Security"/>
 	<ADSProducts PRODUCT_ID="ADSProducts:PRODUCT_ID:11" PRODUCT_NAME="ManageEngine Office365 Manager Plus" TAG_NAME="O365" DISPLAY_NAME="O365 Manager Plus" ICON_STYLE="o365" IS_PRIMARY_PRODUCT="true" IS_ENABLED="false" PRIORITY_ID="11" COMPONENT_NAME="O365 Manager" ICON_DISPLAY_NAME="Office 365"/>
 	<ADSProducts PRODUCT_ID="ADSProducts:PRODUCT_ID:12" PRODUCT_NAME="ManageEngine Integrated Solutions" TAG_NAME="INTEGSOLUTIONS" DISPLAY_NAME="Integrated Solutions" ICON_STYLE="adsTabMESolutionsIcon"  IS_PRIMARY_PRODUCT="false" PRIORITY_ID="12" COMPONENT_NAME="ManageEngine Integrated Solutions" ICON_DISPLAY_NAME="MESolutions"/>
